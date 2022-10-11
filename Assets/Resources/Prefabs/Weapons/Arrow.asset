@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24a1787e53815c44687d7d8fee28ca4f, type: 3}
+  m_Name: Arrow
+  m_EditorClassIdentifier: 
+  varName: Projectile
+  itemName: Flecha (Projectil)
+  image: {fileID: -203209844, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}
+  damage: 0
+  attackSpeed: 15
+  description: La velocidad de los projectiles aumenta un 5%.
+  amount: 15
+  prefab: {fileID: 1880289573261091753, guid: 9ae63a42e3299a54d858a36925e4aec5, type: 3}
+  projectile: {fileID: 0}
+  canEvolve: 1
+  evName: 
+  evImage: {fileID: 1619712158, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}
+  evDescription: "Evoluci\xF3n:"
+  level: 1
+  weaponPen: 0
+  amountWeapon: 1
