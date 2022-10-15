@@ -2,21 +2,30 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    GameObject[] enemies;
-    Transform target;
     [SerializeField] WeaponData weaponData;
+    GameObject[] enemies;
     Rigidbody2D rb;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
+
+    private void FixedUpdate()
+    {
+        transform.position += (transform.up * weaponData.AttackSpeed) * Time.fixedDeltaTime;
+    }
+
     private void OnEnable()
     {
-        target = MostNearbyEnemies();
-        Debug.Log("SUCCESSFUL CREATION");
+        Transform target = MostNearbyEnemies();
+        Vector3 dir = target.position - transform.position;
+        float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
+        Debug.Log(angle);
+        transform.rotation = Quaternion.Euler(0,0, -angle);
     }
-    public Transform MostNearbyEnemies()
+
+    private Transform MostNearbyEnemies()
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
@@ -36,4 +45,5 @@ public class Projectile : MonoBehaviour
         }
         return trans;
     }
+
 }

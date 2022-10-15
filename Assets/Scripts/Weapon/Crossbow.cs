@@ -5,6 +5,7 @@ public class Crossbow : MonoBehaviour
     [SerializeField] WeaponData weaponData;
     Transform player;
     Transform container;
+    GameObject[] enemies;
 
     private void Start()
     {
@@ -12,18 +13,12 @@ public class Crossbow : MonoBehaviour
         container = GameObject.Find("Container").transform;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKey(KeyCode.E))
         {
-            Arrow();
+            GameObject go = Instantiate(weaponData.Projectile, player);
+            go.transform.SetParent(container);
         }
     }
-
-    void Arrow()
-    {
-        GameObject go = Instantiate(weaponData.Projectile, player, container);
-    }
-
-    
 }
