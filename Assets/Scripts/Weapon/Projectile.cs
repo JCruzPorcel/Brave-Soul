@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] ProjectileData projectileData;
+    [SerializeField] WeaponData weaponData;
 
     GameObject[] enemies;
     Rigidbody2D rb;
     Transform player;
+    int armorPen;
 
     private void Start()
     {
@@ -16,16 +17,13 @@ public class Projectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position += (transform.up * projectileData.Speed) * Time.fixedDeltaTime;
+        transform.position += (transform.up * weaponData.ProjectileType.Speed) * Time.fixedDeltaTime;
         DisableGO();
     }
 
     private void OnEnable()
     {
-        Transform target = MostNearbyEnemies();
-        Vector3 dir = target.position - transform.position;
-        float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0,0, -angle);
+        armorPen = weaponData.ProjectileType.ArmorPen;
     }
 
     private Transform MostNearbyEnemies()
@@ -54,6 +52,23 @@ public class Projectile : MonoBehaviour
         if (Mathf.Abs(transform.position.x - player.position.x) > 12 || Mathf.Abs(transform.position.y - player.position.y) > 10)
         {
             gameObject.SetActive(false);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Enemy")
+        {
+            if (armorPen == 0)
+            {
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                armorPen--;
+            }
+
+            other.GetComponent<EnemyController>().TakeDamage(weaponData.Damage);
         }
     }
 }

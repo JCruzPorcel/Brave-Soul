@@ -34,15 +34,28 @@ public class Crossbow : MonoBehaviour
 
         RotationMode();
 
-        for (int i = 0; i < arrows.Count && timer <= 0; i++)
+        foreach (GameObject go in arrows)
         {
-            if (!arrows[i].activeInHierarchy)
+            if (!go.activeInHierarchy)
             {
-                arrows[i].transform.position = player.position;
-                arrows[i].SetActive(true);
+                Arrow(go);
             }
-                timer = weaponData.AttackSpeed;
         }
+    }
+
+    void Arrow(GameObject go)
+    {
+        if (timer > 0)
+            return;
+
+        Transform target = MostNearbyEnemies();
+        Vector3 dir = target.position - transform.position;
+        float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
+        go.transform.rotation = Quaternion.Euler(0, 0, -angle);
+
+        go.SetActive(true);
+        go.transform.position = new Vector2(player.position.x, player.position.y + .2f);
+        timer = weaponData.AttackSpeed;
     }
 
     private void RotationMode()
