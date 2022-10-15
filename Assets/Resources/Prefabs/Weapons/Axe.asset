@@ -14,16 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   varName: Axe
   itemName: Hacha
-  image: {fileID: -674089504, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}
   damage: 35
   attackSpeed: 1.25
+  level: 1
   description: "Arroja hachas hacia cualquier direcci\xF3n.\nEs en serio... ten cuidado!"
-  amount: 5
+  amount: 3
   prefab: {fileID: 7622447082321389213, guid: 2afe3f8e412841343ba53060467b5c89, type: 3}
+  image: {fileID: -674089504, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}
   canEvolve: 0
   evName: 
-  evImage: {fileID: 0}
   evDescription: 
-  level: 1
-  weaponPen: 0
-  amountWeapon: 3
+  evImage: {fileID: 0}
+  projectileType: {fileID: 0}

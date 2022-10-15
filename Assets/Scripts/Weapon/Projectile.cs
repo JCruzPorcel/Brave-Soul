@@ -2,18 +2,22 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] WeaponData weaponData;
+    [SerializeField] ProjectileData projectileData;
+
     GameObject[] enemies;
     Rigidbody2D rb;
+    Transform player;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        player = GameObject.Find("Player").transform;
     }
 
     private void FixedUpdate()
     {
-        transform.position += (transform.up * weaponData.AttackSpeed) * Time.fixedDeltaTime;
+        transform.position += (transform.up * projectileData.Speed) * Time.fixedDeltaTime;
+        DisableGO();
     }
 
     private void OnEnable()
@@ -21,7 +25,6 @@ public class Projectile : MonoBehaviour
         Transform target = MostNearbyEnemies();
         Vector3 dir = target.position - transform.position;
         float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
-        Debug.Log(angle);
         transform.rotation = Quaternion.Euler(0,0, -angle);
     }
 
@@ -46,4 +49,11 @@ public class Projectile : MonoBehaviour
         return trans;
     }
 
+    void DisableGO()
+    {
+        if (Mathf.Abs(transform.position.x - player.position.x) > 12 || Mathf.Abs(transform.position.y - player.position.y) > 10)
+        {
+            gameObject.SetActive(false);
+        }
+    }
 }

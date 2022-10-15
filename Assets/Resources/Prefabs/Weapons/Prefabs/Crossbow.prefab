@@ -98,3 +98,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 6fd343edff5600d44b5b59fa43b74aba, type: 2}
+  projectileData: {fileID: 11400000, guid: ef0da4bc101449548b9e28c72825ec20, type: 2}
+  arrows: []

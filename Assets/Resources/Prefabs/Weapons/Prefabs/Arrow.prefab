@@ -120,7 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ea96779c2cfefc4bbcf95a26579455b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 277254e3a52b4be43a2ea417a09c89f2, type: 2}
+  weaponData: {fileID: 11400000, guid: 6fd343edff5600d44b5b59fa43b74aba, type: 2}
+  projectileData: {fileID: 11400000, guid: ef0da4bc101449548b9e28c72825ec20, type: 2}
 --- !u!70 &5072670535865646101
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

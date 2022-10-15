@@ -43,7 +43,7 @@ public class Necronomicon : MonoBehaviour
         damage = weaponData.Damage;
         attackSpeed = weaponData.AttackSpeed;
         weaponLevel = weaponData.Level;
-        amountWeapon = weaponData.AmountWeapon;
+        amountWeapon = weaponData.Amount;
     }
 
     void Level()

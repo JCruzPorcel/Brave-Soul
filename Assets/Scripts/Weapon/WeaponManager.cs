@@ -16,7 +16,7 @@ public class WeaponManager : Singleton<WeaponManager>
         if (Input.GetKeyDown(KeyCode.Q))
         {
             GameObject go = Instantiate(weaponData.Prefab, weaponContainer.transform);
-            go.transform.position = player.position;
+            go.transform.position = new Vector3(player.position.x, player.position.y + .2f);
         }
     }
 }

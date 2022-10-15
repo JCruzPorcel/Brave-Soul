@@ -90,8 +90,8 @@ public class Axe : MonoBehaviour
         damage = weaponData.Damage;
         attackSpeed = weaponData.AttackSpeed;
         weaponLevel = weaponData.Level;
-        weaponPen = weaponData.WeaponPen;
-        amountWeapon = weaponData.AmountWeapon;
+        weaponPen = weaponData.ProjectileType.ArmorPen;
+        amountWeapon = weaponData.Amount;
     }
 
     void Level()
