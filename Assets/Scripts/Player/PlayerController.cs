@@ -14,14 +14,13 @@ public class PlayerController : Singleton<PlayerController>
 
     [SerializeField] bool GodMode;
     bool isDead = false;
-    bool _facingRight { get; set; }
+    bool _facingRight;
 
 
     //Reference's
     Animator anim;
     SpriteRenderer sr;
-    public HealthBar healthBar;
-
+    [SerializeField] SliderBar sliderBar;
 
     public bool FacingRight { get { return _facingRight; } }
 
@@ -30,7 +29,7 @@ public class PlayerController : Singleton<PlayerController>
         anim = GetComponentInChildren<Animator>();
         sr = GetComponentInChildren<SpriteRenderer>();
         currentHealth = maxHealth;
-        healthBar.SeMaxtHealth(maxHealth);
+        sliderBar.SetMaxtHealth(maxHealth);
     }
 
     private void FixedUpdate()
@@ -82,7 +81,7 @@ public class PlayerController : Singleton<PlayerController>
     {
         currentHealth -= damage;
 
-        healthBar.SetHealth(currentHealth);
+        sliderBar.SetHealth(currentHealth);
 
         anim.SetTrigger("Hit");
 
@@ -91,9 +90,9 @@ public class PlayerController : Singleton<PlayerController>
 
         if (currentHealth <= 0)
         {
-                isDead = true;
-                anim.SetBool("IsDead?", isDead);
-                currentHealth = 0;
+            isDead = true;
+            anim.SetBool("IsDead?", isDead);
+            currentHealth = 0;
         }
     }
 
@@ -101,7 +100,7 @@ public class PlayerController : Singleton<PlayerController>
     {
         currentHealth += heal;
 
-        healthBar.SetHealth(currentHealth);
+        sliderBar.SetHealth(currentHealth);
 
         if (currentHealth >= maxHealth)
         {
@@ -119,11 +118,11 @@ public class PlayerController : Singleton<PlayerController>
 
             if (pointsLvl == 1)
             {
-                UIManager.Instance.LevelUp();
+                //UIManager.Instance.LevelUp();
             }
 
             currentLvl++;
-            nextLvl *=  2;
+            nextLvl *= 2;
         }
     }
 }

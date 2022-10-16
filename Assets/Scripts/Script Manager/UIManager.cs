@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
-{
+{/*
     // LVL UP - RANDOM WEAPON SELECTOR
     [Header("Left Item")]
     [SerializeField] TMP_Text name1;
@@ -282,5 +282,5 @@ public class UIManager : Singleton<UIManager>
                 tAxe = weaponData.AttackSpeed;
             }
         }
-    }
+    }*/
 }

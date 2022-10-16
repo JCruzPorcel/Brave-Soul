@@ -6,24 +6,37 @@ public class ProjectileData : ScriptableObject
     [SerializeField] private string varName;
     [Header("Stats")]
     [SerializeField] private string itemName;
-    [SerializeField] private float speed;
     [TextArea(5, 5)]
     [SerializeField] private string description;
     [SerializeField] private int armorPen;
     [SerializeField] private int level;
+    [SerializeField] private int projectileAmount;
+    [SerializeField] private float speed;
+    [SerializeField] private bool canUpgrade;
+    [Space(10)]
     [SerializeField] private GameObject prefab;
     [SerializeField] private WeaponData weaponType;
-    [SerializeField] private int projectileAmount;
+    [SerializeField] private Sprite image;
 
 
     public string VarName { get { return varName; } }
-    public string ItemName { get { return itemName; } }
-    public float Speed { get { return speed; } }
-    public string Description { get { return description; } }
-    public int ArmorPen { get { return armorPen; } }
-    public int Level { get { return level; } }
-    public GameObject Prefab { get { return prefab; } }
-    public WeaponData WeaponType { get { return weaponType; } }
-    public int ProjectileAmount { get { return projectileAmount; } }
 
+    public int ArmorPen { get { return armorPen; } }
+
+    public GameObject Prefab { get { return prefab; } }
+
+    public WeaponData WeaponType { get { return weaponType; } }
+
+
+    public string ItemName { get => itemName; set => itemName = value; }
+    public string Description { get => description; set => description = value; }
+
+    public int Level { get => level; set => level = value; }
+    public int ProjectileAmount { get => projectileAmount; set => projectileAmount = value; }
+
+    public float Speed { get => speed; set => speed = value; }
+
+    public bool CanUpgrade { get => canUpgrade; set => canUpgrade = value; }
+
+    public Sprite Image { get => image; set => image = value; }
 }

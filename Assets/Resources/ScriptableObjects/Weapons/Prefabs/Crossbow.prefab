@@ -99,4 +99,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 6fd343edff5600d44b5b59fa43b74aba, type: 2}
   arrows: []
-  modify: 0

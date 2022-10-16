@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour
         switch (weaponData.VarName)
         {
             case "Axe":
-                UIManager.Instance.Axe(weaponData);
+                //UIManager.Instance.Axe(weaponData);
                 Debug.Log(weaponData.VarName);
                 break;
             case "Crossbow":
