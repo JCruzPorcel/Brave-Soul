@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponManager : Singleton<WeaponManager>
@@ -13,6 +12,4 @@ public class WeaponManager : Singleton<WeaponManager>
         GameObject go = Instantiate(weaponData.Prefab, weaponContainer.transform);
         go.transform.position = new Vector3(player.position.x, player.position.y + .2f);
     }
-
-     
 }
