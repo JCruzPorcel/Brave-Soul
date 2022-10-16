@@ -5,18 +5,20 @@ public class WeaponManager : Singleton<WeaponManager>
     Transform player;
     [SerializeField] WeaponData weaponData;
     [SerializeField] GameObject weaponContainer;
-
+    
     private void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
+        GameObject go = Instantiate(weaponData.Prefab, weaponContainer.transform);
+        go.transform.position = new Vector3(player.position.x, player.position.y + .2f);
     }
 
-    private void Update()
-    {
+    /* private void Update()
+     {
         if (Input.GetKeyDown(KeyCode.Q))
-        {
-            GameObject go = Instantiate(weaponData.Prefab, weaponContainer.transform);
-            go.transform.position = new Vector3(player.position.x, player.position.y + .2f);
-        }
-    }
+         {
+             GameObject go = Instantiate(weaponData.Prefab, weaponContainer.transform);
+             go.transform.position = new Vector3(player.position.x, player.position.y + .2f);
+         }
+     }*/
 }

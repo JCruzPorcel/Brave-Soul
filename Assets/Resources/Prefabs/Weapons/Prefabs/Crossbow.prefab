@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1599688630635089177}
   - component: {fileID: 2737365522277788109}
   - component: {fileID: 7862575998147605740}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Crossbow
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: 1619712158, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -98,5 +98,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 6fd343edff5600d44b5b59fa43b74aba, type: 2}
-  projectileData: {fileID: 11400000, guid: ef0da4bc101449548b9e28c72825ec20, type: 2}
   arrows: []
+  modify: 0

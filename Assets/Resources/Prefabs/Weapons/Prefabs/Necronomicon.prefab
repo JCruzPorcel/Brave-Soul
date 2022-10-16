@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7506273197402319377}
   - component: {fileID: 7285074419772832921}
   - component: {fileID: 6929124514912518449}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Necronomicon
   m_TagString: Weapon
   m_Icon: {fileID: 0}

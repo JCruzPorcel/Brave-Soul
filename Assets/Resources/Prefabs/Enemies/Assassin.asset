@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Assassin
   m_EditorClassIdentifier: 
   enemyName: Assassin
-  hp: 100
+  hp: 1
   damage: 1
   speed: 1
   exp: 1

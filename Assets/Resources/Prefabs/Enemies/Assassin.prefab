@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6992078299915383141}
   - component: {fileID: 2453309793857426220}
   - component: {fileID: -8832444670499609821}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Assassin
   m_TagString: Enemy
   m_Icon: {fileID: 0}

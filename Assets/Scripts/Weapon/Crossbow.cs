@@ -10,11 +10,13 @@ public class Crossbow : MonoBehaviour
     GameObject[] enemies;
     [SerializeField] List<GameObject> arrows = new List<GameObject>();
     [Min(0)] float timer;
+    [SerializeField] float modify;
 
     private void Start()
     {
         player = GameObject.Find("Player").transform;
         container = GameObject.Find("Container").transform;
+        timer = weaponData.AttackSpeed;
 
         for (int i = 0; i < weaponData.ProjectileType.ProjectileAmount; i++)
         {
@@ -48,29 +50,33 @@ public class Crossbow : MonoBehaviour
         if (timer > 0)
             return;
 
-        Transform target = MostNearbyEnemies();
-        Vector3 dir = target.position - transform.position;
-        float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
-        go.transform.rotation = Quaternion.Euler(0, 0, -angle);
+        Vector3 eulerRotation = new Vector3(0, 0, transform.eulerAngles.z - 45);
+
+        go.transform.position = transform.position;
+        go.transform.rotation = Quaternion.Euler(eulerRotation);
 
         go.SetActive(true);
-        go.transform.position = new Vector2(player.position.x, player.position.y + .2f);
         timer = weaponData.AttackSpeed;
     }
 
     private void RotationMode()
     {
+        if (MostNearbyEnemies() == null)
+            return;
+
         Transform target = MostNearbyEnemies();
         Vector3 dir = target.position - transform.position;
-        float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg - 35;
-        // transform.rotation = Quaternion.Euler(0, 0, -angle);0
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, -angle), 7 * Time.deltaTime);
-
+        float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg - 45;
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, -angle), 7 * Time.deltaTime);
     }
 
     private Transform MostNearbyEnemies()
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+        if (enemies.Length == 0)
+            return null;
+
 
         float nearbyEnemy = Mathf.Infinity;
         Transform trans = null;

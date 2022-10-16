@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1366217003918243516}
   - component: {fileID: 3843501970003938628}
   - component: {fileID: -6382400129447941412}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Axe
   m_TagString: Weapon
   m_Icon: {fileID: 0}

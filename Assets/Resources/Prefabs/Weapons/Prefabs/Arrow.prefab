@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: -1001062653747693465}
   - component: {fileID: 7062361032432694406}
   - component: {fileID: 5072670535865646101}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Arrow
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,7 +107,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &7062361032432694406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +121,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 6fd343edff5600d44b5b59fa43b74aba, type: 2}
-  projectileData: {fileID: 11400000, guid: ef0da4bc101449548b9e28c72825ec20, type: 2}
 --- !u!70 &5072670535865646101
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -135,6 +134,6 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0015087463, y: -0.011315629}
-  m_Size: {x: 0.09408028, y: 0.41992113}
+  m_Offset: {x: 0, y: 0.23}
+  m_Size: {x: 0.09, y: 0.44}
   m_Direction: 0
