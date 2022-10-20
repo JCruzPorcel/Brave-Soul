@@ -7,6 +7,11 @@ public class Projectile : MonoBehaviour
     Transform player;
     int armorPen;
 
+    private void Awake()
+    {
+        weaponData.Clone();
+    }
+
     private void Start()
     {
         player = GameObject.Find("Player").transform;
@@ -33,7 +38,7 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Enemy")
+        if (other.tag == "Enemy")
         {
             if (armorPen == 0)
             {

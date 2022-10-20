@@ -221,6 +221,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Gold Bag
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 454
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d8b26604ca3cc442aa4476ed4cb99c5
+      internalID: -820175818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow_Selector
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 518
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e230a1fdb16cf6a4a9777524ed18f927
+      internalID: -672243447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -234,8 +276,10 @@ TextureImporter:
     nameFileIdTable:
       Necronomicon: 1827703760
       Arrow: -203209844
+      Gold Bag: -820175818
       Items-Atlas_2: -1681030161
       Crossbow: 1619712158
+      Arrow_Selector: -672243447
       Axe: -674089504
       FireSkull: 442478159
   spritePackingTag: 

@@ -21,7 +21,15 @@ public class ProjectileData : ScriptableObject
 
     public string VarName { get { return varName; } }
 
-    public int ArmorPen { get { return armorPen; } }
+    public int ProjectileAmount { get { return projectileAmount; } }
+    public int Level { get { return level; } }
+    public int ArmorPen {  get { return armorPen; } }
+
+    public float Speed { get { return speed; } }
+
+    public bool CanUpgrade { get { return canUpgrade; } }
+
+    public Sprite Image { get { return image; } }
 
     public GameObject Prefab { get { return prefab; } }
 
@@ -31,12 +39,4 @@ public class ProjectileData : ScriptableObject
     public string ItemName { get => itemName; set => itemName = value; }
     public string Description { get => description; set => description = value; }
 
-    public int Level { get => level; set => level = value; }
-    public int ProjectileAmount { get => projectileAmount; set => projectileAmount = value; }
-
-    public float Speed { get => speed; set => speed = value; }
-
-    public bool CanUpgrade { get => canUpgrade; set => canUpgrade = value; }
-
-    public Sprite Image { get => image; set => image = value; }
 }

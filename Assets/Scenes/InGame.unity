@@ -803,7 +803,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponData: {fileID: 11400000, guid: 6fd343edff5600d44b5b59fa43b74aba, type: 2}
-  weaponContainer: {fileID: 563021445}
 --- !u!1 &370636483
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,7 +1313,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1587139374}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1330,6 +1330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 870398d069fd6a04e8120985f34c755a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startWeapon: {fileID: 11400000, guid: 6fd343edff5600d44b5b59fa43b74aba, type: 2}
   sliderBar: {fileID: 197462011}
 --- !u!70 &563021448
 CapsuleCollider2D:
@@ -2458,48 +2459,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70a2c61f58ecc164e8a1636444305d13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name1: {fileID: 0}
-  description1: {fileID: 0}
-  image1: {fileID: 0}
-  evContainer1: {fileID: 0}
-  evImage1: {fileID: 0}
-  evDescription1: {fileID: 0}
-  name2: {fileID: 0}
-  description2: {fileID: 0}
-  image2: {fileID: 0}
-  evContainer2: {fileID: 0}
-  evImage2: {fileID: 0}
-  evDescription2: {fileID: 0}
-  name3: {fileID: 0}
-  description3: {fileID: 0}
-  image3: {fileID: 0}
-  evContainer3: {fileID: 0}
-  evImage3: {fileID: 0}
-  evDescription3: {fileID: 0}
-  hud: {fileID: 1800971233}
-  randomItem: 0
-  lastItem1: 0
-  lastItem2: 0
-  lastItem3: 0
-  hAxe: 0
-  hNecronomicon: 0
-  hCrossbow: 0
-  hProjectile: 0
-  tAxe: 0
-  tNecronomicon: 0
-  tCrossbow: 0
-  tProjectile: 0
-  lAxe: 0
-  lNecronomicon: 0
-  lCrossbow: 0
-  lProjectile: 0
-  dAxe: 0
-  dNecronomicon: 0
-  dCrossbow: 0
-  dProjectile: 0
-  mAxe: 0
-  mNecronomicon: 0
-  weaponList: []
 --- !u!4 &1009770315
 Transform:
   m_ObjectHideFlags: 0
@@ -3646,6 +3605,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584084223}
   m_CullTransparentMesh: 1
+--- !u!4 &1587139374 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6931607108889859527, guid: 6baffa3a479fc3e45a0f3080d7de7ce1, type: 3}
+  m_PrefabInstance: {fileID: 1734956522}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1603843583
 GameObject:
   m_ObjectHideFlags: 0
@@ -3934,6 +3898,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681276816}
   m_CullTransparentMesh: 1
+--- !u!1001 &1734956522
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 563021446}
+    m_Modifications:
+    - target: {fileID: 3059551790232785706, guid: 6baffa3a479fc3e45a0f3080d7de7ce1, type: 3}
+      propertyPath: m_Name
+      value: Necronomicon
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931607108889859527, guid: 6baffa3a479fc3e45a0f3080d7de7ce1, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931607108889859527, guid: 6baffa3a479fc3e45a0f3080d7de7ce1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931607108889859527, guid: 6baffa3a479fc3e45a0f3080d7de7ce1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931607108889859527, guid: 6baffa3a479fc3e45a0f3080d7de7ce1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931607108889859527, guid: 6baffa3a479fc3e45a0f3080d7de7ce1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931607108889859527, guid: 6baffa3a479fc3e45a0f3080d7de7ce1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931607108889859527, guid: 6baffa3a479fc3e45a0f3080d7de7ce1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931607108889859527, guid: 6baffa3a479fc3e45a0f3080d7de7ce1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931607108889859527, guid: 6baffa3a479fc3e45a0f3080d7de7ce1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931607108889859527, guid: 6baffa3a479fc3e45a0f3080d7de7ce1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6931607108889859527, guid: 6baffa3a479fc3e45a0f3080d7de7ce1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6baffa3a479fc3e45a0f3080d7de7ce1, type: 3}
 --- !u!1 &1800971233
 GameObject:
   m_ObjectHideFlags: 0
@@ -4414,19 +4435,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1960728816}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: AddRightWeapon
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1960728816
 MonoBehaviour:
   m_ObjectHideFlags: 0

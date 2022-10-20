@@ -9,12 +9,12 @@ public class Crossbow : MonoBehaviour
     Transform container;
     GameObject[] enemies;
     [SerializeField] List<GameObject> arrows = new List<GameObject>();
+    float timer;
 
     private void Start()
     {
         player = GameObject.Find("Player").transform;
         container = GameObject.Find("Container").transform;
-        weaponData.Timer = weaponData.AttackSpeed;
 
         for (int i = 0; i < weaponData.ProjectileType.ProjectileAmount; i++)
         {
@@ -27,9 +27,9 @@ public class Crossbow : MonoBehaviour
 
     private void Update()
     {
-        if (weaponData.Timer > 0)
+        if (timer > 0)
         {
-            weaponData.Timer -= Time.deltaTime;
+            timer -= Time.deltaTime;
         }
 
         RotationMode();
@@ -45,7 +45,7 @@ public class Crossbow : MonoBehaviour
 
     void Arrow(GameObject go)
     {
-        if (weaponData.Timer > 0)
+        if (timer > 0 || MostNearbyEnemies() == null)
             return;
 
         Vector3 eulerRotation = new Vector3(0, 0, transform.eulerAngles.z - 45);
@@ -54,7 +54,7 @@ public class Crossbow : MonoBehaviour
         go.transform.rotation = Quaternion.Euler(eulerRotation);
 
         go.SetActive(true);
-        weaponData.Timer = weaponData.AttackSpeed;
+        timer = weaponData.AttackSpeed;
     }
 
     private void RotationMode()
