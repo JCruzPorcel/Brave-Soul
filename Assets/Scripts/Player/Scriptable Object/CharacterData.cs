@@ -5,10 +5,17 @@ public class CharacterData : ScriptableObject
 {
     [SerializeField] private string varName;
     [SerializeField] private string charName;
+    [TextArea(5,6)]
     [SerializeField] private string description;
+    [SerializeField] private int armor;
     [SerializeField] private int damage;
-    [SerializeField] private int s;
-
+    [SerializeField] private int MaxHp;
+    [SerializeField] private float attackSpeed;
+    [SerializeField] private float hpRegen;
+    [SerializeField] private float speed;
+    [SerializeField] private Sprite image;
+    [SerializeField] private WeaponData startWeapon;
+    [SerializeField] private GameObject prefab;
 
 
 

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectSpawner : Singleton<ObjectSpawner>
+public class ObjectSpawner : MonoBehaviour
 {
     [System.Serializable]
     public class Pool

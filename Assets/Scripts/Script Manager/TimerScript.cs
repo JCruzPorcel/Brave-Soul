@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class TimerScript : Singleton<TimerScript>
+public class TimerScript : MonoBehaviour
 {
     float timeLeft;
     public bool timerOn = true;

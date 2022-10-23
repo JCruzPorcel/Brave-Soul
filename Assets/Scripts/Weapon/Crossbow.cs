@@ -68,7 +68,7 @@ public class Crossbow : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, -angle), 7 * Time.deltaTime);
     }
 
-    private Transform MostNearbyEnemies()
+    public Transform MostNearbyEnemies()
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
 

@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : Singleton<UIManager>
+public class UIManager : MonoBehaviour
 {/*
     // LVL UP - RANDOM WEAPON SELECTOR
     [Header("Left Item")]

@@ -1,8 +1,6 @@
 using UnityEngine;
 
-public class WeaponManager : Singleton<WeaponManager>
+public class WeaponManager : MonoBehaviour
 {
     [SerializeField] WeaponData weaponData;
-
-
 }

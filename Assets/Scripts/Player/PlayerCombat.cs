@@ -10,6 +10,7 @@ public class PlayerCombat : Singleton<PlayerCombat>
     {
         sliderBar.MaxAttackSpeed(startWeapon.AttackSpeed);
 
+        
         if (timer >= startWeapon.AttackSpeed)
         {
             timer = 0;

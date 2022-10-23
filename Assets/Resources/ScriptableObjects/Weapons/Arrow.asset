@@ -18,7 +18,7 @@ MonoBehaviour:
   armorPen: 0
   level: 1
   projectileAmount: 15
-  speed: 8
+  speed: 12
   canUpgrade: 0
   prefab: {fileID: 1880289573261091753, guid: 9ae63a42e3299a54d858a36925e4aec5, type: 3}
   weaponType: {fileID: 11400000, guid: 6fd343edff5600d44b5b59fa43b74aba, type: 2}

@@ -18,7 +18,7 @@ MonoBehaviour:
   damage: 25
   level: 1
   amount: 1
-  attackSpeed: 1
+  attackSpeed: 0.25
   canUpgrade: 0
   prefab: {fileID: 1159165358058712471, guid: ec408c0223115f842ae0a7302dd21877, type: 3}
   image: {fileID: 1619712158, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}
