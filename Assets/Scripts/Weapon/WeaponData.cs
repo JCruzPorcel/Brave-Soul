@@ -15,7 +15,7 @@ public class WeaponData : ScriptableObject
     [SerializeField] private bool canUpgrade;
     [Space(10)]
     [SerializeField] private GameObject prefab;
-    [SerializeField] private Sprite image;
+    [SerializeField] private Sprite weaponImage;
     [SerializeField] private ProjectileData projectileType;
 
     public string VarName { get { return varName; } }
@@ -28,7 +28,7 @@ public class WeaponData : ScriptableObject
 
     public bool CanUpgrade { get { return canUpgrade; } }
 
-    public Sprite Image { get { return image; } }
+    public Sprite WeaponImage { get { return weaponImage; } }
 
     public ProjectileData ProjectileType { get { return projectileType; } }
 

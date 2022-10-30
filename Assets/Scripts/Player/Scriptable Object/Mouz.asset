@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9861c165eb209545b369162ffebaede, type: 3}
-  m_Name: New Character
+  m_Name: Mouz
   m_EditorClassIdentifier: 
   varName: Mouse
   charName: Mouz
@@ -25,10 +25,11 @@ MonoBehaviour:
     inicial: Arco'
   armor: 1
   damage: 15
-  MaxHp: 100
+  maxHp: 0
   attackSpeed: 1
   hpRegen: 0.2
   speed: 3
-  image: {fileID: -1711449072, guid: ec8fa8378dfa0f24285ce047d812b2c9, type: 3}
+  charPrice: 0
+  charImage: {fileID: -1711449072, guid: ec8fa8378dfa0f24285ce047d812b2c9, type: 3}
   startWeapon: {fileID: 11400000, guid: 6fd343edff5600d44b5b59fa43b74aba, type: 2}
-  prefab: {fileID: 0}
+  charPrefab: {fileID: 0}
