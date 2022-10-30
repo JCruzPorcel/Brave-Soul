@@ -25,11 +25,11 @@ MonoBehaviour:
     inicial: Arco'
   armor: 1
   damage: 15
-  maxHp: 0
+  maxHp: 100
   attackSpeed: 1
   hpRegen: 0.2
   speed: 3
-  charPrice: 0
+  charPrice: 2700
   charImage: {fileID: -1711449072, guid: ec8fa8378dfa0f24285ce047d812b2c9, type: 3}
   startWeapon: {fileID: 11400000, guid: 6fd343edff5600d44b5b59fa43b74aba, type: 2}
   charPrefab: {fileID: 0}
