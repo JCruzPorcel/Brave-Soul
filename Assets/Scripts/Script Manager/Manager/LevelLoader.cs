@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -39,7 +40,7 @@ public class LevelLoader : SingletonPersistent<LevelLoader>
 
         yield return new WaitForSeconds(m_transitionTime);
 
-        SceneManager.LoadScene(levelIndex);
+        SceneManager.LoadScene(levelIndex);     
     }
 
     public void CloseMenu(int currentMenu)
@@ -61,5 +62,26 @@ public class LevelLoader : SingletonPersistent<LevelLoader>
 
         m_menuList[m_currentMenu].menu.SetActive(false);
         m_menuList[m_nextMenu].menu.SetActive(true);
+    }
+
+    public void ExitGame()
+    {
+        StartCoroutine(ClosingGame());
+    }
+
+    IEnumerator ClosingGame()
+    {
+        m_animator.SetTrigger("Start");
+
+        yield return new WaitForSeconds(m_transitionTime);
+
+
+        Application.Quit();
+
+#if UNITY_EDITOR
+
+        EditorApplication.isPlaying = false;
+#endif
+
     }
 }

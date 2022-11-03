@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public enum GameState
 {
@@ -12,7 +13,7 @@ public class GameManager : SingletonPersistent<GameManager>
 {
     public GameState currentGameState = GameState.mainMenu;
     [SerializeField] GameObject m_SceneTransition;
-
+    [SerializeField] PlayerInput playerInputs;
 
     private bool m_textDamage = true;
     private bool m_textFps = false;
@@ -20,10 +21,14 @@ public class GameManager : SingletonPersistent<GameManager>
     private bool m_lowQuality = true;
     private bool m_daltonism = false;
 
-
     private void Start()
     {
         m_SceneTransition.SetActive(true);
+    }
+
+    private void Update()
+    {
+
     }
 
     public void MainMenu()
@@ -49,70 +54,38 @@ public class GameManager : SingletonPersistent<GameManager>
     public void ShowDamage(GameObject DamageCheck)
     {
         m_textDamage = !m_textDamage;
-
-        if (m_textDamage)
-        {
-            DamageCheck.SetActive(true);
-        }
-        else
-        {
-            DamageCheck.SetActive(false);
-        }
+        DamageCheck.SetActive(m_textDamage);
     }
 
     public void ShowFPS(GameObject FpsCheck)
     {
         m_textFps = !m_textFps;
-
-        if (m_textFps)
-        {
-            FpsCheck.SetActive(true);
-        }
-        else
-        {
-            FpsCheck.SetActive(false);
-        }
+        FpsCheck.SetActive(m_textFps);
     }
 
     public void FullScreen(GameObject FullScreenCheck)
     {
         m_fullScreen = !m_fullScreen;
-
-        if (m_fullScreen)
-        {
-            FullScreenCheck.SetActive(true);
-        }
-        else
-        {
-            FullScreenCheck.SetActive(false);
-        }
+        FullScreenCheck.SetActive(m_fullScreen);
     }
 
     public void LowQuality(GameObject LowQualityCheck)
     {
         m_lowQuality = !m_lowQuality;
-
-        if (m_lowQuality)
-        {
-            LowQualityCheck.SetActive(true);
-        }
-        else
-        {
-            LowQualityCheck.SetActive(false);
-        }
+        LowQualityCheck.SetActive(m_lowQuality);
     }
 
     public void Daltonism(GameObject DaltonismCheck)
     {
         m_daltonism = !m_daltonism;
+        DaltonismCheck.SetActive(m_daltonism);
+    }
 
-        if (m_daltonism)
+    public void CurrentDevice()
+    {
+        if (playerInputs.currentControlScheme == "Gamepad")
         {
-            DaltonismCheck.SetActive(true);
-        }
-        else
-        {
-            DaltonismCheck.SetActive(false);
+            Debug.Log("asdasd");
         }
     }
 

@@ -17,8 +17,6 @@ public class Character : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     [SerializeField] private TMP_Text description;
     [SerializeField] private TMP_Text descriptionPrice;
 
-    bool _over;
-
     private void Start()
     {
         charName.text = charData.CharName.ToString();
@@ -29,7 +27,6 @@ public class Character : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
-        _over = true;
         descriptionName.text = charData.CharName.ToString();
         descriptionImage.sprite = charData.CharImage;
         descriptionWeaponImage.sprite = charData.StartWeapon.WeaponImage;
@@ -39,6 +36,5 @@ public class Character : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
     {
-        _over = false;
     }
 }
