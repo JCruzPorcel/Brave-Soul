@@ -1,12 +1,18 @@
 using UnityEngine;
 
-public class cm_FadeIn : StateMachineBehaviour
+public class cm_FadeOut : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        GameObject.Find("LevelLoader").GetComponent<LevelLoader>().m_animator.SetTrigger("Start");
-        GameManager.Instance.Transition();
+        if (LevelLoader.Instance.NextSceneName == "InGame")
+        {
+            GameManager.Instance.InGame();
+        }
+        if (LevelLoader.Instance.NextSceneName == "MainMenu")
+        {
+            GameManager.Instance.MainMenu();
+        }
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -18,7 +24,7 @@ public class cm_FadeIn : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
-
+    //    
     //}
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

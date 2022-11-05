@@ -26,8 +26,41 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
         {
             ""name"": ""InMenu"",
             ""id"": ""d33632d3-c355-4d4b-844f-91c2fd496115"",
-            ""actions"": [],
-            ""bindings"": []
+            ""actions"": [
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""71799d11-724f-47a8-8389-6ea45ecec54b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""f9c570a3-3743-4e99-9d7e-861690f37048"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9a847f21-74a6-44b2-8bbc-f3bf53765178"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         },
         {
             ""name"": ""InGame"",
@@ -299,6 +332,7 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
 }");
         // InMenu
         m_InMenu = asset.FindActionMap("InMenu", throwIfNotFound: true);
+        m_InMenu_Back = m_InMenu.FindAction("Back", throwIfNotFound: true);
         // InGame
         m_InGame = asset.FindActionMap("InGame", throwIfNotFound: true);
         m_InGame_Movement = m_InGame.FindAction("Movement", throwIfNotFound: true);
@@ -361,10 +395,12 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
     // InMenu
     private readonly InputActionMap m_InMenu;
     private IInMenuActions m_InMenuActionsCallbackInterface;
+    private readonly InputAction m_InMenu_Back;
     public struct InMenuActions
     {
         private @PlayerActions m_Wrapper;
         public InMenuActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Back => m_Wrapper.m_InMenu_Back;
         public InputActionMap Get() { return m_Wrapper.m_InMenu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -374,10 +410,16 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_InMenuActionsCallbackInterface != null)
             {
+                @Back.started -= m_Wrapper.m_InMenuActionsCallbackInterface.OnBack;
+                @Back.performed -= m_Wrapper.m_InMenuActionsCallbackInterface.OnBack;
+                @Back.canceled -= m_Wrapper.m_InMenuActionsCallbackInterface.OnBack;
             }
             m_Wrapper.m_InMenuActionsCallbackInterface = instance;
             if (instance != null)
             {
+                @Back.started += instance.OnBack;
+                @Back.performed += instance.OnBack;
+                @Back.canceled += instance.OnBack;
             }
         }
     }
@@ -435,6 +477,7 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
     }
     public interface IInMenuActions
     {
+        void OnBack(InputAction.CallbackContext context);
     }
     public interface IInGameActions
     {

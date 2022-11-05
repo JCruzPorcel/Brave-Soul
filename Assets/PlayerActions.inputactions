@@ -4,8 +4,41 @@
         {
             "name": "InMenu",
             "id": "d33632d3-c355-4d4b-844f-91c2fd496115",
-            "actions": [],
-            "bindings": []
+            "actions": [
+                {
+                    "name": "Back",
+                    "type": "Button",
+                    "id": "71799d11-724f-47a8-8389-6ea45ecec54b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "f9c570a3-3743-4e99-9d7e-861690f37048",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9a847f21-74a6-44b2-8bbc-f3bf53765178",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Back",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         },
         {
             "name": "InGame",

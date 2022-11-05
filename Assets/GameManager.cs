@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 
 public enum GameState
 {
@@ -7,33 +9,76 @@ public enum GameState
     menu,
     inGame,
     gameOver,
+    transition
+}
+
+public enum DeviceType
+{
+    keyboard,
+    gamepad
 }
 
 public class GameManager : SingletonPersistent<GameManager>
 {
     public GameState currentGameState = GameState.mainMenu;
+    public DeviceType currentDevice = DeviceType.keyboard;
+
     [SerializeField] GameObject m_SceneTransition;
+    [SerializeField] InputSystemUIInputModule inputSystemModule;
+    [SerializeField] EventSystem m_eventSystem;
+    [SerializeField] GameObject m_StartButton;
+
     [SerializeField] PlayerInput playerInputs;
+    PlayerActions playerActions;
 
     private bool m_textDamage = true;
     private bool m_textFps = false;
     private bool m_fullScreen = true;
     private bool m_lowQuality = true;
     private bool m_daltonism = false;
+    int closeMenu = 0;
+    int openMenu = 2;
 
     private void Start()
     {
+
         m_SceneTransition.SetActive(true);
+        inputSystemModule = GameObject.Find("EventSystem").GetComponent<InputSystemUIInputModule>();
+        m_eventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
+
+        playerActions = new PlayerActions();
+        playerActions.InGame.Enable();
+        playerActions.InMenu.Enable();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
+        CurrentDevice();
 
+        if (currentGameState == GameState.mainMenu || currentGameState == GameState.menu)
+        {
+            playerActions.InMenu.Back.performed += BackToMenu;
+        }
+    }
+
+    void BackToMenu(InputAction.CallbackContext context)
+    {
+        closeMenu = LevelLoader.Instance.m_NextMenu;
+        openMenu = LevelLoader.Instance.m_CurrentMenu;
+
+
+        LevelLoader.Instance.CloseMenu(closeMenu);
+        LevelLoader.Instance.OpenMenu(openMenu);
     }
 
     public void MainMenu()
     {
         SetGameState(GameState.mainMenu);
+    }
+
+    public void Transition()
+    {
+        SetGameState(GameState.transition);
     }
 
     public void InGame()
@@ -66,6 +111,7 @@ public class GameManager : SingletonPersistent<GameManager>
     public void FullScreen(GameObject FullScreenCheck)
     {
         m_fullScreen = !m_fullScreen;
+        Screen.fullScreen = !m_fullScreen;
         FullScreenCheck.SetActive(m_fullScreen);
     }
 
@@ -81,19 +127,61 @@ public class GameManager : SingletonPersistent<GameManager>
         DaltonismCheck.SetActive(m_daltonism);
     }
 
+    public void SelectedMenuButton(GameObject newButtonSelected)
+    {
+        m_StartButton = newButtonSelected;
+        m_eventSystem.SetSelectedGameObject(null);
+
+        if (playerInputs.currentControlScheme == "Gamepad")
+            m_eventSystem.SetSelectedGameObject(m_StartButton);
+    }
+
     public void CurrentDevice()
     {
+
         if (playerInputs.currentControlScheme == "Gamepad")
         {
-            Debug.Log("asdasd");
+            SetDevice(DeviceType.gamepad);
         }
+        else if (playerInputs.currentControlScheme == "Keyboard&Mouse")
+        {
+            SetDevice(DeviceType.keyboard);
+        }
+    }
+
+    private void SetDevice(DeviceType newDevice)
+    {
+        if (newDevice == currentDevice)
+            return;
+
+        if (newDevice == DeviceType.keyboard)
+        {
+            Cursor.lockState = CursorLockMode.None;
+
+            inputSystemModule.deselectOnBackgroundClick = true;
+        }
+        if (newDevice == DeviceType.gamepad)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+
+            m_eventSystem.SetSelectedGameObject(null);
+            m_eventSystem.SetSelectedGameObject(m_StartButton);
+
+            inputSystemModule.deselectOnBackgroundClick = false;
+        }
+
+        this.currentDevice = newDevice;
     }
 
     private void SetGameState(GameState newGameSate)
     {
         if (newGameSate == GameState.mainMenu)
         {
-
+            playerInputs.SwitchCurrentActionMap("InMenu");
+        }
+        else if (newGameSate == GameState.inGame)
+        {
+            playerInputs.SwitchCurrentActionMap("InGame");
         }
 
         this.currentGameState = newGameSate;

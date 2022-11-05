@@ -16,42 +16,65 @@ public class LevelLoader : SingletonPersistent<LevelLoader>
     [SerializeField] private float m_transitionTime;
 
     public List<MenuList> m_menuList = new List<MenuList>();
-    private int m_currentMenu = 0;
-    private int m_nextMenu = 2;
+
+    private string nextSceneName { get; set; }
+    private int m_currentMenu { get; set; }
+    private int m_nextMenu { get; set; }
+
+    public string NextSceneName { get { return nextSceneName; } }
+    public int m_CurrentMenu { get { return m_currentMenu; } }
+    public int m_NextMenu { get { return m_nextMenu; } }
 
     private void Start()
     {
+        nextSceneName = "MainMenu";
+        m_nextMenu = 2;
+        m_currentMenu = 0;
+
         m_menuList[0].menu.SetActive(true);
         m_menuList[1].menu.SetActive(true);
-        for(int i = 2; i < m_menuList.Count; i++)
+        for (int i = 2; i < m_menuList.Count; i++)
         {
             m_menuList[i].menu.SetActive(false);
         }
     }
 
-    public void LoadNextLevel()
+    public void OpenURL(string link)
     {
-        StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+        Application.OpenURL(link);
     }
 
-    IEnumerator LoadLevel(int levelIndex)
+    public void LoadNextLevel(string levelName)
+    {
+        nextSceneName = levelName;
+        StartCoroutine(LoadLevel(nextSceneName));
+    }
+
+    IEnumerator LoadLevel(string levelName)
     {
         m_animator.SetTrigger("Start");
 
         yield return new WaitForSeconds(m_transitionTime);
 
-        SceneManager.LoadScene(levelIndex);     
+        SceneManager.LoadScene(levelName);
     }
 
     public void CloseMenu(int currentMenu)
     {
-        m_currentMenu = currentMenu;
+        if (GameManager.Instance.currentGameState != GameState.transition)
+        {
+            m_currentMenu = currentMenu;
+        }
     }
 
     public void OpenMenu(int nextMenu)
     {
-        m_nextMenu = nextMenu;
-        StartCoroutine(NextMenu());
+        if (GameManager.Instance.currentGameState != GameState.transition)
+        {
+            m_nextMenu = nextMenu;
+
+            StartCoroutine(NextMenu());
+        }
     }
 
     IEnumerator NextMenu()
@@ -62,6 +85,7 @@ public class LevelLoader : SingletonPersistent<LevelLoader>
 
         m_menuList[m_currentMenu].menu.SetActive(false);
         m_menuList[m_nextMenu].menu.SetActive(true);
+
     }
 
     public void ExitGame()
@@ -74,7 +98,6 @@ public class LevelLoader : SingletonPersistent<LevelLoader>
         m_animator.SetTrigger("Start");
 
         yield return new WaitForSeconds(m_transitionTime);
-
 
         Application.Quit();
 

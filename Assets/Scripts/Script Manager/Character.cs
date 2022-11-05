@@ -36,5 +36,6 @@ public class Character : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
     {
+
     }
 }
