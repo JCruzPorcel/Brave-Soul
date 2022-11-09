@@ -26,7 +26,7 @@ public class GameManager : SingletonPersistent<GameManager>
     [SerializeField] GameObject m_SceneTransition;
     [SerializeField] InputSystemUIInputModule inputSystemModule;
     [SerializeField] EventSystem m_eventSystem;
-    [SerializeField] GameObject m_StartButton;
+    [SerializeField] GameObject m_startButton;
     [SerializeField] GameObject m_lastButton;
 
     [SerializeField] PlayerInput playerInputs;
@@ -42,7 +42,6 @@ public class GameManager : SingletonPersistent<GameManager>
 
     private void Start()
     {
-
         m_SceneTransition.SetActive(true);
         inputSystemModule = GameObject.Find("EventSystem").GetComponent<InputSystemUIInputModule>();
         m_eventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
@@ -50,11 +49,18 @@ public class GameManager : SingletonPersistent<GameManager>
         playerActions = new PlayerActions();
         playerActions.InGame.Enable();
         playerActions.InMenu.Enable();
+
+        m_lastButton = m_startButton;
     }
 
     private void LateUpdate()
     {
         CurrentDevice();
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+        }
 
         if (currentGameState == GameState.mainMenu || currentGameState == GameState.menu)
         {
@@ -134,12 +140,12 @@ public class GameManager : SingletonPersistent<GameManager>
 
     public void SelectedMenuButton(GameObject newButtonSelected)
     {
-        m_lastButton = m_StartButton;
-        m_StartButton = newButtonSelected;
+        m_lastButton = m_startButton;
+        m_startButton = newButtonSelected;
         m_eventSystem.SetSelectedGameObject(null);
 
         if (playerInputs.currentControlScheme == "Gamepad")
-            m_eventSystem.SetSelectedGameObject(m_StartButton);
+            m_eventSystem.SetSelectedGameObject(m_startButton);
     }
 
     public void CurrentDevice()
@@ -171,7 +177,7 @@ public class GameManager : SingletonPersistent<GameManager>
             Cursor.lockState = CursorLockMode.Locked;
 
             m_eventSystem.SetSelectedGameObject(null);
-            m_eventSystem.SetSelectedGameObject(m_StartButton);
+            m_eventSystem.SetSelectedGameObject(m_startButton);
 
             inputSystemModule.deselectOnBackgroundClick = false;
         }
