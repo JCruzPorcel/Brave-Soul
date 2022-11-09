@@ -27,6 +27,7 @@ public class GameManager : SingletonPersistent<GameManager>
     [SerializeField] InputSystemUIInputModule inputSystemModule;
     [SerializeField] EventSystem m_eventSystem;
     [SerializeField] GameObject m_StartButton;
+    [SerializeField] GameObject m_lastButton;
 
     [SerializeField] PlayerInput playerInputs;
     PlayerActions playerActions;
@@ -58,7 +59,6 @@ public class GameManager : SingletonPersistent<GameManager>
         if (currentGameState == GameState.mainMenu || currentGameState == GameState.menu)
         {
             playerActions.InMenu.Back.performed += BackToMenu;
-
         }
     }
 
@@ -67,11 +67,13 @@ public class GameManager : SingletonPersistent<GameManager>
         closeMenu = LevelLoader.Instance.m_NextMenu;
         openMenu = LevelLoader.Instance.m_CurrentMenu;
 
-        
+
+        if (closeMenu != 2 && closeMenu != 1 && closeMenu != 0)
+        {
             LevelLoader.Instance.CloseMenu(closeMenu);
             LevelLoader.Instance.OpenMenu(openMenu);
-        
-
+            m_eventSystem.SetSelectedGameObject(m_lastButton);
+        }
     }
 
     public void MainMenu()
@@ -132,6 +134,7 @@ public class GameManager : SingletonPersistent<GameManager>
 
     public void SelectedMenuButton(GameObject newButtonSelected)
     {
+        m_lastButton = m_StartButton;
         m_StartButton = newButtonSelected;
         m_eventSystem.SetSelectedGameObject(null);
 

@@ -3,17 +3,17 @@ using UnityEngine;
 public class cm_FadeOut : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-    override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        if (LevelLoader.Instance.NextSceneName == "InGame")
-        {
-            GameManager.Instance.InGame();
-        }
-        if (LevelLoader.Instance.NextSceneName == "MainMenu")
-        {
-            GameManager.Instance.MainMenu();
-        }
-    }
+    //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    if (LevelLoader.Instance.NextSceneName == "InGame")
+    //    {
+    //        GameManager.Instance.InGame();
+    //    }
+    //    if (LevelLoader.Instance.NextSceneName == "MainMenu")
+    //    {
+    //        GameManager.Instance.MainMenu();
+    //    }
+    //}
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

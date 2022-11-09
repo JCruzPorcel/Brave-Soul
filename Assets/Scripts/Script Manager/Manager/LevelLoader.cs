@@ -14,6 +14,7 @@ public class LevelLoader : SingletonPersistent<LevelLoader>
 
     public Animator m_animator;
     [SerializeField] private float m_transitionTime;
+    [SerializeField] private float m_TransiionToNewGameStateTime;
 
     public List<MenuList> m_menuList = new List<MenuList>();
 
@@ -33,6 +34,7 @@ public class LevelLoader : SingletonPersistent<LevelLoader>
 
         m_menuList[0].menu.SetActive(true);
         m_menuList[1].menu.SetActive(true);
+
         for (int i = 2; i < m_menuList.Count; i++)
         {
             m_menuList[i].menu.SetActive(false);
@@ -83,9 +85,26 @@ public class LevelLoader : SingletonPersistent<LevelLoader>
 
         yield return new WaitForSeconds(m_transitionTime);
 
+
         m_menuList[m_currentMenu].menu.SetActive(false);
         m_menuList[m_nextMenu].menu.SetActive(true);
 
+        StartCoroutine(GameStateAfterTransition());
+
+    }
+
+    IEnumerator GameStateAfterTransition()
+    {
+        yield return new WaitForSeconds(m_transitionTime - m_TransiionToNewGameStateTime);
+
+        if (NextSceneName == "InGame")
+        {
+            GameManager.Instance.InGame();
+        }
+        else if (NextSceneName == "MainMenu")
+        {
+            GameManager.Instance.MainMenu();
+        }
     }
 
     public void ExitGame()

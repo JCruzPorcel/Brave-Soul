@@ -3536,6 +3536,7 @@ MonoBehaviour:
   inputSystemModule: {fileID: 149567023}
   m_eventSystem: {fileID: 149567021}
   m_StartButton: {fileID: 1386543572}
+  m_lastButton: {fileID: 0}
   playerInputs: {fileID: 429867192}
 --- !u!4 &429867191
 Transform:
@@ -6322,6 +6323,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_animator: {fileID: 316963854}
   m_transitionTime: 1.1
+  m_TransiionToNewGameStateTime: 0.56
   m_menuList:
   - menu: {fileID: 500372900}
   - menu: {fileID: 1394506176}
@@ -13177,7 +13179,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ReferenceResolution: {x: 1902.49, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
