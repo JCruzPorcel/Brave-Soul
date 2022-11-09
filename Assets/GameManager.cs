@@ -36,8 +36,8 @@ public class GameManager : SingletonPersistent<GameManager>
     private bool m_fullScreen = true;
     private bool m_lowQuality = true;
     private bool m_daltonism = false;
-    int closeMenu = 0;
-    int openMenu = 2;
+    private int closeMenu = 0;
+    private int openMenu = 2;
 
     private void Start()
     {
@@ -58,6 +58,7 @@ public class GameManager : SingletonPersistent<GameManager>
         if (currentGameState == GameState.mainMenu || currentGameState == GameState.menu)
         {
             playerActions.InMenu.Back.performed += BackToMenu;
+
         }
     }
 
@@ -66,9 +67,11 @@ public class GameManager : SingletonPersistent<GameManager>
         closeMenu = LevelLoader.Instance.m_NextMenu;
         openMenu = LevelLoader.Instance.m_CurrentMenu;
 
+        
+            LevelLoader.Instance.CloseMenu(closeMenu);
+            LevelLoader.Instance.OpenMenu(openMenu);
+        
 
-        LevelLoader.Instance.CloseMenu(closeMenu);
-        LevelLoader.Instance.OpenMenu(openMenu);
     }
 
     public void MainMenu()
