@@ -48,8 +48,11 @@ public class LevelLoader : SingletonPersistent<LevelLoader>
 
     public void LoadNextLevel(string levelName)
     {
-        nextSceneName = levelName;
-        StartCoroutine(LoadLevel(nextSceneName));
+        if (GameManager.Instance.currentGameState != GameState.transition)
+        {
+            nextSceneName = levelName;
+            StartCoroutine(LoadLevel(nextSceneName));
+        }
     }
 
     IEnumerator LoadLevel(string levelName)
@@ -109,7 +112,7 @@ public class LevelLoader : SingletonPersistent<LevelLoader>
 
     public void ExitGame()
     {
-        StartCoroutine(ClosingGame());
+            StartCoroutine(ClosingGame());
     }
 
     IEnumerator ClosingGame()

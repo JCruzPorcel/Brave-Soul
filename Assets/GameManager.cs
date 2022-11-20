@@ -23,9 +23,11 @@ public class GameManager : SingletonPersistent<GameManager>
     public GameState currentGameState = GameState.mainMenu;
     public DeviceType currentDevice = DeviceType.keyboard;
 
-    [SerializeField] GameObject m_SceneTransition;
-    [SerializeField] InputSystemUIInputModule inputSystemModule;
     [SerializeField] EventSystem m_eventSystem;
+
+    [SerializeField] InputSystemUIInputModule inputSystemModule;
+
+    [SerializeField] GameObject m_SceneTransition;
     [SerializeField] GameObject m_startButton;
     [SerializeField] GameObject m_lastButton;
 
@@ -37,6 +39,7 @@ public class GameManager : SingletonPersistent<GameManager>
     private bool m_fullScreen = true;
     private bool m_lowQuality = true;
     private bool m_daltonism = false;
+
     private int closeMenu = 0;
     private int openMenu = 2;
 
@@ -70,15 +73,19 @@ public class GameManager : SingletonPersistent<GameManager>
 
     void BackToMenu(InputAction.CallbackContext context)
     {
-        closeMenu = LevelLoader.Instance.m_NextMenu;
-        openMenu = LevelLoader.Instance.m_CurrentMenu;
-
-
-        if (closeMenu != 2 && closeMenu != 1 && closeMenu != 0)
+        if (currentGameState! != GameState.transition)
         {
-            LevelLoader.Instance.CloseMenu(closeMenu);
-            LevelLoader.Instance.OpenMenu(openMenu);
-            m_eventSystem.SetSelectedGameObject(m_lastButton);
+            closeMenu = LevelLoader.Instance.m_NextMenu;
+            openMenu = LevelLoader.Instance.m_CurrentMenu;
+
+
+            if (closeMenu != 2 && closeMenu != 1 && closeMenu != 0)
+            {
+                m_startButton = m_lastButton;
+                LevelLoader.Instance.CloseMenu(closeMenu);
+                LevelLoader.Instance.OpenMenu(openMenu);
+                m_eventSystem.SetSelectedGameObject(m_lastButton);
+            }
         }
     }
 
@@ -140,12 +147,15 @@ public class GameManager : SingletonPersistent<GameManager>
 
     public void SelectedMenuButton(GameObject newButtonSelected)
     {
-        m_lastButton = m_startButton;
-        m_startButton = newButtonSelected;
-        m_eventSystem.SetSelectedGameObject(null);
+        if (currentGameState! != GameState.transition)
+        {
+            m_lastButton = m_startButton;
+            m_startButton = newButtonSelected;
+            m_eventSystem.SetSelectedGameObject(null);
 
-        if (playerInputs.currentControlScheme == "Gamepad")
-            m_eventSystem.SetSelectedGameObject(m_startButton);
+            if (playerInputs.currentControlScheme == "Gamepad")
+                m_eventSystem.SetSelectedGameObject(m_startButton);
+        }
     }
 
     public void CurrentDevice()

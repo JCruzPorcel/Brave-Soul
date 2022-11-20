@@ -26,7 +26,7 @@ MonoBehaviour:
   armor: 1
   damage: 15
   maxHp: 100
-  attackSpeed: 1
+  attackSpeed: 0.25
   hpRegen: 0.2
   speed: 3
   charPrice: 1000
