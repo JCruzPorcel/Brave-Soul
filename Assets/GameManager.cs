@@ -34,6 +34,11 @@ public class GameManager : SingletonPersistent<GameManager>
     [SerializeField] PlayerInput playerInputs;
     PlayerActions playerActions;
 
+
+    [SerializeField] private CharacterData charSelected;
+    public CharacterData CharSelected { get => charSelected; set => charSelected = value; }
+
+
     private bool m_textDamage = true;
     private bool m_textFps = false;
     private bool m_fullScreen = true;
@@ -42,6 +47,7 @@ public class GameManager : SingletonPersistent<GameManager>
 
     private int closeMenu = 0;
     private int openMenu = 2;
+
 
     private void Start()
     {

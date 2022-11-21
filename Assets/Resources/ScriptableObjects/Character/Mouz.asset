@@ -14,22 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   varName: Mouse
   charName: Mouz
-  description: 'Un joven ratoncito que cuida los bosques.
-
-    +Movimiento.
-
-    -Armadura.
-
-
-    Arma
-    inicial: Arco'
+  description: "Un joven ratoncito que cuida los bosques.\n\n\u2022 Movimiento aumentado.\n\u2022
+    Armadura reducida.\nArma inicial: Arco"
   armor: 1
   damage: 15
   maxHp: 100
   attackSpeed: 0.25
   hpRegen: 0.2
   speed: 3
-  charPrice: 1000
+  charPrice: 2700
   charImage: {fileID: -1711449072, guid: ec8fa8378dfa0f24285ce047d812b2c9, type: 3}
   startWeapon: {fileID: 11400000, guid: 6fd343edff5600d44b5b59fa43b74aba, type: 2}
   charPrefab: {fileID: 0}
+  isOwned: 1
+  itsBuyable: 0

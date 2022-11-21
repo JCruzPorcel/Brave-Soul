@@ -14,14 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   varName: b
   charName: Rogue
-  description: Achechino chilenchiocho
+  description: Bicho raro con espadas
   armor: 0
   damage: 0
   maxHp: 0
   attackSpeed: 0
   hpRegen: 0
   speed: 0
-  charPrice: 150
+  charPrice: 15000
   charImage: {fileID: 504949462, guid: eda5525a6a29aa247a5f05887a5f3746, type: 3}
   startWeapon: {fileID: 11400000, guid: 905fdc98bd9b11f45b10c68a21708b7a, type: 2}
   charPrefab: {fileID: 1989918346529068949, guid: 53663f36e591bee4f89dc0ce20cbb093, type: 3}
+  isOwned: 0
+  itsBuyable: 1

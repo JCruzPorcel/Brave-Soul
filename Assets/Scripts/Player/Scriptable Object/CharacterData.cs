@@ -18,6 +18,9 @@ public class CharacterData : ScriptableObject
     [SerializeField] private WeaponData startWeapon;
     [SerializeField] private GameObject charPrefab;
 
+    [SerializeField] private bool isOwned = false;
+    [SerializeField] private bool itsBuyable = true;
+
 
     public string VarName { get { return varName; } }
 
@@ -31,10 +34,12 @@ public class CharacterData : ScriptableObject
     public float HpRegen { get => hpRegen; set => hpRegen = value; }
     public float Speed { get => speed; set => speed = value; }
 
+    public bool IsOwned { get => isOwned; set => isOwned = value; }
+    public bool ItsBuyable { get => itsBuyable; set => itsBuyable = value; }
+
     public Sprite CharImage { get { return charImage; } }
     public WeaponData StartWeapon { get { return startWeapon; } }
     public GameObject CharPrefab { get { return charPrefab; } }
-
 
 
     /* DELETE THIS BEFORE USE
