@@ -1182,7 +1182,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &149567023
 MonoBehaviour:
@@ -3542,7 +3542,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &429867192
 MonoBehaviour:
@@ -4333,7 +4333,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -6.5, y: -13.20993}
+  m_AnchoredPosition: {x: -6.5, y: -13.209961}
   m_SizeDelta: {x: -1643.6191, y: 62.159}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &494036542
@@ -6448,7 +6448,7 @@ Transform:
   m_Children:
   - {fileID: 316963853}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &851912639
 MonoBehaviour:
@@ -6463,7 +6463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_animator: {fileID: 316963854}
-  m_transitionTime: 1.1
+  m_transitionTime: 1
   m_TransiionToNewGameStateTime: 0.56
   m_menuList:
   - menu: {fileID: 500372900}
@@ -12308,6 +12308,8 @@ MonoBehaviour:
   goldObject: {fileID: 1077657069}
   buyButtonText: {fileID: 1043004520}
   pennyGoldText: {fileID: 1067397480}
+  buyButton: {fileID: 185445678}
+  backButton: {fileID: 1686529080}
   charData: {fileID: 11400000, guid: 547d879da6f14054f81283f0229634ff, type: 2}
 --- !u!114 &1583577916
 MonoBehaviour:
@@ -12331,7 +12333,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
-    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.39215687}
+    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0, g: 0, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -12352,7 +12354,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1583577917}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1583577915}
+        m_TargetAssemblyTypeName: Character, Assembly-CSharp
+        m_MethodName: SelectChar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1583577917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16161,6 +16175,8 @@ MonoBehaviour:
   goldObject: {fileID: 1077657069}
   buyButtonText: {fileID: 1043004520}
   pennyGoldText: {fileID: 1067397480}
+  buyButton: {fileID: 185445678}
+  backButton: {fileID: 1686529080}
   charData: {fileID: 11400000, guid: 1fd9f6459438bc447908a23e8603d4e1, type: 2}
 --- !u!222 &2077423485
 CanvasRenderer:
@@ -16192,7 +16208,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 0, g: 0, b: 0, a: 0}
-    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 0.39215687}
+    m_HighlightedColor: {r: 0, g: 0, b: 0, a: 1}
     m_PressedColor: {r: 0, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0, g: 0, b: 0, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
@@ -16213,7 +16229,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2077423487}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2077423483}
+        m_TargetAssemblyTypeName: Character, Assembly-CSharp
+        m_MethodName: SelectChar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2077423487
 MonoBehaviour:
   m_ObjectHideFlags: 0

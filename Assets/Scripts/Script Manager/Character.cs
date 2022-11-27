@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+
 public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IPointerExitHandler
 {
     [SerializeField] private TMP_Text charName;
@@ -19,6 +20,11 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
     [SerializeField] private TMP_Text buyButtonText;
     [SerializeField] private TMP_Text pennyGoldText;
 
+    [SerializeField] private GameObject buyButton;
+    [SerializeField] private GameObject backButton;
+
+    PlayerActions playerActions;
+
     [Space(15)]
     [Header("Character Data")]
     [Tooltip("Change to new character scriptableObject")]
@@ -34,12 +40,22 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
         weaponImage.sprite = charData.StartWeapon.WeaponImage;
 
         ShowCurrentChar();
+
+        playerActions = new PlayerActions();
+        playerActions.InGame.Enable();
+        playerActions.InMenu.Enable();
     }
 
+    public void Update()
+    {
+        if(EventSystem.current.currentSelectedGameObject == buyButton || EventSystem.current.currentSelectedGameObject == backButton)
+        {
+            ShowSelectedChar();
+        }
+    }
 
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
-
         if (GameManager.Instance.currentDevice == DeviceType.keyboard)
         {
             ShowCurrentChar();
@@ -53,11 +69,11 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
 
     public void OnSelect(BaseEventData eventData)
     {
-        GameManager.Instance.CharSelected = charData;
-        ShowSelectedChar();
+        //GameManager.Instance.CharSelected = charData;
+        ShowCurrentChar();
     }
 
-    void ShowCurrentChar()
+    public void ShowCurrentChar()
     {
         descriptionName.text = charData.CharName.ToString();
         descriptionImage.sprite = charData.CharImage;
@@ -88,7 +104,7 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
         }
     }
 
-    void ShowSelectedChar()
+    public void ShowSelectedChar()
     {
         descriptionName.text = GameManager.Instance.CharSelected.CharName.ToString();
         descriptionImage.sprite = GameManager.Instance.CharSelected.CharImage;
@@ -120,6 +136,11 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
         }
     }
 
+    public void SelectChar()
+    {
+        GameManager.Instance.CharSelected = charData;
+        ShowSelectedChar();
+    }
     //ToDo: Selected Change Color Black
     //ToDo: Buy Characters
 }

@@ -34,7 +34,6 @@ public class GameManager : SingletonPersistent<GameManager>
     [SerializeField] PlayerInput playerInputs;
     PlayerActions playerActions;
 
-
     [SerializeField] private CharacterData charSelected;
     public CharacterData CharSelected { get => charSelected; set => charSelected = value; }
 
@@ -46,7 +45,7 @@ public class GameManager : SingletonPersistent<GameManager>
     private bool m_daltonism = false;
 
     private int closeMenu = 0;
-    private int openMenu = 2;
+    private int openMenu = 2; // Refactor with enum :(
 
 
     private void Start()
