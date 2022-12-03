@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e9861c165eb209545b369162ffebaede, type: 3}
-  m_Name: Rogue
+  m_Name: Sweeper
   m_EditorClassIdentifier: 
-  varName: b
-  charName: Rogue
-  description: Bicho raro con espadas
+  varName: Sweeper
+  charName: Berserker
+  description: La colera lo mantiene en pie, tan duro como una roca...
   armor: 0
   damage: 0
   maxHp: 0
-  attackSpeed: 0
+  attackSpeed: 1
   hpRegen: 0
   speed: 0
   charPrice: 15000
-  charImage: {fileID: 504949462, guid: eda5525a6a29aa247a5f05887a5f3746, type: 3}
+  charImage: {fileID: 1423956671, guid: 40644e9067e1ed04fbf920577ad85082, type: 3}
   startWeapon: {fileID: 11400000, guid: 905fdc98bd9b11f45b10c68a21708b7a, type: 2}
-  charPrefab: {fileID: 1989918346529068949, guid: 53663f36e591bee4f89dc0ce20cbb093, type: 3}
+  charPrefab: {fileID: 7207315856855284230, guid: dda9a565cf3804d4f89d127678b5403c, type: 3}
   isOwned: 0
-  itsBuyable: 1
+  itsBuyable: 0

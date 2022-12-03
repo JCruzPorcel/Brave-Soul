@@ -15,11 +15,13 @@ MonoBehaviour:
   varName: Crossbow
   itemName: Ballesta
   description: "Una ballesta que lanza flechas. \nQue esperabas que hiciera?..."
-  damage: 25
+  upgradeDescription: "Evoluci\xF3n:"
+  damage: 1
   level: 1
   amount: 1
-  attackSpeed: 0.25
-  canUpgrade: 0
+  attackSpeed: 1.25
+  canUpgrade: 1
   prefab: {fileID: 1159165358058712471, guid: ec408c0223115f842ae0a7302dd21877, type: 3}
   weaponImage: {fileID: 1619712158, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}
+  upgradeImage: {fileID: -203209844, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}
   projectileType: {fileID: 11400000, guid: ef0da4bc101449548b9e28c72825ec20, type: 2}

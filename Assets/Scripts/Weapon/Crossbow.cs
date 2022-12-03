@@ -65,7 +65,7 @@ public class Crossbow : MonoBehaviour
         Transform target = MostNearbyEnemies();
         Vector3 dir = target.position - transform.position;
         float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg - 45;
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, -angle), 7 * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, -angle), 10 * Time.deltaTime);
     }
 
     public Transform MostNearbyEnemies()

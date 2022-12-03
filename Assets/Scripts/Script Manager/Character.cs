@@ -17,13 +17,18 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
     [SerializeField] private TMP_Text descriptionPrice;
 
     [SerializeField] private GameObject goldObject;
-    [SerializeField] private TMP_Text buyButtonText;
+    [SerializeField] TMP_Text buyButtonText;
     [SerializeField] private TMP_Text pennyGoldText;
 
     [SerializeField] private GameObject buyButton;
     [SerializeField] private GameObject backButton;
 
-    PlayerActions playerActions;
+    [SerializeField] EventSystem m_eventSystem;
+
+    [SerializeField] string playButton = "Play";
+    [SerializeField] string selectButton = "Select";
+    [SerializeField] string unlockButton = "Unlock";
+    bool canShowIt = false;
 
     [Space(15)]
     [Header("Character Data")]
@@ -40,26 +45,24 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
         weaponImage.sprite = charData.StartWeapon.WeaponImage;
 
         ShowCurrentChar();
-
-        playerActions = new PlayerActions();
-        playerActions.InGame.Enable();
-        playerActions.InMenu.Enable();
     }
 
-    public void Update()
+    private void Update()
     {
-        if(EventSystem.current.currentSelectedGameObject == buyButton || EventSystem.current.currentSelectedGameObject == backButton)
+        if (canShowIt)
         {
-            ShowSelectedChar();
+            if (EventSystem.current.currentSelectedGameObject == buyButton || EventSystem.current.currentSelectedGameObject == backButton)
+            {
+                ShowSelectedChar();
+            }
+            canShowIt = false;
         }
+
     }
 
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
-        if (GameManager.Instance.currentDevice == DeviceType.keyboard)
-        {
-            ShowCurrentChar();
-        }
+        ShowCurrentChar();
     }
 
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
@@ -69,7 +72,6 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
 
     public void OnSelect(BaseEventData eventData)
     {
-        //GameManager.Instance.CharSelected = charData;
         ShowCurrentChar();
     }
 
@@ -82,7 +84,7 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
 
         if (charData.IsOwned)
         {
-            buyButtonText.text = "Seleccionar";
+            buyButtonText.text = selectButton.ToString();
             pennyGoldText.color = new Color(255, 255, 255, 255); //White
 
             goldObject.SetActive(false);
@@ -102,6 +104,12 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
                 pennyGoldText.color = new Color(255, 0, 0, 255); //Red
             }
         }
+        else if (!charData.IsOwned && !charData.ItsBuyable)
+        {
+            goldObject.SetActive(false);
+            buyButtonText.text = string.Empty;
+            buyButtonText.text = unlockButton.ToString();
+        }
     }
 
     public void ShowSelectedChar()
@@ -114,7 +122,7 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
 
         if (GameManager.Instance.CharSelected.IsOwned)
         {
-            buyButtonText.text = "Seleccionar";
+            buyButtonText.text = selectButton.ToString();
             pennyGoldText.color = new Color(255, 255, 255, 255); //White
 
             goldObject.SetActive(false);
@@ -134,13 +142,56 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
                 pennyGoldText.color = new Color(255, 0, 0, 255); //Red
             }
         }
+        else if (!GameManager.Instance.CharSelected.IsOwned && !GameManager.Instance.CharSelected.ItsBuyable)
+        {
+            goldObject.SetActive(false);
+            buyButtonText.text = unlockButton.ToString();
+            pennyGoldText.color = new Color(255, 0, 255, 255); //Purple
+
+        }
     }
 
     public void SelectChar()
     {
         GameManager.Instance.CharSelected = charData;
         ShowSelectedChar();
+
+        if (GameManager.Instance.playerInputs.currentControlScheme == "Gamepad")
+        {
+            m_eventSystem.SetSelectedGameObject(null); // Clean Button
+            m_eventSystem.SetSelectedGameObject(buyButton); // New Button
+                                                            // Button Nav = None
+                                                            // back button pressed = back
+        }
     }
+
+    public void StartGame()
+    {
+        if (buyButtonText.text == selectButton.ToString())
+        {
+            buyButtonText.text = playButton.ToString();
+        }
+        else if (buyButtonText.text == playButton.ToString())
+        {
+            LevelLoader.Instance.LoadNextLevel("InGame");
+        }
+        else if (PlayerData.Instance.CurrentGold >= GameManager.Instance.CharSelected.CharPrice)
+        {
+            if (!GameManager.Instance.CharSelected.IsOwned && GameManager.Instance.CharSelected.ItsBuyable)
+            {
+                PlayerData.Instance.CurrentGold -= GameManager.Instance.CharSelected.CharPrice;
+                GameManager.Instance.CharSelected.IsOwned = true;
+                canShowIt = true;
+            }
+
+        }
+        else if (buyButtonText.text == unlockButton.ToString())
+        {
+            LevelLoader.Instance.OpenURL("https://highest.itch.io");
+        }
+
+    }
+
     //ToDo: Selected Change Color Black
     //ToDo: Buy Characters
 }

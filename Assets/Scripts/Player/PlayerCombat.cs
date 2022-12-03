@@ -2,24 +2,55 @@ using UnityEngine;
 
 public class PlayerCombat : Singleton<PlayerCombat>
 {
-    [SerializeField] WeaponData startWeapon;
-    [SerializeField] SliderBar sliderBar;
     float timer;
+    [SerializeField] Transform playerContainer;
+    [SerializeField] public CharacterData charData;
+    [SerializeField] public WeaponData weaponData;
+    [SerializeField] Crossbow crossbow;
+    [SerializeField] SliderBar sliderBar;
+
+    private void Start()
+    {
+        charData = GameManager.Instance.CharSelected;
+        Instantiate(charData.CharPrefab, playerContainer); 
+        weaponData = GameManager.Instance.CharSelected.StartWeapon;
+    }
 
     private void Update()
     {
-        sliderBar.MaxAttackSpeed(startWeapon.AttackSpeed);
+        sliderBar.MaxAttackSpeed(weaponData.AttackSpeed);
 
-        
-        if (timer >= startWeapon.AttackSpeed)
+        if (weaponData.VarName == "Crossbow")
         {
-            timer = 0;
+            crossbow = weaponData.Prefab.GetComponent<Crossbow>();
+            if (crossbow.MostNearbyEnemies() != null)
+            {
+                if (timer >= weaponData.AttackSpeed)
+                {
+                    timer = 0;
+                }
+                else
+                {
+                    timer += Time.deltaTime;
+                }
+            }
+
+            if (crossbow != null)
+                return;
+
+            crossbow = weaponData.Prefab.GetComponent<Crossbow>();
         }
         else
         {
-            timer += Time.deltaTime;
+            if (timer >= weaponData.AttackSpeed)
+            {
+                timer = 0;
+            }
+            else
+            {
+                timer += Time.deltaTime;
+            }
         }
-
         sliderBar.NextAttack(timer);
     }
 }

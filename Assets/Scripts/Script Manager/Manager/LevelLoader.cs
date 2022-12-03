@@ -15,6 +15,7 @@ public class LevelLoader : SingletonPersistent<LevelLoader>
     public Animator m_animator;
     [SerializeField] private float m_transitionTime;
     [SerializeField] private float m_TransiionToNewGameStateTime;
+    [SerializeField] Transform playerContainer;
 
     public List<MenuList> m_menuList = new List<MenuList>();
 
@@ -112,7 +113,7 @@ public class LevelLoader : SingletonPersistent<LevelLoader>
 
     public void ExitGame()
     {
-            StartCoroutine(ClosingGame());
+        StartCoroutine(ClosingGame());
     }
 
     IEnumerator ClosingGame()
@@ -129,4 +130,5 @@ public class LevelLoader : SingletonPersistent<LevelLoader>
 #endif
 
     }
+
 }

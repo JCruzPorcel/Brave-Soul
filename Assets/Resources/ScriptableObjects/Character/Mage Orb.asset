@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9861c165eb209545b369162ffebaede, type: 3}
+  m_Name: Mage Orb
+  m_EditorClassIdentifier: 
+  varName: MageOrb
+  charName: Malmortius
+  description: ' Este mago controla el espacio del entorno con su orbe'
+  armor: 0
+  damage: 6
+  maxHp: 75
+  attackSpeed: 1
+  hpRegen: 0
+  speed: 0
+  charPrice: 2700
+  charImage: {fileID: 840992505, guid: 3568511e6e2110543a4bb8381521e66a, type: 3}
+  startWeapon: {fileID: 11400000, guid: 50dd31858c4a47245a0fb8a09759f1e9, type: 2}
+  charPrefab: {fileID: 7207315856855284230, guid: c6ed983b14b9ee84eb5799cbd2b64ae5, type: 3}
+  isOwned: 0
+  itsBuyable: 1

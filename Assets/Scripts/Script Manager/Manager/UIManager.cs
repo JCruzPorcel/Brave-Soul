@@ -4,8 +4,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
-{/*
+public class UIManager : Singleton<UIManager>
+{
     // LVL UP - RANDOM WEAPON SELECTOR
     [Header("Left Item")]
     [SerializeField] TMP_Text name1;
@@ -82,13 +82,13 @@ public class UIManager : MonoBehaviour
 
         name1.text = weaponList[lastItem1].ItemName.ToString();
         description1.text = weaponList[lastItem1].Description.ToString();
-        image1.sprite = weaponList[lastItem1].Image;
+        image1.sprite = weaponList[lastItem1].WeaponImage;
 
-        if (weaponList[lastItem1].CanEvolve)
+        if (weaponList[lastItem1].CanUpgrade)
         {
             evContainer1.SetActive(true);
-            evImage1.sprite = weaponList[lastItem1].EvImage;
-            evDescription1.text = weaponList[lastItem1].EvDescription.ToString();
+            evImage1.sprite = weaponList[lastItem1].UpgradeImage;
+            evDescription1.text = weaponList[lastItem1].UpgradeDescription.ToString();
         }
         else
         {
@@ -106,13 +106,13 @@ public class UIManager : MonoBehaviour
 
         name2.text = weaponList[lastItem2].ItemName.ToString();
         description2.text = weaponList[lastItem2].Description.ToString();
-        image2.sprite = weaponList[lastItem2].Image;
+        image2.sprite = weaponList[lastItem2].WeaponImage;
 
-        if (weaponList[lastItem2].CanEvolve)
+        if (weaponList[lastItem2].CanUpgrade)
         {
             evContainer2.SetActive(true);
-            evImage2.sprite = weaponList[lastItem2].EvImage;
-            evDescription2.text = weaponList[lastItem2].EvDescription.ToString();
+            evImage2.sprite = weaponList[lastItem2].UpgradeImage;
+            evDescription2.text = weaponList[lastItem2].UpgradeDescription.ToString();
         }
         else
         {
@@ -130,13 +130,13 @@ public class UIManager : MonoBehaviour
 
         name3.text = weaponList[lastItem3].ItemName.ToString();
         description3.text = weaponList[lastItem3].Description.ToString();
-        image3.sprite = weaponList[lastItem3].Image;
+        image3.sprite = weaponList[lastItem3].WeaponImage;
 
-        if (weaponList[lastItem3].CanEvolve)
+        if (weaponList[lastItem3].CanUpgrade)
         {
             evContainer3.SetActive(true);
-            evImage3.sprite = weaponList[lastItem3].EvImage;
-            evDescription3.text = weaponList[lastItem3].EvDescription.ToString();
+            evImage3.sprite = weaponList[lastItem3].UpgradeImage;
+            evDescription3.text = weaponList[lastItem3].UpgradeDescription.ToString();
         }
         else
         {
@@ -160,6 +160,7 @@ public class UIManager : MonoBehaviour
             Time.timeScale = 1;
         }
     }
+
     public void AddMiddleWeapon()
     {
         WeaponCheck(lastItem2);
@@ -178,6 +179,7 @@ public class UIManager : MonoBehaviour
             Time.timeScale = 1;
         }
     }
+
     public void AddRightWeapon()
     {
         WeaponCheck(lastItem3);
@@ -196,6 +198,7 @@ public class UIManager : MonoBehaviour
             Time.timeScale = 1;
         }
     }
+
     void WeaponCheck(int value)
     {
         string randomKey = dictionary.Keys.ToArray()[value];
@@ -205,18 +208,21 @@ public class UIManager : MonoBehaviour
             case "Axe":
                 hAxe = true;
                 lAxe++;
+                Debug.Log("Axe");
 
                 break;
 
             case "Crossbow":
-
+                Debug.Log("CrossBow");
                 break;
 
             case "Necronomicon":
+                Debug.Log("Necro");
 
                 break;
 
             case "Projectile":
+                Debug.Log("Proj");
 
                 break;
 
@@ -282,5 +288,5 @@ public class UIManager : MonoBehaviour
                 tAxe = weaponData.AttackSpeed;
             }
         }
-    }*/
+    }
 }

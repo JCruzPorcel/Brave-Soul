@@ -31,11 +31,11 @@ public class GameManager : SingletonPersistent<GameManager>
     [SerializeField] GameObject m_startButton;
     [SerializeField] GameObject m_lastButton;
 
-    [SerializeField] PlayerInput playerInputs;
+    public PlayerInput playerInputs;
     PlayerActions playerActions;
 
-    [SerializeField] private CharacterData charSelected;
-    public CharacterData CharSelected { get => charSelected; set => charSelected = value; }
+    [SerializeField] private CharacterData charSelected;                                        //Character
+    public CharacterData CharSelected { get => charSelected; set => charSelected = value; }    // Selected
 
 
     private bool m_textDamage = true;
@@ -213,4 +213,5 @@ public class GameManager : SingletonPersistent<GameManager>
 
         this.currentGameState = newGameSate;
     }
+
 }

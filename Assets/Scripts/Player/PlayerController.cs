@@ -49,14 +49,6 @@ public class PlayerController : Singleton<PlayerController>
 
         transform.position += direcction;
 
-        if (_facingRight)
-        {
-            sr.flipX = false;
-        }
-        else
-        {
-            sr.flipX = true;
-        }
 
         if (xMove > .01f)
         {
@@ -75,10 +67,23 @@ public class PlayerController : Singleton<PlayerController>
         {
             anim.SetFloat("Speed", 0);
         }
+
+        if (_facingRight)
+        {
+            sr.flipX = false;
+        }
+        else
+        {
+            sr.flipX = true;
+        }
     }
 
     public void TakeDamage(int damage)
     {
+        if (isDead)
+            return;
+
+
         currentHealth -= damage;
 
         sliderBar.SetHealth(currentHealth);
@@ -90,9 +95,9 @@ public class PlayerController : Singleton<PlayerController>
 
         if (currentHealth <= 0)
         {
+            currentHealth = 0;
             isDead = true;
             anim.SetBool("IsDead?", isDead);
-            currentHealth = 0;
         }
     }
 
@@ -118,7 +123,7 @@ public class PlayerController : Singleton<PlayerController>
 
             if (pointsLvl == 1)
             {
-                //UIManager.Instance.LevelUp();
+                UIManager.Instance.LevelUp();
             }
 
             currentLvl++;
