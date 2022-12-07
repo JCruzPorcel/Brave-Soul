@@ -53,6 +53,8 @@ public class ObjectSpawner : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.currentGameState != GameState.inGame) return;
+
         if (waveTimer > 0f)
         {
             waveTimer -= Time.deltaTime;

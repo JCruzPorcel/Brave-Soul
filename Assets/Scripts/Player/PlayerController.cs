@@ -12,10 +12,9 @@ public class PlayerController : Singleton<PlayerController>
     public int nextLvl = 10;
     public int pointsLvl;
 
-    [SerializeField] bool GodMode;
+    [SerializeField] public bool godMode;
     bool isDead = false;
     bool _facingRight;
-
 
     //Reference's
     Animator anim;
@@ -23,17 +22,21 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] SliderBar sliderBar;
 
     public bool FacingRight { get { return _facingRight; } }
+    public bool IsDead { get { return isDead; } }
+    public bool GodMode { get => godMode; set => godMode = value; }
 
     private void Start()
     {
         anim = GetComponentInChildren<Animator>();
         sr = GetComponentInChildren<SpriteRenderer>();
         currentHealth = maxHealth;
-        sliderBar.SetMaxtHealth(maxHealth);
     }
 
     private void FixedUpdate()
     {
+        if(GameManager.Instance.currentGameState != GameState.inGame) return;
+
+
         if (!isDead)
         {
             Movement();
@@ -90,7 +93,7 @@ public class PlayerController : Singleton<PlayerController>
 
         anim.SetTrigger("Hit");
 
-        if (GodMode)
+        if (godMode)
             return;
 
         if (currentHealth <= 0)
@@ -129,5 +132,26 @@ public class PlayerController : Singleton<PlayerController>
             currentLvl++;
             nextLvl *= 2;
         }
+    }
+    
+    public void GameMode(int x)
+    {
+        if(GameManager.Instance.currentGameState  == GameState.inGame || GameManager.Instance.currentGameState == GameState.menu)
+        {
+            switch (x)
+            {
+                case 0:
+                    godMode = false;
+                    break;
+
+                case 1:
+                    godMode = true;
+                    break;
+
+                default:
+                    Debug.Log("Error.");
+                    break;
+            }
+        }        
     }
 }

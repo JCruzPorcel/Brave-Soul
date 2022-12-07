@@ -30,6 +30,8 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
     [SerializeField] string unlockButton = "Unlock";
     bool canShowIt = false;
 
+    [SerializeField] GameObject backPanel;
+
     [Space(15)]
     [Header("Character Data")]
     [Tooltip("Change to new character scriptableObject")]
@@ -56,6 +58,15 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
                 ShowSelectedChar();
             }
             canShowIt = false;
+        }
+
+        if (charData.VarName == GameManager.Instance.CharSelected.VarName)
+        {
+            backPanel.SetActive(true);
+        }
+        else
+        {
+            backPanel.SetActive(false);
         }
 
     }
@@ -174,6 +185,7 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
         else if (buyButtonText.text == playButton.ToString())
         {
             LevelLoader.Instance.LoadNextLevel("InGame");
+            GameManager.Instance.playerInputs.SwitchCurrentActionMap("InGame");
         }
         else if (PlayerData.Instance.CurrentGold >= GameManager.Instance.CharSelected.CharPrice)
         {
@@ -183,7 +195,6 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
                 GameManager.Instance.CharSelected.IsOwned = true;
                 canShowIt = true;
             }
-
         }
         else if (buyButtonText.text == unlockButton.ToString())
         {

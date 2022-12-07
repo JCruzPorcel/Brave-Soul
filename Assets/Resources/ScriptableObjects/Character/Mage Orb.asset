@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Mage Orb
   m_EditorClassIdentifier: 
   varName: MageOrb
-  charName: Malmortius
+  charName: Magus
   description: ' Este mago controla el espacio del entorno con su orbe'
   armor: 0
   damage: 6

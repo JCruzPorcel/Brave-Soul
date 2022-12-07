@@ -14,6 +14,7 @@ public class SliderBar : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        SetMaxtHealth(PlayerController.Instance.maxHealth);
     }
 
     private void FixedUpdate()

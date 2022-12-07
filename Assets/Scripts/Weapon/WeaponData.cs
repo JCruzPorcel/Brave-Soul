@@ -12,6 +12,7 @@ public class WeaponData : ScriptableObject
     [SerializeField] private int damage;
     [SerializeField] private int level;
     [SerializeField] private int amount;
+    [SerializeField] private int armorPen;
     [SerializeField] private float attackSpeed;
     [SerializeField] private bool canUpgrade;
     [Space(10)]
@@ -25,6 +26,7 @@ public class WeaponData : ScriptableObject
     public int Amount { get { return amount; } }
     public int Damage { get { return damage; } }
     public int Level { get { return level; } }
+    public int ArmorPen { get { return armorPen; } }
 
     public float AttackSpeed { get { return attackSpeed; } }
 

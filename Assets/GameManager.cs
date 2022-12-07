@@ -78,7 +78,7 @@ public class GameManager : SingletonPersistent<GameManager>
 
     void BackToMenu(InputAction.CallbackContext context)
     {
-        if (currentGameState! != GameState.transition)
+        if (currentGameState! == GameState.mainMenu || currentGameState! == GameState.menu)
         {
             closeMenu = LevelLoader.Instance.m_NextMenu;
             openMenu = LevelLoader.Instance.m_CurrentMenu;
@@ -209,6 +209,12 @@ public class GameManager : SingletonPersistent<GameManager>
         else if (newGameSate == GameState.inGame)
         {
             playerInputs.SwitchCurrentActionMap("InGame");
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else if (newGameSate == GameState.menu)
+        {
+            playerInputs.SwitchCurrentActionMap("InMenu");
+            Cursor.lockState = CursorLockMode.None;
         }
 
         this.currentGameState = newGameSate;

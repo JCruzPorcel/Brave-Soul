@@ -1,4 +1,4 @@
-using UnityEngine;
+ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
@@ -37,6 +37,9 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.currentGameState != GameState.inGame) return;
+
+
         CurrentHp();
 
         while (reset)
@@ -79,6 +82,8 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (GameManager.Instance.currentGameState != GameState.inGame) return;
+
         if (!isDead)
         {
             Movement();

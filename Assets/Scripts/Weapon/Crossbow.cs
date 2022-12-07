@@ -27,18 +27,24 @@ public class Crossbow : MonoBehaviour
 
     private void Update()
     {
-        if (timer > 0)
+        if (GameManager.Instance.currentGameState == GameState.inGame)
         {
-            timer -= Time.deltaTime;
-        }
-
-        RotationMode();
-
-        foreach (GameObject go in arrows)
-        {
-            if (!go.activeInHierarchy)
+            if (!PlayerController.Instance.IsDead)
             {
-                Arrow(go);
+                if (timer > 0)
+                {
+                    timer -= Time.deltaTime;
+                }
+
+                RotationMode();
+
+                foreach (GameObject go in arrows)
+                {
+                    if (!go.activeInHierarchy)
+                    {
+                        Arrow(go);
+                    }
+                }
             }
         }
     }

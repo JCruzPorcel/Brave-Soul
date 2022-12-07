@@ -44,6 +44,24 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleDebug"",
+                    ""type"": ""Button"",
+                    ""id"": ""1b120462-5e21-47ab-8f3a-9b4e53e5e2e3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Return"",
+                    ""type"": ""Button"",
+                    ""id"": ""0512ff64-f49a-4668-a2f4-a4a10667e7b5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -90,6 +108,28 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                     ""action"": ""Submit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b32eecd0-931b-4ea8-b38d-ff6c67e04377"",
+                    ""path"": ""<Keyboard>/backquote"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ToggleDebug"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3e63ba27-24bf-41d7-8576-36fe5706730c"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Return"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -105,6 +145,24 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""ToggleDebug"",
+                    ""type"": ""Button"",
+                    ""id"": ""ff916860-9c37-46d2-85ee-340d6619036e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Return"",
+                    ""type"": ""Button"",
+                    ""id"": ""09d40800-3379-4a65-a7ab-db582c35a552"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -327,6 +385,28 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""23870487-958f-4020-b83e-df4f2aecf5b3"",
+                    ""path"": ""<Keyboard>/backquote"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""ToggleDebug"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c5d86b1-7268-4850-8213-ad00fe87ac2e"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Return"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -365,9 +445,13 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
         m_InMenu = asset.FindActionMap("InMenu", throwIfNotFound: true);
         m_InMenu_Back = m_InMenu.FindAction("Back", throwIfNotFound: true);
         m_InMenu_Submit = m_InMenu.FindAction("Submit", throwIfNotFound: true);
+        m_InMenu_ToggleDebug = m_InMenu.FindAction("ToggleDebug", throwIfNotFound: true);
+        m_InMenu_Return = m_InMenu.FindAction("Return", throwIfNotFound: true);
         // InGame
         m_InGame = asset.FindActionMap("InGame", throwIfNotFound: true);
         m_InGame_Movement = m_InGame.FindAction("Movement", throwIfNotFound: true);
+        m_InGame_ToggleDebug = m_InGame.FindAction("ToggleDebug", throwIfNotFound: true);
+        m_InGame_Return = m_InGame.FindAction("Return", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -429,12 +513,16 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
     private IInMenuActions m_InMenuActionsCallbackInterface;
     private readonly InputAction m_InMenu_Back;
     private readonly InputAction m_InMenu_Submit;
+    private readonly InputAction m_InMenu_ToggleDebug;
+    private readonly InputAction m_InMenu_Return;
     public struct InMenuActions
     {
         private @PlayerActions m_Wrapper;
         public InMenuActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Back => m_Wrapper.m_InMenu_Back;
         public InputAction @Submit => m_Wrapper.m_InMenu_Submit;
+        public InputAction @ToggleDebug => m_Wrapper.m_InMenu_ToggleDebug;
+        public InputAction @Return => m_Wrapper.m_InMenu_Return;
         public InputActionMap Get() { return m_Wrapper.m_InMenu; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -450,6 +538,12 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                 @Submit.started -= m_Wrapper.m_InMenuActionsCallbackInterface.OnSubmit;
                 @Submit.performed -= m_Wrapper.m_InMenuActionsCallbackInterface.OnSubmit;
                 @Submit.canceled -= m_Wrapper.m_InMenuActionsCallbackInterface.OnSubmit;
+                @ToggleDebug.started -= m_Wrapper.m_InMenuActionsCallbackInterface.OnToggleDebug;
+                @ToggleDebug.performed -= m_Wrapper.m_InMenuActionsCallbackInterface.OnToggleDebug;
+                @ToggleDebug.canceled -= m_Wrapper.m_InMenuActionsCallbackInterface.OnToggleDebug;
+                @Return.started -= m_Wrapper.m_InMenuActionsCallbackInterface.OnReturn;
+                @Return.performed -= m_Wrapper.m_InMenuActionsCallbackInterface.OnReturn;
+                @Return.canceled -= m_Wrapper.m_InMenuActionsCallbackInterface.OnReturn;
             }
             m_Wrapper.m_InMenuActionsCallbackInterface = instance;
             if (instance != null)
@@ -460,6 +554,12 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                 @Submit.started += instance.OnSubmit;
                 @Submit.performed += instance.OnSubmit;
                 @Submit.canceled += instance.OnSubmit;
+                @ToggleDebug.started += instance.OnToggleDebug;
+                @ToggleDebug.performed += instance.OnToggleDebug;
+                @ToggleDebug.canceled += instance.OnToggleDebug;
+                @Return.started += instance.OnReturn;
+                @Return.performed += instance.OnReturn;
+                @Return.canceled += instance.OnReturn;
             }
         }
     }
@@ -469,11 +569,15 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_InGame;
     private IInGameActions m_InGameActionsCallbackInterface;
     private readonly InputAction m_InGame_Movement;
+    private readonly InputAction m_InGame_ToggleDebug;
+    private readonly InputAction m_InGame_Return;
     public struct InGameActions
     {
         private @PlayerActions m_Wrapper;
         public InGameActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_InGame_Movement;
+        public InputAction @ToggleDebug => m_Wrapper.m_InGame_ToggleDebug;
+        public InputAction @Return => m_Wrapper.m_InGame_Return;
         public InputActionMap Get() { return m_Wrapper.m_InGame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -486,6 +590,12 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                 @Movement.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnMovement;
                 @Movement.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnMovement;
                 @Movement.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnMovement;
+                @ToggleDebug.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnToggleDebug;
+                @ToggleDebug.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnToggleDebug;
+                @ToggleDebug.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnToggleDebug;
+                @Return.started -= m_Wrapper.m_InGameActionsCallbackInterface.OnReturn;
+                @Return.performed -= m_Wrapper.m_InGameActionsCallbackInterface.OnReturn;
+                @Return.canceled -= m_Wrapper.m_InGameActionsCallbackInterface.OnReturn;
             }
             m_Wrapper.m_InGameActionsCallbackInterface = instance;
             if (instance != null)
@@ -493,6 +603,12 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
                 @Movement.started += instance.OnMovement;
                 @Movement.performed += instance.OnMovement;
                 @Movement.canceled += instance.OnMovement;
+                @ToggleDebug.started += instance.OnToggleDebug;
+                @ToggleDebug.performed += instance.OnToggleDebug;
+                @ToggleDebug.canceled += instance.OnToggleDebug;
+                @Return.started += instance.OnReturn;
+                @Return.performed += instance.OnReturn;
+                @Return.canceled += instance.OnReturn;
             }
         }
     }
@@ -519,9 +635,13 @@ public partial class @PlayerActions : IInputActionCollection2, IDisposable
     {
         void OnBack(InputAction.CallbackContext context);
         void OnSubmit(InputAction.CallbackContext context);
+        void OnToggleDebug(InputAction.CallbackContext context);
+        void OnReturn(InputAction.CallbackContext context);
     }
     public interface IInGameActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnToggleDebug(InputAction.CallbackContext context);
+        void OnReturn(InputAction.CallbackContext context);
     }
 }

@@ -63,6 +63,8 @@ public class LevelLoader : SingletonPersistent<LevelLoader>
         yield return new WaitForSeconds(m_transitionTime);
 
         SceneManager.LoadScene(levelName);
+
+        StartCoroutine(GameStateAfterTransition());
     }
 
     public void CloseMenu(int currentMenu)
@@ -88,7 +90,6 @@ public class LevelLoader : SingletonPersistent<LevelLoader>
         m_animator.SetTrigger("Start");
 
         yield return new WaitForSeconds(m_transitionTime);
-
 
         m_menuList[m_currentMenu].menu.SetActive(false);
         m_menuList[m_nextMenu].menu.SetActive(true);

@@ -15,19 +15,39 @@ public class Axe : MonoBehaviour
     int weaponPen;
     int amountWeapon;
 
+    float timer;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player").transform;
         GetStats(weaponData);
+        timer = attackSpeed;
     }
     private void Update()
     {
         Level();
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+        }
+
+        
+        if (timer <= 0)
+        {
+            for (int i = 0; i < amountWeapon; i++)
+            {
+                GameObject go = Instantiate(weaponData.Prefab, player);
+                go.transform.position = new Vector3(player.position.x, player.position.y + .2f);
+            }
+            timer = attackSpeed;
+        }
     }
 
     private void FixedUpdate()
     {
+
+
         if (onEnter)
         {
             rb.velocity = (transform.up * 500) * Time.fixedDeltaTime;
@@ -90,12 +110,12 @@ public class Axe : MonoBehaviour
         damage = weaponData.Damage;
         attackSpeed = weaponData.AttackSpeed;
         weaponLevel = weaponData.Level;
-        weaponPen = weaponData.ProjectileType.ArmorPen;
+        weaponPen = weaponData.ArmorPen;
         amountWeapon = weaponData.Amount;
     }
 
     void Level()
-    {   
+    {
         switch (weaponLevel)
         {
             case 2:

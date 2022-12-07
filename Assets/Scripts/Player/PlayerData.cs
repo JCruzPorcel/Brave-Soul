@@ -12,19 +12,7 @@ public class PlayerData : SingletonPersistent<PlayerData>
 
     private void Update()
     {
-        currentGold_Text.text = currentGold.ToString("n0");
-
-        if (Input.GetKey(KeyCode.E))
-        {
-            currentGold += 150;
-        }
-        else if (Input.GetKey(KeyCode.Q))
-        {
-            currentGold -= 150;
-        }
-
-       
+        currentGold_Text.text = currentGold.ToString("n0");   
     }
-
 
 }
