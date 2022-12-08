@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -37,19 +38,42 @@ public class GameManager : SingletonPersistent<GameManager>
     [SerializeField] private CharacterData charSelected;                                        //Character
     public CharacterData CharSelected { get => charSelected; set => charSelected = value; }    // Selected
 
+    private float m_MusicVolume;
+    private float m_EffectsVolume;
 
-    private bool m_textDamage = true;
-    private bool m_textFps = false;
-    private bool m_fullScreen = true;
-    private bool m_lowQuality = true;
-    private bool m_daltonism = false;
+    public float MusicVolume { get => m_MusicVolume; set => m_MusicVolume = value; }
+    public float EffectsVolume { get => m_EffectsVolume; set => m_EffectsVolume = value; }
+
+    private bool m_ShowDamage = true;
+    private bool m_ShowFps = false;
+    private bool m_ShowFullScreen = true;
+    private bool m_ShowLowQuality = true;
+    private bool m_ShowDaltonism = false;
+
+    public bool ShowDamage { get => m_ShowDamage; set => m_ShowDamage = value; }
+    public bool ShowFps { get => m_ShowFps; set => m_ShowFps = value; }
+    public bool ShowFullScreen { get => m_ShowFullScreen; set => m_ShowFullScreen = value; }
+    public bool ShowLowQuality { get => m_ShowLowQuality; set => m_ShowLowQuality = value; }
+    public bool ShowDaltonism { get => m_ShowDaltonism; set => m_ShowDaltonism = value; }
+
+    private bool godMode;
+
+    public bool GodMode { get => godMode; set => godMode = value; }
+
 
     private int closeMenu = 0;
     private int openMenu = 2; // Refactor with enum :(
 
+    private int playerGold = 0;
+    [SerializeField] private TMP_Text currentGold_Text;
+
+    public int PlayerGold { get => playerGold; set => playerGold = value; }
 
     private void Start()
     {
+        PlayerData playerData = SaveManager.LoadPlayerData();
+        playerGold = playerData.Gold;
+
         m_SceneTransition.SetActive(true);
         inputSystemModule = GameObject.Find("EventSystem").GetComponent<InputSystemUIInputModule>();
         m_eventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
@@ -59,6 +83,22 @@ public class GameManager : SingletonPersistent<GameManager>
         playerActions.InMenu.Enable();
 
         m_lastButton = m_startButton;
+
+        SaveManager.LoadPlayerData();
+
+    }
+
+    private void Update()
+    {
+        if (currentGameState == GameState.mainMenu)
+        {
+            currentGold_Text.text = playerGold.ToString("n0");
+        }
+
+        if (Input.GetKey(KeyCode.F))
+        {
+            SaveManager.SavePlayerData(this);
+        }
     }
 
     private void LateUpdate()
@@ -119,35 +159,35 @@ public class GameManager : SingletonPersistent<GameManager>
         SetGameState(GameState.menu);
     }
 
-    public void ShowDamage(GameObject DamageCheck)
+    public void wDamage(GameObject DamageCheck)
     {
-        m_textDamage = !m_textDamage;
-        DamageCheck.SetActive(m_textDamage);
+        m_ShowDamage = !m_ShowDamage;
+        DamageCheck.SetActive(m_ShowDamage);
     }
 
-    public void ShowFPS(GameObject FpsCheck)
+    public void FPS(GameObject FpsCheck)
     {
-        m_textFps = !m_textFps;
-        FpsCheck.SetActive(m_textFps);
+        m_ShowFps = !m_ShowFps;
+        FpsCheck.SetActive(m_ShowFps);
     }
 
     public void FullScreen(GameObject FullScreenCheck)
     {
-        m_fullScreen = !m_fullScreen;
-        Screen.fullScreen = !m_fullScreen;
-        FullScreenCheck.SetActive(m_fullScreen);
+        m_ShowFullScreen = !m_ShowFullScreen;
+        Screen.fullScreen = !m_ShowFullScreen;
+        FullScreenCheck.SetActive(m_ShowFullScreen);
     }
 
     public void LowQuality(GameObject LowQualityCheck)
     {
-        m_lowQuality = !m_lowQuality;
-        LowQualityCheck.SetActive(m_lowQuality);
+        m_ShowLowQuality = !m_ShowLowQuality;
+        LowQualityCheck.SetActive(m_ShowLowQuality);
     }
 
     public void Daltonism(GameObject DaltonismCheck)
     {
-        m_daltonism = !m_daltonism;
-        DaltonismCheck.SetActive(m_daltonism);
+        m_ShowDaltonism = !m_ShowDaltonism;
+        DaltonismCheck.SetActive(m_ShowDaltonism);
     }
 
     public void SelectedMenuButton(GameObject newButtonSelected)
@@ -220,4 +260,21 @@ public class GameManager : SingletonPersistent<GameManager>
         this.currentGameState = newGameSate;
     }
 
+    public void GameMode(int x)
+    {
+        switch (x)
+        {
+            case 0:
+                godMode = false;
+                break;
+
+            case 1:
+                godMode = true;
+                break;
+
+            default:
+                Debug.Log("Error.");
+                break;
+        }
+    }
 }

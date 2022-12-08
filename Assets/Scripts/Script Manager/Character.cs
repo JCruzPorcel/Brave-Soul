@@ -32,6 +32,8 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
 
     [SerializeField] GameObject backPanel;
 
+    [SerializeField] GameManager gameManager;
+
     [Space(15)]
     [Header("Character Data")]
     [Tooltip("Change to new character scriptableObject")]
@@ -106,7 +108,7 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
             buyButtonText.text = string.Empty;
             goldObject.SetActive(true);
 
-            if (PlayerData.Instance.CurrentGold >= charData.CharPrice)
+            if (GameManager.Instance.PlayerGold >= charData.CharPrice)
             {
                 pennyGoldText.color = new Color(255, 255, 255, 255); //White
             }
@@ -144,7 +146,7 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
             buyButtonText.text = string.Empty;
             goldObject.SetActive(true);
 
-            if (PlayerData.Instance.CurrentGold >= GameManager.Instance.CharSelected.CharPrice)
+            if (GameManager.Instance.PlayerGold >= GameManager.Instance.CharSelected.CharPrice)
             {
                 pennyGoldText.color = new Color(255, 255, 255, 255); //White
             }
@@ -187,11 +189,12 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
             LevelLoader.Instance.LoadNextLevel("InGame");
             GameManager.Instance.playerInputs.SwitchCurrentActionMap("InGame");
         }
-        else if (PlayerData.Instance.CurrentGold >= GameManager.Instance.CharSelected.CharPrice)
+        else if (GameManager.Instance.PlayerGold >= GameManager.Instance.CharSelected.CharPrice)
         {
             if (!GameManager.Instance.CharSelected.IsOwned && GameManager.Instance.CharSelected.ItsBuyable)
             {
-                PlayerData.Instance.CurrentGold -= GameManager.Instance.CharSelected.CharPrice;
+                GameManager.Instance.PlayerGold -= GameManager.Instance.CharSelected.CharPrice;
+                SaveManager.SavePlayerData(gameManager);
                 GameManager.Instance.CharSelected.IsOwned = true;
                 canShowIt = true;
             }

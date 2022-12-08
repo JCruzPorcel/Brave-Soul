@@ -7,6 +7,7 @@ public class TimerScript : MonoBehaviour
     public bool timerOn = true;
     public TMP_Text timerText;
     public float minutes;
+    public float seconds;
 
     private void Update()
     {
@@ -29,8 +30,8 @@ public class TimerScript : MonoBehaviour
     {
         currentTime++;
 
-         minutes = Mathf.FloorToInt(currentTime / 60);
-        float seconds = Mathf.FloorToInt(currentTime % 60);
+        minutes = Mathf.FloorToInt(currentTime / 60);
+        seconds = Mathf.FloorToInt(currentTime % 60);
 
         timerText.text = string.Format("{0:00} : {1:00}", minutes, seconds);
     }

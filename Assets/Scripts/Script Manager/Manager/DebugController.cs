@@ -16,6 +16,8 @@ public class DebugController : MonoBehaviour
 
     public List<object> commandList;
 
+    GameManager gameManager;
+
     public void OnToggleDebug(InputValue value)
     {
         showConsole = !showConsole;
@@ -32,14 +34,17 @@ public class DebugController : MonoBehaviour
 
     private void Awake()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         GOD_MODE = new DebugCommand<int>("godmode", "Sets the god mode true '1' or false '0'.", "godmode <game_mode>", (x) =>
         {
-            PlayerController.Instance.GameMode(x);
+            GameManager.Instance.GameMode(x);
         });
 
         SET_GOLD = new DebugCommand<int>("set_gold", "Sets the amount of gold.", "set_gold <gold_amount>", (x) =>
         {
-            PlayerData.Instance.CurrentGold = x;
+            GameManager.Instance.PlayerGold = x;
+            SaveManager.SavePlayerData(gameManager);
         });
 
         DONATION = new DebugCommand("donate", "Donate me.", "donate", () =>

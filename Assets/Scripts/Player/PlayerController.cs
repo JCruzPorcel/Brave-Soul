@@ -36,6 +36,7 @@ public class PlayerController : Singleton<PlayerController>
     {
         if(GameManager.Instance.currentGameState != GameState.inGame) return;
 
+        GodMode = GameManager.Instance.GodMode;
 
         if (!isDead)
         {
@@ -132,26 +133,5 @@ public class PlayerController : Singleton<PlayerController>
             currentLvl++;
             nextLvl *= 2;
         }
-    }
-    
-    public void GameMode(int x)
-    {
-        if(GameManager.Instance.currentGameState  == GameState.inGame || GameManager.Instance.currentGameState == GameState.menu)
-        {
-            switch (x)
-            {
-                case 0:
-                    godMode = false;
-                    break;
-
-                case 1:
-                    godMode = true;
-                    break;
-
-                default:
-                    Debug.Log("Error.");
-                    break;
-            }
-        }        
-    }
+    }    
 }
