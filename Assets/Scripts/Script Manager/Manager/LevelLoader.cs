@@ -132,4 +132,15 @@ public class LevelLoader : SingletonPersistent<LevelLoader>
 
     }
 
+
+    public void Reset()
+    {
+        m_menuList[0].menu.SetActive(true);
+        m_menuList[1].menu.SetActive(true);
+
+        for (int i = 2; i < m_menuList.Count; i++)
+        {
+            m_menuList[i].menu.SetActive(false);
+        }
+    }
 }

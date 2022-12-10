@@ -19,8 +19,11 @@ public class Projectile : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position += (transform.up * weaponData.ProjectileType.Speed) * Time.fixedDeltaTime;
-        DisableGO();
+        if (GameManager.Instance.currentGameState == GameState.inGame)
+        {
+            transform.position += (transform.up * weaponData.ProjectileType.Speed) * Time.fixedDeltaTime;
+            DisableGO();
+        }
     }
 
     private void OnEnable()

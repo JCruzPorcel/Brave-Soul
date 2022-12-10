@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -44,6 +45,8 @@ public class GameManager : SingletonPersistent<GameManager>
     public float MusicVolume { get => m_MusicVolume; set => m_MusicVolume = value; }
     public float EffectsVolume { get => m_EffectsVolume; set => m_EffectsVolume = value; }
 
+
+    #region MenuOptions
     private bool m_ShowDamage = true;
     private bool m_ShowFps = false;
     private bool m_ShowFullScreen = true;
@@ -55,19 +58,30 @@ public class GameManager : SingletonPersistent<GameManager>
     public bool ShowFullScreen { get => m_ShowFullScreen; set => m_ShowFullScreen = value; }
     public bool ShowLowQuality { get => m_ShowLowQuality; set => m_ShowLowQuality = value; }
     public bool ShowDaltonism { get => m_ShowDaltonism; set => m_ShowDaltonism = value; }
+    #endregion
+
+
+    #region MenuNav
+    private int closeMenu = 0;
+    private int openMenu = 2; // Refactor with enum :(
+    #endregion
+
+
+    #region PlayerData and Console Commands
+    private int playerGold = 0;
+    [SerializeField] private TMP_Text currentGold_Text;
+
+    public int PlayerGold { get => playerGold; set => playerGold = value; }
 
     private bool godMode;
 
     public bool GodMode { get => godMode; set => godMode = value; }
 
+#endregion
 
-    private int closeMenu = 0;
-    private int openMenu = 2; // Refactor with enum :(
 
-    private int playerGold = 0;
-    [SerializeField] private TMP_Text currentGold_Text;
 
-    public int PlayerGold { get => playerGold; set => playerGold = value; }
+    //Method's
 
     private void Start()
     {
@@ -108,9 +122,14 @@ public class GameManager : SingletonPersistent<GameManager>
         }
     }
 
+
+
+
+    //Button Inputs
+
     void BackToMenu(InputAction.CallbackContext context)
     {
-        if (currentGameState! == GameState.mainMenu || currentGameState! == GameState.menu)
+        if (currentGameState! == GameState.mainMenu)
         {
             closeMenu = LevelLoader.Instance.m_NextMenu;
             openMenu = LevelLoader.Instance.m_CurrentMenu;
@@ -125,6 +144,31 @@ public class GameManager : SingletonPersistent<GameManager>
             }
         }
     }
+
+    public void OnPause(InputValue value)
+    {
+/*
+        if (GameManager.Instance.currentGameState == GameState.inGame || GameManager.Instance.currentGameState == GameState.menu)
+        {
+            MenuManager.Instance.showOptions = !MenuManager.Instance.showOptions;
+
+            MenuManager.Instance.m_Menu.SetActive(MenuManager.Instance.showOptions);
+
+            if (MenuManager.Instance.showOptions)
+            {
+                GameManager.Instance.Menu();
+            }
+            else
+            {
+                GameManager.Instance.InGame();
+            }
+        }*/
+    }
+
+
+
+
+    //GameSates
 
     public void MainMenu()
     {
@@ -151,6 +195,10 @@ public class GameManager : SingletonPersistent<GameManager>
         SetGameState(GameState.menu);
     }
 
+
+
+
+    //Options Menu
     public void Damage(GameObject DamageCheck)
     {
         m_ShowDamage = !m_ShowDamage;
@@ -182,6 +230,10 @@ public class GameManager : SingletonPersistent<GameManager>
         DaltonismCheck.SetActive(m_ShowDaltonism);
     }
 
+
+
+
+    //Menu Nav
     public void SelectedMenuButton(GameObject newButtonSelected)
     {
         if (currentGameState! != GameState.transition)
@@ -192,6 +244,11 @@ public class GameManager : SingletonPersistent<GameManager>
             m_eventSystem.SetSelectedGameObject(m_startButton);
         }
     }
+
+
+
+
+    //GameState and Device
 
     public void CurrentDevice()
     {
@@ -249,6 +306,11 @@ public class GameManager : SingletonPersistent<GameManager>
 
         this.currentGameState = newGameSate;
     }
+
+
+
+
+    //Console Debug
 
     public void GameMode(int x)
     {

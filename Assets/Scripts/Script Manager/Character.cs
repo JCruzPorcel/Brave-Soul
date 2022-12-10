@@ -203,7 +203,4 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
         }
 
     }
-
-    //ToDo: Selected Change Color Black
-    //ToDo: Buy Characters
 }

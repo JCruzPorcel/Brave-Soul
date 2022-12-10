@@ -1,49 +1,89 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class MenuManager : SingletonPersistent<MenuManager>
+public enum MenuState
 {
-    bool showOptions;
+    pressToStart,
+    mainMenu,
+    startGame,
+    powerUp,
+    credits,
+    options
+}
 
-    [SerializeField] GameObject m_Menu;
-    [SerializeField] GameObject m_MenuOptions;
+[System.Serializable]
+public class MenuList
+{
+    public string name;
+    public GameObject go;
+}
 
 
-    private void Update()
+public class MenuManager : Singleton<MenuManager>
+{
+
+    public MenuState currentMenuState = MenuState.pressToStart;
+    public List<MenuList> menuList = new List<MenuList>();
+
+    [SerializeField] float transitionDuration;
+
+    public void PressToStart()
     {
+        StartCoroutine(Transition());
+        SetMenuState(MenuState.pressToStart);
+    }
 
-        if (GameManager.Instance.currentGameState == GameState.inGame || GameManager.Instance.currentGameState == GameState.menu)
-        {
-            if (m_Menu == null)
-            {
-                m_Menu = GameObject.Find("Canvas Menu");
-            }
+    public void MainMenu()
+    {
+        StartCoroutine(Transition());
+        SetMenuState(MenuState.mainMenu);
+    }
 
-            if (showOptions)
-            {
-
-                GameManager.Instance.Menu();
-            }
-            else
-            {
-
-                GameManager.Instance.InGame();
-            }
-
-
-
-        }
-
+    public void StartGame()
+    {
+        StartCoroutine(Transition());
+        SetMenuState(MenuState.startGame);
     }
 
 
-    public void OnPause(InputValue value)
+    private void SetMenuState(MenuState newMenuState)
     {
-        if (GameManager.Instance.currentGameState == GameState.inGame || GameManager.Instance.currentGameState == GameState.menu)
+        foreach (MenuList menu in menuList)
         {
-            showOptions = !showOptions;
-
-            m_MenuOptions.SetActive(showOptions);
+            if(menu.name == newMenuState.ToString())
+            {
+                menu.go.SetActive(true);
+            }
+            else
+            {
+                menu.go.SetActive(false);
+            }
         }
+
+
+
+        if (newMenuState == MenuState.pressToStart)
+        {
+            
+        }
+        else if (newMenuState == MenuState.mainMenu)
+        {
+
+        }
+        else if (newMenuState == MenuState.startGame)
+        {
+
+        }
+
+        this.currentMenuState = newMenuState;
+    }
+
+    IEnumerator Transition()
+    {
+        Debug.Log("espera");
+        yield return new WaitForSeconds(transitionDuration);
+        Debug.Log("listo");
+
     }
 }
