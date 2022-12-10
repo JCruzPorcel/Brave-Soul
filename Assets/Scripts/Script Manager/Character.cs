@@ -42,13 +42,11 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
 
     private void Start()
     {
-        GameManager.Instance.CharSelected = charData;
-
         charName.text = charData.CharName.ToString();
         charImage.sprite = charData.CharImage;
         weaponImage.sprite = charData.StartWeapon.WeaponImage;
 
-        ShowCurrentChar();
+        ShowSelectedChar();
     }
 
     private void Update()
@@ -62,7 +60,7 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
             canShowIt = false;
         }
 
-        if (charData.VarName == GameManager.Instance.CharSelected.VarName)
+        if (GameManager.Instance.CharSelected.VarName == charData.VarName)
         {
             backPanel.SetActive(true);
         }
@@ -174,7 +172,7 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
             m_eventSystem.SetSelectedGameObject(null); // Clean Button
             m_eventSystem.SetSelectedGameObject(buyButton); // New Button
                                                             // Button Nav = None
-                                                            // back button pressed = back
+                                                            // Back button pressed = back
         }
     }
 

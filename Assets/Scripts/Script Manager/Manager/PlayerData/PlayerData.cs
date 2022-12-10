@@ -41,6 +41,5 @@ public class PlayerData
         m_FullScreen = player.ShowFullScreen;
         m_LowQuality = player.ShowLowQuality;
         m_Daltonism = player.ShowDaltonism;
-
     }
 }

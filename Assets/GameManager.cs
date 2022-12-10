@@ -83,9 +83,6 @@ public class GameManager : SingletonPersistent<GameManager>
         playerActions.InMenu.Enable();
 
         m_lastButton = m_startButton;
-
-        SaveManager.LoadPlayerData();
-
     }
 
     private void Update()
@@ -93,11 +90,6 @@ public class GameManager : SingletonPersistent<GameManager>
         if (currentGameState == GameState.mainMenu)
         {
             currentGold_Text.text = playerGold.ToString("n0");
-        }
-
-        if (Input.GetKey(KeyCode.F))
-        {
-            SaveManager.SavePlayerData(this);
         }
     }
 
@@ -159,7 +151,7 @@ public class GameManager : SingletonPersistent<GameManager>
         SetGameState(GameState.menu);
     }
 
-    public void wDamage(GameObject DamageCheck)
+    public void Damage(GameObject DamageCheck)
     {
         m_ShowDamage = !m_ShowDamage;
         DamageCheck.SetActive(m_ShowDamage);
@@ -197,9 +189,7 @@ public class GameManager : SingletonPersistent<GameManager>
             m_lastButton = m_startButton;
             m_startButton = newButtonSelected;
             m_eventSystem.SetSelectedGameObject(null);
-
-            if (playerInputs.currentControlScheme == "Gamepad")
-                m_eventSystem.SetSelectedGameObject(m_startButton);
+            m_eventSystem.SetSelectedGameObject(m_startButton);
         }
     }
 
