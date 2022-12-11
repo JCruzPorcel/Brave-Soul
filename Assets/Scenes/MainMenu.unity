@@ -3631,6 +3631,7 @@ MonoBehaviour:
   m_startButton: {fileID: 1386543572}
   m_lastButton: {fileID: 1386543572}
   playerInputs: {fileID: 429867192}
+  charSelected: {fileID: 0}
   currentGold_Text: {fileID: 353418757}
 --- !u!4 &429867191
 Transform:
@@ -10229,7 +10230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c6f7dda2a68434cbef2810923db71e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charSelected: {fileID: 0}
+  charSelected: {fileID: 11400000, guid: 1fd9f6459438bc447908a23e8603d4e1, type: 2}
 --- !u!4 &1275954755
 Transform:
   m_ObjectHideFlags: 0
