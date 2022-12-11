@@ -60,7 +60,7 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
             canShowIt = false;
         }
 
-        if (GameManager.Instance.CharSelected.VarName == charData.VarName)
+        if (PersistentManager.Instance.CharSelected.VarName == charData.VarName)
         {
             backPanel.SetActive(true);
         }
@@ -125,26 +125,26 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
 
     public void ShowSelectedChar()
     {
-        descriptionName.text = GameManager.Instance.CharSelected.CharName.ToString();
-        descriptionImage.sprite = GameManager.Instance.CharSelected.CharImage;
-        descriptionWeaponImage.sprite = GameManager.Instance.CharSelected.StartWeapon.WeaponImage;
-        description.text = GameManager.Instance.CharSelected.Description.ToString();
-        descriptionPrice.text = GameManager.Instance.CharSelected.CharPrice.ToString();
+        descriptionName.text = PersistentManager.Instance.CharSelected.CharName.ToString();
+        descriptionImage.sprite = PersistentManager.Instance.CharSelected.CharImage;
+        descriptionWeaponImage.sprite = PersistentManager.Instance.CharSelected.StartWeapon.WeaponImage;
+        description.text = PersistentManager.Instance.CharSelected.Description.ToString();
+        descriptionPrice.text = PersistentManager.Instance.CharSelected.CharPrice.ToString();
 
-        if (GameManager.Instance.CharSelected.IsOwned)
+        if (PersistentManager.Instance.CharSelected.IsOwned)
         {
             buyButtonText.text = selectButton.ToString();
             pennyGoldText.color = new Color(255, 255, 255, 255); //White
 
             goldObject.SetActive(false);
         }
-        else if (!GameManager.Instance.CharSelected.IsOwned && GameManager.Instance.CharSelected.ItsBuyable)
+        else if (!PersistentManager.Instance.CharSelected.IsOwned && PersistentManager.Instance.CharSelected.ItsBuyable)
         {
-            descriptionPrice.text = GameManager.Instance.CharSelected.CharPrice.ToString();
+            descriptionPrice.text = PersistentManager.Instance.CharSelected.CharPrice.ToString();
             buyButtonText.text = string.Empty;
             goldObject.SetActive(true);
 
-            if (GameManager.Instance.PlayerGold >= GameManager.Instance.CharSelected.CharPrice)
+            if (GameManager.Instance.PlayerGold >= PersistentManager.Instance.CharSelected.CharPrice)
             {
                 pennyGoldText.color = new Color(255, 255, 255, 255); //White
             }
@@ -153,7 +153,7 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
                 pennyGoldText.color = new Color(255, 0, 0, 255); //Red
             }
         }
-        else if (!GameManager.Instance.CharSelected.IsOwned && !GameManager.Instance.CharSelected.ItsBuyable)
+        else if (!PersistentManager.Instance.CharSelected.IsOwned && !PersistentManager.Instance.CharSelected.ItsBuyable)
         {
             goldObject.SetActive(false);
             buyButtonText.text = unlockButton.ToString();
@@ -164,7 +164,7 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
 
     public void SelectChar()
     {
-        GameManager.Instance.CharSelected = charData;
+        PersistentManager.Instance.CharSelected = charData;
         ShowSelectedChar();
 
         if (GameManager.Instance.playerInputs.currentControlScheme == "Gamepad")
@@ -187,13 +187,13 @@ public class Character : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IP
             LevelLoader.Instance.LoadNextLevel("InGame");
             GameManager.Instance.playerInputs.SwitchCurrentActionMap("InGame");
         }
-        else if (GameManager.Instance.PlayerGold >= GameManager.Instance.CharSelected.CharPrice)
+        else if (GameManager.Instance.PlayerGold >= PersistentManager.Instance.CharSelected.CharPrice)
         {
-            if (!GameManager.Instance.CharSelected.IsOwned && GameManager.Instance.CharSelected.ItsBuyable)
+            if (!PersistentManager.Instance.CharSelected.IsOwned && PersistentManager.Instance.CharSelected.ItsBuyable)
             {
-                GameManager.Instance.PlayerGold -= GameManager.Instance.CharSelected.CharPrice;
+                GameManager.Instance.PlayerGold -= PersistentManager.Instance.CharSelected.CharPrice;
                 SaveManager.SavePlayerData(gameManager);
-                GameManager.Instance.CharSelected.IsOwned = true;
+                PersistentManager.Instance.CharSelected.IsOwned = true;
                 canShowIt = true;
             }
         }

@@ -144,10 +144,11 @@ public class GameManager : SingletonPersistent<GameManager>
             }
         }
     }
-
+    
+    
     public void OnPause(InputValue value)
     {
-/*
+
         if (GameManager.Instance.currentGameState == GameState.inGame || GameManager.Instance.currentGameState == GameState.menu)
         {
             MenuManager.Instance.showOptions = !MenuManager.Instance.showOptions;
@@ -162,7 +163,7 @@ public class GameManager : SingletonPersistent<GameManager>
             {
                 GameManager.Instance.InGame();
             }
-        }*/
+        }
     }
 
 

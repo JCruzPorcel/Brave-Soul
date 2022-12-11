@@ -6,18 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : SingletonPersistent<LevelLoader>
 {
-    [System.Serializable]
-    public class MenuList
-    {
-        public GameObject menu;
-    }
+
+    //List (numbers = name):
+    // 0 = PressToStart
+    // 1 = GeneralButtons;
+    // 2 = MainMenu
+    // 3 = Options
+    // 4 = Power Up
+    // 5 = Credits
+    // 6 = Character Selection
+
 
     public Animator m_animator;
     [SerializeField] private float m_transitionTime;
     [SerializeField] private float m_TransiionToNewGameStateTime;
     [SerializeField] Transform playerContainer;
 
-    public List<MenuList> m_menuList = new List<MenuList>();
+    public List<GameObject> m_menuList = new List<GameObject>();
 
     private string nextSceneName { get; set; }
     private int m_currentMenu { get; set; }
@@ -29,16 +34,23 @@ public class LevelLoader : SingletonPersistent<LevelLoader>
 
     private void Start()
     {
+        m_menuList.Clear();
+
+        for (int i = 0; i < MainMenuListGo.Instance.updateMenuList.Count; i++)
+        {
+            m_menuList.Add(MainMenuListGo.Instance.updateMenuList[i]);
+        }
+
         nextSceneName = "MainMenu";
+
         m_nextMenu = 2;
         m_currentMenu = 0;
-
-        m_menuList[0].menu.SetActive(true);
-        m_menuList[1].menu.SetActive(true);
+        m_menuList[0].SetActive(true);
+        m_menuList[1].SetActive(true);
 
         for (int i = 2; i < m_menuList.Count; i++)
         {
-            m_menuList[i].menu.SetActive(false);
+            m_menuList[i].SetActive(false);
         }
     }
 
@@ -91,8 +103,8 @@ public class LevelLoader : SingletonPersistent<LevelLoader>
 
         yield return new WaitForSeconds(m_transitionTime);
 
-        m_menuList[m_currentMenu].menu.SetActive(false);
-        m_menuList[m_nextMenu].menu.SetActive(true);
+        m_menuList[m_currentMenu].SetActive(false);
+        m_menuList[m_nextMenu].SetActive(true);
 
         StartCoroutine(GameStateAfterTransition());
 
@@ -133,14 +145,38 @@ public class LevelLoader : SingletonPersistent<LevelLoader>
     }
 
 
-    public void Reset()
+    public void ResetScene()
     {
-        m_menuList[0].menu.SetActive(true);
-        m_menuList[1].menu.SetActive(true);
+        StartCoroutine(ReturnToMainMenu());
+    }
+
+    IEnumerator ReturnToMainMenu()
+    {
+        m_animator.SetTrigger("Start");
+
+        yield return new WaitForSeconds(m_transitionTime);
+
+        SceneManager.LoadScene("MainMenu");
+
+        yield return new WaitForSeconds(m_transitionTime);
+
+        m_menuList.Clear();
+
+        m_menuList = MainMenuListGo.Instance.updateMenuList;
+
+
+        nextSceneName = "MainMenu";
+
+        StartCoroutine(GameStateAfterTransition());
+
+        m_nextMenu = 2;
+        m_currentMenu = 0;
+        m_menuList[0].SetActive(true);
+        m_menuList[1].SetActive(true);
 
         for (int i = 2; i < m_menuList.Count; i++)
         {
-            m_menuList[i].menu.SetActive(false);
+            m_menuList[i].SetActive(false);
         }
     }
 }
