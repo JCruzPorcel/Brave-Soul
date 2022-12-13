@@ -11,10 +11,10 @@ public class PlayerCombat : Singleton<PlayerCombat>
 
     private void Start()
     {
-        charData = PersistentManager.Instance.CharSelected;
+        charData = GameManager.Instance.CharSelected;
         Instantiate(charData.CharPrefab, playerContainer);
 
-        weaponData = PersistentManager.Instance.CharSelected.StartWeapon;
+        weaponData = GameManager.Instance.CharSelected.StartWeapon;
         GameObject go = Instantiate(weaponData.Prefab, playerContainer);
         go.transform.position = new Vector3(playerContainer.position.x, playerContainer.position.y + .2f);
 

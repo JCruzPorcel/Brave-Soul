@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class cm_PressToStart : StateMachineBehaviour
 {
-
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
@@ -14,7 +13,7 @@ public class cm_PressToStart : StateMachineBehaviour
     {
         if (Input.anyKeyDown)
         {
-            LevelLoader.Instance.OpenMenu(2);
+            MenuManager.Instance.MainMenu();
         }
     }
 

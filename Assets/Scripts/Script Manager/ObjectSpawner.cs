@@ -30,6 +30,8 @@ public class ObjectSpawner : MonoBehaviour
 
     private void Start()
     {
+        if (GameManager.Instance.currentGameState != GameState.inGame) return;
+
         waveTimer = .5f;
 
         playerPos = GameObject.Find("Player").transform;

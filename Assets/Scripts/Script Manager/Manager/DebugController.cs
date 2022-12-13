@@ -23,7 +23,7 @@ public class DebugController : MonoBehaviour
         showConsole = !showConsole;
     }
 
-    public void OnReturn(InputValue value)
+    public void OnSubmit(InputValue value)
     {
         if (showConsole)
         {
@@ -43,13 +43,13 @@ public class DebugController : MonoBehaviour
 
         SET_GOLD = new DebugCommand<int>("set_gold", "Sets the amount of gold.", "set_gold <gold_amount>", (x) =>
         {
-            GameManager.Instance.PlayerGold = x;
+            gameManager.PlayerGold = x;
             SaveManager.SavePlayerData(gameManager);
         });
 
         DONATION = new DebugCommand("donate", "Donate me.", "donate", () =>
         {
-            LevelLoader.Instance.OpenURL("file:///C:/Users/orion/OneDrive/Escritorio/Web-main/Index.html");
+            Application.OpenURL("file:///C:/Users/orion/OneDrive/Escritorio/Web-main/Index.html");
         });
 
         HELP = new DebugCommand("help", "Shows a list of commands.", "help", () =>

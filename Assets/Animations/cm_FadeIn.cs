@@ -5,8 +5,7 @@ public class cm_FadeIn : StateMachineBehaviour
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        GameObject.Find("LevelLoader").GetComponent<LevelLoader>().m_animator.SetTrigger("Start");
-        GameManager.Instance.Transition();
+        GameObject.Find("MenuManager").GetComponent<MenuManager>().m_animator.SetTrigger("Start");
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

@@ -33,13 +33,13 @@ public class PlayerData
         gold = player.PlayerGold;
 
         //Options Data
-        m_MusicVolume = player.MusicVolume;
+       /* m_MusicVolume = player.MusicVolume;
         m_EffectsVolume = player.MusicVolume;
 
         m_Damage = player.ShowDamage;
         m_Fps = player.ShowFps;
         m_FullScreen = player.ShowFullScreen;
         m_LowQuality = player.ShowLowQuality;
-        m_Daltonism = player.ShowDaltonism;
+        m_Daltonism = player.ShowDaltonism;*/
     }
 }
