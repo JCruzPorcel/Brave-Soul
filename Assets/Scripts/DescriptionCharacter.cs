@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DescriptionCharacter : Singleton<DescriptionCharacter>
-{    
+{
 
     [SerializeField] private TMP_Text characterName;
     [SerializeField] private TMP_Text description;
@@ -30,6 +30,7 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
 
     public bool IsSelected { get => isSelected; set => isSelected = value; }
 
+
     void Update()
     {
         if (currentChar == selectedChar)
@@ -46,7 +47,6 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
                 goldIcon.SetActive(false);
 
                 ButtonState();
-
             }
             else if (!selectedChar.IsOwned && selectedChar.ItsBuyable)
             {
@@ -54,13 +54,13 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
                 goldIcon.SetActive(true);
 
                 BuyCharacter();
-
             }
             else if (!selectedChar.IsOwned && !selectedChar.ItsBuyable)
             {
                 buyButtonTransform.anchoredPosition = new Vector2(0, 0);
                 goldIcon.SetActive(false);
                 buyButton.text = unlock;
+                buyButton.color = Color.magenta;
             }
         }
         else if (currentChar != null)
@@ -92,6 +92,7 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
                 buyButtonTransform.anchoredPosition = new Vector2(0, 0);
                 goldIcon.SetActive(false);
                 buyButton.text = unlock;
+                buyButton.color = Color.magenta;
             }
         }
         else
@@ -123,12 +124,15 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
                 buyButtonTransform.anchoredPosition = new Vector2(0, 0);
                 goldIcon.SetActive(false);
                 buyButton.text = unlock;
+                buyButton.color = Color.magenta;
             }
         }
     }
 
     public void ButtonState()
     {
+        buyButton.color = Color.white;
+
         if (CurrentChar == selectedChar)
         {
             if (!isSelected)
@@ -161,8 +165,7 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
     {
         if (buyButton.text == play)
         {
-            SceneManager.LoadScene("InGame");
-            GameManager.Instance.InGame();
+            MenuManager.Instance.StartGame();
         }
 
         if (selectedChar.IsOwned)
@@ -178,7 +181,8 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
                 GameManager.Instance.PlayerGold -= selectedChar.CharPrice;
                 GameManager.Instance.Save();
             }
-        }else if (!selectedChar.IsOwned && !selectedChar.ItsBuyable)
+        }
+        else if (!selectedChar.IsOwned && !selectedChar.ItsBuyable)
         {
             Application.OpenURL("https://highest.itch.io");
         }
@@ -190,14 +194,41 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
         if (CurrentChar == selectedChar)
         {
             selectedChar.CharPrice.ToString();
+
+            if (GameManager.Instance.PlayerGold >= currentChar.CharPrice)
+            {
+                buyButton.color = Color.white;
+            }
+            else
+            {
+                buyButton.color = Color.red;
+            }
         }
         else if (CurrentChar == null)
         {
             buyButton.text = selectedChar.CharPrice.ToString();
+
+            if (GameManager.Instance.PlayerGold >= selectedChar.CharPrice)
+            {
+                buyButton.color = Color.white;
+            }
+            else
+            {
+                buyButton.color = Color.red;
+            }
         }
         else
         {
             buyButton.text = currentChar.CharPrice.ToString();
-        }
+
+            if (GameManager.Instance.PlayerGold >= currentChar.CharPrice)
+            {
+                buyButton.color = Color.white;
+            }
+            else
+            {
+                buyButton.color = Color.red;
+            }
+        }        
     }
 }

@@ -2,12 +2,16 @@ using UnityEngine;
 
 public class OptionsManager : MonoBehaviour
 {
-    bool showDamage;
-    bool showFps;
-    bool fullscreen;
-    bool highPerformance;
-    bool colorblind;
+    bool showDamage = true;
+    bool showFps = false;
+    bool fullscreen = true;
+    bool highPerformance = true;
+    bool colorblind = false;
 
+    private void Start()
+    {
+        Screen.fullScreen = fullscreen;
+    }
 
 
     public void ShowDamage(GameObject checkmark)
@@ -20,6 +24,8 @@ public class OptionsManager : MonoBehaviour
     public void ShowFps(GameObject checkmark)
     {
         showFps = !showFps;
+
+        Screen.fullScreen = fullscreen;
 
         checkmark.SetActive(showFps);
     }

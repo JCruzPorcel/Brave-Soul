@@ -1,7 +1,7 @@
-using TMPro;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -9,6 +9,7 @@ public enum GameState
     menu,
     inGame,
     gameOver,
+    startGame,
 }
 
 public class GameManager : SingletonPersistent<GameManager>
@@ -20,7 +21,7 @@ public class GameManager : SingletonPersistent<GameManager>
 
 
     #region PlayerData and Console Commands
-    
+
     private bool godMode;
 
     public bool GodMode { get => godMode; set => godMode = value; }
@@ -53,10 +54,9 @@ public class GameManager : SingletonPersistent<GameManager>
         SetGameState(GameState.mainMenu);
     }
 
-    public void InGame()
+    public void StartGame()
     {
-        SetGameState(GameState.inGame);
-        MenuManager.Instance.InGame();
+        SetGameState(GameState.startGame);
     }
 
     public void GameOver()
@@ -64,12 +64,15 @@ public class GameManager : SingletonPersistent<GameManager>
         SetGameState(GameState.gameOver);
     }
 
+    public void InGame()
+    {
+        SetGameState(GameState.inGame);
+    }
+
     public void Menu()
     {
         SetGameState(GameState.menu);
     }
-
-
 
     //GameState
 
@@ -85,6 +88,10 @@ public class GameManager : SingletonPersistent<GameManager>
         else if (newGameSate == GameState.menu)
         {
             Cursor.lockState = CursorLockMode.None;
+        }else if(newGameSate == GameState.startGame)
+        {
+            SceneManager.LoadScene("InGame");
+            InGame();
         }
 
         this.currentGameState = newGameSate;

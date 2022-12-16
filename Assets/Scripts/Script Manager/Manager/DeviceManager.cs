@@ -16,11 +16,11 @@ public class DeviceManager : SingletonPersistent<DeviceManager>
 {
     public DeviceType currentDevice = DeviceType.keyboard;
     public PlayerInput playerInput;
-    [SerializeField] EventSystem eventSystem;
     [SerializeField] InputSystemUIInputModule inputSystemModule;
 
-    private bool showButton;
+    public InputSystemUIInputModule InputSystemModule { get => inputSystemModule; set => inputSystemModule = value; }
 
+    private bool showButton;
 
     public bool ShowButton { get => showButton; set => showButton = value; }
 

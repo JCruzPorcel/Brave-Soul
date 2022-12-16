@@ -16,7 +16,8 @@ public enum MenuState
     Options,
     ExitGame,
     Transition,
-    InGame, //InGame
+    StartGame, //InGame
+    InGame,
     Menu,
     Exit, //EXIT MATCH
 }
@@ -54,7 +55,19 @@ public class MenuManager : Singleton<MenuManager>
     {
         if (currentMenuState == MenuState.Transition || currentMenuState == MenuState.MainMenu || currentMenuState == MenuState.PressToStart) return;
 
-        else if (currentMenuState == MenuState.InGame || currentMenuState == MenuState.Menu) Menu();
+        else if (currentMenuState == MenuState.InGame || currentMenuState == MenuState.Menu)
+        {
+            showMenu = !showMenu;
+
+            if (showMenu)
+            {
+                Menu();
+            }
+            else
+            {
+                InGame();
+            }
+        }
 
         else MainMenu();
     }
@@ -109,7 +122,11 @@ public class MenuManager : Singleton<MenuManager>
 
         StartCoroutine(BlackOut_Transition(MenuState.ExitGame));
     }
-
+    
+    public void StartGame()
+    {
+        StartCoroutine(BlackOut_Transition(MenuState.StartGame));
+    }
 
 
     /// <summary>
@@ -119,20 +136,13 @@ public class MenuManager : Singleton<MenuManager>
     public void InGame()
     {
         if (currentMenuState == MenuState.Transition) return;
-
         SetMenuState(MenuState.InGame);
     }
 
     public void Menu()
     {
         if (currentMenuState == MenuState.Transition) return;
-
-        showMenu = !showMenu;
-
-        if (showMenu)
-            SetMenuState(MenuState.Menu);
-        else
-            InGame();
+        SetMenuState(MenuState.Menu);
     }
 
     public void Exit()
@@ -440,13 +450,17 @@ public class MenuManager : Singleton<MenuManager>
 #endif
 
         }
+        else if (newMenuState == MenuState.StartGame)
+        {
+            GameManager.Instance.StartGame();
+        }
         else if (newMenuState == MenuState.Menu)
         {
             foreach (GameObject menu in menuList)
             {
                 if (menu.name == "Pause Menu")
                 {
-                    menu.SetActive(showMenu);
+                    menu.SetActive(true);
                 }
             }
 
@@ -463,7 +477,7 @@ public class MenuManager : Singleton<MenuManager>
             {
                 if (menu.name == "Pause Menu")
                 {
-                    menu.SetActive(showMenu);
+                    menu.SetActive(false);
                 }
             }
 
