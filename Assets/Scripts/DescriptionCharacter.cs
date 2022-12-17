@@ -165,7 +165,7 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
     {
         if (buyButton.text == play)
         {
-            MenuManager.Instance.StartGame();
+            MenuManager.Instance.InGame();
         }
 
         if (selectedChar.IsOwned)

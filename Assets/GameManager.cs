@@ -9,7 +9,6 @@ public enum GameState
     menu,
     inGame,
     gameOver,
-    startGame,
 }
 
 public class GameManager : SingletonPersistent<GameManager>
@@ -54,11 +53,6 @@ public class GameManager : SingletonPersistent<GameManager>
         SetGameState(GameState.mainMenu);
     }
 
-    public void StartGame()
-    {
-        SetGameState(GameState.startGame);
-    }
-
     public void GameOver()
     {
         SetGameState(GameState.gameOver);
@@ -80,18 +74,20 @@ public class GameManager : SingletonPersistent<GameManager>
     {
         if (newGameSate == GameState.mainMenu)
         {
+            SceneManager.LoadScene("MainMenu");
         }
         else if (newGameSate == GameState.inGame)
         {
             Cursor.lockState = CursorLockMode.Locked;
+
+            if(currentGameState == GameState.mainMenu)
+            {
+                SceneManager.LoadScene("InGame");
+            }
         }
         else if (newGameSate == GameState.menu)
         {
             Cursor.lockState = CursorLockMode.None;
-        }else if(newGameSate == GameState.startGame)
-        {
-            SceneManager.LoadScene("InGame");
-            InGame();
         }
 
         this.currentGameState = newGameSate;

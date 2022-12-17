@@ -13,6 +13,10 @@ public class OptionsManager : MonoBehaviour
         Screen.fullScreen = fullscreen;
     }
 
+    public void Exit()
+    {
+        MenuManager.Instance.Exit();
+    }
 
     public void ShowDamage(GameObject checkmark)
     {

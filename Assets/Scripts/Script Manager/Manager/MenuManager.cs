@@ -15,9 +15,8 @@ public enum MenuState
     Credits,
     Options,
     ExitGame,
-    Transition,
-    StartGame, //InGame
-    InGame,
+    Transition, 
+    InGame, //InGame
     Menu,
     Exit, //EXIT MATCH
 }
@@ -122,21 +121,20 @@ public class MenuManager : Singleton<MenuManager>
 
         StartCoroutine(BlackOut_Transition(MenuState.ExitGame));
     }
-    
-    public void StartGame()
-    {
-        StartCoroutine(BlackOut_Transition(MenuState.StartGame));
-    }
 
 
     /// <summary>
     /// Menu InGame
     /// </summary>
+    /// 
+    
 
     public void InGame()
     {
         if (currentMenuState == MenuState.Transition) return;
-        SetMenuState(MenuState.InGame);
+        else if (GameManager.Instance.currentGameState == GameState.mainMenu) StartCoroutine(BlackOut_Transition(MenuState.InGame));
+        else SetMenuState(MenuState.InGame);
+        
     }
 
     public void Menu()
@@ -450,10 +448,6 @@ public class MenuManager : Singleton<MenuManager>
 #endif
 
         }
-        else if (newMenuState == MenuState.StartGame)
-        {
-            GameManager.Instance.StartGame();
-        }
         else if (newMenuState == MenuState.Menu)
         {
             foreach (GameObject menu in menuList)
@@ -490,7 +484,7 @@ public class MenuManager : Singleton<MenuManager>
         }
         else if (newMenuState == MenuState.Exit)
         {
-            SceneManager.LoadScene("MainMenu");
+            GameManager.Instance.MainMenu();
         }
 
         //Maybe it's a good idea to turn this into a coroutine (I'll think about it)...
