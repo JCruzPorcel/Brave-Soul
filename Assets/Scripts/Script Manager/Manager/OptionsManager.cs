@@ -11,6 +11,13 @@ public class OptionsManager : MonoBehaviour
     private void Start()
     {
         Screen.fullScreen = fullscreen;
+
+
+    }
+
+    private void Update()
+    {
+        Screen.fullScreen = fullscreen;
     }
 
     public void Exit()

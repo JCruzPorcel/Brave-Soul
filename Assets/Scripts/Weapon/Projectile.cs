@@ -52,7 +52,7 @@ public class Projectile : MonoBehaviour
                 armorPen--;
             }
 
-            other.GetComponent<EnemyController>().TakeDamage(weaponData.Damage);
+            other.GetComponent<Enemy>().TakeDamage(weaponData.Damage);
         }
     }
 }

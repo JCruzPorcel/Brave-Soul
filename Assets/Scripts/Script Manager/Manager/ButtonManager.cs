@@ -4,7 +4,7 @@ public class ButtonManager : MonoBehaviour
 {
     public void Back()
     {
-        MenuManager.Instance.MainMenu();
+        MenuManager.Instance.MainMenu();    
     }
 
     public void Options()

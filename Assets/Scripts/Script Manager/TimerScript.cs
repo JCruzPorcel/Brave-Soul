@@ -1,21 +1,25 @@
 using TMPro;
 using UnityEngine;
 
-public class TimerScript : MonoBehaviour
+public class TimerScript : Singleton<TimerScript>
 {
     float timeLeft;
     public bool timerOn = true;
     public TMP_Text timerText;
     public float minutes;
     public float seconds;
+    [SerializeField] float speed;
 
     private void Update()
     {
+        if (GameManager.Instance.currentGameState != GameState.inGame) return;
+
+
         if (timerOn)
         {
             if (minutes < 30)
             {
-                timeLeft += Time.deltaTime;
+                timeLeft += Time.deltaTime * speed;
                 UpdateTimer(timeLeft);
             }
             else

@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: eda5525a6a29aa247a5f05887a5f3746
+guid: d82004022d49b3c4c9c550eed2672ce9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 25
+  spritePixelsToUnits: 15
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -100,29 +101,80 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: run without VFX_0
+      name: death or teleport (168x79)_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 134
-        width: 23
-        height: 18
+        x: 39
+        y: 790
+        width: 29
+        height: 17
+      alignment: 9
+      pivot: {x: 0.5625, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b214f6e43ea20f5489be83e146b1e636
+      internalID: 1901730064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death or teleport (168x79)_1
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 711
+        width: 31
+        height: 17
+      alignment: 9
+      pivot: {x: 0.53, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b14f92f384e1f7b4fa8d9028ddbfe0ff
+      internalID: -2049127831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death or teleport (168x79)_2
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 632
+        width: 40
+        height: 17
+      alignment: 9
+      pivot: {x: 0.4856, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 574cfcc7bf46c7c44a379a4a1a34400e
+      internalID: -1082057009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death or teleport (168x79)_3
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 553
+        width: 51
+        height: 11
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d3a84cdd4dabcb4a990368df1c8e4d3
-      internalID: -1154342505
+      spriteID: de0596a1fc0762c488dcd23b415678c5
+      internalID: -1477351846
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run without VFX_1
+      name: death or teleport (168x79)_4
       rect:
         serializedVersion: 2
-        x: 3
-        y: 116
-        width: 23
-        height: 16
+        x: 27
+        y: 474
+        width: 55
+        height: 10
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 593b6576d790d5a43a40f6278d804e94
-      internalID: -2056904949
+      spriteID: f6aa1488573c41d43b35e91530707716
+      internalID: -1787408502
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run without VFX_2
+      name: death or teleport (168x79)_5
       rect:
         serializedVersion: 2
-        x: 3
-        y: 95
-        width: 23
-        height: 16
+        x: 21
+        y: 395
+        width: 65
+        height: 10
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +224,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c8734a967b8d054087868388ef5f0fd
-      internalID: 2047558247
+      spriteID: 1476377384b530048be99518ac2fe740
+      internalID: -771793681
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run without VFX_3
+      name: death or teleport (168x79)_6
       rect:
         serializedVersion: 2
-        x: 3
-        y: 76
-        width: 23
-        height: 19
+        x: 22
+        y: 316
+        width: 73
+        height: 5
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,20 +245,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6bcf2da3cf3451240a3109524e9a82b0
-      internalID: 504949462
+      spriteID: d64cd2143c46c4340bcf45ac16c4ac2e
+      internalID: 387382571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run without VFX_4
+      name: death or teleport (168x79)_7
       rect:
         serializedVersion: 2
-        x: 3
-        y: 58
-        width: 23
-        height: 18
+        x: 18
+        y: 237
+        width: 83
+        height: 5
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c5e8744f55eb4c489b99dfe9a5d5db1
-      internalID: 1099823070
+      spriteID: e825e2524682df24d87e1ba8f5d06a51
+      internalID: 1372553636
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run without VFX_5
+      name: death or teleport (168x79)_8
       rect:
         serializedVersion: 2
-        x: 3
-        y: 40
-        width: 23
-        height: 16
+        x: 16
+        y: 158
+        width: 88
+        height: 1
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,20 +287,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed209b9ca4c56434e81d6d7598a2aaa8
-      internalID: -1547621789
+      spriteID: 4969996e534ad5e4b8fe76d4b615bd48
+      internalID: 1386948117
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run without VFX_6
+      name: death or teleport (168x79)_9
       rect:
         serializedVersion: 2
-        x: 3
-        y: 19
-        width: 23
-        height: 16
+        x: 15
+        y: 79
+        width: 89
+        height: 1
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,20 +308,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3ab5b5f286357d45a57531e14470130
-      internalID: -1656835146
+      spriteID: e21f94b510bf0dd478ebd4cb57af24b7
+      internalID: 1611347977
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run without VFX_7
+      name: death or teleport (168x79)_10
       rect:
         serializedVersion: 2
-        x: 3
+        x: 15
         y: 0
-        width: 23
-        height: 19
+        width: 89
+        height: 1
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,8 +329,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fdafd115da30af42929c2f5a49f0b36
-      internalID: 1494526697
+      spriteID: 053b1573c289c5449937d00c90de8814
+      internalID: -1542809832
       vertices: []
       indices: 
       edges: []
@@ -294,14 +346,17 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      run without VFX_3: 504949462
-      run without VFX_2: 2047558247
-      run without VFX_7: 1494526697
-      run without VFX_1: -2056904949
-      run without VFX_5: -1547621789
-      run without VFX_0: -1154342505
-      run without VFX_6: -1656835146
-      run without VFX_4: 1099823070
+      death or teleport (168x79)_8: 1386948117
+      death or teleport (168x79)_2: -1082057009
+      death or teleport (168x79)_6: 387382571
+      death or teleport (168x79)_3: -1477351846
+      death or teleport (168x79)_10: -1542809832
+      death or teleport (168x79)_0: 1901730064
+      death or teleport (168x79)_4: -1787408502
+      death or teleport (168x79)_1: -2049127831
+      death or teleport (168x79)_7: 1372553636
+      death or teleport (168x79)_5: -771793681
+      death or teleport (168x79)_9: 1611347977
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

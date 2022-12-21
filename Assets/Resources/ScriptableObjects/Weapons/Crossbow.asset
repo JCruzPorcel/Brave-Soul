@@ -16,11 +16,11 @@ MonoBehaviour:
   itemName: Ballesta
   description: "Una ballesta que lanza flechas. \nQue esperabas que hiciera?..."
   upgradeDescription: "Evoluci\xF3n:"
-  damage: 1
+  damage: 0
   level: 1
   amount: 1
   armorPen: 0
-  attackSpeed: 0.2
+  attackSpeed: 2
   canUpgrade: 1
   prefab: {fileID: 1159165358058712471, guid: ec408c0223115f842ae0a7302dd21877, type: 3}
   weaponImage: {fileID: 1619712158, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}

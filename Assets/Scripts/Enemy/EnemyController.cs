@@ -44,7 +44,7 @@ public class EnemyController : MonoBehaviour
 
         while (reset)
         {
-            Vector2 playerDir = new Vector2(player.position.x, player.position.y);
+            //Vector2 playerDir = new Vector2(player.position.x, player.position.y);
 
 
             int randomX = Random.Range(0, 2);
