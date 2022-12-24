@@ -42,6 +42,10 @@ public class PlayerController : Singleton<PlayerController>
         {
             Movement();
         }
+        else
+        {
+            GameManager.Instance.GameOver();
+        }
     }
 
     void Movement()

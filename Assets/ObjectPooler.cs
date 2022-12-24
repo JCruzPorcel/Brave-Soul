@@ -114,28 +114,33 @@ public class ObjectPooler : MonoBehaviour
         if (currentTime <= 0)
         {
             int randomX = Random.Range(0, 2);
-
-            /*
-            if (TimerScript.Instance.minutes == 3 && TimerScript.Instance.seconds == 0)
+            if (TimerScript.Instance.minutes == 0 && TimerScript.Instance.seconds == 3)
             {
-                Debug.Log("Boss has be Spawned");
                 maxAssassins = 5;
-                maxMages = 1;
-                maxTanks = 2;
+                maxMages = 0;
+                maxTanks = 0;
+            }            
+            else if (TimerScript.Instance.minutes == 3 && TimerScript.Instance.seconds == 0)
+            {
+                maxAssassins = 8;
+                maxMages = 0;
+                maxTanks = 1;
             }
             else if (TimerScript.Instance.minutes == 5 && TimerScript.Instance.seconds == 0)
             {
+                Debug.Log("Boss has be Spawned");
+
                 maxAssassins = 10;
-                maxMages = 2;
-                maxTanks = 4;
+                maxMages = 1;
+                maxTanks = 2;
             }
             else if (TimerScript.Instance.minutes == 7 && TimerScript.Instance.seconds == 0)
             {
                 Debug.Log("Boss has be Spawned");
 
                 maxAssassins = 20;
-                maxMages = 4;
-                maxTanks = 6;
+                maxMages = 2;
+                maxTanks = 3;
             }
             else if (TimerScript.Instance.minutes == 9 && TimerScript.Instance.seconds == 0)
             {
@@ -146,8 +151,8 @@ public class ObjectPooler : MonoBehaviour
             }
             else if (TimerScript.Instance.minutes == 10 && TimerScript.Instance.seconds == 0)
             {
-
-            }*/
+                //ToDo: End Game;
+            }
 
             if (currentAssassins < maxAssassins)
             {

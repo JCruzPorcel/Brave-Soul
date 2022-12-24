@@ -8,6 +8,7 @@ public class TimerScript : Singleton<TimerScript>
     public TMP_Text timerText;
     public float minutes;
     public float seconds;
+    [SerializeField] int maxTime;
     [SerializeField] float speed;
 
     private void Update()
@@ -17,7 +18,7 @@ public class TimerScript : Singleton<TimerScript>
 
         if (timerOn)
         {
-            if (minutes < 30)
+            if (minutes < maxTime)
             {
                 timeLeft += Time.deltaTime * speed;
                 UpdateTimer(timeLeft);
@@ -26,6 +27,8 @@ public class TimerScript : Singleton<TimerScript>
             {
                 timeLeft = 30;
                 timerOn = false;
+
+                GameManager.Instance.GameOver();
             }
         }
     }

@@ -17,6 +17,7 @@ public enum MenuState
     ExitGame,
     Transition, 
     InGame, //InGame
+    GameOver,
     Menu,
     Exit, //EXIT MATCH
 }
@@ -52,7 +53,7 @@ public class MenuManager : Singleton<MenuManager>
 
     public void OnCancel(InputValue value)
     {
-        if (currentMenuState == MenuState.Transition || currentMenuState == MenuState.MainMenu || currentMenuState == MenuState.PressToStart) return;
+        if (currentMenuState == MenuState.Transition || currentMenuState == MenuState.MainMenu || currentMenuState == MenuState.PressToStart || currentMenuState == MenuState.GameOver) return;
 
         else if (currentMenuState == MenuState.InGame || currentMenuState == MenuState.Menu)
         {
@@ -85,6 +86,13 @@ public class MenuManager : Singleton<MenuManager>
         if (currentMenuState == MenuState.Transition) return;
 
         StartCoroutine(BlackOut_Transition(MenuState.MainMenu));
+    }
+
+    public void GameOver()
+    {
+        if (currentMenuState == MenuState.Transition) return;
+
+        SetMenuState(MenuState.GameOver);
     }
 
     public void Options()
@@ -473,6 +481,10 @@ public class MenuManager : Singleton<MenuManager>
                 {
                     menu.SetActive(false);
                 }
+                if (menu.name == "Timer")
+                {
+                    menu.SetActive(true);
+                }
             }
 
             GameManager.Instance.InGame();
@@ -485,6 +497,20 @@ public class MenuManager : Singleton<MenuManager>
         else if (newMenuState == MenuState.Exit)
         {
             GameManager.Instance.MainMenu();
+        }
+        else if(newMenuState == MenuState.GameOver)
+        {
+            foreach (GameObject menu in menuList)
+            {
+                if (menu.name == "Game Over")
+                {
+                    menu.SetActive(true);
+                }
+                if (menu.name == "Timer")
+                {
+                    menu.SetActive(false);
+                }
+            }
         }
 
         //Maybe it's a good idea to turn this into a coroutine (I'll think about it)...
