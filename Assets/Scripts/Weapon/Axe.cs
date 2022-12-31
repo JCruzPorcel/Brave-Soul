@@ -1,56 +1,41 @@
 using UnityEngine;
 
-public class Axe : MonoBehaviour
+public class Axe : Weapon
 {
-    [SerializeField] WeaponData weaponData;
     Rigidbody2D rb;
     bool onEnter;
-    Transform player;
+    [SerializeField] int weaponPen = 0;
+    public int weaponAmount = 3;
     int rr;
 
-    //Stats
-    int weaponLevel;
-    int damage;
-    float attackSpeed;
-    int weaponPen;
-    int amountWeapon;
-
-    float timer;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player").transform;
-        GetStats(weaponData);
-        timer = attackSpeed;
     }
+
+
     private void Update()
     {
-        Level();
         if (timer > 0)
         {
             timer -= Time.deltaTime;
         }
-
-        
-        if (timer <= 0)
+        else
         {
-            for (int i = 0; i < amountWeapon; i++)
-            {
-                GameObject go = Instantiate(weaponData.Prefab, player);
-                go.transform.position = new Vector3(player.position.x, player.position.y + .2f);
-            }
-            timer = attackSpeed;
+            WeaponContainer.Instance.attackSpeedAxe = attackSpeed;
         }
     }
 
     private void FixedUpdate()
     {
-
-
         if (onEnter)
         {
-            rb.velocity = (transform.up * 500) * Time.fixedDeltaTime;
+            transform.position = player.position;
+
+            rb.velocity = (transform.up * Random.Range(450, 500)) * Time.fixedDeltaTime;
+
             onEnter = false;
         }
 
@@ -63,10 +48,8 @@ public class Axe : MonoBehaviour
             transform.Rotate(Vector3.forward, 450 * Time.fixedDeltaTime);
         }
 
-        DisableGO();
+        DespawnRange();
     }
-
-    #region Disable
 
     private void OnEnable()
     {
@@ -79,7 +62,7 @@ public class Axe : MonoBehaviour
         onEnter = true;
     }
 
-    void DisableGO()
+    void DespawnRange()
     {
         if (Mathf.Abs(transform.position.x - player.position.x) > 12 || Mathf.Abs(transform.position.y - player.position.y) > 10)
         {
@@ -91,7 +74,7 @@ public class Axe : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            collision.GetComponent<EnemyController>().TakeDamage(damage);
+            collision.GetComponent<Enemy>().TakeDamage(damage);
 
             if (weaponPen == 0)
             {
@@ -101,44 +84,6 @@ public class Axe : MonoBehaviour
             {
                 weaponPen--;
             }
-        }
-    }
-    #endregion
-
-    void GetStats(WeaponData weaponData)
-    {
-        damage = weaponData.Damage;
-        attackSpeed = weaponData.AttackSpeed;
-        weaponLevel = weaponData.Level;
-        weaponPen = weaponData.ArmorPen;
-        amountWeapon = weaponData.Amount;
-    }
-
-    void Level()
-    {
-        switch (weaponLevel)
-        {
-            case 2:
-                damage = 45;
-                weaponPen = 1;
-                break;
-            case 3:
-                attackSpeed = .75f;
-                amountWeapon = 4;
-                break;
-            case 4:
-                damage = 75;
-                attackSpeed = .50f;
-                amountWeapon = 5;
-                break;
-            case 5:
-                damage = 120;
-                weaponPen = 3;
-                attackSpeed = .25f;
-                //evolution true
-                break;
-            default:
-                break;
         }
     }
 }

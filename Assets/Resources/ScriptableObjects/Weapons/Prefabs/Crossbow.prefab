@@ -97,5 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3adac6c4aef91ab4fbf4cc81cc8374e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 6fd343edff5600d44b5b59fa43b74aba, type: 2}
+  damage: 1
+  level: 0
+  attackSpeed: 1.25
+  player: {fileID: 0}
   arrows: []
+  projectileData: {fileID: 11400000, guid: ef0da4bc101449548b9e28c72825ec20, type: 2}

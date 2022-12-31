@@ -1,28 +1,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Crossbow : MonoBehaviour
+public class Crossbow : Weapon
 {
-    [SerializeField] WeaponData weaponData;
-
-    Transform player;
     Transform container;
     GameObject[] enemies;
     [SerializeField] List<GameObject> arrows = new List<GameObject>();
-    float timer;
+    [SerializeField] ProjectileData projectileData;
+
+    float timerPlus;
 
     private void Start()
     {
         player = GameObject.Find("Player").transform;
         container = GameObject.Find("Container").transform;
 
-        for (int i = 0; i < weaponData.ProjectileType.ProjectileAmount; i++)
+        for (int i = 0; i < 25; i++)
         {
-            GameObject go = Instantiate(weaponData.ProjectileType.Prefab, player);
+            GameObject go = Instantiate(projectileData.Prefab, player);
             go.transform.SetParent(container);
             go.SetActive(false);
             arrows.Add(go);
         }
+
+        transform.SetParent(player);
+
+        PlayerCombat.Instance.sliderBar.MaxAttackSpeed(attackSpeed);
     }
 
     private void Update()
@@ -31,9 +34,24 @@ public class Crossbow : MonoBehaviour
         {
             if (!PlayerController.Instance.IsDead)
             {
+                PlayerCombat.Instance.sliderBar.MaxAttackSpeed(attackSpeed);
+
                 if (timer > 0)
                 {
-                    timer -= Time.deltaTime;
+                    timer -= Time.deltaTime;                    
+                }
+                else
+                {
+                    timer = attackSpeed;
+                }
+
+                if (timerPlus < attackSpeed)
+                {
+                    timerPlus += Time.deltaTime;
+                    PlayerCombat.Instance.sliderBar.NextAttack(timerPlus);
+                }else
+                {
+                    timerPlus = 0;
                 }
 
                 RotationMode();
@@ -60,7 +78,7 @@ public class Crossbow : MonoBehaviour
         go.transform.rotation = Quaternion.Euler(eulerRotation);
 
         go.SetActive(true);
-        timer = weaponData.AttackSpeed;
+        timer = attackSpeed;
     }
 
     private void RotationMode()

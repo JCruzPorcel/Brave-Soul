@@ -1,16 +1,14 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField] WeaponData weaponData;
+    public Transform player;
 
-    Transform player;
-    int armorPen;
-
-    private void Awake()
-    {
-        weaponData.Clone();
-    }
+    public int damage;
+    public int armorPen;
+    public float speed;
 
     private void Start()
     {
@@ -21,14 +19,9 @@ public class Projectile : MonoBehaviour
     {
         if (GameManager.Instance.currentGameState == GameState.inGame)
         {
-            transform.position += (transform.up * weaponData.ProjectileType.Speed) * Time.fixedDeltaTime;
+            transform.position += (transform.up * speed) * Time.fixedDeltaTime;
             DisableGO();
         }
-    }
-
-    private void OnEnable()
-    {
-        armorPen = weaponData.ProjectileType.ArmorPen;
     }
 
     void DisableGO()
@@ -52,7 +45,7 @@ public class Projectile : MonoBehaviour
                 armorPen--;
             }
 
-            other.GetComponent<Enemy>().TakeDamage(weaponData.Damage);
+            other.GetComponent<Enemy>().TakeDamage(damage);
         }
     }
 }

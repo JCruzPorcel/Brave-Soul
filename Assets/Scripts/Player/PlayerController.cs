@@ -27,8 +27,8 @@ public class PlayerController : Singleton<PlayerController>
 
     private void Start()
     {
-        anim = GetComponentInChildren<Animator>();
-        sr = GetComponentInChildren<SpriteRenderer>();
+        anim = GameObject.FindGameObjectWithTag("Character").GetComponent<Animator>();
+        sr = GameObject.FindGameObjectWithTag("Character").GetComponent<SpriteRenderer>();
         currentHealth = maxHealth;
     }
 
@@ -131,7 +131,7 @@ public class PlayerController : Singleton<PlayerController>
 
             if (pointsLvl == 1)
             {
-                UIManager.Instance.LevelUp();
+                //UIManager.Instance.LevelUp();
             }
 
             currentLvl++;

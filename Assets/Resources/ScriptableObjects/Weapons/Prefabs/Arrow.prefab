@@ -120,7 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ea96779c2cfefc4bbcf95a26579455b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 6fd343edff5600d44b5b59fa43b74aba, type: 2}
+  player: {fileID: 0}
+  damage: 10
+  armorPen: 0
+  speed: 7
 --- !u!70 &5072670535865646101
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

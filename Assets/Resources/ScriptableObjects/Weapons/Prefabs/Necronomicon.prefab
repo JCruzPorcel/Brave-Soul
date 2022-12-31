@@ -44,10 +44,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 3059551790232785706}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18b613358fa41b141bcc9074b93d083d, type: 3}
+  m_Script: {fileID: 11500000, guid: c8626b6b0fbd5da49b34ea50ef45d407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 50dd31858c4a47245a0fb8a09759f1e9, type: 2}
+  damage: 0
+  level: 0
+  attackSpeed: 0
+  timer: 0
+  player: {fileID: 0}
+  maxBibles: 0
+  range: 3
 --- !u!212 &7506273197402319377
 SpriteRenderer:
   m_ObjectHideFlags: 0

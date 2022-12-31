@@ -133,7 +133,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7622447082321389213}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 084e7e39a20fba049ad4b01a397e61e5, type: 3}
+  m_Script: {fileID: 11500000, guid: 6abecd44eb2d93f46bac38016b7b723c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponData: {fileID: 11400000, guid: 905fdc98bd9b11f45b10c68a21708b7a, type: 2}
+  damage: 5
+  level: 0
+  attackSpeed: 1.5
+  timer: 0
+  player: {fileID: 0}
+  weaponPen: 0
+  weaponAmount: 5

@@ -3,31 +3,19 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Projectile", menuName = "Create New Projectile")]
 public class ProjectileData : ScriptableObject
 {
-    [SerializeField] private string varName;
     [Header("Stats")]
     [SerializeField] private string itemName;
     [TextArea(5, 5)]
     [SerializeField] private string description;
-    [SerializeField] private string upgradeDescription;
-    [SerializeField] private int armorPen;
-    [SerializeField] private int level;
-    [SerializeField] private int projectileAmount;
-    [SerializeField] private float speed;
+
+    [SerializeField] private int amount;
     [SerializeField] private bool canUpgrade;
     [Space(10)]
     [SerializeField] private GameObject prefab;
-    [SerializeField] private WeaponData weaponType;
+    [SerializeField] private WeaponData weapon;
     [SerializeField] private Sprite image;
-    [SerializeField] private Sprite weaponUpgradeImage;
 
-
-    public string VarName { get { return varName; } }
-
-    public int ProjectileAmount { get { return projectileAmount; } }
-    public int Level { get { return level; } }
-    public int ArmorPen {  get { return armorPen; } }
-
-    public float Speed { get { return speed; } }
+    public int Amount { get { return amount; } }
 
     public bool CanUpgrade { get { return canUpgrade; } }
 
@@ -36,11 +24,10 @@ public class ProjectileData : ScriptableObject
 
     public GameObject Prefab { get { return prefab; } }
 
-    public WeaponData WeaponType { get { return weaponType; } }
+    public WeaponData Weapon { get { return weapon; } }
 
 
     public string ItemName { get => itemName; set => itemName = value; }
     public string Description { get => description; set => description = value; }
-    public string UpgradeDescription { get => upgradeDescription; set => upgradeDescription = value; }
 
 }

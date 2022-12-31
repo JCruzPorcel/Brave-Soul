@@ -11,6 +11,12 @@ public class TimerScript : Singleton<TimerScript>
     [SerializeField] int maxTime;
     [SerializeField] float speed;
 
+    private void Start()
+    {
+        minutes = 0;
+        seconds = 0;
+    }
+
     private void Update()
     {
         if (GameManager.Instance.currentGameState != GameState.inGame) return;
@@ -20,7 +26,7 @@ public class TimerScript : Singleton<TimerScript>
         {
             if (minutes < maxTime)
             {
-                timeLeft += Time.deltaTime * speed;
+                timeLeft += Time.deltaTime + speed;
                 UpdateTimer(timeLeft);
             }
             else

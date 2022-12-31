@@ -15,26 +15,31 @@ public class Enemy : MonoBehaviour
 
     [Min(0)] public int exp;
 
-    public bool isDead;
+    [HideInInspector] public bool isDead;
     public bool is_a_Boss;
     bool reset;
 
-    private int xDir;
-    private int yDir;
+    int xDir;
+    int yDir;
 
-    public Animator animator;
+    [HideInInspector] public Animator animator;
 
-    public SpriteRenderer sr;
+    SpriteRenderer sr;
 
     public Transform player;
 
+    private void Start()
+    {
+        sr = GetComponent<SpriteRenderer>();
+        player = GameObject.FindWithTag("Player").transform;
 
+        currentHP = maxHP;
+    }
 
     private void Update()
     {
         if (GameManager.Instance.currentGameState != GameState.inGame) return;
 
-        Attack();
         MaxDistance();
     }
 
@@ -82,7 +87,7 @@ public class Enemy : MonoBehaviour
         if (currentHP <= 0)
         {
             isDead = true;
-            gameObject.SetActive(false);
+
             if (!is_a_Boss)
             {
                 reset = true;
@@ -139,9 +144,7 @@ public class Enemy : MonoBehaviour
 
             currentHP = maxHP;
 
-
             isDead = false;
-            gameObject.SetActive(true);
 
             reset = false;
         }
@@ -150,14 +153,6 @@ public class Enemy : MonoBehaviour
     public virtual void Attack()
     {
 
-    }
-
-    private void OnEnable()
-    {
-        sr = GetComponent<SpriteRenderer>();
-        player = GameObject.FindWithTag("Player").transform;
-
-        currentHP = maxHP;
     }
 
     private void OnTriggerStay2D(Collider2D col)

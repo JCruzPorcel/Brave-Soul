@@ -21,7 +21,6 @@ public class DebugController : MonoBehaviour
     public void OnToggleDebug(InputValue value)
     {
         showConsole = !showConsole;
-        Debug.Log("Aasdasdasdasdasd");
     }
 
     public void OnSubmit(InputValue value)
