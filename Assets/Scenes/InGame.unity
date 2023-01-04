@@ -3660,8 +3660,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 115.24701}
-  m_SizeDelta: {x: 618.6776, y: 120.9588}
+  m_AnchoredPosition: {x: 0.2279, y: 78}
+  m_SizeDelta: {x: 453.3285, y: 122.6123}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &743886050
 MonoBehaviour:
@@ -7231,6 +7231,7 @@ MonoBehaviour:
   - {fileID: 1800971233}
   - {fileID: 617969082}
   - {fileID: 1346571455}
+  - {fileID: 1800971233}
   buttonList: []
 --- !u!4 &1447928847
 Transform:
@@ -8623,8 +8624,9 @@ GameObject:
   - component: {fileID: 1800971235}
   - component: {fileID: 1800971234}
   - component: {fileID: 1800971238}
+  - component: {fileID: 1800971239}
   m_Layer: 5
-  m_Name: Level Up
+  m_Name: LevelUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8729,8 +8731,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponsList:
   - {fileID: 11400000, guid: 905fdc98bd9b11f45b10c68a21708b7a, type: 2}
-  - {fileID: 11400000, guid: 50dd31858c4a47245a0fb8a09759f1e9, type: 2}
   - {fileID: 11400000, guid: 6fd343edff5600d44b5b59fa43b74aba, type: 2}
+  - {fileID: 11400000, guid: 50dd31858c4a47245a0fb8a09759f1e9, type: 2}
+  - {fileID: 11400000, guid: 896b1ad93b2d59b47812a689253deeac, type: 2}
   currentWeaponList: []
   upgrade: "Evoluci\xF3n:"
   left_Weapon_Name: {fileID: 1577385505}
@@ -8739,21 +8742,34 @@ MonoBehaviour:
   left_Box_Upgrade: {fileID: 1850564050}
   left_Weapon_Upgrade_Image: {fileID: 2062317603}
   left_Upgrade_Text: {fileID: 1017384057}
-  leftData: {fileID: 0}
+  leftData: {fileID: 7622447082321389213, guid: 2afe3f8e412841343ba53060467b5c89, type: 3}
   mid_Weapon_Name: {fileID: 859079757}
   mid_Weapon_Description: {fileID: 370636485}
   mid_Weapon_Image: {fileID: 1908827226}
   mid_Box_Upgrade: {fileID: 103462141}
   mid_Weapon_Upgrade_Image: {fileID: 876320415}
   mid_Upgrade_Text: {fileID: 1437934060}
-  midData: {fileID: 0}
+  midData: {fileID: 1159165358058712471, guid: ec408c0223115f842ae0a7302dd21877, type: 3}
   right_Weapon_Name: {fileID: 1132930535}
   right_Weapon_Description: {fileID: 1437081453}
   right_Weapon_Image: {fileID: 1637372148}
   right_Box_Upgrade: {fileID: 319531873}
   right_Weapon_Upgrade_Image: {fileID: 196286961}
   right_Upgrade_Text: {fileID: 16876688}
-  rightData: {fileID: 0}
+  rightData: {fileID: 3059551790232785706, guid: 6baffa3a479fc3e45a0f3080d7de7ce1, type: 3}
+--- !u!114 &1800971239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800971233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33fd87be3ea53e846981c5a9e97e66de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasLevelUp: {fileID: 1800971233}
 --- !u!1 &1816514211
 GameObject:
   m_ObjectHideFlags: 0
@@ -9354,7 +9370,7 @@ MonoBehaviour:
   currentLvl: 0
   maxLevel: 100
   currentExp: 0
-  nextLvl: 100000
+  nextLvl: 1
   pointsLvl: 0
   godMode: 1
   sliderBar: {fileID: 197462011}
@@ -10268,6 +10284,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1989040296}
   m_CullTransparentMesh: 1
+--- !u!1 &1989054611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1989054613}
+  - component: {fileID: 1989054612}
+  m_Layer: 0
+  m_Name: WeaponStats
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1989054612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989054611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13231d7b71eddbb43b418b9c1a8e011e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level_Axe: 0
+  level_Crossbow: 0
+  level_Necronomicon: 0
+  level_Arrow: 0
+--- !u!4 &1989054613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989054611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2002648030
 GameObject:
   m_ObjectHideFlags: 0

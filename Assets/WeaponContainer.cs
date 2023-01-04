@@ -26,7 +26,9 @@ public class WeaponContainer : Singleton<WeaponContainer>
         mainWeapon = GameManager.Instance.CharSelected.StartWeapon;
 
         attackSpeedAxe = axeGo.GetComponent<Axe>().attackSpeed;
-        axe_Amount = axeGo.GetComponent<Axe>().weaponAmount;
+        axe_Amount = axeGo.GetComponent<Axe>().amount;
+
+
 
         if (mainWeapon.VarName == "Axe")
         {
@@ -35,6 +37,8 @@ public class WeaponContainer : Singleton<WeaponContainer>
                 GameObject go = Instantiate(mainWeapon.Prefab, container);
                 axeList.Add(go);
                 go.SetActive(false);
+
+                axeGo = axeList[0];
             }
             have_Axe = true;
         }
@@ -48,58 +52,61 @@ public class WeaponContainer : Singleton<WeaponContainer>
 
     private void Update()
     {
-        if (have_Axe)
+        if (GameManager.Instance.currentGameState == GameState.inGame)
         {
-            if (timer > 0)
+            if (have_Axe)
             {
-                timer -= Time.deltaTime;
-            }
-            else
-            {
-                if (axeList != null)
+                if (timer > 0)
                 {
-                    foreach (GameObject go in axeList)
+                    timer -= Time.deltaTime;
+                }
+                else
+                {
+                    if (axeList != null)
                     {
-                        if (!go.activeInHierarchy)
+                        foreach (GameObject go in axeList)
                         {
-                            axeQueue.Enqueue(go);
+                            if (!go.activeInHierarchy)
+                            {
+                                axeQueue.Enqueue(go);
+                            }
                         }
                     }
-                }
-                else
-                {
-                    for (int i = 0; i < axe_Amount; i++)
+                    else
                     {
-                        GameObject go = Instantiate(mainWeapon.Prefab, container);
-                        axeList.Add(go);
-                        go.SetActive(false);
+                        for (int i = 0; i < axe_Amount; i++)
+                        {
+                            GameObject go = Instantiate(mainWeapon.Prefab, container);
+                            axeList.Add(go);
+                            go.SetActive(false);
+                        }
                     }
-                }
 
-                if (axeQueue.Count >= axe_Amount)
-                {
-                    for (int i = 0; i < axe_Amount; i++)
+                    if (axeQueue.Count >= axe_Amount)
                     {
-                        GameObject go = axeQueue.Dequeue();
-                        go.SetActive(true);
+                        for (int i = 0; i < axe_Amount; i++)
+                        {
+                            GameObject go = axeQueue.Dequeue();
+                            go.SetActive(true);
+                        }
                     }
-                }
-                else
-                {
-                    for (int i = 0; i < axe_Amount; i++)
+                    else
                     {
-                        GameObject go = Instantiate(axeGo, container);
-                        axeList.Add(go);
+                        for (int i = 0; i < axe_Amount; i++)
+                        {
+                            GameObject go = Instantiate(axeGo, container);
+                            axeList.Add(go);
+                        }
                     }
+
+
+                    attackSpeedAxe = axeGo.GetComponent<Axe>().attackSpeed;
+                    axe_Amount = axeGo.GetComponent<Axe>().amount;
+
+                    timer = attackSpeedAxe;
                 }
 
-
-                attackSpeedAxe = axeGo.GetComponent<Axe>().attackSpeed;
-                axe_Amount = axeGo.GetComponent<Axe>().weaponAmount;
-
-                timer = attackSpeedAxe;
             }
-
         }
     }
 }

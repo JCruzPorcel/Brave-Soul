@@ -129,9 +129,9 @@ public class PlayerController : Singleton<PlayerController>
         {
             pointsLvl++;
 
-            if (pointsLvl == 1)
+            if (pointsLvl > 0)
             {
-                //UIManager.Instance.LevelUp();
+                MenuManager.Instance.LevelUp();
             }
 
             currentLvl++;

@@ -6,7 +6,8 @@ public class Crossbow : Weapon
     Transform container;
     GameObject[] enemies;
     [SerializeField] List<GameObject> arrows = new List<GameObject>();
-    [SerializeField] ProjectileData projectileData;
+    [SerializeField] WeaponData arrowData;
+
 
     float timerPlus;
 
@@ -17,9 +18,9 @@ public class Crossbow : Weapon
 
         transform.position = new Vector2(player.position.x, player.position.y + .25f);
 
-        for (int i = 0; i < 25; i++)
+        for (int i = 0; i < 75; i++)
         {
-            GameObject go = Instantiate(projectileData.Prefab, player);
+            GameObject go = Instantiate(arrowData.Prefab, player);
             go.transform.SetParent(container);
             go.SetActive(false);
             arrows.Add(go);
@@ -34,8 +35,11 @@ public class Crossbow : Weapon
     {
         if (GameManager.Instance.currentGameState == GameState.inGame)
         {
+
             if (!PlayerController.Instance.IsDead)
             {
+                WeaponLevel();
+
                 PlayerCombat.Instance.sliderBar.MaxAttackSpeed(attackSpeed);
 
                 if (timer > 0)
@@ -120,4 +124,33 @@ public class Crossbow : Weapon
         }
         return trans;
     }
+
+    public void WeaponLevel()
+    {
+        level = GetStatsManager.Instance.level_Crossbow;
+
+        switch (level)
+        {
+            case 1:
+                attackSpeed = 4.5f;
+                break;
+
+            case 2:
+                attackSpeed = 4f;
+                break;
+
+            case 3:
+                attackSpeed = 3f;
+                break;
+
+            case 4:
+                attackSpeed = 1.5f;
+                break;
+
+            case 5:
+                attackSpeed = 1f;
+                break;
+        }
+    }
+
 }

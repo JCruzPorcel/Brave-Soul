@@ -106,7 +106,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &3843501970003938628
 CircleCollider2D:
@@ -141,5 +141,6 @@ MonoBehaviour:
   attackSpeed: 1.5
   timer: 0
   player: {fileID: 0}
-  weaponPen: 0
-  weaponAmount: 5
+  weaponData: {fileID: 11400000, guid: 905fdc98bd9b11f45b10c68a21708b7a, type: 2}
+  enemyPen: 0
+  amount: 3

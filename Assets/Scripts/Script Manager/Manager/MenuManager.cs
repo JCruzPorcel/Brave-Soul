@@ -4,7 +4,6 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 public enum MenuState
 {
@@ -15,9 +14,10 @@ public enum MenuState
     Credits,
     Options,
     ExitGame,
-    Transition, 
+    Transition,
     InGame, //InGame
     GameOver,
+    LevelUp,
     Menu,
     Exit, //EXIT MATCH
 }
@@ -47,8 +47,25 @@ public class MenuManager : Singleton<MenuManager>
 
     private void Start()
     {
-        SetMenuState(MenuState.PressToStart);
+        Debug.Log(currentMenuState);
+        //SetMenuState(MenuState.PressToStart);
         canvasGo.SetActive(true);
+    }
+
+    private void Update()
+    {
+        if (currentMenuState != MenuState.LevelUp)
+        {
+            foreach (GameObject menu in menuList)
+            {
+                if (menu.name == "LevelUp")
+                {
+                    menu.SetActive(false);
+                }
+            }
+
+            Time.timeScale = 1;
+        }
     }
 
     public void OnCancel(InputValue value)
@@ -134,21 +151,31 @@ public class MenuManager : Singleton<MenuManager>
     /// <summary>
     /// Menu InGame
     /// </summary>
-    /// 
-    
+
 
     public void InGame()
     {
         if (currentMenuState == MenuState.Transition) return;
         else if (GameManager.Instance.currentGameState == GameState.mainMenu) StartCoroutine(BlackOut_Transition(MenuState.InGame));
         else SetMenuState(MenuState.InGame);
-        
+
     }
 
     public void Menu()
     {
         if (currentMenuState == MenuState.Transition) return;
         SetMenuState(MenuState.Menu);
+    }
+
+    public void LevelUp()
+    {
+        if (currentMenuState == MenuState.Transition) return;
+
+        else if (currentMenuState == MenuState.InGame)
+
+            SetMenuState(MenuState.LevelUp);
+
+        else LevelUp();
     }
 
     public void Exit()
@@ -470,6 +497,8 @@ public class MenuManager : Singleton<MenuManager>
 
             this.currentMenuState = newMenuState;
 
+            Time.timeScale = 0;
+
             return;
 
         }
@@ -489,6 +518,7 @@ public class MenuManager : Singleton<MenuManager>
 
             GameManager.Instance.InGame();
 
+
             this.currentMenuState = newMenuState;
 
             return;
@@ -498,7 +528,7 @@ public class MenuManager : Singleton<MenuManager>
         {
             GameManager.Instance.MainMenu();
         }
-        else if(newMenuState == MenuState.GameOver)
+        else if (newMenuState == MenuState.GameOver)
         {
             foreach (GameObject menu in menuList)
             {
@@ -511,6 +541,25 @@ public class MenuManager : Singleton<MenuManager>
                     menu.SetActive(false);
                 }
             }
+        }
+        else if (newMenuState == MenuState.LevelUp)
+        {
+            foreach (GameObject menu in menuList)
+            {
+                if (menu.name == "LevelUp")
+                {
+                    menu.SetActive(true);
+                }
+            }
+
+            GameManager.Instance.Menu();
+
+            this.currentMenuState = newMenuState;
+
+            Time.timeScale = 0;
+
+            return;
+
         }
 
         //Maybe it's a good idea to turn this into a coroutine (I'll think about it)...

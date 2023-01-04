@@ -4,10 +4,10 @@ public class Axe : Weapon
 {
     Rigidbody2D rb;
     bool onEnter;
-    [SerializeField] int weaponPen = 0;
-    public int weaponAmount = 3;
-    int rr;
+    [SerializeField] int enemyPen = 0;
+    public int amount = 3;
 
+    int rr;
 
     private void Start()
     {
@@ -15,45 +15,52 @@ public class Axe : Weapon
         player = GameObject.FindWithTag("Player").transform;
     }
 
-
     private void Update()
     {
-        if (timer > 0)
+        if (GameManager.Instance.currentGameState == GameState.inGame)
         {
-            timer -= Time.deltaTime;
+            if (timer > 0)
+            {
+                timer -= Time.deltaTime;
+            }
+            else
+            {
+                WeaponContainer.Instance.attackSpeedAxe = attackSpeed;
+            }
         }
-        else
-        {
-            WeaponContainer.Instance.attackSpeedAxe = attackSpeed;
-        }
+
     }
 
     private void FixedUpdate()
     {
-        if (onEnter)
+        if (GameManager.Instance.currentGameState == GameState.inGame)
         {
-            transform.position = player.position;
+            if (onEnter)
+            {
+                transform.position = player.position;
 
-            rb.velocity = (transform.up * Random.Range(450, 500)) * Time.fixedDeltaTime;
+                rb.velocity = (transform.up * Random.Range(450, 500)) * Time.fixedDeltaTime;
 
-            onEnter = false;
+                onEnter = false;
+            }
+
+            if (rr == 1)
+            {
+                transform.Rotate(Vector3.forward, -450 * Time.fixedDeltaTime);
+            }
+            else
+            {
+                transform.Rotate(Vector3.forward, 450 * Time.fixedDeltaTime);
+            }
+
+            DespawnRange();
+
         }
-
-        if (rr == 1)
-        {
-            transform.Rotate(Vector3.forward, -450 * Time.fixedDeltaTime);
-        }
-        else
-        {
-            transform.Rotate(Vector3.forward, 450 * Time.fixedDeltaTime);
-        }
-
-        DespawnRange();
     }
 
     private void OnDisable()
     {
-        WeaponContainer.Instance.attackSpeedAxe = attackSpeed;
+        WeaponLevel();
     }
 
     private void OnEnable()
@@ -81,14 +88,58 @@ public class Axe : Weapon
         {
             collision.GetComponent<Enemy>().TakeDamage(damage);
 
-            if (weaponPen == 0)
+            if (enemyPen == 0)
             {
                 gameObject.SetActive(false);
             }
             else
             {
-                weaponPen--;
+                enemyPen--;
             }
+        }
+    }
+
+
+    public void WeaponLevel()
+    {
+        level = GetStatsManager.Instance.level_Axe;
+
+        switch (level)
+        {
+            case 1:
+                damage = 10;
+                attackSpeed = 1.25f;
+                amount = 3;
+                enemyPen = 0;
+                break;
+
+            case 2:
+                damage = 15;
+                attackSpeed = 1f;
+                amount = 4;
+                enemyPen = 0;
+                break;
+
+            case 3:
+                damage = 30;
+                attackSpeed = .75f;
+                amount = 4;
+                enemyPen = 1;
+                break;
+
+            case 4:
+                damage = 50;
+                attackSpeed = .5f;
+                amount = 5;
+                enemyPen = 2;
+                break;
+
+            case 5:
+                damage = 75;
+                attackSpeed = .35f;
+                amount = 7;
+                enemyPen = 3;
+                break;
         }
     }
 }

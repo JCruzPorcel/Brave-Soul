@@ -9,7 +9,6 @@ public class WeaponData : ScriptableObject
 
     [SerializeField] private string itemName;
     [TextArea(5, 5)][SerializeField] private string description;
-    [SerializeField] private ProjectileData projectile;
     [SerializeField] private bool canUpgrade;
     [Space(10)]
     [SerializeField] private GameObject prefab;
@@ -25,7 +24,6 @@ public class WeaponData : ScriptableObject
     public Sprite UpgradeImage { get { return upgradeImage; } }
 
     public GameObject Prefab { get { return prefab; } }
-
 
     public string ItemName { get => itemName; set => itemName = value; }
     public string Description { get => description; set => description = value; }

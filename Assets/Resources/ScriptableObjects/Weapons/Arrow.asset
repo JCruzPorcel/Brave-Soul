@@ -9,13 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6141809d998d6ab4488c35835e03dfe4, type: 3}
+  m_Script: {fileID: 11500000, guid: 24a1787e53815c44687d7d8fee28ca4f, type: 3}
   m_Name: Arrow
   m_EditorClassIdentifier: 
+  varName: Arrow
   itemName: Flecha (Projectil)
   description: La velocidad de los projectiles aumenta un 5%.
-  amount: 0
   canUpgrade: 1
   prefab: {fileID: 1880289573261091753, guid: 9ae63a42e3299a54d858a36925e4aec5, type: 3}
-  weapon: {fileID: 11400000, guid: 6fd343edff5600d44b5b59fa43b74aba, type: 2}
-  image: {fileID: -203209844, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}
+  weaponImage: {fileID: -203209844, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}
+  upgradeImage: {fileID: 1619712158, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}

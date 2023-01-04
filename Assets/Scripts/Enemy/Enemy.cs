@@ -95,6 +95,8 @@ public class Enemy : MonoBehaviour
             {
                gameObject.SetActive(false);
             }
+
+            GiveExp();
         }
     }
 
@@ -169,4 +171,6 @@ public class Enemy : MonoBehaviour
     public virtual void Attack() { }
 
     public virtual void Spawn() { }
+
+    public virtual void GiveExp() { PlayerController.Instance.TakeExp(exp); }
 }

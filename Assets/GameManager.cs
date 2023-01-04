@@ -16,7 +16,7 @@ public class GameManager : SingletonPersistent<GameManager>
 
     [SerializeField] private CharacterData charSelected;                                        //Character
     public CharacterData CharSelected { get => charSelected; set => charSelected = value; }    // Selected
-    
+
 
     #region PlayerData and Console Commands
 
@@ -87,13 +87,12 @@ public class GameManager : SingletonPersistent<GameManager>
         else if (newGameSate == GameState.menu)
         {
             Cursor.lockState = CursorLockMode.None;
-        }else if (newGameSate == GameState.gameOver)
+        }
+        else if (newGameSate == GameState.gameOver)
         {
-
             Cursor.lockState = CursorLockMode.None;
 
             MenuManager.Instance.GameOver();
-
         }
 
         this.currentGameState = newGameSate;

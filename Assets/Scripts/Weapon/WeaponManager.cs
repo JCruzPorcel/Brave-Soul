@@ -74,7 +74,11 @@ public class WeaponManager : MonoBehaviour
 
     int random_Right;
 
-
+    private void Start()
+    {
+        currentWeaponList.Add(GameManager.Instance.CharSelected.StartWeapon);
+        currentWeapons = 1;
+    }
 
 
     void LeftWeapon()
@@ -222,10 +226,7 @@ public class WeaponManager : MonoBehaviour
             maxWeapon = false;
         }
 
-        Debug.Log(maxWeapon);
-
         return maxWeapon;
-
     }
 
 
@@ -246,17 +247,197 @@ public class WeaponManager : MonoBehaviour
 
     public void LeftWeaponSpawn()
     {
-        Debug.Log("L");
+        bool itOnTheList = false;
+
+        foreach (WeaponData weapon in currentWeaponList)
+        {
+            if (leftData.VarName == weapon.VarName)
+            {
+                itOnTheList = true;
+            }
+        }
+
+        if (!itOnTheList)
+        {
+            currentWeaponList.Add(leftData);
+
+            if (leftData.VarName == "Axe")
+            {
+                WeaponContainer.Instance.have_Axe = true;
+                GetStatsManager.Instance.level_Axe = 1;
+
+                currentWeapons++;
+            }
+            else if (leftData.VarName == "Crossbow")
+            {
+                Instantiate(leftData.Prefab);
+                GetStatsManager.Instance.level_Crossbow = 1;
+
+                currentWeapons++;
+            }
+            else if (leftData.VarName == "Necronomicon")
+            {
+                Instantiate(leftData.Prefab);
+                GetStatsManager.Instance.level_Necronomicon = 1;
+
+                currentWeapons++;
+            }
+            else if (leftData.VarName == "Arrow")
+            {
+                GetStatsManager.Instance.level_Arrow = 1;
+            }
+        }
+        else
+        {
+            if (leftData.VarName == "Axe")
+            {
+                GetStatsManager.Instance.level_Axe++;
+            }
+            else if (leftData.VarName == "Crossbow")
+            {
+                GetStatsManager.Instance.level_Crossbow++;
+            }
+            else if (leftData.VarName == "Necronomicon")
+            {
+                GetStatsManager.Instance.level_Necronomicon++;
+            }
+            else if (leftData.VarName == "Arrow")
+            {
+                GetStatsManager.Instance.level_Arrow++;
+            }
+        }
+
+        PlayerController.Instance.pointsLvl--;
     }
 
     public void MidWeaponSpawn()
     {
-        Debug.Log("M");
+        bool itOnTheList = false;
+
+        foreach (WeaponData weapon in currentWeaponList)
+        {
+            if (midData.VarName == weapon.VarName)
+            {
+                itOnTheList = true;
+            }
+        }
+
+        if (!itOnTheList)
+        {
+            currentWeaponList.Add(midData);
+
+            if (midData.VarName == "Axe")
+            {
+                WeaponContainer.Instance.have_Axe = true;
+                GetStatsManager.Instance.level_Axe = 1;
+
+                currentWeapons++;
+            }
+            else if (midData.VarName == "Crossbow")
+            {
+                Instantiate(midData.Prefab);
+                GetStatsManager.Instance.level_Crossbow = 1;
+
+                currentWeapons++;
+            }
+            else if (midData.VarName == "Necronomicon")
+            {
+                Instantiate(midData.Prefab);
+                GetStatsManager.Instance.level_Necronomicon = 1;
+
+                currentWeapons++;
+            }
+            else if (midData.VarName == "Arrow")
+            {
+                GetStatsManager.Instance.level_Arrow = 1;
+            }
+        }
+        else
+        {
+            if (midData.VarName == "Axe")
+            {
+                GetStatsManager.Instance.level_Axe++;
+            }
+            else if (midData.VarName == "Crossbow")
+            {
+                GetStatsManager.Instance.level_Crossbow++;
+            }
+            else if (midData.VarName == "Necronomicon")
+            {
+                GetStatsManager.Instance.level_Necronomicon++;
+            }
+            else if (midData.VarName == "Arrow")
+            {
+                GetStatsManager.Instance.level_Arrow++;
+            }
+        }
+
+        PlayerController.Instance.pointsLvl--;
     }
 
     public void RightWeaponSpawn()
     {
-        Debug.Log("R");
+        bool itOnTheList = false;
+
+        foreach (WeaponData weapon in currentWeaponList)
+        {
+            if (rightData.VarName == weapon.VarName)
+            {
+                itOnTheList = true;
+            }
+        }
+
+        if (!itOnTheList)
+        {
+            currentWeaponList.Add(rightData);
+
+            if (rightData.VarName == "Axe")
+            {
+                WeaponContainer.Instance.have_Axe = true;
+                GetStatsManager.Instance.level_Axe = 1;
+
+                currentWeapons++;
+            }
+            else if (rightData.VarName == "Crossbow")
+            {
+                Instantiate(rightData.Prefab);
+                GetStatsManager.Instance.level_Crossbow = 1;
+
+                currentWeapons++;
+            }
+            else if (rightData.VarName == "Necronomicon")
+            {
+                Instantiate(rightData.Prefab);
+                GetStatsManager.Instance.level_Necronomicon = 1;
+
+                currentWeapons++;
+            }
+            else if (rightData.VarName == "Arrow")
+            {
+                GetStatsManager.Instance.level_Arrow = 1;
+            }
+        }
+        else
+        {
+            if (rightData.VarName == "Axe")
+            {
+                GetStatsManager.Instance.level_Axe++;
+            }
+            else if (rightData.VarName == "Crossbow")
+            {
+                GetStatsManager.Instance.level_Crossbow++;
+            }
+            else if (rightData.VarName == "Necronomicon")
+            {
+                GetStatsManager.Instance.level_Necronomicon++;
+            }
+            else if (rightData.VarName == "Arrow")
+            {
+                GetStatsManager.Instance.level_Arrow++;
+            }
+        }
+
+        PlayerController.Instance.pointsLvl--;
     }
 
 }
