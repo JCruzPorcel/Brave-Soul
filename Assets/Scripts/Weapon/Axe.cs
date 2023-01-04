@@ -72,6 +72,7 @@ public class Axe : Weapon
         Vector3 rotation = new Vector3(0f, 0f, rx);
         transform.eulerAngles = rotation;
         onEnter = true;
+        WeaponLevel();
     }
 
     void DespawnRange()
@@ -108,35 +109,35 @@ public class Axe : Weapon
         {
             case 1:
                 damage = 10;
-                attackSpeed = 1.25f;
+                attackSpeed = 4.2f;
                 amount = 3;
                 enemyPen = 0;
                 break;
 
             case 2:
                 damage = 15;
-                attackSpeed = 1f;
+                attackSpeed = 3f;
                 amount = 4;
                 enemyPen = 0;
                 break;
 
             case 3:
                 damage = 30;
-                attackSpeed = .75f;
+                attackSpeed = 2f;
                 amount = 4;
                 enemyPen = 1;
                 break;
 
             case 4:
                 damage = 50;
-                attackSpeed = .5f;
+                attackSpeed = 1.5f;
                 amount = 5;
                 enemyPen = 2;
                 break;
 
             case 5:
                 damage = 75;
-                attackSpeed = .35f;
+                attackSpeed = 1f;
                 amount = 7;
                 enemyPen = 3;
                 break;

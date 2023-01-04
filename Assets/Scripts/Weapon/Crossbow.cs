@@ -38,7 +38,7 @@ public class Crossbow : Weapon
 
             if (!PlayerController.Instance.IsDead)
             {
-                WeaponLevel();
+            WeaponLevel();
 
                 PlayerCombat.Instance.sliderBar.MaxAttackSpeed(attackSpeed);
 
@@ -132,23 +132,23 @@ public class Crossbow : Weapon
         switch (level)
         {
             case 1:
-                attackSpeed = 4.5f;
+                attackSpeed = 1.25f;
                 break;
 
             case 2:
-                attackSpeed = 4f;
+                attackSpeed = 1.2f;
                 break;
 
             case 3:
-                attackSpeed = 3f;
+                attackSpeed = 1f;
                 break;
 
             case 4:
-                attackSpeed = 1.5f;
+                attackSpeed = .25f;
                 break;
 
             case 5:
-                attackSpeed = 1f;
+                attackSpeed = .2f;
                 break;
         }
     }
