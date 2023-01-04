@@ -11,7 +11,7 @@ public class WeaponContainer : Singleton<WeaponContainer>
     [SerializeField] Transform container;
     [SerializeField] Transform player;
 
-    [SerializeField] GameObject axeGo;
+    public GameObject axeGo;
 
     public float attackSpeedAxe;
 
@@ -43,6 +43,8 @@ public class WeaponContainer : Singleton<WeaponContainer>
             Instantiate(mainWeapon.Prefab, player);
         }
     }
+
+
 
     private void Update()
     {
@@ -76,7 +78,7 @@ public class WeaponContainer : Singleton<WeaponContainer>
 
                 if (axeQueue.Count >= axe_Amount)
                 {
-                    for(int i = 0; i < axe_Amount; i++)
+                    for (int i = 0; i < axe_Amount; i++)
                     {
                         GameObject go = axeQueue.Dequeue();
                         go.SetActive(true);

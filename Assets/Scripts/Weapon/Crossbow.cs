@@ -15,6 +15,8 @@ public class Crossbow : Weapon
         player = GameObject.Find("Player").transform;
         container = GameObject.Find("Container").transform;
 
+        transform.position = new Vector2(player.position.x, player.position.y + .25f);
+
         for (int i = 0; i < 25; i++)
         {
             GameObject go = Instantiate(projectileData.Prefab, player);
@@ -38,18 +40,20 @@ public class Crossbow : Weapon
 
                 if (timer > 0)
                 {
-                    timer -= Time.deltaTime;                    
+                    timer -= Time.deltaTime;
                 }
                 else
                 {
                     timer = attackSpeed;
                 }
 
+
                 if (timerPlus < attackSpeed)
                 {
                     timerPlus += Time.deltaTime;
                     PlayerCombat.Instance.sliderBar.NextAttack(timerPlus);
-                }else
+                }
+                else
                 {
                     timerPlus = 0;
                 }

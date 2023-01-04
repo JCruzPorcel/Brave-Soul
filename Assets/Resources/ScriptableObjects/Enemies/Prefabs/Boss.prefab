@@ -185,12 +185,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  maxHP: 150
+  maxHP: 1
   speed: 1.35
   exp: 0
   isDead: 0
   is_a_Boss: 1
+  reset: 0
   animator: {fileID: 0}
-  sr: {fileID: 0}
   player: {fileID: 0}
-  minAttackRange: 1

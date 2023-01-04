@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour
 
     [HideInInspector] public bool isDead;
     public bool is_a_Boss;
-    bool reset;
+    public bool reset;
 
     int xDir;
     int yDir;
@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
     {
         if (GameManager.Instance.currentGameState != GameState.inGame) return;
 
-        MaxDistance();
+        DespawnDistance();
     }
 
     private void FixedUpdate()
@@ -91,6 +91,9 @@ public class Enemy : MonoBehaviour
             if (!is_a_Boss)
             {
                 reset = true;
+            }else
+            {
+               gameObject.SetActive(false);
             }
         }
     }
@@ -101,7 +104,7 @@ public class Enemy : MonoBehaviour
         CurrentHealth();
     }
 
-    private void MaxDistance()
+    private void DespawnDistance()
     {
         if (Mathf.Abs(transform.position.y - player.transform.position.y) > 7 ||
            (Mathf.Abs(transform.position.x - player.transform.position.x) > 12))
@@ -150,19 +153,20 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public virtual void Attack()
-    {
-
-    }
-
     private void OnTriggerStay2D(Collider2D col)
     {
         if (!isDead)
         {
-            if (col.tag == "Player")
+            if (col.tag == "Character")
             {
                 PlayerController.Instance.TakeDamage(damage);
             }
         }
     }
+
+
+
+    public virtual void Attack() { }
+
+    public virtual void Spawn() { }
 }

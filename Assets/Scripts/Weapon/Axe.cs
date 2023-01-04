@@ -51,6 +51,11 @@ public class Axe : Weapon
         DespawnRange();
     }
 
+    private void OnDisable()
+    {
+        WeaponContainer.Instance.attackSpeedAxe = attackSpeed;
+    }
+
     private void OnEnable()
     {
         int rx = Random.Range(0, 2);

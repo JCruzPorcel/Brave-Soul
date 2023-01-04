@@ -5321,7 +5321,7 @@ MonoBehaviour:
     amount: 50
   - name: Boss
     prefab: {fileID: 2569170694288880302, guid: 4dad526c718d36747ad2963f661ce961, type: 3}
-    amount: 1
+    amount: 3
   Assassin: []
   Tank: []
   Mage: []
@@ -9348,7 +9348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 2.7
-  maxHealth: 1
+  maxHealth: 22
   currentHealth: 0
   heal: 100
   currentLvl: 0

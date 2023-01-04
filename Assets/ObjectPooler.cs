@@ -128,7 +128,7 @@ public class ObjectPooler : MonoBehaviour
             }
             else if (TimerScript.Instance.minutes == 5 && TimerScript.Instance.seconds == 0)
             {
-                Debug.Log("Boss has be Spawned");
+                canSpawnBosses = true;
 
                 maxAssassins = 10;
                 maxMages = 1;
@@ -136,7 +136,7 @@ public class ObjectPooler : MonoBehaviour
             }
             else if (TimerScript.Instance.minutes == 7 && TimerScript.Instance.seconds == 0)
             {
-                Debug.Log("Boss has be Spawned");
+                canSpawnBosses = true;
 
                 maxAssassins = 20;
                 maxMages = 2;
@@ -144,7 +144,8 @@ public class ObjectPooler : MonoBehaviour
             }
             else if (TimerScript.Instance.minutes == 9 && TimerScript.Instance.seconds == 0)
             {
-                Debug.Log("Boss has be spawned");
+                canSpawnBosses = true;
+
                 maxAssassins = 50;
                 maxMages = 25;
                 maxTanks = 18;
@@ -213,11 +214,10 @@ public class ObjectPooler : MonoBehaviour
 
             if (canSpawnBosses)
             {
-                if(currentBosses == Boss.Count)
+                if(currentBosses >= Boss.Count)
                 {
                     currentBosses = 0;
                 }
-
 
                 if (randomX == 0)
                 {
