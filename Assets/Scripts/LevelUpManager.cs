@@ -5,11 +5,6 @@ public class LevelUpManager : Singleton<LevelUpManager>
     [SerializeField] GameObject canvasLevelUp;
     public bool maxLevel = false;
 
-    private void Update()
-    {
-        Debug.Log(maxLevel);
-    }
-
     public void WindowLevelState()
     {
         if (PlayerController.Instance.pointsLvl <= 0)
