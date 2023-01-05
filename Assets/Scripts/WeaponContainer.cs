@@ -25,7 +25,6 @@ public class WeaponContainer : Singleton<WeaponContainer>
     {
         mainWeapon = GameManager.Instance.CharSelected.StartWeapon;
 
-        attackSpeedAxe = axeGo.GetComponent<Axe>().attackSpeed;
         axe_Amount = axeGo.GetComponent<Axe>().amount;
 
 
@@ -41,6 +40,7 @@ public class WeaponContainer : Singleton<WeaponContainer>
                 axeGo = axeList[0];
             }
             have_Axe = true;
+            attackSpeedAxe = axeList[0].GetComponent<Axe>().attackSpeed;
         }
         else
         {
@@ -100,8 +100,8 @@ public class WeaponContainer : Singleton<WeaponContainer>
                     }
 
 
-                    attackSpeedAxe = axeGo.GetComponent<Axe>().attackSpeed;
-                    axe_Amount = axeGo.GetComponent<Axe>().amount;
+                    attackSpeedAxe = axeList[0].GetComponent<Axe>().attackSpeed;
+                    axe_Amount = axeList[0].GetComponent<Axe>().amount;
 
                     timer = attackSpeedAxe;
                 }

@@ -52,22 +52,6 @@ public class MenuManager : Singleton<MenuManager>
         canvasGo.SetActive(true);
     }
 
-    private void Update()
-    {
-        if (currentMenuState != MenuState.LevelUp)
-        {
-            foreach (GameObject menu in menuList)
-            {
-                if (menu.name == "LevelUp")
-                {
-                    menu.SetActive(false);
-                }
-            }
-
-            Time.timeScale = 1;
-        }
-    }
-
     public void OnCancel(InputValue value)
     {
         if (currentMenuState == MenuState.Transition || currentMenuState == MenuState.MainMenu || currentMenuState == MenuState.PressToStart || currentMenuState == MenuState.GameOver) return;
@@ -172,10 +156,9 @@ public class MenuManager : Singleton<MenuManager>
         if (currentMenuState == MenuState.Transition) return;
 
         else if (currentMenuState == MenuState.InGame)
-
+        {
             SetMenuState(MenuState.LevelUp);
-
-        else LevelUp();
+        }
     }
 
     public void Exit()
@@ -396,6 +379,9 @@ public class MenuManager : Singleton<MenuManager>
                     menu.SetActive(true);
                 }
             }
+
+            Time.timeScale = 1;
+
         }
         else if (newMenuState == MenuState.Options)
         {
@@ -514,12 +500,17 @@ public class MenuManager : Singleton<MenuManager>
                 {
                     menu.SetActive(true);
                 }
+                if (menu.name == "LevelUp")
+                {
+                    menu.SetActive(false);
+                }
             }
 
             GameManager.Instance.InGame();
 
-
             this.currentMenuState = newMenuState;
+
+            Time.timeScale = 1;
 
             return;
 

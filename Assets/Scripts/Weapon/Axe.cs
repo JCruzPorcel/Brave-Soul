@@ -28,7 +28,6 @@ public class Axe : Weapon
                 WeaponContainer.Instance.attackSpeedAxe = attackSpeed;
             }
         }
-
     }
 
     private void FixedUpdate()
@@ -54,13 +53,8 @@ public class Axe : Weapon
             }
 
             DespawnRange();
-
+            WeaponLevel();
         }
-    }
-
-    private void OnDisable()
-    {
-        WeaponLevel();
     }
 
     private void OnEnable()
@@ -72,7 +66,6 @@ public class Axe : Weapon
         Vector3 rotation = new Vector3(0f, 0f, rx);
         transform.eulerAngles = rotation;
         onEnter = true;
-        WeaponLevel();
     }
 
     void DespawnRange()

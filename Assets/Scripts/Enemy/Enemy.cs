@@ -86,6 +86,7 @@ public class Enemy : MonoBehaviour
     {
         if (currentHP <= 0)
         {
+            GiveExp();
             isDead = true;
 
             if (!is_a_Boss)
@@ -96,7 +97,6 @@ public class Enemy : MonoBehaviour
                gameObject.SetActive(false);
             }
 
-            GiveExp();
         }
     }
 

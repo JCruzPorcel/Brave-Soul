@@ -12,6 +12,7 @@ public class WeaponManager : MonoBehaviour
 
     int currentWeapons = 0;
 
+    #region Left Panel
     [Space(10)]
     [Header("LEFT")]
 
@@ -32,7 +33,9 @@ public class WeaponManager : MonoBehaviour
 
     int random_Left;
 
+    #endregion
 
+    #region Mid Panel
     [Space(10)]
     [Header("MID")]
 
@@ -51,9 +54,13 @@ public class WeaponManager : MonoBehaviour
 
     [SerializeField] WeaponData midData;
 
+    [SerializeField] GameObject midCanvas;
+
     int random_Mid;
 
+    #endregion
 
+    #region Right Panel
     [Space(10)]
     [Header("RIGHT")]
 
@@ -72,7 +79,12 @@ public class WeaponManager : MonoBehaviour
 
     [SerializeField] WeaponData rightData;
 
+    [SerializeField] GameObject rightCanvas;
+
     int random_Right;
+
+    #endregion
+
 
     private void Start()
     {
@@ -83,6 +95,25 @@ public class WeaponManager : MonoBehaviour
 
     void LeftWeapon()
     {
+        if (currentWeapons >= 3)
+        {
+            if (currentWeaponList.Count == 0)
+            {
+                MenuManager.Instance.InGame();
+                LevelUpManager.Instance.maxLevel = true;
+                return;
+            }
+        }
+        else
+        {
+            if (weaponsList.Count == 0)
+            {
+                MenuManager.Instance.InGame();
+                LevelUpManager.Instance.maxLevel = true;
+                return;
+            }
+        }
+
         if (!MaxWeapons())
         {
             random_Left = Random.Range(0, weaponsList.Count);
@@ -127,6 +158,23 @@ public class WeaponManager : MonoBehaviour
 
     void MidWeapon()
     {
+        if (currentWeapons >= 3)
+        {
+            if (currentWeaponList.Count < 3)
+            {
+                midCanvas.SetActive(false);
+                return;
+            }
+        }
+        else
+        {
+            if (weaponsList.Count < 3)
+            {
+                midCanvas.SetActive(false);
+                return;
+            }
+        }
+
         if (!MaxWeapons())
         {
             random_Mid = Random.Range(0, weaponsList.Count);
@@ -137,7 +185,6 @@ public class WeaponManager : MonoBehaviour
             random_Mid = Random.Range(0, currentWeaponList.Count);
             midData = currentWeaponList[random_Mid];
         }
-
 
         while (midData == leftData || midData == rightData)
         {
@@ -171,6 +218,23 @@ public class WeaponManager : MonoBehaviour
 
     void RightWeapon()
     {
+        if (currentWeapons >= 3)
+        {
+            if (currentWeaponList.Count < 2)
+            {
+                rightCanvas.SetActive(false);
+                return;
+            }
+        }
+        else
+        {
+            if (weaponsList.Count < 2)
+            {
+                rightCanvas.SetActive(false);
+                return;
+            }
+        }
+
         if (!MaxWeapons())
         {
             random_Right = Random.Range(0, weaponsList.Count);
@@ -213,7 +277,9 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    bool MaxWeapons()
+
+
+    private bool MaxWeapons()
     {
         bool maxWeapon;
 
@@ -232,9 +298,9 @@ public class WeaponManager : MonoBehaviour
 
     private void OnEnable()
     {
-        LeftWeapon();
         MidWeapon();
         RightWeapon();
+        LeftWeapon();
     }
 
     private void OnDisable()
@@ -292,22 +358,47 @@ public class WeaponManager : MonoBehaviour
             if (leftData.VarName == "Axe")
             {
                 GetStatsManager.Instance.level_Axe++;
+
+                if (GetStatsManager.Instance.level_Axe >= 5)
+                {
+                    currentWeaponList.Remove(leftData);
+                    weaponsList.Remove(leftData);
+                }
             }
             else if (leftData.VarName == "Crossbow")
             {
                 GetStatsManager.Instance.level_Crossbow++;
+
+                if (GetStatsManager.Instance.level_Crossbow >= 5)
+                {
+                    currentWeaponList.Remove(leftData);
+                    weaponsList.Remove(leftData);
+                }
             }
             else if (leftData.VarName == "Necronomicon")
             {
                 GetStatsManager.Instance.level_Necronomicon++;
+
+                if (GetStatsManager.Instance.level_Necronomicon >= 5)
+                {
+                    currentWeaponList.Remove(leftData);
+                    weaponsList.Remove(leftData);
+                }
             }
             else if (leftData.VarName == "Arrow")
             {
                 GetStatsManager.Instance.level_Arrow++;
+
+                if (GetStatsManager.Instance.level_Arrow >= 5)
+                {
+                    currentWeaponList.Remove(leftData);
+                    weaponsList.Remove(leftData);
+                }
             }
         }
 
         PlayerController.Instance.pointsLvl--;
+        LevelUpManager.Instance.WindowLevelState();
     }
 
     public void MidWeaponSpawn()
@@ -357,22 +448,47 @@ public class WeaponManager : MonoBehaviour
             if (midData.VarName == "Axe")
             {
                 GetStatsManager.Instance.level_Axe++;
+
+                if (GetStatsManager.Instance.level_Axe >= 5)
+                {
+                    currentWeaponList.Remove(midData);
+                    weaponsList.Remove(midData);
+                }
             }
             else if (midData.VarName == "Crossbow")
             {
                 GetStatsManager.Instance.level_Crossbow++;
+
+                if (GetStatsManager.Instance.level_Crossbow >= 5)
+                {
+                    currentWeaponList.Remove(midData);
+                    weaponsList.Remove(midData);
+                }
             }
             else if (midData.VarName == "Necronomicon")
             {
                 GetStatsManager.Instance.level_Necronomicon++;
+
+                if (GetStatsManager.Instance.level_Necronomicon >= 5)
+                {
+                    currentWeaponList.Remove(midData);
+                    weaponsList.Remove(midData);
+                }
             }
             else if (midData.VarName == "Arrow")
             {
                 GetStatsManager.Instance.level_Arrow++;
+
+                if (GetStatsManager.Instance.level_Arrow >= 5)
+                {
+                    currentWeaponList.Remove(midData);
+                    weaponsList.Remove(midData);
+                }
             }
         }
 
         PlayerController.Instance.pointsLvl--;
+        LevelUpManager.Instance.WindowLevelState();
     }
 
     public void RightWeaponSpawn()
@@ -422,22 +538,46 @@ public class WeaponManager : MonoBehaviour
             if (rightData.VarName == "Axe")
             {
                 GetStatsManager.Instance.level_Axe++;
+
+                if (GetStatsManager.Instance.level_Axe >= 5)
+                {
+                    currentWeaponList.Remove(rightData);
+                    weaponsList.Remove(rightData);
+                }
             }
             else if (rightData.VarName == "Crossbow")
             {
                 GetStatsManager.Instance.level_Crossbow++;
+
+                if (GetStatsManager.Instance.level_Crossbow >= 5)
+                {
+                    currentWeaponList.Remove(rightData);
+                    weaponsList.Remove(rightData);
+                }
             }
             else if (rightData.VarName == "Necronomicon")
             {
                 GetStatsManager.Instance.level_Necronomicon++;
+
+                if (GetStatsManager.Instance.level_Necronomicon >= 5)
+                {
+                    currentWeaponList.Remove(rightData);
+                    weaponsList.Remove(rightData);
+                }
             }
             else if (rightData.VarName == "Arrow")
             {
                 GetStatsManager.Instance.level_Arrow++;
+
+                if (GetStatsManager.Instance.level_Arrow >= 5)
+                {
+                    currentWeaponList.Remove(rightData);
+                    weaponsList.Remove(rightData);
+                }
             }
         }
 
         PlayerController.Instance.pointsLvl--;
+        LevelUpManager.Instance.WindowLevelState();
     }
-
 }

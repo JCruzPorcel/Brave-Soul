@@ -22,6 +22,7 @@ public class Projectile : MonoBehaviour
         {
             transform.position += (transform.up * speed) * Time.fixedDeltaTime;
             DespawnDistance();
+            WeaponLevel();
         }
     }
 
@@ -48,12 +49,6 @@ public class Projectile : MonoBehaviour
 
             other.GetComponent<Enemy>().TakeDamage(damage);
         }
-    }
-
-
-    private void OnEnable()
-    {
-        WeaponLevel();
     }
 
     public void WeaponLevel()
@@ -88,7 +83,7 @@ public class Projectile : MonoBehaviour
 
             case 5:
                 damage = 50;
-                speed = 75f;
+                speed = 50f;
                 enemyPen = 5;
                 break;
         }

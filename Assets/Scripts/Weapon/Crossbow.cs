@@ -18,7 +18,7 @@ public class Crossbow : Weapon
 
         transform.position = new Vector2(player.position.x, player.position.y + .25f);
 
-        for (int i = 0; i < 75; i++)
+        for (int i = 0; i < 25; i++)
         {
             GameObject go = Instantiate(arrowData.Prefab, player);
             go.transform.SetParent(container);
@@ -38,7 +38,7 @@ public class Crossbow : Weapon
 
             if (!PlayerController.Instance.IsDead)
             {
-            WeaponLevel();
+                WeaponLevel();
 
                 PlayerCombat.Instance.sliderBar.MaxAttackSpeed(attackSpeed);
 

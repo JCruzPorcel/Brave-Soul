@@ -201,7 +201,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: FireSkull
+      name: FireSkul
       rect:
         serializedVersion: 2
         x: 293
@@ -587,7 +587,7 @@ TextureImporter:
         width: 25
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -632,8 +632,8 @@ TextureImporter:
       Chest: -587121809
       More_Gold: -1349385190
       Ress: 1203416975
+      FireSkul: 442478159
       Armor: -1968779048
-      FireSkull: 442478159
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

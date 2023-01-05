@@ -34,7 +34,7 @@ public class PlayerController : Singleton<PlayerController>
 
     private void FixedUpdate()
     {
-        if(GameManager.Instance.currentGameState != GameState.inGame) return;
+        if (GameManager.Instance.currentGameState != GameState.inGame) return;
 
         GodMode = GameManager.Instance.GodMode;
 
@@ -127,15 +127,15 @@ public class PlayerController : Singleton<PlayerController>
 
         if (currentExp >= nextLvl)
         {
-            pointsLvl++;
 
-            if (pointsLvl > 0)
+            if (!LevelUpManager.Instance.maxLevel)
             {
+                pointsLvl++;
                 MenuManager.Instance.LevelUp();
             }
 
             currentLvl++;
             nextLvl *= 2;
         }
-    }    
+    }
 }
