@@ -167,10 +167,9 @@ public class Enemy : MonoBehaviour
     }
 
 
-
     public virtual void Attack() { }
 
     public virtual void Spawn() { }
 
-    public virtual void GiveExp() { PlayerController.Instance.TakeExp(exp); }
+    public virtual void GiveExp() { PlayerController.Instance.TakeExp(exp); PlayerScore.Instance.enemiesKilled++; }
 }

@@ -47,8 +47,7 @@ public class MenuManager : Singleton<MenuManager>
 
     private void Start()
     {
-        Debug.Log(currentMenuState);
-        //SetMenuState(MenuState.PressToStart);
+        SetMenuState(MenuState.PressToStart);
         canvasGo.SetActive(true);
     }
 
@@ -359,6 +358,8 @@ public class MenuManager : Singleton<MenuManager>
                     menu.SetActive(false);
                 }
             }
+
+            FindObjectOfType<AudioManager>().Play("MainMenu Theme");
         }
         else if (newMenuState == MenuState.MainMenu)
         {

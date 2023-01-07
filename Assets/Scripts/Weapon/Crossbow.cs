@@ -133,6 +133,7 @@ public class Crossbow : Weapon
         {
             case 1:
                 attackSpeed = 1.25f;
+                
                 break;
 
             case 2:

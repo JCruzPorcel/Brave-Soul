@@ -10,6 +10,8 @@ public class Necronomicon : Weapon
     [SerializeField] float speedRotation = 40;
     [SerializeField] int maxAmount;
 
+
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -23,6 +25,7 @@ public class Necronomicon : Weapon
         if (GameManager.Instance.currentGameState == GameState.inGame)
         {
             Attack();
+            WeaponLevel();
         }
     }
 
@@ -50,12 +53,6 @@ public class Necronomicon : Weapon
         }
     }
 
-
-    private void OnEnable()
-    {
-       
-    }
-
     public void WeaponLevel()
     {
         level = GetStatsManager.Instance.level_Necronomicon;
@@ -73,28 +70,28 @@ public class Necronomicon : Weapon
                 damage = 15;
                 attackSpeed = 1f;
                 maxAmount = 4;
-                speedRotation = 80;
+                speedRotation = 95;
                 break;
 
             case 3:
                 damage = 20;
                 attackSpeed = .75f;
                 maxAmount = 5;
-                speedRotation = 120;
+                speedRotation = 140;
                 break;
 
             case 4:
                 damage = 20;
                 attackSpeed = .50f;
                 maxAmount = 6;
-                speedRotation = 160;
+                speedRotation = 180;
                 break;
 
             case 5:
                 damage = 25;
                 attackSpeed = .35f;
                 maxAmount = 7;
-                speedRotation = 210;
+                speedRotation = 250;
                 break;
         }
     }
