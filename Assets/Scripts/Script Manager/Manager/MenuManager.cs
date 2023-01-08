@@ -69,7 +69,11 @@ public class MenuManager : Singleton<MenuManager>
             }
         }
 
-        else MainMenu();
+        else
+        {
+            FindObjectOfType<AudioManager>().Play("Back SFX");
+            MainMenu();
+        }
     }
 
     #region Main Menu
@@ -237,10 +241,10 @@ public class MenuManager : Singleton<MenuManager>
     public void ShowNavButton()
     {
         EventSystem.current.SetSelectedGameObject(null);
+        FindObjectOfType<AudioManager>().Play("Back SFX");
 
         if (currentMenuState == MenuState.MainMenu)
         {
-
             if (lastState == "Option")
             {
                 foreach (NavButtons button in buttonList)

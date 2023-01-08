@@ -39,6 +39,7 @@ public class CharData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     void IPointerEnterHandler.OnPointerEnter(PointerEventData eventData)
     {
+        FindObjectOfType<AudioManager>().Play("CharNav SFX");
         descriptionChar.CurrentChar = characterData;
     }
 
@@ -49,6 +50,7 @@ public class CharData : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnSelect(BaseEventData eventData)
     {
+        FindObjectOfType<AudioManager>().Play("CharNav SFX");
 
         descriptionChar.IsSelected = false;
 

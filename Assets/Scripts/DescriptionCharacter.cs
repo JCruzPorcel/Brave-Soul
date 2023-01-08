@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DescriptionCharacter : Singleton<DescriptionCharacter>
@@ -165,11 +164,14 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
     {
         if (buyButton.text == play)
         {
+            FindObjectOfType<AudioManager>().Play("StartGame SFX");
             MenuManager.Instance.InGame();
         }
 
         if (selectedChar.IsOwned)
         {
+            FindObjectOfType<AudioManager>().Play("ClickButton SFX");
+
             isSelected = true;
             GameManager.Instance.CharSelected = selectedChar;
         }
@@ -177,6 +179,8 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
         {
             if (GameManager.Instance.PlayerGold >= selectedChar.CharPrice)
             {
+                FindObjectOfType<AudioManager>().Play("ClickButton SFX");
+
                 selectedChar.IsOwned = true;
                 GameManager.Instance.PlayerGold -= selectedChar.CharPrice;
                 GameManager.Instance.Save();
@@ -184,6 +188,8 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
         }
         else if (!selectedChar.IsOwned && !selectedChar.ItsBuyable)
         {
+            FindObjectOfType<AudioManager>().Play("ClickButton SFX");
+
             Application.OpenURL("https://highest.itch.io");
         }
     }
@@ -229,6 +235,7 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
             {
                 buyButton.color = Color.red;
             }
-        }        
+        }
     }
+
 }
