@@ -143,7 +143,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.24223757, y: 0.54359007}
+  m_Offset: {x: 0.2732534, y: 0.51050645}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -154,7 +154,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.8354788, y: 1.0768499}
+  m_Size: {x: 0.6741962, y: 0.83699393}
   m_EdgeRadius: 0
 --- !u!70 &2623060418072393542
 CapsuleCollider2D:
@@ -169,8 +169,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.23903047, y: 0.56935227}
-  m_Size: {x: 1.0632386, y: 1.3070269}
+  m_Offset: {x: 0.2907236, y: 0.5941649}
+  m_Size: {x: 0.9350396, y: 1.0508322}
   m_Direction: 0
 --- !u!114 &7717329194366830916
 MonoBehaviour:
@@ -184,7 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e55c18aeb2601947a4fe41844e49f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 2
   maxHP: 1500
   speed: 2.2
   exp: 75

@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed3da98e31df154c8af1aa433f8145f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 2
   maxHP: 15
   speed: 2.15
   exp: 7
@@ -190,6 +190,6 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.007334456, y: 0.3762697}
-  m_Size: {x: 0.40665534, y: 0.8447441}
+  m_Offset: {x: 0.018860042, y: 0.40246418}
+  m_Size: {x: 0.3710308, y: 0.77139944}
   m_Direction: 0

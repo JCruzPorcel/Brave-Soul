@@ -8584,7 +8584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentGameState: 2
-  charSelected: {fileID: 11400000, guid: 78af98070542e4c4eaf341948ebe1a33, type: 2}
+  charSelected: {fileID: 11400000, guid: 1fd9f6459438bc447908a23e8603d4e1, type: 2}
 --- !u!4 &1682364216
 Transform:
   m_ObjectHideFlags: 0
@@ -10634,9 +10634,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13231d7b71eddbb43b418b9c1a8e011e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level_Necronomicon: 0
   level_Axe: 0
   level_Crossbow: 0
-  level_Necronomicon: 0
   level_Arrow: 0
 --- !u!4 &1989054613
 Transform:
