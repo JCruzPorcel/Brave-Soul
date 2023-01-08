@@ -3279,9 +3279,9 @@ MonoBehaviour:
   enemiesKilled_Text: {fileID: 1754461010}
   totalScore_Text: {fileID: 1310659925}
   go_To_MainMenu_Text: {fileID: 1934544365}
-  timeSurvive: Tiempo Sobrevivido
-  gold: Oro Obtenido
-  enemiesKilled: Enemigos Asesinados
+  timeSurvive: Tiempo sobrevivido
+  gold: Oro obtenido
+  enemiesKilled: Enemigos asesinados
   totalScore: Score Total
   go_To_MainMenu: Volver al menu principal
 --- !u!1 &680428896
@@ -5344,7 +5344,7 @@ MonoBehaviour:
     amount: 50
   - name: Boss
     prefab: {fileID: 2569170694288880302, guid: 4dad526c718d36747ad2963f661ce961, type: 3}
-    amount: 3
+    amount: 4
   Assassin: []
   Tank: []
   Mage: []
@@ -8642,6 +8642,24 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: GameOver SFX
+    clip: {fileID: 8300000, guid: fa964cd85c752d2409c3070603be1730, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: LevelUp SFX
+    clip: {fileID: 8300000, guid: 6c087deef43c1fe48943e92a088b3105, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Add Weapon SFX
+    clip: {fileID: 8300000, guid: f13228b872b6ee44a8895a211eead1eb, type: 3}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!4 &1714670939
 Transform:
   m_ObjectHideFlags: 0
@@ -9671,7 +9689,7 @@ MonoBehaviour:
   currentHealth: 0
   heal: 0
   currentLvl: 0
-  maxLevel: 15
+  maxLevel: 100
   currentExp: 0
   nextLvl: 10
   pointsLvl: 0

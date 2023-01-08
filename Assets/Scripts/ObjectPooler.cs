@@ -119,11 +119,17 @@ public class ObjectPooler : MonoBehaviour
                 maxAssassins = 5;
                 maxMages = 0;
                 maxTanks = 0;
-            }            
-            else if (TimerScript.Instance.minutes == 3 && TimerScript.Instance.seconds == 0)
+            }
+            else if (TimerScript.Instance.minutes == 1 && TimerScript.Instance.seconds == 0)
             {
                 maxAssassins = 8;
-                maxMages = 0;
+                maxMages = 1;
+                maxTanks = 0;
+            }
+            else if (TimerScript.Instance.minutes == 3 && TimerScript.Instance.seconds == 0)
+            {
+                maxAssassins = 10;
+                maxMages = 1;
                 maxTanks = 1;
             }
             else if (TimerScript.Instance.minutes == 5 && TimerScript.Instance.seconds == 0)
@@ -152,7 +158,7 @@ public class ObjectPooler : MonoBehaviour
             }
             else if (TimerScript.Instance.minutes == 10 && TimerScript.Instance.seconds == 0)
             {
-                //ToDo: End Game;
+                MenuManager.Instance.GameOver();
             }
 
             if (currentAssassins < maxAssassins)

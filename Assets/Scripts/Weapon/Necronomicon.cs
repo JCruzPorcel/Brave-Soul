@@ -8,7 +8,7 @@ public class Necronomicon : Weapon
     int currentAmount;
 
     [SerializeField] float speedRotation = 40;
-    [SerializeField] int maxAmount;
+    //[SerializeField] int maxAmount;
 
 
 
@@ -62,35 +62,35 @@ public class Necronomicon : Weapon
             case 1:
                 damage = 10;
                 attackSpeed = 1.25f;
-                maxAmount = 3;
+                //maxAmount = 3;
                 speedRotation = 40;
                 break;
 
             case 2:
                 damage = 15;
                 attackSpeed = 1f;
-                maxAmount = 4;
+                //maxAmount = 4;
                 speedRotation = 95;
                 break;
 
             case 3:
                 damage = 20;
                 attackSpeed = .75f;
-                maxAmount = 5;
+                //maxAmount = 5;
                 speedRotation = 140;
                 break;
 
             case 4:
                 damage = 20;
                 attackSpeed = .50f;
-                maxAmount = 6;
+                //maxAmount = 6;
                 speedRotation = 180;
                 break;
 
             case 5:
                 damage = 25;
                 attackSpeed = .35f;
-                maxAmount = 7;
+                //maxAmount = 7;
                 speedRotation = 250;
                 break;
         }

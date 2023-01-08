@@ -20,26 +20,12 @@ public class Sound
     public AudioSource source;
 }
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : SingletonPersistent<AudioManager>
 {
     public Sound[] sounds;
 
-    public static AudioManager Instance;
-
-    private void Awake()
+    private void Start()
     {
-
-        if(Instance == null)
-        {
-            Instance = this;
-        }else
-        {
-            Destroy(Instance);
-            return;
-        }
-
-        DontDestroyOnLoad(Instance);
-
         foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();

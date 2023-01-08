@@ -359,7 +359,7 @@ public class MenuManager : Singleton<MenuManager>
                 }
             }
 
-            FindObjectOfType<AudioManager>().Play("MainMenu Theme");
+            //FindObjectOfType<AudioManager>().Play("MainMenu Theme");
         }
         else if (newMenuState == MenuState.MainMenu)
         {
@@ -533,6 +533,9 @@ public class MenuManager : Singleton<MenuManager>
                     menu.SetActive(false);
                 }
             }
+
+            FindObjectOfType<AudioManager>().Play("GameOver SFX");
+
         }
         else if (newMenuState == MenuState.LevelUp)
         {
@@ -543,6 +546,8 @@ public class MenuManager : Singleton<MenuManager>
                     menu.SetActive(true);
                 }
             }
+
+            FindObjectOfType<AudioManager>().Play("LevelUp SFX");
 
             GameManager.Instance.Menu();
 
