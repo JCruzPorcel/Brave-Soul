@@ -57,6 +57,10 @@ public class Projectile : MonoBehaviour
 
         switch (level)
         {
+            case 0:
+                GetStatsManager.Instance.level_Arrow = 1;
+                break;
+
             case 1:
                 damage = 5;
                 speed = 7f;
@@ -85,6 +89,10 @@ public class Projectile : MonoBehaviour
                 damage = 50;
                 speed = 50f;
                 enemyPen = 5;
+                break;
+
+            default:
+                Debug.LogWarning("max lvl");
                 break;
         }
     }

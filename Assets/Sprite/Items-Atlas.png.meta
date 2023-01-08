@@ -599,6 +599,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: NecroInv2
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 422
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c65eb5937a1bb24f929506920522144
+      internalID: -328605450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Items-Atlas_0
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 287
+        width: 84
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab4753a760e8a0f4f944b00f2cf7d610
+      internalID: 999687293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -625,9 +667,11 @@ TextureImporter:
       Interavalo: -1276565795
       CTK: 2115995437
       Gold: -1664090340
+      NecroInv2: -328605450
       Attack_Speed: 2021882270
       Arrow_Selector: -672243447
       Reroll: 2136861351
+      Items-Atlas_0: 999687293
       Axe: -674089504
       Chest: -587121809
       More_Gold: -1349385190

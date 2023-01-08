@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -1
   m_Sprite: {fileID: -674089504, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -141,6 +141,5 @@ MonoBehaviour:
   attackSpeed: 1.5
   timer: 0
   player: {fileID: 0}
-  weaponData: {fileID: 11400000, guid: 905fdc98bd9b11f45b10c68a21708b7a, type: 2}
   enemyPen: 0
   amount: 3

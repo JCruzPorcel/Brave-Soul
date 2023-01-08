@@ -68,7 +68,7 @@ Animator:
   m_GameObject: {fileID: 2569170694288880302}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0912437ca910e37459e5330104766b5c, type: 2}
+  m_Controller: {fileID: 9100000, guid: febb26388dfede242b16ddcb3dcc9ec7, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -169,8 +169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  maxHP: 20
-  speed: 1.75
+  maxHP: 15
+  speed: 2.15
   exp: 7
   isDead: 0
   is_a_Boss: 0

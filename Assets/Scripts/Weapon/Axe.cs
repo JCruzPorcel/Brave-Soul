@@ -101,6 +101,10 @@ public class Axe : Weapon
 
         switch (level)
         {
+            case 0:
+                GetStatsManager.Instance.level_Axe = 1;
+                break;
+
             case 1:
                 damage = 10;
                 attackSpeed = 5f;
@@ -134,6 +138,10 @@ public class Axe : Weapon
                 attackSpeed = 1.25f;
                 amount = 5;
                 enemyPen = 3;
+                break;
+
+            default:
+                Debug.LogWarning("max lvl");
                 break;
         }
     }

@@ -116,45 +116,42 @@ public class ObjectPooler : MonoBehaviour
             int randomX = Random.Range(0, 2);
             if (TimerScript.Instance.minutes == 0 && TimerScript.Instance.seconds == 3)
             {
-                maxAssassins = 5;
+                maxAssassins = 10;
                 maxMages = 0;
                 maxTanks = 0;
             }
             else if (TimerScript.Instance.minutes == 1 && TimerScript.Instance.seconds == 0)
             {
-                maxAssassins = 8;
+                maxAssassins = 15;
                 maxMages = 1;
                 maxTanks = 0;
             }
             else if (TimerScript.Instance.minutes == 3 && TimerScript.Instance.seconds == 0)
             {
-                maxAssassins = 10;
+                canSpawnBosses = true;
+                maxAssassins = 20;
                 maxMages = 1;
                 maxTanks = 1;
             }
             else if (TimerScript.Instance.minutes == 5 && TimerScript.Instance.seconds == 0)
             {
-                canSpawnBosses = true;
-
-                maxAssassins = 10;
-                maxMages = 1;
-                maxTanks = 2;
+                maxAssassins = 30;
+                maxMages = 10;
+                maxTanks = 12;
             }
             else if (TimerScript.Instance.minutes == 7 && TimerScript.Instance.seconds == 0)
             {
                 canSpawnBosses = true;
-
-                maxAssassins = 20;
-                maxMages = 2;
-                maxTanks = 3;
+                maxAssassins = 35;
+                maxMages = 25;
+                maxTanks = 30;
             }
             else if (TimerScript.Instance.minutes == 9 && TimerScript.Instance.seconds == 0)
             {
                 canSpawnBosses = true;
-
                 maxAssassins = 50;
-                maxMages = 25;
-                maxTanks = 18;
+                maxMages = 50;
+                maxTanks = 50;
             }
             else if (TimerScript.Instance.minutes == 10 && TimerScript.Instance.seconds == 0)
             {

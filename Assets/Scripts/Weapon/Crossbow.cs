@@ -131,6 +131,10 @@ public class Crossbow : Weapon
 
         switch (level)
         {
+            case 0:
+                GetStatsManager.Instance.level_Crossbow = 1;
+                break;
+
             case 1:
                 attackSpeed = 1.25f;
                 
@@ -150,6 +154,9 @@ public class Crossbow : Weapon
 
             case 5:
                 attackSpeed = .2f;
+                break;
+            default:
+                Debug.LogWarning("max lvl");
                 break;
         }
     }

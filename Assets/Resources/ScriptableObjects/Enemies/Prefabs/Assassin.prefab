@@ -169,8 +169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 4
-  maxHP: 25
-  speed: 2.15
+  maxHP: 20
+  speed: 2.3
   exp: 5
   isDead: 0
   is_a_Boss: 0

@@ -9,12 +9,20 @@ public class Necronomicon : Weapon
 
     [SerializeField] float speedRotation = 40;
     //[SerializeField] int maxAmount;
-
+    [SerializeField] GameObject book2;
+    [SerializeField] GameObject go;
 
 
     private void Start()
     {
+        WeaponLevel();
+
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        go = Instantiate(book2, player);
+
+        go.transform.position = new Vector2(player.position.x, player.position.y - 1);
+        go.transform.SetParent(player);
 
         transform.position = new Vector2(player.position.x, player.position.y + 1);
         transform.SetParent(player);
@@ -31,13 +39,14 @@ public class Necronomicon : Weapon
 
     public override void Attack()
     {
-        transform.Rotate(0, 0, speedRotation * Time.deltaTime);
-        transform.RotateAround(transform.parent.position, new Vector3(0, 0, -1), speedRotation * Time.deltaTime);
-    }
+        go.transform.Rotate(0, 0, -speedRotation * Time.deltaTime);
 
-    public override void Spawn()
-    {
-        transform.position = new Vector2(player.position.x, transform.position.y + 1); 
+        go.transform.RotateAround(transform.parent.position, new Vector3(0, 0, -1), -speedRotation * Time.deltaTime);
+
+
+        transform.Rotate(0, 0, speedRotation * Time.deltaTime);
+
+        transform.RotateAround(transform.parent.position, new Vector3(0, 0, -1), speedRotation * Time.deltaTime);
     }
 
     private void OnDisable()
@@ -59,6 +68,11 @@ public class Necronomicon : Weapon
 
         switch (level)
         {
+            case 0:
+                GetStatsManager.Instance.level_Necronomicon = 1;
+                break;
+
+
             case 1:
                 damage = 10;
                 attackSpeed = 1.25f;
@@ -93,6 +107,11 @@ public class Necronomicon : Weapon
                 //maxAmount = 7;
                 speedRotation = 250;
                 break;
+
+            default:
+                Debug.LogWarning("max lvl");
+                break;
+                
         }
     }
 }
