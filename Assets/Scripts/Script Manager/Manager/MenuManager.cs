@@ -347,6 +347,8 @@ public class MenuManager : Singleton<MenuManager>
     {
         if (newMenuState == MenuState.PressToStart)
         {
+            Time.timeScale = 1;
+
             foreach (GameObject menu in menuList)
             {
                 if (menu.name == MenuState.PressToStart.ToString())
@@ -363,10 +365,13 @@ public class MenuManager : Singleton<MenuManager>
         }
         else if (newMenuState == MenuState.MainMenu)
         {
-
             foreach (GameObject menu in menuList)
             {
                 if (menu.name == MenuState.MainMenu.ToString())
+                {
+                    menu.SetActive(true);
+                }
+                else if (menu.name == "GoldPanel".ToString())
                 {
                     menu.SetActive(true);
                 }
@@ -374,15 +379,7 @@ public class MenuManager : Singleton<MenuManager>
                 {
                     menu.SetActive(false);
                 }
-
-                if (menu.name == "GoldPanel".ToString())
-                {
-                    menu.SetActive(true);
-                }
             }
-
-            Time.timeScale = 1;
-
         }
         else if (newMenuState == MenuState.Options)
         {
@@ -491,6 +488,8 @@ public class MenuManager : Singleton<MenuManager>
         }
         else if (newMenuState == MenuState.InGame)
         {
+            Time.timeScale = 1;
+
             foreach (GameObject menu in menuList)
             {
                 if (menu.name == "Pause Menu")
@@ -510,8 +509,6 @@ public class MenuManager : Singleton<MenuManager>
             GameManager.Instance.InGame();
 
             this.currentMenuState = newMenuState;
-
-            Time.timeScale = 1;
 
             return;
 

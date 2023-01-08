@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2623060418072393542}
   - component: {fileID: 7717329194366830916}
   m_Layer: 7
-  m_Name: Boss
+  m_Name: Boss Assassin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   maxHP: 1500
-  speed: 2.2
+  speed: 2.25
   exp: 75
   isDead: 0
   is_a_Boss: 1

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d82004022d49b3c4c9c550eed2672ce9
+guid: bc9df7647d39f9d4e8b3098f4bd1f0a4
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -101,236 +101,185 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: death or teleport (168x79)_0
+      name: Boss Paladin_0
       rect:
         serializedVersion: 2
-        x: 39
-        y: 790
-        width: 29
-        height: 17
+        x: 51
+        y: 414
+        width: 35
+        height: 29
       alignment: 9
-      pivot: {x: 0.5625, y: 0}
+      pivot: {x: 0.77, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b214f6e43ea20f5489be83e146b1e636
-      internalID: 1901730064
+      spriteID: a744ba36a3454534b948a479daf3e865
+      internalID: -305515910
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death or teleport (168x79)_1
+      name: Boss Paladin_1
       rect:
         serializedVersion: 2
-        x: 39
-        y: 711
-        width: 31
-        height: 17
+        x: 51
+        y: 355
+        width: 35
+        height: 30
       alignment: 9
-      pivot: {x: 0.53, y: 0}
+      pivot: {x: 0.77, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b14f92f384e1f7b4fa8d9028ddbfe0ff
-      internalID: -2049127831
+      spriteID: b06a227f6e412584fb03f5a7105dcb33
+      internalID: 534079459
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death or teleport (168x79)_2
+      name: Boss Paladin_2
       rect:
         serializedVersion: 2
-        x: 36
-        y: 632
-        width: 40
-        height: 17
+        x: 51
+        y: 296
+        width: 37
+        height: 30
       alignment: 9
-      pivot: {x: 0.4856, y: 0}
+      pivot: {x: 0.77, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 574cfcc7bf46c7c44a379a4a1a34400e
-      internalID: -1082057009
+      spriteID: 6002f37a3335cd240a39b99cd93f27eb
+      internalID: 1585834040
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death or teleport (168x79)_3
+      name: Boss Paladin_3
       rect:
         serializedVersion: 2
-        x: 29
-        y: 553
-        width: 51
-        height: 11
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: de0596a1fc0762c488dcd23b415678c5
-      internalID: -1477351846
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death or teleport (168x79)_4
-      rect:
-        serializedVersion: 2
-        x: 27
-        y: 474
-        width: 55
-        height: 10
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f6aa1488573c41d43b35e91530707716
-      internalID: -1787408502
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death or teleport (168x79)_5
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 395
-        width: 65
-        height: 10
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1476377384b530048be99518ac2fe740
-      internalID: -771793681
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death or teleport (168x79)_6
-      rect:
-        serializedVersion: 2
-        x: 22
-        y: 316
-        width: 73
-        height: 5
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d64cd2143c46c4340bcf45ac16c4ac2e
-      internalID: 387382571
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: death or teleport (168x79)_7
-      rect:
-        serializedVersion: 2
-        x: 18
+        x: 51
         y: 237
-        width: 83
-        height: 5
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 38
+        height: 29
+      alignment: 9
+      pivot: {x: 0.77, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e825e2524682df24d87e1ba8f5d06a51
-      internalID: 1372553636
+      spriteID: 773042d68a3ebf74099e997ea0e724ae
+      internalID: -1628077471
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death or teleport (168x79)_8
+      name: Boss Paladin_4
       rect:
         serializedVersion: 2
-        x: 16
-        y: 158
-        width: 88
-        height: 1
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 51
+        y: 178
+        width: 37
+        height: 29
+      alignment: 9
+      pivot: {x: 0.77, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4969996e534ad5e4b8fe76d4b615bd48
-      internalID: 1386948117
+      spriteID: a1c4df366a0bc8c40a98d36373f8054f
+      internalID: 632182211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death or teleport (168x79)_9
+      name: Boss Paladin_5
       rect:
         serializedVersion: 2
-        x: 15
-        y: 79
-        width: 89
-        height: 1
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        x: 51
+        y: 119
+        width: 37
+        height: 29
+      alignment: 9
+      pivot: {x: 0.77, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e21f94b510bf0dd478ebd4cb57af24b7
-      internalID: 1611347977
+      spriteID: 3e5cdadd255a6524c98db6b8fa4c39bf
+      internalID: 1021157062
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: death or teleport (168x79)_10
+      name: Boss Paladin_6
       rect:
         serializedVersion: 2
-        x: 15
+        x: 51
+        y: 60
+        width: 36
+        height: 28
+      alignment: 9
+      pivot: {x: 0.77, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74d1346b8ac27b547820daff6aa0df7d
+      internalID: -142193546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss Paladin_7
+      rect:
+        serializedVersion: 2
+        x: 51
         y: 0
-        width: 89
-        height: 1
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 35
+        height: 29
+      alignment: 9
+      pivot: {x: 0.77, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 053b1573c289c5449937d00c90de8814
-      internalID: -1542809832
+      spriteID: f877a4e8fa5c0a74b8620945bde2918b
+      internalID: 987067344
       vertices: []
       indices: 
       edges: []
@@ -346,17 +295,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      death or teleport (168x79)_8: 1386948117
-      death or teleport (168x79)_2: -1082057009
-      death or teleport (168x79)_6: 387382571
-      death or teleport (168x79)_3: -1477351846
-      death or teleport (168x79)_10: -1542809832
-      death or teleport (168x79)_0: 1901730064
-      death or teleport (168x79)_4: -1787408502
-      death or teleport (168x79)_1: -2049127831
-      death or teleport (168x79)_7: 1372553636
-      death or teleport (168x79)_5: -771793681
-      death or teleport (168x79)_9: 1611347977
+      Boss Paladin_2: 1585834040
+      Boss Paladin_0: -305515910
+      Boss Paladin_3: -1628077471
+      Boss Paladin_4: 632182211
+      Boss Paladin_5: 1021157062
+      Boss Paladin_6: -142193546
+      Boss Paladin_7: 987067344
+      Boss Paladin_1: 534079459
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

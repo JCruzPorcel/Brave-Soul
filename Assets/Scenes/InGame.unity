@@ -5344,7 +5344,13 @@ MonoBehaviour:
     amount: 50
   - name: Boss
     prefab: {fileID: 2569170694288880302, guid: 4dad526c718d36747ad2963f661ce961, type: 3}
-    amount: 4
+    amount: 1
+  - name: Boss
+    prefab: {fileID: 2569170694288880302, guid: 32ec66aeb199d70438fbf34e781638e5, type: 3}
+    amount: 1
+  - name: Boss
+    prefab: {fileID: 2569170694288880302, guid: 4dad526c718d36747ad2963f661ce961, type: 3}
+    amount: 1
   Assassin: []
   Tank: []
   Mage: []
