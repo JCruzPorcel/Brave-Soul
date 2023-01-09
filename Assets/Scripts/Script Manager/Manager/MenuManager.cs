@@ -475,7 +475,7 @@ public class MenuManager : Singleton<MenuManager>
         {
             foreach (GameObject menu in menuList)
             {
-                if (menu.name == "Pause Menu")
+                if (menu.name == "Options")
                 {
                     menu.SetActive(true);
                 }

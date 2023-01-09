@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class OptionsManager : MonoBehaviour
 {
@@ -8,18 +10,23 @@ public class OptionsManager : MonoBehaviour
     bool highPerformance = true;
     bool colorblind = false;
 
-    private void Start()
-    {
-        Screen.fullScreen = fullscreen;
-    }
 
-    private void Update()
+    public AudioMixer mixer;
+
+    public Slider musicVolumeSlider;
+    public Slider sfxVolumeSlider;
+
+    public string musicVolumeParameterName = "MusicVolume";
+    public string sfxVolumeParameterName = "SfxVolume";
+
+    private void Start()
     {
         Screen.fullScreen = fullscreen;
     }
 
     public void Exit()
     {
+        Time.timeScale = 1;
         MenuManager.Instance.Exit();
     }
 
@@ -63,5 +70,20 @@ public class OptionsManager : MonoBehaviour
     public void OpenURL(string link)
     {
         Application.OpenURL(link);
+    }
+
+    public void UpdateSfxVolume()
+    {
+        
+        float dB = 20f * Mathf.Log10(sfxVolumeSlider.value);        
+
+        mixer.SetFloat(sfxVolumeParameterName, dB);
+    }
+
+    public void UpdateMusicVolume()
+    {
+        float dB = 20f * Mathf.Log10(musicVolumeSlider.value);
+
+        mixer.SetFloat(musicVolumeParameterName, dB);
     }
 }

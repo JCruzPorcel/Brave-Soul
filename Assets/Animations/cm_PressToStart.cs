@@ -12,6 +12,8 @@ public class cm_PressToStart : StateMachineBehaviour
     {
         if (Input.anyKeyDown)
         {
+            FindObjectOfType<AudioManager>().Play("PressToStart SFX");
+
             MenuManager.Instance.MainMenu();
         }
     }

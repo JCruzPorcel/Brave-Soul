@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Audio;
 
 [Serializable]
 public class Sound
@@ -7,6 +8,7 @@ public class Sound
     public string name;
 
     public AudioClip clip;
+    public AudioMixerGroup mixerGroup;
 
     [Range(0f, 1f)]
     public float volume;
@@ -18,6 +20,7 @@ public class Sound
 
     [HideInInspector]
     public AudioSource source;
+
 }
 
 public class AudioManager : SingletonPersistent<AudioManager>
@@ -34,6 +37,7 @@ public class AudioManager : SingletonPersistent<AudioManager>
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+            s.source.outputAudioMixerGroup = s.mixerGroup;
         }
     }
 
