@@ -6,6 +6,7 @@ public class Crossbow : Weapon
     Transform container;
     GameObject[] enemies;
     [SerializeField] List<GameObject> arrows = new List<GameObject>();
+    Queue<GameObject> arrowQueue = new Queue<GameObject>();
     [SerializeField] WeaponData arrowData;
 
 
@@ -41,25 +42,16 @@ public class Crossbow : Weapon
                 WeaponLevel();
 
                 PlayerCombat.Instance.sliderBar.MaxAttackSpeed(attackSpeed);
-
-                if (timer > 0)
+                
+                if (timer < attackSpeed)
                 {
-                    timer -= Time.deltaTime;
+                    timer += Time.deltaTime;
+                    PlayerCombat.Instance.sliderBar.NextAttack(timer);
                 }
                 else
                 {
-                    timer = attackSpeed;
-                }
-
-
-                if (timerPlus < attackSpeed)
-                {
-                    timerPlus += Time.deltaTime;
-                    PlayerCombat.Instance.sliderBar.NextAttack(timerPlus);
-                }
-                else
-                {
-                    timerPlus = 0;
+                    Arrow();
+                    timer = 0;
                 }
 
                 RotationMode();
@@ -68,17 +60,18 @@ public class Crossbow : Weapon
                 {
                     if (!go.activeInHierarchy)
                     {
-                        Arrow(go);
+                        arrowQueue.Enqueue(go);
                     }
                 }
             }
         }
     }
 
-    void Arrow(GameObject go)
+    void Arrow()
     {
-        if (timer > 0 || MostNearbyEnemies() == null)
-            return;
+        if (MostNearbyEnemies() == null) return;
+
+        GameObject go = arrowQueue.Peek();
 
         Vector3 eulerRotation = new Vector3(0, 0, transform.eulerAngles.z - 45);
 
@@ -86,7 +79,7 @@ public class Crossbow : Weapon
         go.transform.rotation = Quaternion.Euler(eulerRotation);
 
         go.SetActive(true);
-        timer = attackSpeed;
+        arrowQueue.Dequeue();
     }
 
     private void RotationMode()

@@ -22,6 +22,8 @@ public class OptionsManager : MonoBehaviour
     private void Start()
     {
         Screen.fullScreen = fullscreen;
+        UpdateSfxVolume();
+        UpdateMusicVolume();
     }
 
     public void Exit()

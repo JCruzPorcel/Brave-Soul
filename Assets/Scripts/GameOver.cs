@@ -19,13 +19,13 @@ public class GameOver : MonoBehaviour
     public string totalScore;
     public string go_To_MainMenu;
 
-    float mathGold = 0;
+    float mathGold = 0f;
     float factor_time = 1f;
-    float factor_enemies = .8f;
+    float factor_enemies = .1f;
 
-    float mathTotalScore = 0;
-    float score_Factor_time = 5;
-    float score_Factor_enemies = .3f;
+    float mathTotalScore = 0f;
+    float score_Factor_time = 10f;
+    float score_Factor_enemies = 1f;
 
     float time = 0;
     int enemies = 0;
@@ -33,8 +33,10 @@ public class GameOver : MonoBehaviour
 
     private void Start()
     {
+        enemiesKilled = PlayerScore.Instance.score_string;
+
         enemies = PlayerScore.Instance.enemiesKilled;
-        time = Mathf.Round((TimerScript.Instance.minutes * 1f) + (TimerScript.Instance.seconds * .35f));
+        time =TimerScript.Instance.minutes;
 
         mathGold = Mathf.Round((time * factor_time) + (enemies * factor_enemies));
 
@@ -42,13 +44,14 @@ public class GameOver : MonoBehaviour
 
 
 
-        timeSurvived_Text.text = string.Format("{2}: <color=white>{0:00} : {1:00}</color>", TimerScript.Instance.minutes, TimerScript.Instance.seconds, timeSurvive);
-        gold_Text.text = string.Format("{0}: <color=white>{1}</color>", gold, mathGold);
+        timeSurvived_Text.text = string.Format("<b>{2}</b>:  <color=white><size=50>{0:00} : {1:00}</size></color>", TimerScript.Instance.minutes, TimerScript.Instance.seconds, timeSurvive);
+        gold_Text.text = string.Format("{0}:  <color=white><size=50>{1}</size></color>", gold, mathGold);
 
-        enemiesKilled_Text.text = string.Format("{0}: <color=white>{1}</color>", enemiesKilled, enemies);
-        totalScore_Text.text = string.Format("{0}: <color=white>{1}</color>", totalScore, mathTotalScore);
+        enemiesKilled_Text.text = string.Format("{0}:  <color=white><size=50>{1}</size></color>", enemiesKilled, enemies);
+        totalScore_Text.text = string.Format("{0}:  <color=white><size=80>{1}</size></color>", totalScore, mathTotalScore);
         go_To_MainMenu_Text.text = string.Format("{0}", go_To_MainMenu);
 
+        GameManager.Instance.PlayerGold += (int)mathGold;
         GameManager.Instance.Save();
     }
 }

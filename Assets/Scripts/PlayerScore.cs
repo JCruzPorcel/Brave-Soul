@@ -8,8 +8,9 @@ public class PlayerScore : Singleton<PlayerScore>
 
     [SerializeField] TMP_Text enemiesKilled_Text;
 
+
     void Update()
     {
-        enemiesKilled_Text.text = string.Format("{0}: {1}", score_string, enemiesKilled).ToString();
+        enemiesKilled_Text.text = string.Format("{0}: {1}", score_string, enemiesKilled);
     }
 }
