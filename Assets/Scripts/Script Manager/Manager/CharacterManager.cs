@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public abstract class CharacterManager : MonoBehaviour
 {
-    private string _characterName;
+    public string _characterName;
     public Image character_image;
     public Image weapon_character_image;
 

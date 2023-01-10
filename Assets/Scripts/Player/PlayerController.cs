@@ -7,7 +7,6 @@ public class PlayerController : Singleton<PlayerController>
     [Min(0)] public float currentHealth;
     public int heal;
     [Min(0)] public int currentLvl = 0;
-    public int maxLevel = 100;
     public int currentExp = 0;
     public int nextLvl = 10;
     public int pointsLvl;
@@ -29,7 +28,11 @@ public class PlayerController : Singleton<PlayerController>
     {
         anim = GameObject.FindGameObjectWithTag("Character").GetComponent<Animator>();
         sr = GameObject.FindGameObjectWithTag("Character").GetComponent<SpriteRenderer>();
+
+        maxHealth = GameManager.Instance.CharSelected.MaxHp;
+        playerSpeed = GameManager.Instance.CharSelected.Speed;
         currentHealth = maxHealth;
+        sliderBar.SetMaxtHealth(maxHealth);
     }
 
     private void FixedUpdate()

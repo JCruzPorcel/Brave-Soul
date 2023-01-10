@@ -3,12 +3,7 @@ using UnityEngine;
 
 public class Necronomicon : Weapon
 {
-
-    float currentTime;
-    int currentAmount;
-
     [SerializeField] float speedRotation = 40;
-    //[SerializeField] int maxAmount;
     [SerializeField] GameObject book2;
     [SerializeField] GameObject go;
 
@@ -72,39 +67,28 @@ public class Necronomicon : Weapon
                 GetStatsManager.Instance.level_Necronomicon = 1;
                 break;
 
-
             case 1:
                 damage = 10;
-                attackSpeed = 1.25f;
-                //maxAmount = 3;
                 speedRotation = 40;
                 break;
 
             case 2:
                 damage = 15;
-                attackSpeed = 1f;
-                //maxAmount = 4;
                 speedRotation = 95;
                 break;
 
             case 3:
                 damage = 20;
-                attackSpeed = .75f;
-                //maxAmount = 5;
                 speedRotation = 140;
                 break;
 
             case 4:
                 damage = 20;
-                attackSpeed = .50f;
-                //maxAmount = 6;
                 speedRotation = 180;
                 break;
 
             case 5:
                 damage = 25;
-                attackSpeed = .35f;
-                //maxAmount = 7;
                 speedRotation = 250;
                 break;
 

@@ -3123,7 +3123,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.107689574, g: 0.41509432, b: 0.18158494, a: 1}
+  m_BackGroundColor: {r: 0.18783373, g: 0.5943396, b: 0.28553927, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -6610,70 +6610,70 @@ MonoBehaviour:
   sounds:
   - name: Axe SFX
     clip: {fileID: 8300000, guid: c0866af75acd66c4cb7771cd11db52d1, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
     volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Arrow SFX
     clip: {fileID: 8300000, guid: 653de7c55355f5443b94db8b4a828c00, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
     volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: GameOver SFX
     clip: {fileID: 8300000, guid: fa964cd85c752d2409c3070603be1730, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
     volume: 0.3
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: LevelUp SFX
     clip: {fileID: 8300000, guid: 6c087deef43c1fe48943e92a088b3105, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
     volume: 0.3
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Add Weapon SFX
     clip: {fileID: 8300000, guid: f13228b872b6ee44a8895a211eead1eb, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
     volume: 0.3
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: StartGame SFX
     clip: {fileID: 8300000, guid: 77c07e6ae17acbf4da4b3743f94178c7, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
     volume: 0.3
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: Back SFX
     clip: {fileID: 8300000, guid: febba5d3560acb948af48421b0217884, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
     volume: 0.3
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: ClickButton SFX
     clip: {fileID: 8300000, guid: f3504ef74e5162c4c857e16815d13267, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
     volume: 0.3
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: CharNav SFX
     clip: {fileID: 8300000, guid: a3ee3e157d1ff5048a34eba10be2ec7f, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
     volume: 0.3
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: PressToStart SFX
     clip: {fileID: 8300000, guid: 50b483536d8112143bd2f99611961c3c, type: 3}
-    mixerGroup: {fileID: 0}
+    mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
     volume: 0.3
     pitch: 1
     loop: 0
@@ -10895,7 +10895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 2.7
-  maxHealth: 250
+  maxHealth: 0
   currentHealth: 0
   heal: 0
   currentLvl: 0

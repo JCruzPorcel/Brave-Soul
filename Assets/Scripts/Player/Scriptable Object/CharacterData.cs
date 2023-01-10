@@ -5,9 +5,9 @@ public class CharacterData : ScriptableObject
 {
     [SerializeField] private string varName;
     [SerializeField] private string charName;
-    [TextArea(5,6)]
+    [TextArea(7,8)]
     [SerializeField] private string description;
-    [SerializeField] private int armor;
+    [SerializeField] private float armor;
     [SerializeField] private int damage;
     [SerializeField] private int maxHp;
     [SerializeField] private float attackSpeed;
@@ -26,10 +26,10 @@ public class CharacterData : ScriptableObject
 
     public string CharName { get => charName; set => charName = value; }
     public string Description { get => description; set => description = value; }
-    public int Armor { get => armor; set => armor = value; }
     public int Damage { get => damage; set => damage = value; }
     public int MaxHp { get => maxHp; set => maxHp = value; }
     public int CharPrice { get => charPrice; set => charPrice = value; }
+    public float Armor { get => armor; set => armor = value; }
     public float AttackSpeed { get => attackSpeed; set => attackSpeed = value; }
     public float HpRegen { get => hpRegen; set => hpRegen = value; }
     public float Speed { get => speed; set => speed = value; }

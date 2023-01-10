@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7248230382229182972}
   - component: {fileID: 2972608256706786659}
   m_Layer: 3
-  m_Name: Mage Orb
+  m_Name: Mage
   m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

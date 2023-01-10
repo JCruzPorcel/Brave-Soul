@@ -1,8 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class OptionsManager : MonoBehaviour
+public class OptionsManager : Singleton<OptionsManager>
 {
     bool showDamage = true;
     bool showFps = false;
@@ -19,11 +20,11 @@ public class OptionsManager : MonoBehaviour
     public string musicVolumeParameterName = "MusicVolume";
     public string sfxVolumeParameterName = "SfxVolume";
 
+
     private void Start()
     {
         Screen.fullScreen = fullscreen;
-        UpdateSfxVolume();
-        UpdateMusicVolume();
+        AudioManager.Instance.OnSoundSettingsSaved();
     }
 
     public void Exit()
@@ -77,9 +78,10 @@ public class OptionsManager : MonoBehaviour
     public void UpdateSfxVolume()
     {
         
-        float dB = 20f * Mathf.Log10(sfxVolumeSlider.value);        
+        float dB = 20f * Mathf.Log10(sfxVolumeSlider.value);
 
         mixer.SetFloat(sfxVolumeParameterName, dB);
+        AudioManager.Instance.OnVolumeChanged();
     }
 
     public void UpdateMusicVolume()
@@ -87,5 +89,6 @@ public class OptionsManager : MonoBehaviour
         float dB = 20f * Mathf.Log10(musicVolumeSlider.value);
 
         mixer.SetFloat(musicVolumeParameterName, dB);
+        AudioManager.Instance.OnVolumeChanged();
     }
 }

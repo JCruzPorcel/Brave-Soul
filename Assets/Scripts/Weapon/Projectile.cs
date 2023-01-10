@@ -87,7 +87,7 @@ public class Projectile : MonoBehaviour
 
             case 5:
                 damage = 50;
-                speed = 50f;
+                speed = 40f;
                 enemyPen = 5;
                 break;
 

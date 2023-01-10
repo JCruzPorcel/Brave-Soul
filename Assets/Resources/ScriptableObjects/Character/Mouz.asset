@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9861c165eb209545b369162ffebaede, type: 3}
   m_Name: Mouz
   m_EditorClassIdentifier: 
-  varName: Mouse
+  varName: Mouz
   charName: Mouz
-  description: "Un joven ratoncito que cuida los bosques.\n\n\u2022 Movimiento aumentado.\n\u2022
-    Armadura reducida.\nArma inicial: Arco"
-  armor: 1
-  damage: 15
-  maxHp: 100
-  attackSpeed: 0.25
+  description: "Un ratoncito astuto y h\xE1bil con una ballesta, capaz de derribar
+    a sus enemigos desde la distancia.\n\n\u2022 Movimiento <color=green><b>aumentado</b></color>.\n\u2022
+    Vida Maxima <color=red><b>reducida</b></color>.\n\u2022 Armadura <color=green><b>aumentada</b></color>."
+  armor: 0
+  damage: 1
+  maxHp: 250
+  attackSpeed: 0
   hpRegen: 0.2
   speed: 3
   charPrice: 0
