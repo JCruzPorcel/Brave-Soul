@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using UnityEngine;
 
@@ -14,7 +15,6 @@ public class LanguageManager : MonoBehaviour
     public TMP_Dropdown languageDropdown;
     public TMP_Text languageDropdownText;
     public LanguageButton[] buttons;
-    public LanguageData data;
 
     public Dictionary<string, string[]> languageDict = new Dictionary<string, string[]>();
     public Dictionary<string, string[]> optionTexts = new Dictionary<string, string[]>();
@@ -35,6 +35,9 @@ public class LanguageManager : MonoBehaviour
 
     void Awake()
     {
+        string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/languages.json");
+        LanguageData data = JsonUtility.FromJson<LanguageData>(jsonString);
+
         languageDict.Add("English", data.English);
         languageDict.Add("Spanish", data.Spanish);
         languageDict.Add("French", data.French);
@@ -48,7 +51,9 @@ public class LanguageManager : MonoBehaviour
 
     void Start()
     {
+
         languageDropdown.options.Clear();
+
         for (int i = 0; i < optionTexts[systemLanguage].Length; i++)
         {
             languageDropdown.options.Add(new TMP_Dropdown.OptionData(optionTexts[systemLanguage][i]));
@@ -75,7 +80,6 @@ public class LanguageManager : MonoBehaviour
     {
         int index = value;
 
-
         string language = languageDropdown.options[index].text;
 
         language = languageNames.ContainsKey(language) ? languageNames[language] : language;
@@ -95,9 +99,7 @@ public class LanguageManager : MonoBehaviour
                 languageDropdown.options[i].text = _texts[i];
             }
         }
-        languageDropdownText.text = language;
     }
-
 }
 
 [System.Serializable]

@@ -1,5 +1,5 @@
 {
-  "English": [ "Button 1", "Button 2", "Button 3" ],
-  "Spanish": [ "Botón 1", "Botón 2", "Botón 3" ],
-  "French": [ "Bonjour 1", "Botón 2", "Botón 3" ]
+  "English": [ "texto Ingles 1", "texto botón 2", "texto botón 3", "..." ],
+  "Spanish": [ "texto Espa;ol 1", "texto botón 2", "texto botón 3", "..." ],
+  "French": [ "texto Frances 1", "texto botón 2", "texto botón 3", "..." ]
 }
