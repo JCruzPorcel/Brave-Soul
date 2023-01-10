@@ -30,6 +30,13 @@ public class LanguageManager : MonoBehaviour
     { "Français", "French" }
     };
 
+    public Dictionary<string, string> languageTranslations = new Dictionary<string, string>() {
+        { "English", "English" },
+        { "Spanish", "Español" },
+        { "French", "Français" }
+    };
+
+
     private string systemLanguage;
     private int languageIndex;
 
@@ -84,7 +91,13 @@ public class LanguageManager : MonoBehaviour
 
         language = languageNames.ContainsKey(language) ? languageNames[language] : language;
 
+        string languageName = languageNames[language];
+
         string[] texts = languageDict[language];
+
+        if (optionTexts.ContainsKey(language))        
+            languageDropdown.captionText.text = languageTranslations[languageName];
+
 
         for (int i = 0; i < buttons.Length; i++)
         {
