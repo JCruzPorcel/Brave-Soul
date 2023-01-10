@@ -13,7 +13,6 @@ public class LanguageButton
 public class LanguageManager : MonoBehaviour
 {
     public TMP_Dropdown languageDropdown;
-    public TMP_Text languageDropdownText;
     public LanguageButton[] buttons;
 
     public Dictionary<string, string[]> languageDict = new Dictionary<string, string[]>();
