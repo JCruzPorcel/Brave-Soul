@@ -6547,7 +6547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.32156864, g: 0.12739046, b: 0.12549019, a: 1}
+  m_Color: {r: 0.4716981, g: 0.1713243, b: 0.1713243, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9957,7 +9957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   languageDropdown: {fileID: 741554908}
-  languageDropdownText: {fileID: 1770988694}
+  languageDropdownText: {fileID: 0}
   buttons:
   - name: Test
     button: {fileID: 1988660380}
