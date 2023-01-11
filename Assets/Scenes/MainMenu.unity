@@ -7485,9 +7485,10 @@ MonoBehaviour:
   buyButtonTransform: {fileID: 1423887290}
   currentChar: {fileID: 0}
   selectedChar: {fileID: 11400000, guid: 1fd9f6459438bc447908a23e8603d4e1, type: 2}
-  select: Seleccionar
-  play: Jugar
-  unlock: Desbloquear
+  buy: 30
+  select: 31
+  play: 32
+  unlock: 33
   languageManager: {fileID: 963824270}
   language: 
 --- !u!1 &708981925
@@ -10494,7 +10495,7 @@ GameObject:
   - component: {fileID: 1040827157}
   - component: {fileID: 1040827156}
   m_Layer: 5
-  m_Name: Volume Effects Box
+  m_Name: Volume Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17058,7 +17059,7 @@ GameObject:
   - component: {fileID: 1741792043}
   - component: {fileID: 1741792042}
   m_Layer: 5
-  m_Name: Volume Music Box
+  m_Name: Volume Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

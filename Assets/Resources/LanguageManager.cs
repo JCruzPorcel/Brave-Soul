@@ -39,9 +39,10 @@ public class LanguageManager : MonoBehaviour
     private int languageIndex;
     public string previous_Language;
 
+    GameManager gameManager;
+
     void Awake()
     {
-
         string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/languages.json");
         LanguageData data = JsonUtility.FromJson<LanguageData>(jsonString);
 
@@ -58,6 +59,8 @@ public class LanguageManager : MonoBehaviour
 
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
+
         PlayerData playerData = SaveManager.LoadPlayerData();
 
         languageDropdown.options.Clear();
@@ -140,14 +143,26 @@ public class LanguageManager : MonoBehaviour
 
         string[] texts = languageDict[language];
 
-        if (optionTexts.ContainsKey(language))        
+        if (optionTexts.ContainsKey(language))
             languageDropdown.captionText.text = languageTranslations[languageName];
 
-
-        for (int i = 0; i < buttons.Length; i++)
+        if (gameManager.currentGameState == GameState.mainMenu)
         {
-            if (buttons[i].button != null) buttons[i].button.text = texts[i];
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                if (buttons[i].button != null) buttons[i].button.text = texts[i];
+            }
+        }else
+        {
+            int p = 5;
+
+            for (int i = 0; i < buttons.Length; i++,p++)
+            {
+                if (buttons[i].button != null) buttons[i].button.text = texts[p+1];
+            }
         }
+
+
 
         if (optionTexts.ContainsKey(language))
         {

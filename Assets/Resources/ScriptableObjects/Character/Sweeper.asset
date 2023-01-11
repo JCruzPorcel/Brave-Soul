@@ -26,4 +26,4 @@ MonoBehaviour:
   startWeapon: {fileID: 11400000, guid: 905fdc98bd9b11f45b10c68a21708b7a, type: 2}
   charPrefab: {fileID: 7207315856855284230, guid: dda9a565cf3804d4f89d127678b5403c, type: 3}
   isOwned: 0
-  itsBuyable: 1
+  itsBuyable: 0

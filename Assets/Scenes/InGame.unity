@@ -1709,7 +1709,7 @@ GameObject:
   - component: {fileID: 271768177}
   - component: {fileID: 271768176}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Options_Back_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2871,7 +2871,7 @@ GameObject:
   - component: {fileID: 472371340}
   - component: {fileID: 472371339}
   m_Layer: 5
-  m_Name: Volume Music Box
+  m_Name: Volume Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5898,7 +5898,7 @@ GameObject:
   - component: {fileID: 1001950065}
   - component: {fileID: 1001950064}
   m_Layer: 5
-  m_Name: Volume Effects Box
+  m_Name: Volume Effects
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8800,6 +8800,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1524653052}
   m_CullTransparentMesh: 1
+--- !u!1 &1545003970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1545003972}
+  - component: {fileID: 1545003971}
+  m_Layer: 0
+  m_Name: 'TranslationManager '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!114 &1545003971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545003970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cc11736c34fbfa45be38027a2f7bbfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  languageDropdown: {fileID: 2063800999}
+  buttons:
+  - name: Options_Back_Button
+    button: {fileID: 271768176}
+  - name: Options_Music_Volume
+    button: {fileID: 472371339}
+  - name: Options_SFX_Volume
+    button: {fileID: 1001950064}
+  - name: Options_Damage_Text
+    button: {fileID: 1524653054}
+  - name: Options_FPS_Text
+    button: {fileID: 814179323}
+  - name: Options_Fullscreen_Text
+    button: {fileID: 1288255349}
+  - name: Options_HighPerformance_Text
+    button: {fileID: 1556497667}
+  - name: Options_Colorbind_Text
+    button: {fileID: 162599947}
+  previous_Language: 
+--- !u!4 &1545003972
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1545003970}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1556497665
 GameObject:
   m_ObjectHideFlags: 0
@@ -10899,7 +10962,6 @@ MonoBehaviour:
   currentHealth: 0
   heal: 0
   currentLvl: 0
-  maxLevel: 100
   currentExp: 0
   nextLvl: 10
   pointsLvl: 0
@@ -12074,7 +12136,7 @@ GameObject:
   - component: {fileID: 2063801000}
   - component: {fileID: 2063800999}
   m_Layer: 5
-  m_Name: Lenguaje
+  m_Name: Language
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
