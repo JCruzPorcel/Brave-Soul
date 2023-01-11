@@ -18,6 +18,7 @@ public class GameManager : SingletonPersistent<GameManager>
     public CharacterData CharSelected { get => charSelected; set => charSelected = value; }    // Selected
 
 
+
     #region PlayerData and Console Commands
 
     private bool godMode;
@@ -27,13 +28,19 @@ public class GameManager : SingletonPersistent<GameManager>
     private int playerGold;
 
     public int PlayerGold { get => playerGold; set => playerGold = value; }
-    #endregion  
+
+    private string previous_Language;
+    
+    public string Previous_Language { get => previous_Language; set => previous_Language = value; }
+
+#endregion
 
 
-    private void Start()
+private void Start()
     {
         PlayerData playerData = SaveManager.LoadPlayerData();
         playerGold = playerData.Gold;
+        previous_Language = playerData.Language;
     }
 
     private void LateUpdate()

@@ -27,9 +27,14 @@ public class PlayerData
     public bool LowQuality { get => m_LowQuality; set => m_LowQuality = value; }
     public bool Daltonism { get => m_Daltonism; set => m_Daltonism = value; }
 
+
+    private string language;
+    public string Language { get => language; set => Language = value; }
+
     public PlayerData(GameManager player)
     {
         //Player Data
-        gold = player.PlayerGold;        
+        gold = player.PlayerGold;
+        language = player.Previous_Language;
     }
 }

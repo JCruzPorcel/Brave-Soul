@@ -7488,6 +7488,8 @@ MonoBehaviour:
   select: Seleccionar
   play: Jugar
   unlock: Desbloquear
+  languageManager: {fileID: 963824270}
+  language: 
 --- !u!1 &708981925
 GameObject:
   m_ObjectHideFlags: 0
@@ -9890,6 +9892,7 @@ MonoBehaviour:
     button: {fileID: 2100130929}
   - name: CharSelection_Title_Text
     button: {fileID: 186663596}
+  previous_Language: 
 --- !u!1 &989398772
 GameObject:
   m_ObjectHideFlags: 0
@@ -12461,7 +12464,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Test de mensaje de descripci\xF3n de personaje.\n\nbla bla bla..."
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -20091,7 +20094,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45.95
+  m_fontSize: 45.6
   m_fontSizeBase: 47
   m_fontWeight: 400
   m_enableAutoSizing: 1

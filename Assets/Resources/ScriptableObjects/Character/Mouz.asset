@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9861c165eb209545b369162ffebaede, type: 3}
   m_Name: Mouz
   m_EditorClassIdentifier: 
-  varName: Mouz
+  id: 27
   charName: Mouz
-  description: "Un ratoncito astuto y h\xE1bil con una ballesta, capaz de derribar
-    a sus enemigos desde la distancia.\n\n\u2022 Movimiento <color=green><b>aumentado</b></color>.\n\u2022
-    Vida Maxima <color=red><b>reducida</b></color>.\n\u2022 Armadura <color=green><b>aumentada</b></color>."
+  description: 
   armor: 0
   damage: 1
   maxHp: 250

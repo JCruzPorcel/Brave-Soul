@@ -38,7 +38,7 @@ public class DebugController : MonoBehaviour
 
         GOD_MODE = new DebugCommand<int>("godmode", "Sets the god mode true '1' or false '0'.", "godmode <game_mode>", (x) =>
         {
-            GameManager.Instance.GameMode(x);
+            gameManager.GameMode(x);
         });
 
         SET_GOLD = new DebugCommand<int>("set_gold", "Sets the amount of gold.", "set_gold <gold_amount>", (x) =>
@@ -49,7 +49,7 @@ public class DebugController : MonoBehaviour
 
         DONATION = new DebugCommand("donate", "Donate me.", "donate", () =>
         {
-            Application.OpenURL("file:///C:/Users/orion/OneDrive/Escritorio/Web-main/Index.html");
+            Application.OpenURL("");
         });
 
         HELP = new DebugCommand("help", "Shows a list of commands.", "help", () =>
@@ -68,7 +68,7 @@ public class DebugController : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Instance.currentGameState != GameState.inGame) return;
+        if (gameManager.currentGameState != GameState.inGame) return;
 
 
         if (showConsole)

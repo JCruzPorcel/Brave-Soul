@@ -21,23 +21,35 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
     public CharacterData CurrentChar { get => currentChar; set => currentChar = value; }
     public CharacterData SelectedChar { get => selectedChar; set => selectedChar = value; }
 
-    public string select;
-    public string play;
-    public string unlock;
+    public int buy = 30;
+    public int select = 31;
+    public int play = 32;
+    public int unlock = 33;
 
     bool isSelected;
 
     public bool IsSelected { get => isSelected; set => isSelected = value; }
 
+    public LanguageManager languageManager;
+    public string language;
+
+    string[] texts;
 
     void Update()
     {
+
+        language = GameManager.Instance.Previous_Language;
+
+        texts = languageManager.languageDict[language];
+
+
         if (currentChar == selectedChar)
         {
             characterName.text = selectedChar.CharName;
-            description.text = selectedChar.Description;
+            description.text = texts[currentChar.ID];
             characterImage.sprite = selectedChar.CharImage;
             weaponImage.sprite = selectedChar.StartWeapon.WeaponImage;
+
 
 
             if (selectedChar.IsOwned)
@@ -58,14 +70,14 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
             {
                 buyButtonTransform.anchoredPosition = new Vector2(0, 0);
                 goldIcon.SetActive(false);
-                buyButton.text = unlock;
+                buyButton.text = texts[unlock];
                 buyButton.color = Color.magenta;
             }
         }
         else if (currentChar != null)
         {
             characterName.text = currentChar.CharName;
-            description.text = currentChar.Description;
+            description.text = texts[currentChar.ID];
             characterImage.sprite = currentChar.CharImage;
             weaponImage.sprite = currentChar.StartWeapon.WeaponImage;
 
@@ -90,14 +102,14 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
             {
                 buyButtonTransform.anchoredPosition = new Vector2(0, 0);
                 goldIcon.SetActive(false);
-                buyButton.text = unlock;
+                buyButton.text = texts[unlock];
                 buyButton.color = Color.magenta;
             }
         }
         else
         {
             characterName.text = selectedChar.CharName;
-            description.text = selectedChar.Description;
+            description.text = texts[selectedChar.ID];
             characterImage.sprite = selectedChar.CharImage;
             weaponImage.sprite = selectedChar.StartWeapon.WeaponImage;
 
@@ -122,7 +134,7 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
             {
                 buyButtonTransform.anchoredPosition = new Vector2(0, 0);
                 goldIcon.SetActive(false);
-                buyButton.text = unlock;
+                buyButton.text = texts[unlock];
                 buyButton.color = Color.magenta;
             }
         }
@@ -136,33 +148,33 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
         {
             if (!isSelected)
             {
-                buyButton.text = select;
+                buyButton.text = texts[select];
             }
             else
             {
-                buyButton.text = play;
+                buyButton.text = texts[play];
             }
         }
         else if (CurrentChar == null)
         {
             if (!isSelected)
             {
-                buyButton.text = select;
+                buyButton.text = texts[select];
             }
             else
             {
-                buyButton.text = play;
+                buyButton.text = texts[play];
             }
         }
         else
         {
-            buyButton.text = select;
+            buyButton.text = texts[select];
         }
     }
 
     public void State()
     {
-        if (buyButton.text == play)
+        if (buyButton.text == texts[play])
         {
             FindObjectOfType<AudioManager>().Play("StartGame SFX");
             MenuManager.Instance.InGame();

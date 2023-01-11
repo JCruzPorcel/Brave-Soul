@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9861c165eb209545b369162ffebaede, type: 3}
   m_Name: Mage
   m_EditorClassIdentifier: 
-  varName: Magus
+  id: 28
   charName: Magus
-  description: "Un mago capaz de invocar libros m\xE1gicos, ya sea como una defensa
-    o un arma.\n\n\u2022 Movimiento <color=yellow><b>normal</b></color>.\n\u2022
-    Vida Maxima <color=yellow><b>normal</b></color>."
+  description: 
   armor: 0.25
   damage: 6
   maxHp: 75

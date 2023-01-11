@@ -35,12 +35,13 @@ public class LanguageManager : MonoBehaviour
         { "French", "Français" }
     };
 
-
     private string systemLanguage;
     private int languageIndex;
+    public string previous_Language;
 
     void Awake()
     {
+
         string jsonString = File.ReadAllText(Application.streamingAssetsPath + "/languages.json");
         LanguageData data = JsonUtility.FromJson<LanguageData>(jsonString);
 
@@ -57,25 +58,72 @@ public class LanguageManager : MonoBehaviour
 
     void Start()
     {
+        PlayerData playerData = SaveManager.LoadPlayerData();
 
         languageDropdown.options.Clear();
 
-        for (int i = 0; i < optionTexts[systemLanguage].Length; i++)
+        previous_Language = playerData.Language;
+
+        Debug.Log(previous_Language);
+
+        if (string.IsNullOrEmpty(previous_Language))
         {
-            languageDropdown.options.Add(new TMP_Dropdown.OptionData(optionTexts[systemLanguage][i]));
-            if (optionTexts[systemLanguage][i] == systemLanguage)
+            Debug.Log("Si");
+
+            for (int i = 0; i < optionTexts[systemLanguage].Length; i++)
             {
-                languageIndex = i;
-                languageDropdown.value = languageIndex;
-                SetLanguage(languageIndex);
+                languageDropdown.options.Add(new TMP_Dropdown.OptionData(optionTexts[systemLanguage][i]));
+
+                if (optionTexts["English"][i] == systemLanguage)
+                {
+                    languageIndex = i;
+                    languageDropdown.value = languageIndex;
+                    SetLanguage(languageIndex);
+                }
+                else if (optionTexts["Spanish"][i] == systemLanguage)
+                {
+                    languageIndex = i;
+                    languageDropdown.value = languageIndex;
+                    SetLanguage(languageIndex);
+                }
+                else if (optionTexts["French"][i] == systemLanguage)
+                {
+                    languageIndex = i;
+                    languageDropdown.value = languageIndex;
+                    SetLanguage(languageIndex);
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("No");
+            for (int i = 0; i < optionTexts[previous_Language].Length; i++)
+            {
+                languageDropdown.options.Add(new TMP_Dropdown.OptionData(optionTexts[previous_Language][i]));
+
+                if (optionTexts["English"][i] == previous_Language)
+                {
+                    languageIndex = i;
+                    languageDropdown.value = languageIndex;
+                    SetLanguage(languageIndex);
+                }
+                else if (optionTexts["Spanish"][i] == previous_Language)
+                {
+                    languageIndex = i;
+                    languageDropdown.value = languageIndex;
+                    SetLanguage(languageIndex);
+                }
+                else if (optionTexts["French"][i] == previous_Language)
+                {
+                    languageIndex = i;
+                    languageDropdown.value = languageIndex;
+                    SetLanguage(languageIndex);
+                }
             }
         }
 
-        if (languageIndex == -1)
-        {
-            languageIndex = 0;
-            SetLanguage(languageIndex);
-        }
+        Debug.Log(previous_Language);
+
         languageDropdown.RefreshShownValue();
 
         languageDropdown.onValueChanged.AddListener(SetLanguage);
@@ -84,9 +132,7 @@ public class LanguageManager : MonoBehaviour
 
     public void SetLanguage(int value)
     {
-        int index = value;
-
-        string language = languageDropdown.options[index].text;
+        string language = languageDropdown.options[value].text;
 
         language = languageNames.ContainsKey(language) ? languageNames[language] : language;
 
@@ -111,6 +157,11 @@ public class LanguageManager : MonoBehaviour
                 languageDropdown.options[i].text = _texts[i];
             }
         }
+
+        previous_Language = language;
+
+        GameManager.Instance.Previous_Language = previous_Language;
+        GameManager.Instance.Save();
     }
 }
 

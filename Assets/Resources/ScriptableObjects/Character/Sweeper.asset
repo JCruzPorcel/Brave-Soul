@@ -12,11 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9861c165eb209545b369162ffebaede, type: 3}
   m_Name: Sweeper
   m_EditorClassIdentifier: 
-  varName: Sweeper
+  id: 29
   charName: Guardian
-  description: "Un guardian es un ser que ha sido encargado de la defensa de un lugar
-    sagrado.\n\n\u2022 Movimiento <color=red><b>reducido</b></color>.\n\u2022 Vida
-    Maxima <color=green><b>aumentada</b></color>.\n\u2022 Da\xF1o Inicial <color=green><b>aumentado</b></color>."
+  description: 
   armor: 0.5
   damage: 5
   maxHp: 320

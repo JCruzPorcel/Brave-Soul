@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Character", menuName = "Create New Character")]
 public class CharacterData : ScriptableObject
 {
-    [SerializeField] private string varName;
+    [SerializeField] [Min(0)]private int id;
     [SerializeField] private string charName;
     [TextArea(7,8)]
     [SerializeField] private string description;
@@ -22,7 +22,7 @@ public class CharacterData : ScriptableObject
     [SerializeField] private bool itsBuyable = true;
 
 
-    public string VarName { get { return varName; } }
+    public int ID { get { return id; } }
 
     public string CharName { get => charName; set => charName = value; }
     public string Description { get => description; set => description = value; }

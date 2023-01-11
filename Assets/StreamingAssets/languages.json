@@ -26,7 +26,14 @@
     "All rights reserved to Perez Porcel Juan Cruz.",
     "Support the creator",
     "Back",
-    "Choose Character"
+    "Choose Character",
+    "A smart and skilled mouse with a crossbow, capable of taking down enemies from a distance.\n\n• Movement <color=green><b>increased</b></color>.\n• Maximum Health <color=red><b>reduced</b></color>.\n• Initial Damage <color=Yellow><b>normal</b></color>.",
+    "A wizard capable of summoning magic books, whether as defense or weapon.\n\n• Movement <color=yellow><b>normal</b></color>.\n• Maximum Health <color=yellow><b>normal</b></color>.",
+    "The Guardian is an imposing figure that throws axes with great precision and speed. \n\n• Movement <color=red><b>reduced</b></color>.\n• Maximum Health <color=green><b>increased</b></color>.\n• Initial Damage <color=green><b>increased</b></color>.",
+    "Buy",
+    "Select",
+    "Play",
+    "Unlock"
   ],
   "Spanish": [
     "Presione para comenzar",
@@ -52,10 +59,17 @@
     "Diseño del juego",
     "Arte y Sonido",
     "Gracias por jugar!",
-    "Todos los derechos reservados a perez porcel juan cruz.",
+    "Todos los derechos reservados a Perez Porcel Juan Cruz.",
     "Apoyar al creador",
     "Volver",
-    "Elegir Personaje"
+    "Elegir Personaje",
+    "Un ratoncito astuto y hábil con una ballesta, capaz de derribar a sus enemigos desde la distancia.\n\n• Movimiento <color=green><b>aumentado</b></color>.\n• Vida Maxima <color=red><b>reducida</b></color>.\n• Daño Inicial <color=yellow><b>normal</b></color>.",
+    "Un mago capaz de invocar libros mágicos, ya sea como una defensa o un arma.\n\n• Movimiento <color=yellow><b>normal</b></color>.\n• Vida Maxima <color=yellow><b>normal</b></color>.\n• Daño Inicial <color=green><b>aumentado</b></color>.",
+    "El Guardián es una figura imponente que arroja hachas con gran precisión y velocidad. \n\n• Movimiento <color=red><b>reducido</b></color>.\n• Vida Maxima <color=green><b>aumentada</b></color>.\n• Daño Inicial <color=green><b>aumentado</b></color>.",
+    "Comprar",
+    "Seleccionar",
+    "Jugar",
+    "Desbloquear"
   ],
   "French": [
     "Appuyez pour démarrer",
@@ -84,6 +98,13 @@
     "Tous droits réservés à Perez Porcel Juan Cruz.",
     "Soutenir le créateur",
     "Retour",
-    "Choisir le personnage"
+    "Choisir le personnage",
+    "Une souris maligne et habile avec une arbalète, capable de vaincre ses ennemis à distance.\n\n• Mouvement <color=green><b>accru</b></color>.\n• Santé maximale <color=red><b>réduite</b></color>.\n• Armure <color=yellow><b>normale</b></color>.",
+    "Un magicien capable d'invoquer des livres magiques, soit comme défense ou comme arme.\n\n• Mouvement <color=yellow><b>normal</b></color>.\n• Santé maximale <color=yellow><b>normale</b></color>.",
+    "Le Gardien est une figure imposante qui lance des haches avec une grande précision et rapidité. \n\n• Mouvement <color=red><b>réduit</b></color>.\n• Santé maximale <color=green><b>augmentée</b></color>.\n• Dommage initial <color=green><b>augmenté</b></color>.",
+    "Acheter",
+    "Sélectionner",
+    "Jouer",
+    "Débloquer"
   ]
 } 
