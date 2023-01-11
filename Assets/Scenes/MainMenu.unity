@@ -710,7 +710,7 @@ GameObject:
   - component: {fileID: 62749749}
   - component: {fileID: 62749748}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Reset_Skill_button_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1696,7 +1696,7 @@ GameObject:
   - component: {fileID: 186663597}
   - component: {fileID: 186663596}
   m_Layer: 5
-  m_Name: Char SelecctionText
+  m_Name: CharSelection_Title_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2135,7 +2135,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 315.9906, y: -15.552969}
+  m_AnchoredPosition: {x: 273, y: -15.552969}
   m_SizeDelta: {x: 130.6362, y: 57.1052}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &230830717
@@ -4504,7 +4504,7 @@ GameObject:
   - component: {fileID: 388354873}
   - component: {fileID: 388354872}
   m_Layer: 5
-  m_Name: AllRight
+  m_Name: Credits_AllRight_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5038,13 +5038,14 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 623338346}
   m_Father: {fileID: 562663411}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 346.74847, y: 21.0967}
+  m_AnchoredPosition: {x: 304, y: 21.0967}
   m_SizeDelta: {x: 69.1379, y: 42.1934}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &437322385
@@ -5926,7 +5927,6 @@ RectTransform:
   m_Children:
   - {fileID: 324705283}
   - {fileID: 437322384}
-  - {fileID: 623338346}
   m_Father: {fileID: 1094529230}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6113,7 +6113,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 500637649}
         m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
         m_MethodName: OpenURL
         m_Mode: 5
@@ -6855,12 +6855,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 562663411}
-  m_RootOrder: 2
+  m_Father: {fileID: 437322384}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 281.12, y: 21.951}
+  m_AnchoredPosition: {x: -65.62854, y: 0.8543205}
   m_SizeDelta: {x: 43.3328, y: 43.9022}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &623338347
@@ -8598,7 +8598,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Comprar
+  m_text: Buy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -8625,12 +8625,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22
+  m_fontSize: 25
   m_fontSizeBase: 22
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 22
+  m_fontSizeMax: 25
   m_fontStyle: 33
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -9016,7 +9016,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game Desing
+  m_text: "Dise\xF1o del juego"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -9477,7 +9477,7 @@ GameObject:
   - component: {fileID: 869135553}
   - component: {fileID: 869135552}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Credits_button_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9805,7 +9805,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &963824269
 Transform:
@@ -9836,8 +9836,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   languageDropdown: {fileID: 741554908}
   buttons:
-  - name: Test
-    button: {fileID: 0}
+  - name: PressToStart _Text
+    button: {fileID: 651435054}
+  - name: MainMenu_Options_Button
+    button: {fileID: 1998777873}
+  - name: MainMenu_Exit Game_Button
+    button: {fileID: 1533844656}
+  - name: MainMenu_Start Game_Button
+    button: {fileID: 1581588878}
+  - name: MainMenu_PowerUp_Button
+    button: {fileID: 1434683165}
+  - name: MainMenu_Credits_Button
+    button: {fileID: 869135552}
+  - name: Options_Back_Button
+    button: {fileID: 1720215747}
+  - name: Options_Music_Volume
+    button: {fileID: 1741792042}
+  - name: Options_SFX_Volume
+    button: {fileID: 1040827156}
+  - name: Options_Damage_Text
+    button: {fileID: 1425250569}
+  - name: Options_FPS_Text
+    button: {fileID: 1360714973}
+  - name: Options_Fullscreen_Text
+    button: {fileID: 1433509391}
+  - name: Options_HighPerformance_Text
+    button: {fileID: 2060585053}
+  - name: Options_Colorbind_Text
+    button: {fileID: 326288350}
+  - name: PowerUp_Back_Button
+    button: {fileID: 1675315504}
+  - name: PowerUp_Title_Text
+    button: {fileID: 1066353057}
+  - name: PowerUp_ResetSkill_Button
+    button: {fileID: 62749748}
+  - name: Credits_Back_Button
+    button: {fileID: 1443728262}
+  - name: Credits_Title_Text
+    button: {fileID: 1700823047}
+  - name: Credits_Developer_Text
+    button: {fileID: 1946670267}
+  - name: Credits_GameDesing_Text
+    button: {fileID: 815485301}
+  - name: Credits_Art_and_Sound_Text
+    button: {fileID: 420737145}
+  - name: Credits_Thanks_Text
+    button: {fileID: 1593429127}
+  - name: Credits_AllRight_Text
+    button: {fileID: 388354872}
+  - name: Credits_Donation_Text
+    button: {fileID: 1323451239}
+  - name: CharSelection_Back_Button
+    button: {fileID: 2100130929}
+  - name: CharSelection_Title_Text
+    button: {fileID: 186663596}
 --- !u!1 &989398772
 GameObject:
   m_ObjectHideFlags: 0
@@ -10879,7 +10931,7 @@ GameObject:
   - component: {fileID: 1066353058}
   - component: {fileID: 1066353057}
   m_Layer: 5
-  m_Name: Title
+  m_Name: PowerUp_Title_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10925,7 +10977,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Elegir Mejoras
+  m_text: Mejoras de Personaje
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -12594,7 +12646,7 @@ GameObject:
   - component: {fileID: 1323451240}
   - component: {fileID: 1323451239}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Credits_Donation_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13682,7 +13734,7 @@ GameObject:
   - component: {fileID: 1434683166}
   - component: {fileID: 1434683165}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: PowerUp_button_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13817,7 +13869,7 @@ GameObject:
   - component: {fileID: 1443728263}
   - component: {fileID: 1443728262}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Credits_Back_Button_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14687,7 +14739,7 @@ GameObject:
   - component: {fileID: 1533844657}
   - component: {fileID: 1533844656}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: ExitGame_button_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15354,7 +15406,7 @@ GameObject:
   - component: {fileID: 1581588879}
   - component: {fileID: 1581588878}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Start_button_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15565,7 +15617,7 @@ GameObject:
   - component: {fileID: 1593429128}
   - component: {fileID: 1593429127}
   m_Layer: 5
-  m_Name: Thanks
+  m_Name: Credits_Thanks_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16326,7 +16378,7 @@ GameObject:
   - component: {fileID: 1675315505}
   - component: {fileID: 1675315504}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: PowerUp_Back_button_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16461,7 +16513,7 @@ GameObject:
   - component: {fileID: 1700823048}
   - component: {fileID: 1700823047}
   m_Layer: 5
-  m_Name: Credits
+  m_Name: Credits_Title_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16731,7 +16783,7 @@ GameObject:
   - component: {fileID: 1720215748}
   - component: {fileID: 1720215747}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Options_Back_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19408,7 +19460,7 @@ GameObject:
   - component: {fileID: 1998777874}
   - component: {fileID: 1998777873}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Option_button_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20039,12 +20091,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 45.95
+  m_fontSizeBase: 47
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 36.2
+  m_fontSizeMax: 48
   m_fontStyle: 33
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
@@ -20075,7 +20127,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 56.672363, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -20101,7 +20153,7 @@ GameObject:
   - component: {fileID: 2100130930}
   - component: {fileID: 2100130929}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CharSelection_Back_Button_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
