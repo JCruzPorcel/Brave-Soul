@@ -36,12 +36,12 @@ public class NecroInv : MonoBehaviour
 
     public void WeaponLevel()
     {
-        level = GetStatsManager.Instance.level_Necronomicon;
+        level = LevelUpManager.Instance.level_Necronomicon;
 
         switch (level)
         {
             case 0:
-                GetStatsManager.Instance.level_Necronomicon = 1;
+                LevelUpManager.Instance.level_Necronomicon = 1;
                 break;
 
             case 1:

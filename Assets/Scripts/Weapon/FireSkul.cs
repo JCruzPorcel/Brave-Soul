@@ -7,11 +7,9 @@ public class FireSkul : Weapon
 
     GameObject[] enemies;
 
-    private void Update()
+    private void FixedUpdate()
     {
-        Transform target = MostNearbyEnemies();
-
-        transform.position += target.position;
+        transform.position += MostNearbyEnemies().position * attackSpeed * Time.deltaTime;
     }
 
 

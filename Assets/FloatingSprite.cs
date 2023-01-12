@@ -12,7 +12,7 @@ public class FloatingSprite : MonoBehaviour
 
     public PlayerController playerController;
 
-    private Transform player;
+    [SerializeField] Transform player;
     private GameObject[] pooledObjects;
     private int currentIndex = 0;
     private int poolSize = 5;
@@ -21,7 +21,7 @@ public class FloatingSprite : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.FindWithTag("Player").transform;
+        //player = GameObject.FindWithTag("Player").transform;
         pooledObjects = new GameObject[poolSize];
         for (int i = 0; i < poolSize; i++)
         {

@@ -26,7 +26,9 @@ public class PlayerController : Singleton<PlayerController>
     bool dead = false;
 
     [SerializeField] FloatingSprite floatingSprite;
+    [SerializeField] MusicFader musicFader;
 
+    [SerializeField]AudioManager audioManager;
 
     private void Start()
     {
@@ -106,8 +108,9 @@ public class PlayerController : Singleton<PlayerController>
         if (currentHealth <= 0 && !dead)
         {
             dead = true;
+            musicFader.FadeOut(.5f);
             GameManager.Instance.GameOver();
-            FindObjectOfType<AudioManager>().Play("GameOver SFX");
+            audioManager.Play("GameOver SFX");
             anim.SetBool("IsDead?", true);
             floatingSprite.SpawnSpriteGameOver();
         }
@@ -134,7 +137,7 @@ public class PlayerController : Singleton<PlayerController>
 
             if (!LevelUpManager.Instance.maxLevel)
             {
-                FindObjectOfType<AudioManager>().Play("LevelUp SFX");
+                audioManager.Play("LevelUp SFX");
                 floatingSprite.SpawnSpriteLevelUp();
                 pointsLvl++;
                 MenuManager.Instance.LevelUp();

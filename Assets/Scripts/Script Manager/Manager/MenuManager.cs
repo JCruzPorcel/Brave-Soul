@@ -47,13 +47,14 @@ public class MenuManager : Singleton<MenuManager>
 
     private void Start()
     {
-        SetMenuState(MenuState.PressToStart);
+        Debug.Log("PressToStart");
+        //SetMenuState(MenuState.PressToStart);
         canvasGo.SetActive(true);
     }
 
     public void OnCancel(InputValue value)
     {
-        if (currentMenuState == MenuState.Transition || currentMenuState == MenuState.MainMenu || currentMenuState == MenuState.PressToStart || currentMenuState == MenuState.GameOver) return;
+        if (currentMenuState == MenuState.Transition || currentMenuState == MenuState.MainMenu || currentMenuState == MenuState.PressToStart || currentMenuState == MenuState.GameOver || currentMenuState == MenuState.LevelUp) return;
 
         else if (currentMenuState == MenuState.InGame || currentMenuState == MenuState.Menu)
         {
@@ -345,7 +346,6 @@ public class MenuManager : Singleton<MenuManager>
         yield return new WaitForSeconds(1);
 
         FindObjectOfType<AudioManager>().Play("GameOver Theme");
-
     }
 
 

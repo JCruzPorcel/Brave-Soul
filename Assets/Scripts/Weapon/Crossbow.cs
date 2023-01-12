@@ -121,12 +121,12 @@ public class Crossbow : Weapon
 
     public void WeaponLevel()
     {
-        level = GetStatsManager.Instance.level_Crossbow;
+        level = LevelUpManager.Instance.level_Crossbow;
 
         switch (level)
         {
             case 0:
-                GetStatsManager.Instance.level_Crossbow = 1;
+                LevelUpManager.Instance.level_Crossbow = 1;
                 break;
 
             case 1:

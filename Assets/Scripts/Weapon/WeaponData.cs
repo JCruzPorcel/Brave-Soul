@@ -6,6 +6,7 @@ public class WeaponData : ScriptableObject
 {
     [Header("Stats")]
     [SerializeField] private string varName;
+    [SerializeField] private int Id;
 
     [SerializeField] private string itemName;
     [TextArea(5, 5)][SerializeField] private string description;
@@ -17,6 +18,7 @@ public class WeaponData : ScriptableObject
 
 
     public string VarName { get { return varName; } }
+    public int ID { get { return Id; } }
 
     public bool CanUpgrade { get { return canUpgrade; } }
 

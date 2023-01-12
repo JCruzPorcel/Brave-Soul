@@ -17,9 +17,16 @@ public class TimerScript : Singleton<TimerScript>
         seconds = 0;
     }
 
+    public int enemiesKilled = 0;
+
+    [SerializeField] TMP_Text enemiesKilled_Text;
+
     private void Update()
     {
         if (GameManager.Instance.currentGameState != GameState.inGame) return;
+
+
+        enemiesKilled_Text.text = enemiesKilled.ToString();
 
 
         if (timerOn)

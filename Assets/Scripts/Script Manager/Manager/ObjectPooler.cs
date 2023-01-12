@@ -34,7 +34,7 @@ public class ObjectPooler : MonoBehaviour
     int currentMages = 0;
     int currentBoss = 0;
 
-    Transform player;
+    [SerializeField]Transform player;
 
     private void Start()
     {
@@ -72,8 +72,6 @@ public class ObjectPooler : MonoBehaviour
                 }
             }
         }
-
-        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Update()
@@ -173,7 +171,8 @@ public class ObjectPooler : MonoBehaviour
                 new Vector2(Random.Range(-11, 11), Random.Range(0, 2) == 0 ? -6 : 6) :
                 new Vector2(Random.Range(0, 2) == 0 ? -11 : 11, Random.Range(-6, 6));
 
-                    Assassin[i].transform.position = new Vector3(randomPosition.x, randomPosition.y, 0);
+                    Assassin[i].transform.position = new Vector3(randomPosition.x + player.position.x, randomPosition.y + player.position.y, 0);
+
                     currentAssassins++;
                     break;
                 }
@@ -195,8 +194,9 @@ public class ObjectPooler : MonoBehaviour
                 new Vector2(Random.Range(-11, 11), Random.Range(0, 2) == 0 ? -6 : 6) :
                 new Vector2(Random.Range(0, 2) == 0 ? -11 : 11, Random.Range(-6, 6));
 
-                    Tank[i].transform.position = new Vector3(randomPosition.x, randomPosition.y, 0); currentTanks++;
+                    Tank[i].transform.position = new Vector3(randomPosition.x + player.position.x, randomPosition.y + player.position.y, 0);
 
+                    currentTanks++;
                     break;
                 }
             }
@@ -217,7 +217,7 @@ public class ObjectPooler : MonoBehaviour
                 new Vector2(Random.Range(-11, 11), Random.Range(0, 2) == 0 ? -6 : 6) :
                 new Vector2(Random.Range(0, 2) == 0 ? -11 : 11, Random.Range(-6, 6));
 
-                    Mage[i].transform.position = new Vector3(randomPosition.x, randomPosition.y, 0);
+                    Mage[i].transform.position = new Vector3(randomPosition.x + player.position.x, randomPosition.y + player.position.y, 0);
 
                     currentMages++;
                     break;
@@ -240,7 +240,7 @@ public class ObjectPooler : MonoBehaviour
                 new Vector2(Random.Range(-11, 11), Random.Range(0, 2) == 0 ? -6 : 6) :
                 new Vector2(Random.Range(0, 2) == 0 ? -11 : 11, Random.Range(-6, 6));
 
-                    Boss[i].transform.position = new Vector3(randomPosition.x, randomPosition.y, 0);
+                    Boss[i].transform.position = new Vector3(randomPosition.x + player.position.x, randomPosition.y + player.position.y, 0);
 
                     currentBoss++;
                     break;

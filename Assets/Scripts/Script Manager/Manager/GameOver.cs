@@ -30,10 +30,8 @@ public class GameOver : MonoBehaviour
     float time = 0;
     int enemies = 0;
 
-
     private void Start()
     {
-        enemies = PlayerScore.Instance.enemiesKilled;
         time =TimerScript.Instance.minutes;
 
         mathGold = Mathf.Round((time * factor_time) + (enemies * factor_enemies));

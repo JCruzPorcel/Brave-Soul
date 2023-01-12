@@ -29,7 +29,6 @@ public class OptionsManager : Singleton<OptionsManager>
 
     public void Exit()
     {
-        Time.timeScale = 1;
         MenuManager.Instance.Exit();
     }
 

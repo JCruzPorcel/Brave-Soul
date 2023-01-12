@@ -331,36 +331,43 @@ public class WeaponManager : MonoBehaviour
             if (leftData.VarName == "Axe")
             {
                 WeaponContainer.Instance.have_Axe = true;
-                GetStatsManager.Instance.level_Axe = 1;
+                LevelUpManager.Instance.level_Axe = 1;
 
                 currentWeapons++;
             }
             else if (leftData.VarName == "Crossbow")
             {
                 Instantiate(leftData.Prefab);
-                GetStatsManager.Instance.level_Crossbow = 1;
+                LevelUpManager.Instance.level_Crossbow = 1;
 
                 currentWeapons++;
             }
             else if (leftData.VarName == "Necronomicon")
             {
                 Instantiate(leftData.Prefab);
-                GetStatsManager.Instance.level_Necronomicon = 1;
+                LevelUpManager.Instance.level_Necronomicon = 1;
 
                 currentWeapons++;
             }
             else if (leftData.VarName == "Arrow")
             {
-                GetStatsManager.Instance.level_Arrow = 1;
+                LevelUpManager.Instance.level_Arrow = 1;
+            }else
+            {
+                Instantiate(leftData.Prefab);
             }
         }
         else
         {
+
+            floatingSprite.SpawnSpriteForge();
+            FindObjectOfType<AudioManager>().Play("ForgeWeapon SFX");
+
             if (leftData.VarName == "Axe")
             {
-                GetStatsManager.Instance.level_Axe++;
+                LevelUpManager.Instance.level_Axe++;
 
-                if (GetStatsManager.Instance.level_Axe >= 5)
+                if (LevelUpManager.Instance.level_Axe >= 5)
                 {
                     currentWeaponList.Remove(leftData);
                     weaponsList.Remove(leftData);
@@ -368,9 +375,9 @@ public class WeaponManager : MonoBehaviour
             }
             else if (leftData.VarName == "Crossbow")
             {
-                GetStatsManager.Instance.level_Crossbow++;
+                LevelUpManager.Instance.level_Crossbow++;
 
-                if (GetStatsManager.Instance.level_Crossbow >= 5)
+                if (LevelUpManager.Instance.level_Crossbow >= 5)
                 {
                     currentWeaponList.Remove(leftData);
                     weaponsList.Remove(leftData);
@@ -378,9 +385,9 @@ public class WeaponManager : MonoBehaviour
             }
             else if (leftData.VarName == "Necronomicon")
             {
-                GetStatsManager.Instance.level_Necronomicon++;
+                LevelUpManager.Instance.level_Necronomicon++;
 
-                if (GetStatsManager.Instance.level_Necronomicon >= 5)
+                if (LevelUpManager.Instance.level_Necronomicon >= 5)
                 {
                     currentWeaponList.Remove(leftData);
                     weaponsList.Remove(leftData);
@@ -388,16 +395,16 @@ public class WeaponManager : MonoBehaviour
             }
             else if (leftData.VarName == "Arrow")
             {
-                GetStatsManager.Instance.level_Arrow++;
+                LevelUpManager.Instance.level_Arrow++;
 
-                if (GetStatsManager.Instance.level_Arrow >= 5)
+                if (LevelUpManager.Instance.level_Arrow >= 5)
                 {
                     currentWeaponList.Remove(leftData);
                     weaponsList.Remove(leftData);
                 }
             }
         }
-        floatingSprite.SpawnSpriteForge();
+
         PlayerController.Instance.pointsLvl--;
         LevelUpManager.Instance.WindowLevelState();
     }
@@ -421,36 +428,43 @@ public class WeaponManager : MonoBehaviour
             if (midData.VarName == "Axe")
             {
                 WeaponContainer.Instance.have_Axe = true;
-                GetStatsManager.Instance.level_Axe = 1;
+                LevelUpManager.Instance.level_Axe = 1;
 
                 currentWeapons++;
             }
             else if (midData.VarName == "Crossbow")
             {
-                Instantiate(midData.Prefab);
-                GetStatsManager.Instance.level_Crossbow = 1;
+                Instantiate(midData.Prefab); Instantiate(leftData.Prefab);
+                LevelUpManager.Instance.level_Crossbow = 1;
 
                 currentWeapons++;
             }
             else if (midData.VarName == "Necronomicon")
             {
                 Instantiate(midData.Prefab);
-                GetStatsManager.Instance.level_Necronomicon = 1;
+                LevelUpManager.Instance.level_Necronomicon = 1;
 
                 currentWeapons++;
             }
             else if (midData.VarName == "Arrow")
             {
-                GetStatsManager.Instance.level_Arrow = 1;
+                LevelUpManager.Instance.level_Arrow = 1;
+            }
+            else
+            {
+                Instantiate(leftData.Prefab);
             }
         }
         else
         {
+            floatingSprite.SpawnSpriteForge();
+            FindObjectOfType<AudioManager>().Play("ForgeWeapon SFX");
+
             if (midData.VarName == "Axe")
             {
-                GetStatsManager.Instance.level_Axe++;
+                LevelUpManager.Instance.level_Axe++;
 
-                if (GetStatsManager.Instance.level_Axe >= 5)
+                if (LevelUpManager.Instance.level_Axe >= 5)
                 {
                     currentWeaponList.Remove(midData);
                     weaponsList.Remove(midData);
@@ -458,9 +472,9 @@ public class WeaponManager : MonoBehaviour
             }
             else if (midData.VarName == "Crossbow")
             {
-                GetStatsManager.Instance.level_Crossbow++;
+                LevelUpManager.Instance.level_Crossbow++;
 
-                if (GetStatsManager.Instance.level_Crossbow >= 5)
+                if (LevelUpManager.Instance.level_Crossbow >= 5)
                 {
                     currentWeaponList.Remove(midData);
                     weaponsList.Remove(midData);
@@ -468,9 +482,9 @@ public class WeaponManager : MonoBehaviour
             }
             else if (midData.VarName == "Necronomicon")
             {
-                GetStatsManager.Instance.level_Necronomicon++;
+                LevelUpManager.Instance.level_Necronomicon++;
 
-                if (GetStatsManager.Instance.level_Necronomicon >= 5)
+                if (LevelUpManager.Instance.level_Necronomicon >= 5)
                 {
                     currentWeaponList.Remove(midData);
                     weaponsList.Remove(midData);
@@ -478,9 +492,9 @@ public class WeaponManager : MonoBehaviour
             }
             else if (midData.VarName == "Arrow")
             {
-                GetStatsManager.Instance.level_Arrow++;
+                LevelUpManager.Instance.level_Arrow++;
 
-                if (GetStatsManager.Instance.level_Arrow >= 5)
+                if (LevelUpManager.Instance.level_Arrow >= 5)
                 {
                     currentWeaponList.Remove(midData);
                     weaponsList.Remove(midData);
@@ -488,7 +502,6 @@ public class WeaponManager : MonoBehaviour
             }
         }
 
-        floatingSprite.SpawnSpriteForge();
         PlayerController.Instance.pointsLvl--;
         LevelUpManager.Instance.WindowLevelState();
     }
@@ -512,36 +525,43 @@ public class WeaponManager : MonoBehaviour
             if (rightData.VarName == "Axe")
             {
                 WeaponContainer.Instance.have_Axe = true;
-                GetStatsManager.Instance.level_Axe = 1;
+                LevelUpManager.Instance.level_Axe = 1;
 
                 currentWeapons++;
             }
             else if (rightData.VarName == "Crossbow")
             {
                 Instantiate(rightData.Prefab);
-                GetStatsManager.Instance.level_Crossbow = 1;
+                LevelUpManager.Instance.level_Crossbow = 1;
 
                 currentWeapons++;
             }
             else if (rightData.VarName == "Necronomicon")
             {
                 Instantiate(rightData.Prefab);
-                GetStatsManager.Instance.level_Necronomicon = 1;
+                LevelUpManager.Instance.level_Necronomicon = 1;
 
                 currentWeapons++;
             }
             else if (rightData.VarName == "Arrow")
             {
-                GetStatsManager.Instance.level_Arrow = 1;
+                LevelUpManager.Instance.level_Arrow = 1;
+            }
+            else
+            {
+                Instantiate(rightData.Prefab);
             }
         }
         else
         {
+            floatingSprite.SpawnSpriteForge();
+            FindObjectOfType<AudioManager>().Play("ForgeWeapon SFX");
+
             if (rightData.VarName == "Axe")
             {
-                GetStatsManager.Instance.level_Axe++;
+                LevelUpManager.Instance.level_Axe++;
 
-                if (GetStatsManager.Instance.level_Axe >= 5)
+                if (LevelUpManager.Instance.level_Axe >= 5)
                 {
                     currentWeaponList.Remove(rightData);
                     weaponsList.Remove(rightData);
@@ -549,9 +569,9 @@ public class WeaponManager : MonoBehaviour
             }
             else if (rightData.VarName == "Crossbow")
             {
-                GetStatsManager.Instance.level_Crossbow++;
+                LevelUpManager.Instance.level_Crossbow++;
 
-                if (GetStatsManager.Instance.level_Crossbow >= 5)
+                if (LevelUpManager.Instance.level_Crossbow >= 5)
                 {
                     currentWeaponList.Remove(rightData);
                     weaponsList.Remove(rightData);
@@ -559,9 +579,9 @@ public class WeaponManager : MonoBehaviour
             }
             else if (rightData.VarName == "Necronomicon")
             {
-                GetStatsManager.Instance.level_Necronomicon++;
+                LevelUpManager.Instance.level_Necronomicon++;
 
-                if (GetStatsManager.Instance.level_Necronomicon >= 5)
+                if (LevelUpManager.Instance.level_Necronomicon >= 5)
                 {
                     currentWeaponList.Remove(rightData);
                     weaponsList.Remove(rightData);
@@ -569,9 +589,9 @@ public class WeaponManager : MonoBehaviour
             }
             else if (rightData.VarName == "Arrow")
             {
-                GetStatsManager.Instance.level_Arrow++;
+                LevelUpManager.Instance.level_Arrow++;
 
-                if (GetStatsManager.Instance.level_Arrow >= 5)
+                if (LevelUpManager.Instance.level_Arrow >= 5)
                 {
                     currentWeaponList.Remove(rightData);
                     weaponsList.Remove(rightData);
@@ -579,7 +599,6 @@ public class WeaponManager : MonoBehaviour
             }
         }
 
-        floatingSprite.SpawnSpriteForge();
         PlayerController.Instance.pointsLvl--;
         LevelUpManager.Instance.WindowLevelState();
     }

@@ -53,12 +53,12 @@ public class Projectile : MonoBehaviour
 
     public void WeaponLevel()
     {
-        level = GetStatsManager.Instance.level_Arrow;
+        level = LevelUpManager.Instance.level_Arrow;
 
         switch (level)
         {
             case 0:
-                GetStatsManager.Instance.level_Arrow = 1;
+                LevelUpManager.Instance.level_Arrow = 1;
                 break;
 
             case 1:

@@ -102,12 +102,12 @@ public class Axe : Weapon
 
     public void WeaponLevel()
     {
-        level = GetStatsManager.Instance.level_Axe;
+        level = LevelUpManager.Instance.level_Axe;
 
         switch (level)
         {
             case 0:
-                GetStatsManager.Instance.level_Axe = 1;
+                LevelUpManager.Instance.level_Axe = 1;
                 break;
 
             case 1:

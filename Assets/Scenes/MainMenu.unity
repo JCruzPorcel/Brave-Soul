@@ -2591,7 +2591,7 @@ MonoBehaviour:
   - name: ClickButton SFX
     clip: {fileID: 8300000, guid: f3504ef74e5162c4c857e16815d13267, type: 3}
     mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
-    volume: 0.5
+    volume: 0.3
     pitch: 1
     loop: 0
     playOnAwake: 0
@@ -2608,6 +2608,22 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 50b483536d8112143bd2f99611961c3c, type: 3}
     mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
     volume: 0.3
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: GameOver Theme
+    clip: {fileID: 8300000, guid: 793eece0bba71ca4eaf47c33818eb758, type: 3}
+    mixerGroup: {fileID: -7518686615622290075, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: ForgeWeapon SFX
+    clip: {fileID: 8300000, guid: 9ce3703ec36e8d446aea91dafcb33eeb, type: 3}
+    mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
+    volume: 1
     pitch: 1
     loop: 0
     playOnAwake: 0

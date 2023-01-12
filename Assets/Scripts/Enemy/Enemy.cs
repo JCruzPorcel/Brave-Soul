@@ -29,11 +29,14 @@ public class Enemy : MonoBehaviour
 
     public Transform player;
 
+    TimerScript timerScript;
+
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         player = GameObject.FindWithTag("Player").transform;
 
+        timerScript = FindObjectOfType<TimerScript>();
         currentHP = maxHP;
     }
 
@@ -175,5 +178,5 @@ public class Enemy : MonoBehaviour
     public virtual void Spawn() { }
 
             
-    public virtual void GiveExp() { ExperienceOrbPooling.Instance.OnEnemyDeath(this); PlayerScore.Instance.enemiesKilled++; }
+    public virtual void GiveExp() { ExperienceOrbPooling.Instance.OnEnemyDeath(this); timerScript.enemiesKilled++; }
 }
