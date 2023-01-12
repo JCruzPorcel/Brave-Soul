@@ -351,8 +351,6 @@ public class MenuManager : Singleton<MenuManager>
     {
         if (newMenuState == MenuState.PressToStart)
         {
-            Time.timeScale = 1;
-
             foreach (GameObject menu in menuList)
             {
                 if (menu.name == MenuState.PressToStart.ToString())
@@ -485,15 +483,11 @@ public class MenuManager : Singleton<MenuManager>
 
             this.currentMenuState = newMenuState;
 
-            Time.timeScale = 0;
-
             return;
 
         }
         else if (newMenuState == MenuState.InGame)
         {
-            Time.timeScale = 1;
-
             foreach (GameObject menu in menuList)
             {
                 if (menu.name == "Options")
@@ -554,10 +548,7 @@ public class MenuManager : Singleton<MenuManager>
 
             this.currentMenuState = newMenuState;
 
-            Time.timeScale = 0;
-
             return;
-
         }
 
         //Maybe it's a good idea to turn this into a coroutine (I'll think about it)...

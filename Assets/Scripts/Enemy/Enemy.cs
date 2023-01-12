@@ -13,7 +13,8 @@ public class Enemy : MonoBehaviour
 
     [Range(0, 10)] public float speed;
 
-    [Min(0)] public int exp;
+    [Min(0)] public int min_exp;
+    [Min(0)] public int max_exp;
 
     [HideInInspector] public bool isDead;
     public bool is_a_Boss;
@@ -92,9 +93,10 @@ public class Enemy : MonoBehaviour
             if (!is_a_Boss)
             {
                 reset = true;
-            }else
+            }
+            else
             {
-               gameObject.SetActive(false);
+                gameObject.SetActive(false);
             }
 
         }
@@ -108,8 +110,9 @@ public class Enemy : MonoBehaviour
 
     private void DespawnDistance()
     {
-        if (Mathf.Abs(transform.position.y - player.transform.position.y) > 7 ||
-           (Mathf.Abs(transform.position.x - player.transform.position.x) > 12))
+        Vector2 delta = transform.position - player.transform.position;
+
+        if (Mathf.Abs(delta.x) > 12 || Mathf.Abs(delta.y) > 7)
         {
             int randomX = Random.Range(0, 2);
 
@@ -171,5 +174,6 @@ public class Enemy : MonoBehaviour
 
     public virtual void Spawn() { }
 
-    public virtual void GiveExp() { PlayerController.Instance.TakeExp(exp); PlayerScore.Instance.enemiesKilled++; }
+            
+    public virtual void GiveExp() { ExperienceOrbPooling.Instance.OnEnemyDeath(this); PlayerScore.Instance.enemiesKilled++; }
 }

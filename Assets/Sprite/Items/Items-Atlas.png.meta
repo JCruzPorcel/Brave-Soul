@@ -621,27 +621,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Items-Atlas_0
-      rect:
-        serializedVersion: 2
-        x: 391
-        y: 287
-        width: 84
-        height: 47
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ab4753a760e8a0f4f944b00f2cf7d610
-      internalID: 999687293
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Red_Gem
       rect:
         serializedVersion: 2
@@ -650,7 +629,7 @@ TextureImporter:
         width: 18
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -658,6 +637,90 @@ TextureImporter:
       bones: []
       spriteID: 83d33287a824a6c4fa618cb547aff56a
       internalID: -1230246347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Green_Arrow_Up
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 775
+        width: 22
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 869b0f2ec5d1a614097e720a95c8db22
+      internalID: -2058246435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Language
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 711
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7757fade915c4d34c8da408d26d53e90
+      internalID: -7739700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: X_Skull
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 838
+        width: 26
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9bc23dda8aa8b24e88994a4d0e31d4c
+      internalID: -989883789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow_Skull
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 742
+        width: 26
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61f80cefc9071ae449bdde431eff9158
+      internalID: 1553882455
       vertices: []
       indices: 
       edges: []
@@ -673,8 +736,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Green_Arrow_Up: -2058246435
       Necronomicon: 1827703760
+      Arrow_Skull: 1553882455
       Speed: 1579485391
+      Language: 999687293
       Arrow: -203209844
       Gold Bag: -820175818
       Max_Hp: -341235425
@@ -693,13 +759,14 @@ TextureImporter:
       Attack_Speed: 2021882270
       Arrow_Selector: -672243447
       Reroll: 2136861351
-      Items-Atlas_0: 999687293
+      Items-Atlas_0: 110079816
       Axe: -674089504
       Chest: -587121809
       More_Gold: -1349385190
       Ress: 1203416975
       FireSkul: 442478159
       Armor: -1968779048
+      X_Skull: -989883789
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

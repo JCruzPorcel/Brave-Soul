@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour
     private void FixedUpdate()
     {
         if (GameManager.Instance.currentGameState == GameState.inGame)
-        {
+        {            
             transform.position += (transform.up * speed) * Time.fixedDeltaTime;
             DespawnDistance();
             WeaponLevel();

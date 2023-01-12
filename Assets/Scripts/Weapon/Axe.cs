@@ -19,6 +19,7 @@ public class Axe : Weapon
     {
         if (GameManager.Instance.currentGameState == GameState.inGame)
         {
+            rb.simulated = true;
             if (timer > 0)
             {
                 timer -= Time.deltaTime;
@@ -27,6 +28,10 @@ public class Axe : Weapon
             {
                 WeaponContainer.Instance.attackSpeedAxe = attackSpeed;
             }
+        }
+        else
+        {
+            rb.simulated = false;
         }
     }
 

@@ -33,8 +33,6 @@ public class GameOver : MonoBehaviour
 
     private void Start()
     {
-        enemiesKilled = PlayerScore.Instance.score_string;
-
         enemies = PlayerScore.Instance.enemiesKilled;
         time =TimerScript.Instance.minutes;
 

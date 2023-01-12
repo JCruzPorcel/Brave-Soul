@@ -39,10 +39,12 @@ public class Crossbow : Weapon
 
             if (!PlayerController.Instance.IsDead)
             {
+                if (MostNearbyEnemies() == null) return;
+
                 WeaponLevel();
 
                 PlayerCombat.Instance.sliderBar.MaxAttackSpeed(attackSpeed);
-                
+
                 if (timer < attackSpeed)
                 {
                     timer += Time.deltaTime;

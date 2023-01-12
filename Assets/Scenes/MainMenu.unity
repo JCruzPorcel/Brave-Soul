@@ -1613,7 +1613,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8392545193973336467, guid: 17fe979d89937bf45bddb701fb112a65, type: 3}
+      - m_Target: {fileID: 500637649}
         m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
         m_MethodName: HighPerformance
         m_Mode: 2
@@ -2842,7 +2842,6 @@ GameObject:
   - component: {fileID: 253953392}
   - component: {fileID: 253953397}
   - component: {fileID: 253953396}
-  - component: {fileID: 253953395}
   - component: {fileID: 253953394}
   - component: {fileID: 253953393}
   m_Layer: 5
@@ -2948,20 +2947,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &253953395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 253953391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d73a0a0239b372048bdd8aafd12bac8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Strength:
-    BaseValue: 0
 --- !u!114 &253953396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3555,7 +3540,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8392545193973336467, guid: 17fe979d89937bf45bddb701fb112a65, type: 3}
+      - m_Target: {fileID: 500637649}
         m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
         m_MethodName: FullScreen
         m_Mode: 2
@@ -3998,7 +3983,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8392545193973336467, guid: 17fe979d89937bf45bddb701fb112a65, type: 3}
+      - m_Target: {fileID: 500637649}
         m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
         m_MethodName: Colorblind
         m_Mode: 2
@@ -6301,7 +6286,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5177388603050735206, guid: cc35afd292fc349128b36a291fb3a165, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8802,7 +8787,6 @@ GameObject:
   - component: {fileID: 804376516}
   - component: {fileID: 804376519}
   - component: {fileID: 804376518}
-  - component: {fileID: 804376520}
   - component: {fileID: 804376517}
   - component: {fileID: 804376521}
   m_Layer: 5
@@ -8928,20 +8912,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 804376514}
   m_CullTransparentMesh: 1
---- !u!114 &804376520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 804376514}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d73a0a0239b372048bdd8aafd12bac8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Strength:
-    BaseValue: 0
 --- !u!114 &804376521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11205,7 +11175,6 @@ GameObject:
   - component: {fileID: 1120570301}
   - component: {fileID: 1120570306}
   - component: {fileID: 1120570305}
-  - component: {fileID: 1120570304}
   - component: {fileID: 1120570303}
   - component: {fileID: 1120570302}
   m_Layer: 5
@@ -11311,20 +11280,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1120570304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1120570300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d73a0a0239b372048bdd8aafd12bac8a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Strength:
-    BaseValue: 0
 --- !u!114 &1120570305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11949,7 +11904,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8392545193973336467, guid: 17fe979d89937bf45bddb701fb112a65, type: 3}
+      - m_Target: {fileID: 500637649}
         m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
         m_MethodName: ShowDamage
         m_Mode: 2
@@ -17455,7 +17410,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8392545193973336467, guid: 17fe979d89937bf45bddb701fb112a65, type: 3}
+      - m_Target: {fileID: 500637649}
         m_TargetAssemblyTypeName: OptionsManager, Assembly-CSharp
         m_MethodName: ShowFps
         m_Mode: 2

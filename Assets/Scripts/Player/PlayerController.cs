@@ -24,6 +24,9 @@ public class PlayerController : Singleton<PlayerController>
     public bool IsDead { get { return isDead; } }
     public bool GodMode { get => godMode; set => godMode = value; }
 
+    [SerializeField] FloatingSprite floatingSprite;
+
+
     private void Start()
     {
         anim = GameObject.FindGameObjectWithTag("Character").GetComponent<Animator>();
@@ -37,6 +40,11 @@ public class PlayerController : Singleton<PlayerController>
 
     private void FixedUpdate()
     {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            floatingSprite.SpawnSprite();
+        }
+
         if (GameManager.Instance.currentGameState != GameState.inGame) return;
 
         GodMode = GameManager.Instance.GodMode;
@@ -133,6 +141,7 @@ public class PlayerController : Singleton<PlayerController>
 
             if (!LevelUpManager.Instance.maxLevel)
             {
+                floatingSprite.SpawnSprite();
                 pointsLvl++;
                 MenuManager.Instance.LevelUp();
             }

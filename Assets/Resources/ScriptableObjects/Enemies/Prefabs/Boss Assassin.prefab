@@ -187,7 +187,8 @@ MonoBehaviour:
   damage: 2
   maxHP: 1500
   speed: 2.25
-  exp: 75
+  min_exp: 5
+  max_exp: 10
   isDead: 0
   is_a_Boss: 1
   reset: 0
