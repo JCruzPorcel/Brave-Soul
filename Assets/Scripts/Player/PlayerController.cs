@@ -49,10 +49,6 @@ public class PlayerController : Singleton<PlayerController>
         {
             Movement();
         }
-        else
-        {
-            GameManager.Instance.GameOver();
-        }
     }
 
     void Movement()
@@ -110,6 +106,7 @@ public class PlayerController : Singleton<PlayerController>
         if (currentHealth <= 0 && !dead)
         {
             dead = true;
+            GameManager.Instance.GameOver();
             FindObjectOfType<AudioManager>().Play("GameOver SFX");
             anim.SetBool("IsDead?", true);
             floatingSprite.SpawnSpriteGameOver();

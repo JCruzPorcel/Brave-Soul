@@ -6,8 +6,8 @@ public class TimerScript : Singleton<TimerScript>
     float timeLeft;
     public bool timerOn = true;
     public TMP_Text timerText;
-    public float minutes;
-    public float seconds;
+    public int minutes;
+    public int seconds;
     [SerializeField] int maxTime;
     [SerializeField] float speed;
 

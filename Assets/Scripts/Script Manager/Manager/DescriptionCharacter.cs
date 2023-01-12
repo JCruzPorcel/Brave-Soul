@@ -21,10 +21,10 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
     public CharacterData CurrentChar { get => currentChar; set => currentChar = value; }
     public CharacterData SelectedChar { get => selectedChar; set => selectedChar = value; }
 
-    public int buy = 31;
-    public int select = 32;
-    public int play = 33;
-    public int unlock = 34;
+    //readonly int buy = 31;
+    readonly int select = 32;
+    readonly int play = 33;
+    readonly int unlock = 34;
 
     bool isSelected;
 

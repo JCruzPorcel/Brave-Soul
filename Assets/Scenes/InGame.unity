@@ -6497,14 +6497,6 @@ MonoBehaviour:
   Tank: []
   Mage: []
   Boss: []
-  maxAssassins: 0
-  maxTanks: 0
-  maxMages: 0
-  currentAssassins: 0
-  currentTanks: 0
-  currentMages: 0
-  currentBosses: 0
-  timeToSpawn: 1
 --- !u!4 &1051373829
 Transform:
   m_ObjectHideFlags: 0
@@ -6980,6 +6972,7 @@ MonoBehaviour:
     volume: 0.2
     pitch: 1
     loop: 0
+    playOnAwake: 0
     source: {fileID: 0}
   - name: Arrow SFX
     clip: {fileID: 8300000, guid: 653de7c55355f5443b94db8b4a828c00, type: 3}
@@ -6987,6 +6980,7 @@ MonoBehaviour:
     volume: 0.2
     pitch: 1
     loop: 0
+    playOnAwake: 0
     source: {fileID: 0}
   - name: GameOver SFX
     clip: {fileID: 8300000, guid: fa964cd85c752d2409c3070603be1730, type: 3}
@@ -6994,6 +6988,7 @@ MonoBehaviour:
     volume: 0.3
     pitch: 1
     loop: 0
+    playOnAwake: 0
     source: {fileID: 0}
   - name: LevelUp SFX
     clip: {fileID: 8300000, guid: 6c087deef43c1fe48943e92a088b3105, type: 3}
@@ -7001,6 +6996,7 @@ MonoBehaviour:
     volume: 0.3
     pitch: 1
     loop: 0
+    playOnAwake: 0
     source: {fileID: 0}
   - name: Add Weapon SFX
     clip: {fileID: 8300000, guid: f13228b872b6ee44a8895a211eead1eb, type: 3}
@@ -7008,6 +7004,7 @@ MonoBehaviour:
     volume: 0.3
     pitch: 1
     loop: 0
+    playOnAwake: 0
     source: {fileID: 0}
   - name: StartGame SFX
     clip: {fileID: 8300000, guid: 77c07e6ae17acbf4da4b3743f94178c7, type: 3}
@@ -7015,6 +7012,7 @@ MonoBehaviour:
     volume: 0.3
     pitch: 1
     loop: 0
+    playOnAwake: 0
     source: {fileID: 0}
   - name: Back SFX
     clip: {fileID: 8300000, guid: febba5d3560acb948af48421b0217884, type: 3}
@@ -7022,6 +7020,7 @@ MonoBehaviour:
     volume: 0.3
     pitch: 1
     loop: 0
+    playOnAwake: 0
     source: {fileID: 0}
   - name: ClickButton SFX
     clip: {fileID: 8300000, guid: f3504ef74e5162c4c857e16815d13267, type: 3}
@@ -7029,6 +7028,7 @@ MonoBehaviour:
     volume: 0.3
     pitch: 1
     loop: 0
+    playOnAwake: 0
     source: {fileID: 0}
   - name: CharNav SFX
     clip: {fileID: 8300000, guid: a3ee3e157d1ff5048a34eba10be2ec7f, type: 3}
@@ -7036,6 +7036,7 @@ MonoBehaviour:
     volume: 0.3
     pitch: 1
     loop: 0
+    playOnAwake: 0
     source: {fileID: 0}
   - name: PressToStart SFX
     clip: {fileID: 8300000, guid: 50b483536d8112143bd2f99611961c3c, type: 3}
@@ -7043,6 +7044,15 @@ MonoBehaviour:
     volume: 0.3
     pitch: 1
     loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: GameOver Theme
+    clip: {fileID: 8300000, guid: 793eece0bba71ca4eaf47c33818eb758, type: 3}
+    mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
     source: {fileID: 0}
 --- !u!4 &1160790477
 Transform:
@@ -7222,7 +7232,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1241181786
 GameObject:
@@ -9030,6 +9040,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1800971237}
+  - {fileID: 1704355394}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9090,13 +9101,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507169413}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -9999, y: -9999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1524286953
 GameObject:
@@ -9994,6 +10005,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584084223}
   m_CullTransparentMesh: 1
+--- !u!1 &1586066469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1586066471}
+  - component: {fileID: 1586066470}
+  m_Layer: 0
+  m_Name: FloorGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1586066470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586066469}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b36f1fc986429b41957bb51c15b6d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorTiles: []
+  tileSize: 0
+  viewRange: 0
+  spawnDistance: 0
+--- !u!4 &1586066471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586066469}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1590685401
 GameObject:
   m_ObjectHideFlags: 0
@@ -10635,13 +10694,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704355393}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_Father: {fileID: 1506844490}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1726066516
 GameObject:

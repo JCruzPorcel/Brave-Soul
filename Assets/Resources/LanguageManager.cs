@@ -163,7 +163,6 @@ public class LanguageManager : MonoBehaviour
         }
 
 
-
         if (optionTexts.ContainsKey(language))
         {
             var _texts = optionTexts[language];

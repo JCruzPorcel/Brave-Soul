@@ -9,9 +9,6 @@ public class Crossbow : Weapon
     Queue<GameObject> arrowQueue = new Queue<GameObject>();
     [SerializeField] WeaponData arrowData;
 
-
-    float timerPlus;
-
     private void Start()
     {
         player = GameObject.Find("Player").transform;
@@ -79,6 +76,8 @@ public class Crossbow : Weapon
 
         go.transform.position = transform.position;
         go.transform.rotation = Quaternion.Euler(eulerRotation);
+
+        FindObjectOfType<AudioManager>().Play("Arrow SFX");
 
         go.SetActive(true);
         arrowQueue.Dequeue();

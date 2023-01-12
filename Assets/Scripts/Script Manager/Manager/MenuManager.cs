@@ -340,7 +340,13 @@ public class MenuManager : Singleton<MenuManager>
     #endregion
 
 
+    IEnumerator GameOverSFX()
+    {
+        yield return new WaitForSeconds(1);
 
+        FindObjectOfType<AudioManager>().Play("GameOver Theme");
+
+    }
 
 
     //Menu State
@@ -526,6 +532,9 @@ public class MenuManager : Singleton<MenuManager>
                     menu.SetActive(false);
                 }
             }
+
+            StartCoroutine(GameOverSFX());
+
         }
         else if (newMenuState == MenuState.LevelUp)
         {

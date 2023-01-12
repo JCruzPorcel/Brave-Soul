@@ -20,31 +20,21 @@ public class ObjectPooler : MonoBehaviour
     public List<GameObject> Mage = new List<GameObject>();
     public List<GameObject> Boss = new List<GameObject>();
 
-
     [Space(15)]
     [Header("Max Enemies")]
-    [SerializeField] int maxAssassins;
-    [SerializeField] int maxTanks;
-    [SerializeField] int maxMages;
-
+    int maxAssassins;
+    int maxTanks;
+    int maxMages;
+    int maxBoss;
 
     [Space(15)]
     [Header("Current Enemies")]
-    [SerializeField] int currentAssassins = 0;
-    [SerializeField] int currentTanks = 0;
-    [SerializeField] int currentMages = 0;
-    [SerializeField] int currentBosses = 0;
-
-    bool canSpawnBosses;
+    int currentAssassins = 0;
+    int currentTanks = 0;
+    int currentMages = 0;
+    int currentBoss = 0;
 
     Transform player;
-
-
-    [Space(15)]
-    [Header("Timer To Spawn")]
-    [SerializeField] float timeToSpawn;
-    float currentTime;
-
 
     private void Start()
     {
@@ -52,28 +42,8 @@ public class ObjectPooler : MonoBehaviour
         {
             for (int i = 0; i < enemy.amount; i++)
             {
-
                 GameObject go = Instantiate(enemy.prefab);
-
-                if (enemy.name == "Assassin")
-                {
-                    Assassin.Add(go);
-                }
-                else if (enemy.name == "Tank")
-                {
-                    Tank.Add(go);
-                }
-                else if (enemy.name == "Mage")
-                {
-                    Mage.Add(go);
-                }
-                else if (enemy.name == "Boss")
-                {
-                    Boss.Add(go);
-                }
-
                 go.SetActive(false);
-
                 if (GameObject.Find(enemy.name + " Pool") != null)
                 {
                     go.transform.SetParent(GameObject.Find(enemy.name + " Pool").transform);
@@ -83,6 +53,22 @@ public class ObjectPooler : MonoBehaviour
                     GameObject parent = new GameObject();
                     parent.name = enemy.name + " Pool";
                     go.transform.SetParent(GameObject.Find(enemy.name + " Pool").transform);
+                }
+
+                switch (enemy.name)
+                {
+                    case "Assassin":
+                        Assassin.Add(go);
+                        break;
+                    case "Tank":
+                        Tank.Add(go);
+                        break;
+                    case "Mage":
+                        Mage.Add(go);
+                        break;
+                    case "Boss":
+                        Boss.Add(go);
+                        break;
                 }
             }
         }
@@ -94,157 +80,172 @@ public class ObjectPooler : MonoBehaviour
     {
         if (GameManager.Instance.currentGameState != GameState.inGame) return;
 
-
-        if (currentTime > 0)
-        {
-            currentTime -= Time.deltaTime;
-        }
-
-        Spawn();
+        CheckAndSpawnEnemies();
     }
 
-
-
-    int yDir;
-    int xDir;
-
-    void Spawn()
+    void CheckAndSpawnEnemies()
     {
+        int minutes = TimerScript.Instance.minutes;
+        int seconds = TimerScript.Instance.seconds;
 
-        if (currentTime <= 0)
+        switch (minutes)
         {
-            int randomX = Random.Range(0, 2);
-
-
-            if (TimerScript.Instance.minutes == 0 && TimerScript.Instance.seconds == 3)
-            {
-                maxAssassins = 10;
-                maxMages = 0;
-                maxTanks = 0;
-            }
-            else if (TimerScript.Instance.minutes == 1 && TimerScript.Instance.seconds == 0)
-            {
-                maxAssassins = 15;
-                maxMages = 1;
-                maxTanks = 0;
-            }
-            else if (TimerScript.Instance.minutes == 3 && TimerScript.Instance.seconds == 0)
-            {
-                canSpawnBosses = true;
-                maxAssassins = 20;
-                maxMages = 1;
-                maxTanks = 1;
-            }
-            else if (TimerScript.Instance.minutes == 5 && TimerScript.Instance.seconds == 0)
-            {
-                maxAssassins = 30;
-                maxMages = 10;
-                maxTanks = 12;
-            }
-            else if (TimerScript.Instance.minutes == 7 && TimerScript.Instance.seconds == 0)
-            {
-                canSpawnBosses = true;
-                maxAssassins = 35;
-                maxMages = 25;
-                maxTanks = 30;
-            }
-            else if (TimerScript.Instance.minutes == 9 && TimerScript.Instance.seconds == 0)
-            {
-                canSpawnBosses = true;
-                maxAssassins = 50;
-                maxMages = 50;
-                maxTanks = 50;
-            }
-            else if (TimerScript.Instance.minutes == 10 && TimerScript.Instance.seconds >= 0)
-            {
-                MenuManager.Instance.GameOver();
-            }
-
-            if (currentAssassins < maxAssassins)
-            {
-                if (randomX == 0)
+            case 0:
+                if (seconds >= 3)
                 {
-                    yDir = Random.Range(0, 2) == 0 ? -6 : 6;
-                    xDir = Random.Range(-11, 11);
+                    maxAssassins = 10;
+                    maxMages = 0;
+                    maxTanks = 0;
+                    maxBoss = 0;
                 }
-                else if (randomX == 1)
+                break;
+            case 1:
+                if (seconds >= 0)
                 {
-                    xDir = Random.Range(0, 2) == 0 ? -11 : 11;
-                    yDir = Random.Range(-6, 6);
+                    maxAssassins = 15;
+                    maxMages = 1;
+                    maxTanks = 0;
+                    maxBoss = 0;
                 }
-
-                Assassin[currentAssassins].transform.position = new Vector2(player.position.x + xDir, player.position.y + yDir);
-
-                Assassin[currentAssassins].SetActive(true);
-                currentAssassins++;
-            }
-
-            if (currentTanks < maxTanks)
-            {
-                if (randomX == 0)
+                break;
+            case 3:
+                if (seconds == 0)
                 {
-                    yDir = Random.Range(0, 2) == 0 ? -6 : 6;
-                    xDir = Random.Range(-11, 11);
+                    maxAssassins = 20;
+                    maxMages = 1;
+                    maxTanks = 1;
+                    maxBoss = 1;
                 }
-                else if (randomX == 1)
+                break;
+            case 5:
+                if (seconds == 0)
                 {
-                    xDir = Random.Range(0, 2) == 0 ? -11 : 11;
-                    yDir = Random.Range(-6, 6);
+                    maxAssassins = 30;
+                    maxMages = 10;
+                    maxTanks = 12;
+                    maxBoss = 1;
                 }
-
-                Tank[currentTanks].transform.position = new Vector2(player.position.x + xDir, player.position.y + yDir);
-
-                Tank[currentTanks].SetActive(true);
-                currentTanks++;
-            }
-
-            if (currentMages < maxMages)
-            {
-                if (randomX == 0)
+                break;
+            case 7:
+                if (seconds >= 0)
                 {
-                    yDir = Random.Range(0, 2) == 0 ? -6 : 6;
-                    xDir = Random.Range(-11, 11);
+                    maxAssassins = 35;
+                    maxMages = 12;
+                    maxTanks = 10;
+                    maxBoss = 0;
                 }
-                else if (randomX == 1)
+                break;
+            case 8:
+                if (seconds == 0)
                 {
-                    xDir = Random.Range(0, 2) == 0 ? -11 : 11;
-                    yDir = Random.Range(-6, 6);
+                    maxAssassins = 40;
+                    maxMages = 15;
+                    maxTanks = 20;
+                    maxBoss = 2;
                 }
-
-                Mage[currentMages].transform.position = new Vector2(player.position.x + xDir, player.position.y + yDir);
-
-                Mage[currentMages].SetActive(true);
-                currentMages++;
-            }
-
-            if (canSpawnBosses)
-            {
-                if (currentBosses >= Boss.Count)
+                break;
+            case 9:
+                if (seconds == 0)
                 {
-                    currentBosses = 0;
+                    maxAssassins = 60;
+                    maxMages = 45;
+                    maxTanks = 35;
+                    maxBoss = 3;
                 }
-
-                if (randomX == 0)
-                {
-                    yDir = Random.Range(0, 2) == 0 ? -6 : 6;
-                    xDir = Random.Range(-11, 11);
-                }
-                else if (randomX == 1)
-                {
-                    xDir = Random.Range(0, 2) == 0 ? -11 : 11;
-                    yDir = Random.Range(-6, 6);
-                }
-
-                Boss[currentBosses].transform.position = new Vector2(player.position.x + xDir, player.position.y + yDir);
-
-                Boss[currentBosses].SetActive(true);
-                currentBosses++;
-
-                canSpawnBosses = false;
-            }
-
-            currentTime = timeToSpawn;
+                break;
         }
+        SpawnAssassins();
+        SpawnTanks();
+        SpawnMages();
+        SpawnBoss();
+    }
 
+    void SpawnAssassins()
+    {
+        if (currentAssassins < maxAssassins)
+        {
+            for (int i = 0; i < Assassin.Count; i++)
+            {
+                if (!Assassin[i].activeInHierarchy)
+                {
+                    Assassin[i].SetActive(true);
+                    Vector2 randomPosition = Random.Range(0, 2) == 0 ?
+                new Vector2(Random.Range(-11, 11), Random.Range(0, 2) == 0 ? -6 : 6) :
+                new Vector2(Random.Range(0, 2) == 0 ? -11 : 11, Random.Range(-6, 6));
+
+                    Assassin[i].transform.position = new Vector3(randomPosition.x, randomPosition.y, 0);
+                    currentAssassins++;
+                    break;
+                }
+            }
+        }
+    }
+
+    void SpawnTanks()
+    {
+        if (currentTanks < maxTanks)
+        {
+            for (int i = 0; i < Tank.Count; i++)
+            {
+                if (!Tank[i].activeInHierarchy)
+                {
+                    Tank[i].SetActive(true);
+
+                    Vector2 randomPosition = Random.Range(0, 2) == 0 ?
+                new Vector2(Random.Range(-11, 11), Random.Range(0, 2) == 0 ? -6 : 6) :
+                new Vector2(Random.Range(0, 2) == 0 ? -11 : 11, Random.Range(-6, 6));
+
+                    Tank[i].transform.position = new Vector3(randomPosition.x, randomPosition.y, 0); currentTanks++;
+
+                    break;
+                }
+            }
+        }
+    }
+
+    void SpawnMages()
+    {
+        if (currentMages < maxMages)
+        {
+            for (int i = 0; i < Mage.Count; i++)
+            {
+                if (!Mage[i].activeInHierarchy)
+                {
+                    Mage[i].SetActive(true);
+
+                    Vector2 randomPosition = Random.Range(0, 2) == 0 ?
+                new Vector2(Random.Range(-11, 11), Random.Range(0, 2) == 0 ? -6 : 6) :
+                new Vector2(Random.Range(0, 2) == 0 ? -11 : 11, Random.Range(-6, 6));
+
+                    Mage[i].transform.position = new Vector3(randomPosition.x, randomPosition.y, 0);
+
+                    currentMages++;
+                    break;
+                }
+            }
+        }
+    }
+
+    void SpawnBoss()
+    {
+        if (currentBoss < maxBoss)
+        {
+            for (int i = 0; i < Boss.Count; i++)
+            {
+                if (!Boss[i].activeInHierarchy)
+                {
+                    Boss[i].SetActive(true);
+
+                    Vector2 randomPosition = Random.Range(0, 2) == 0 ?
+                new Vector2(Random.Range(-11, 11), Random.Range(0, 2) == 0 ? -6 : 6) :
+                new Vector2(Random.Range(0, 2) == 0 ? -11 : 11, Random.Range(-6, 6));
+
+                    Boss[i].transform.position = new Vector3(randomPosition.x, randomPosition.y, 0);
+
+                    currentBoss++;
+                    break;
+                }
+            }
+        }
     }
 }
