@@ -65,9 +65,9 @@ public class ExperienceOrbPooling : Singleton<ExperienceOrbPooling>
 
     public void OnEnemyDeath(Enemy enemy)
     {
-        SpawnExperienceOrb(enemy.transform.position);
         minOrbExp = enemy.min_exp;
         maxOrbExp = enemy.max_exp;
+        SpawnExperienceOrb(enemy.transform.position);
     }
 
     private bool IsInCameraView(Transform target)

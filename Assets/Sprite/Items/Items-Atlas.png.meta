@@ -243,27 +243,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Arrow_Selector
-      rect:
-        serializedVersion: 2
-        x: 195
-        y: 518
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e230a1fdb16cf6a4a9777524ed18f927
-      internalID: -672243447
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: CTK
       rect:
         serializedVersion: 2
@@ -692,7 +671,7 @@ TextureImporter:
         width: 26
         height: 26
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -713,7 +692,7 @@ TextureImporter:
         width: 26
         height: 27
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -721,6 +700,27 @@ TextureImporter:
       bones: []
       spriteID: 61f80cefc9071ae449bdde431eff9158
       internalID: 1553882455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Forge_Weapon
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 710
+        width: 25
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ce00a7134b48a447a9a5f9ef7e66fa6
+      internalID: 338430679
       vertices: []
       indices: 
       edges: []
@@ -759,9 +759,9 @@ TextureImporter:
       Attack_Speed: 2021882270
       Arrow_Selector: -672243447
       Reroll: 2136861351
-      Items-Atlas_0: 110079816
       Axe: -674089504
       Chest: -587121809
+      Forge_Weapon: 110079816
       More_Gold: -1349385190
       Ress: 1203416975
       FireSkul: 442478159

@@ -19,6 +19,8 @@ public class Sound
 
     public bool loop;
 
+    public bool playOnAwake;
+
     [HideInInspector]
     public AudioSource source;
 
@@ -55,6 +57,7 @@ public class AudioManager : SingletonPersistent<AudioManager>
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
+            s.source.playOnAwake = s.playOnAwake;
             s.source.outputAudioMixerGroup = s.mixerGroup;
         }
     }

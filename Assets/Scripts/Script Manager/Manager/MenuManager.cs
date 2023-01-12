@@ -135,9 +135,7 @@ public class MenuManager : Singleton<MenuManager>
     }
 
 
-    /// <summary>
     /// Menu InGame
-    /// </summary>
 
 
     public void InGame()
@@ -528,9 +526,6 @@ public class MenuManager : Singleton<MenuManager>
                     menu.SetActive(false);
                 }
             }
-
-            FindObjectOfType<AudioManager>().Play("GameOver SFX");
-
         }
         else if (newMenuState == MenuState.LevelUp)
         {
@@ -541,8 +536,6 @@ public class MenuManager : Singleton<MenuManager>
                     menu.SetActive(true);
                 }
             }
-
-            FindObjectOfType<AudioManager>().Play("LevelUp SFX");
 
             GameManager.Instance.Menu();
 

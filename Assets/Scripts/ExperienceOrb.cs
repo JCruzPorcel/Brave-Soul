@@ -4,8 +4,7 @@ public class ExperienceOrb : MonoBehaviour
 {
     public float followRange = 5f;
     public float followSpeed = 5f;
-    public int min_experienceGain = 0;
-    public int max_experienceGain = 0;
+    public int gainExp;
     public Transform player;
 
 
@@ -43,7 +42,7 @@ public class ExperienceOrb : MonoBehaviour
         {
             isFollowing = false;
 
-            playerController.TakeExp(Random.Range(min_experienceGain, max_experienceGain));
+            playerController.TakeExp(gainExp);
 
             transform.position = transform.parent.position;
         }
@@ -55,8 +54,7 @@ public class ExperienceOrb : MonoBehaviour
     }
     public void SetOrbExp(int min_exp, int max_exp)
     {
-        min_experienceGain = min_exp;
-        max_experienceGain = max_exp;
+        gainExp = Random.Range(min_exp, min_exp);
     }
 
     private void OnDisable()

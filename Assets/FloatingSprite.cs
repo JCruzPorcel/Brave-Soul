@@ -8,6 +8,7 @@ public class FloatingSprite : MonoBehaviour
 
     public Sprite gameOverSprite;
     public Sprite levelUpSprite;
+    public Sprite forgeWeaponSprite;
 
     public PlayerController playerController;
 
@@ -15,6 +16,8 @@ public class FloatingSprite : MonoBehaviour
     private GameObject[] pooledObjects;
     private int currentIndex = 0;
     private int poolSize = 5;
+
+    public GameObject spriteContainer;
 
     void Start()
     {
@@ -25,25 +28,39 @@ public class FloatingSprite : MonoBehaviour
             GameObject obj = Instantiate(spritePrefab);
             obj.SetActive(false);
             pooledObjects[i] = obj;
+            obj.transform.SetParent(spriteContainer.transform);
         }
     }
 
-    public void SpawnSprite()
+    public void SpawnSpriteLevelUp()
     {
         GameObject obj = pooledObjects[currentIndex];
         obj.transform.position = player.position;
-
-        if (!playerController.IsDead)
-        {
-            obj.GetComponent<SpriteRenderer>().sprite = levelUpSprite;
-        }
-        else
-        {
-            obj.GetComponent<SpriteRenderer>().sprite = gameOverSprite;
-        }
+        obj.GetComponent<SpriteRenderer>().sprite = levelUpSprite;
         obj.SetActive(true);
         currentIndex = (currentIndex + 1) % poolSize;
     }
+
+
+    public void SpawnSpriteGameOver()
+    {
+        GameObject obj = pooledObjects[currentIndex];
+        obj.transform.position = player.position;
+        obj.GetComponent<SpriteRenderer>().sprite = gameOverSprite;
+        obj.SetActive(true);
+        currentIndex = (currentIndex + 1) % poolSize;
+    }
+
+
+    public void SpawnSpriteForge()
+    {
+        GameObject obj = pooledObjects[currentIndex];
+        obj.transform.position = player.position;
+        obj.GetComponent<SpriteRenderer>().sprite = forgeWeaponSprite;
+        obj.SetActive(true);
+        currentIndex = (currentIndex + 1) % poolSize;
+    }
+
 
     void Update()
     {

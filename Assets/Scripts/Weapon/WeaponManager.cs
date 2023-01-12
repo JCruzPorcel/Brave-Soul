@@ -12,6 +12,8 @@ public class WeaponManager : MonoBehaviour
 
     int currentWeapons = 0;
 
+    public FloatingSprite floatingSprite;
+
     #region Left Panel
     [Space(10)]
     [Header("LEFT")]
@@ -295,7 +297,6 @@ public class WeaponManager : MonoBehaviour
         return maxWeapon;
     }
 
-
     private void OnEnable()
     {
         MidWeapon();
@@ -396,7 +397,7 @@ public class WeaponManager : MonoBehaviour
                 }
             }
         }
-
+        floatingSprite.SpawnSpriteForge();
         PlayerController.Instance.pointsLvl--;
         LevelUpManager.Instance.WindowLevelState();
     }
@@ -487,6 +488,7 @@ public class WeaponManager : MonoBehaviour
             }
         }
 
+        floatingSprite.SpawnSpriteForge();
         PlayerController.Instance.pointsLvl--;
         LevelUpManager.Instance.WindowLevelState();
     }
@@ -577,6 +579,7 @@ public class WeaponManager : MonoBehaviour
             }
         }
 
+        floatingSprite.SpawnSpriteForge();
         PlayerController.Instance.pointsLvl--;
         LevelUpManager.Instance.WindowLevelState();
     }

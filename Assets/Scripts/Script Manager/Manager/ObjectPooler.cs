@@ -114,39 +114,41 @@ public class ObjectPooler : MonoBehaviour
         if (currentTime <= 0)
         {
             int randomX = Random.Range(0, 2);
-            if (TimerScript.Instance.minutes == 0 && TimerScript.Instance.seconds >= 3)
+
+
+            if (TimerScript.Instance.minutes == 0 && TimerScript.Instance.seconds == 3)
             {
                 maxAssassins = 10;
                 maxMages = 0;
                 maxTanks = 0;
             }
-            else if (TimerScript.Instance.minutes == 1 && TimerScript.Instance.seconds >= 0)
+            else if (TimerScript.Instance.minutes == 1 && TimerScript.Instance.seconds == 0)
             {
                 maxAssassins = 15;
                 maxMages = 1;
                 maxTanks = 0;
             }
-            else if (TimerScript.Instance.minutes == 3 && TimerScript.Instance.seconds >= 0)
+            else if (TimerScript.Instance.minutes == 3 && TimerScript.Instance.seconds == 0)
             {
                 canSpawnBosses = true;
                 maxAssassins = 20;
                 maxMages = 1;
                 maxTanks = 1;
             }
-            else if (TimerScript.Instance.minutes == 5 && TimerScript.Instance.seconds >= 0)
+            else if (TimerScript.Instance.minutes == 5 && TimerScript.Instance.seconds == 0)
             {
                 maxAssassins = 30;
                 maxMages = 10;
                 maxTanks = 12;
             }
-            else if (TimerScript.Instance.minutes == 7 && TimerScript.Instance.seconds >= 0)
+            else if (TimerScript.Instance.minutes == 7 && TimerScript.Instance.seconds == 0)
             {
                 canSpawnBosses = true;
                 maxAssassins = 35;
                 maxMages = 25;
                 maxTanks = 30;
             }
-            else if (TimerScript.Instance.minutes == 9 && TimerScript.Instance.seconds >= 0)
+            else if (TimerScript.Instance.minutes == 9 && TimerScript.Instance.seconds == 0)
             {
                 canSpawnBosses = true;
                 maxAssassins = 50;
@@ -217,7 +219,7 @@ public class ObjectPooler : MonoBehaviour
 
             if (canSpawnBosses)
             {
-                if(currentBosses >= Boss.Count)
+                if (currentBosses >= Boss.Count)
                 {
                     currentBosses = 0;
                 }

@@ -21,8 +21,9 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] SliderBar sliderBar;
 
     public bool FacingRight { get { return _facingRight; } }
-    public bool IsDead { get { return isDead; } }
+    public bool IsDead { get => isDead; set => isDead = value; }
     public bool GodMode { get => godMode; set => godMode = value; }
+    bool dead = false;
 
     [SerializeField] FloatingSprite floatingSprite;
 
@@ -40,16 +41,11 @@ public class PlayerController : Singleton<PlayerController>
 
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            floatingSprite.SpawnSprite();
-        }
-
         if (GameManager.Instance.currentGameState != GameState.inGame) return;
 
         GodMode = GameManager.Instance.GodMode;
 
-        if (!isDead)
+        if (!dead)
         {
             Movement();
         }
@@ -102,7 +98,6 @@ public class PlayerController : Singleton<PlayerController>
         if (isDead)
             return;
 
-
         currentHealth -= damage;
 
         sliderBar.SetHealth(currentHealth);
@@ -112,11 +107,12 @@ public class PlayerController : Singleton<PlayerController>
         if (godMode)
             return;
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !dead)
         {
-            currentHealth = 0;
-            isDead = true;
-            anim.SetBool("IsDead?", isDead);
+            dead = true;
+            FindObjectOfType<AudioManager>().Play("GameOver SFX");
+            anim.SetBool("IsDead?", true);
+            floatingSprite.SpawnSpriteGameOver();
         }
     }
 
@@ -141,7 +137,8 @@ public class PlayerController : Singleton<PlayerController>
 
             if (!LevelUpManager.Instance.maxLevel)
             {
-                floatingSprite.SpawnSprite();
+                FindObjectOfType<AudioManager>().Play("LevelUp SFX");
+                floatingSprite.SpawnSpriteLevelUp();
                 pointsLvl++;
                 MenuManager.Instance.LevelUp();
             }

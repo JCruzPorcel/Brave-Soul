@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9861c165eb209545b369162ffebaede, type: 3}
   m_Name: Mouz
   m_EditorClassIdentifier: 
-  id: 27
+  id: 28
   charName: Mouz
   description: 
   armor: 0
