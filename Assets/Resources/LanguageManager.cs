@@ -67,8 +67,6 @@ public class LanguageManager : MonoBehaviour
 
         previous_Language = playerData.Language;
 
-        Debug.Log(previous_Language);
-
         if (string.IsNullOrEmpty(previous_Language))
         {
             Debug.Log("Si");
@@ -99,7 +97,6 @@ public class LanguageManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("No");
             for (int i = 0; i < optionTexts[previous_Language].Length; i++)
             {
                 languageDropdown.options.Add(new TMP_Dropdown.OptionData(optionTexts[previous_Language][i]));

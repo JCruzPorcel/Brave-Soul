@@ -480,6 +480,9 @@ public class MenuManager : Singleton<MenuManager>
                 if (menu.name == "Options")
                 {
                     menu.SetActive(true);
+                }if (menu.name == "Timer")
+                {
+                    menu.SetActive(false);
                 }
             }
 

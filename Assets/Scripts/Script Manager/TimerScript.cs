@@ -11,6 +11,7 @@ public class TimerScript : Singleton<TimerScript>
     [SerializeField] int maxTime;
     [SerializeField] float speed;
 
+
     private void Start()
     {
         minutes = 0;

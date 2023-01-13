@@ -4,7 +4,6 @@ public class PlayerData
 
     //Player Data
     private int gold;
-
     public int Gold { get => gold; set => gold = value; }
 
 
@@ -15,26 +14,27 @@ public class PlayerData
     public float MusicVolume { get => m_MusicVolume; set => m_MusicVolume = value; }
     public float EffectsVolume { get => m_EffectsVolume; set => m_EffectsVolume = value; }
 
-    private bool m_Damage = true;
-    private bool m_Fps = false;
-    private bool m_FullScreen = true;
-    private bool m_LowQuality = true;
-    private bool m_Daltonism = false;
+    private bool m_Damage;
+    private bool m_Fps;
+    private bool m_FullScreen ;
+    private bool m_HighPerformance;
 
     public bool Damage { get => m_Damage; set => m_Damage = value; }
-    public bool Fps { get => m_Fps; set => m_Fps = value; }
+    public bool FPS { get => m_Fps; set => m_Fps = value; }
     public bool FullScreen { get => m_FullScreen; set => m_FullScreen = value; }
-    public bool LowQuality { get => m_LowQuality; set => m_LowQuality = value; }
-    public bool Daltonism { get => m_Daltonism; set => m_Daltonism = value; }
-
+    public bool HighPerformance { get => m_HighPerformance; set => m_HighPerformance = value; }
 
     private string language;
     public string Language { get => language; set => Language = value; }
 
     public PlayerData(GameManager player)
     {
-        //Player Data
         gold = player.PlayerGold;
         language = player.Previous_Language;
+
+        m_Damage = player.GM_ShowDamage;
+        m_Fps = player.GM_ShowFps;
+        m_FullScreen = player.GM_FullScreen;
+        m_HighPerformance = player.GM_HighPerformance;
     }
 }
