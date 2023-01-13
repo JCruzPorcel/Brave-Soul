@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class DescriptionCharacter : Singleton<DescriptionCharacter>
 {
-
     [SerializeField] private TMP_Text characterName;
     [SerializeField] private TMP_Text description;
     [SerializeField] private Image characterImage;
@@ -37,7 +36,6 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
 
     void Update()
     {
-
         language = GameManager.Instance.Previous_Language;
 
         texts = languageManager.languageDict[language];
@@ -49,8 +47,6 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
             description.text = texts[currentChar.ID];
             characterImage.sprite = selectedChar.CharImage;
             weaponImage.sprite = selectedChar.StartWeapon.WeaponImage;
-
-
 
             if (selectedChar.IsOwned)
             {
