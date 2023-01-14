@@ -6,17 +6,18 @@ public class Axe : Weapon
     bool onEnter;
     [SerializeField] int enemyPen = 0;
     public int amount = 3;
-
     int rr;
 
     private void Start()
     {
+        WeaponLevel();
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.FindWithTag("Player").transform;
     }
 
     private void Update()
     {
+
         if (GameManager.Instance.currentGameState == GameState.inGame)
         {
             rb.simulated = true;
@@ -100,26 +101,34 @@ public class Axe : Weapon
     }
 
 
-    public void WeaponLevel()
+    public override void WeaponLevel()
     {
         level = LevelUpManager.Instance.level_Axe;
+        texts = LanguageManager.Instance.texts;
+        if (level <= 5)
+        {
+             weaponData.Description = texts[weaponData.ID + level];
+        }
 
         switch (level)
         {
             case 0:
-                LevelUpManager.Instance.level_Axe = 1;
-                break;
-
-            case 1:
                 damage = 10;
                 attackSpeed = 5f;
                 amount = 2;
                 enemyPen = 0;
                 break;
 
-            case 2:
+            case 1:
                 damage = 15;
                 attackSpeed = 4.2f;
+                amount = 2;
+                enemyPen = 0;
+                break;
+
+            case 2:
+                damage = 15;
+                attackSpeed = 3f;
                 amount = 3;
                 enemyPen = 0;
                 break;
@@ -127,26 +136,25 @@ public class Axe : Weapon
             case 3:
                 damage = 30;
                 attackSpeed = 3f;
-                amount = 4;
+                amount = 3;
                 enemyPen = 1;
                 break;
 
             case 4:
                 damage = 50;
                 attackSpeed = 2f;
-                amount = 5;
+                amount = 3;
                 enemyPen = 2;
                 break;
 
             case 5:
-                damage = 75;
+                damage = 50;
                 attackSpeed = 1.25f;
                 amount = 5;
-                enemyPen = 3;
+                enemyPen = 2;
                 break;
 
             default:
-                Debug.LogWarning("max lvl");
                 break;
         }
     }

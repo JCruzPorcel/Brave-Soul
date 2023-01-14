@@ -11,6 +11,7 @@ public class NecroInv : MonoBehaviour
 
     private void Start()
     {
+        WeaponLevel();
         sr = GetComponent<SpriteRenderer>();
         box = GetComponent<BoxCollider2D>();
     }
@@ -40,10 +41,6 @@ public class NecroInv : MonoBehaviour
 
         switch (level)
         {
-            case 0:
-                LevelUpManager.Instance.level_Necronomicon = 1;
-                break;
-
             case 1:
                 damage = 10;
                 active = false;
@@ -70,7 +67,6 @@ public class NecroInv : MonoBehaviour
                 break;
 
             default:
-                Debug.LogWarning("max lvl");
                 break;
 
         }

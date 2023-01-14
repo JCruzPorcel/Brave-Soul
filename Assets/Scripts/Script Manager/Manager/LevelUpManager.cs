@@ -5,10 +5,10 @@ public class LevelUpManager : Singleton<LevelUpManager>
     [SerializeField] GameObject canvasLevelUp;
     public bool maxLevel = false;
 
-    [HideInInspector] public int level_Necronomicon = 1;
-    [HideInInspector] public int level_Axe = 1;
-    [HideInInspector] public int level_Crossbow = 1;
-    [HideInInspector] public int level_Arrow = 1;
+    public int level_Necronomicon = 0;
+    public int level_Axe = 0;
+    public int level_Crossbow = 0;
+    public int level_Arrow = 0;
 
     private void Start()
     {

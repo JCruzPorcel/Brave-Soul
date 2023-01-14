@@ -10,9 +10,14 @@ public class WeaponManager : MonoBehaviour
 
     public string upgrade = string.Empty;
 
-    int currentWeapons = 0;
+    public int currentWeapons = 0;
 
     public FloatingSprite floatingSprite;
+
+    [TextArea(6, 6)] public string desc_axe;
+    [TextArea(6, 6)] public string desc_arrow;
+    [TextArea(6, 6)] public string desc_crossbow;
+    [TextArea(6, 6)] public string desc_necronomicon;
 
     #region Left Panel
     [Space(10)]
@@ -88,7 +93,7 @@ public class WeaponManager : MonoBehaviour
     #endregion
 
 
-    private void Start()
+    private void Awake()
     {
         currentWeaponList.Add(GameManager.Instance.CharSelected.StartWeapon);
         currentWeapons = 1;
@@ -142,9 +147,12 @@ public class WeaponManager : MonoBehaviour
             }
         }
 
+        GetWeaponDescription(leftData);
+
         left_Weapon_Name.text = leftData.ItemName.ToString();
         left_Weapon_Description.text = leftData.Description.ToString();
         left_Weapon_Image.sprite = leftData.WeaponImage;
+
 
         if (leftData.CanUpgrade)
         {
@@ -202,9 +210,12 @@ public class WeaponManager : MonoBehaviour
             }
         }
 
+        GetWeaponDescription(midData);
+
         mid_Weapon_Name.text = midData.ItemName.ToString();
         mid_Weapon_Description.text = midData.Description.ToString();
         mid_Weapon_Image.sprite = midData.WeaponImage;
+
 
         if (midData.CanUpgrade)
         {
@@ -263,9 +274,12 @@ public class WeaponManager : MonoBehaviour
             }
         }
 
+        GetWeaponDescription(rightData);
+
         right_Weapon_Name.text = rightData.ItemName.ToString();
         right_Weapon_Description.text = rightData.Description.ToString();
         right_Weapon_Image.sprite = rightData.WeaponImage;
+
 
         if (rightData.CanUpgrade)
         {
@@ -279,6 +293,27 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
+
+
+    public void GetWeaponDescription(WeaponData weaponData)
+    {
+        if (weaponData.VarName == "Axe")
+        {
+            weaponData.Prefab.GetComponent<Axe>().WeaponLevel();            
+        }
+        if (weaponData.VarName == "Arrow")
+        {
+            weaponData.Prefab.GetComponent<Arrow>().WeaponLevel();
+        }
+        if (weaponData.VarName == "Crossbow")
+        {
+            weaponData.Prefab.GetComponent<Crossbow>().WeaponLevel();
+        }
+        if (weaponData.VarName == "Necronomicon")
+        {
+            weaponData.Prefab.GetComponent<Necronomicon>().WeaponLevel();
+        }
+    }
 
 
     private bool MaxWeapons()
@@ -331,43 +366,40 @@ public class WeaponManager : MonoBehaviour
             if (leftData.VarName == "Axe")
             {
                 WeaponContainer.Instance.have_Axe = true;
-                LevelUpManager.Instance.level_Axe = 1;
+                LevelUpManager.Instance.level_Axe++;
 
                 currentWeapons++;
             }
             else if (leftData.VarName == "Crossbow")
             {
                 Instantiate(leftData.Prefab);
-                LevelUpManager.Instance.level_Crossbow = 1;
+                LevelUpManager.Instance.level_Crossbow++;
 
                 currentWeapons++;
             }
             else if (leftData.VarName == "Necronomicon")
             {
                 Instantiate(leftData.Prefab);
-                LevelUpManager.Instance.level_Necronomicon = 1;
+                LevelUpManager.Instance.level_Necronomicon++;
 
                 currentWeapons++;
             }
             else if (leftData.VarName == "Arrow")
             {
-                LevelUpManager.Instance.level_Arrow = 1;
-            }else
+                LevelUpManager.Instance.level_Arrow++;
+            }
+            else
             {
                 Instantiate(leftData.Prefab);
             }
         }
         else
-        {
-
-            floatingSprite.SpawnSpriteForge();
-            FindObjectOfType<AudioManager>().Play("ForgeWeapon SFX");
-
+        {          
             if (leftData.VarName == "Axe")
             {
                 LevelUpManager.Instance.level_Axe++;
 
-                if (LevelUpManager.Instance.level_Axe >= 5)
+                if (LevelUpManager.Instance.level_Axe > 5)
                 {
                     currentWeaponList.Remove(leftData);
                     weaponsList.Remove(leftData);
@@ -377,7 +409,7 @@ public class WeaponManager : MonoBehaviour
             {
                 LevelUpManager.Instance.level_Crossbow++;
 
-                if (LevelUpManager.Instance.level_Crossbow >= 5)
+                if (LevelUpManager.Instance.level_Crossbow > 5)
                 {
                     currentWeaponList.Remove(leftData);
                     weaponsList.Remove(leftData);
@@ -387,7 +419,7 @@ public class WeaponManager : MonoBehaviour
             {
                 LevelUpManager.Instance.level_Necronomicon++;
 
-                if (LevelUpManager.Instance.level_Necronomicon >= 5)
+                if (LevelUpManager.Instance.level_Necronomicon > 5)
                 {
                     currentWeaponList.Remove(leftData);
                     weaponsList.Remove(leftData);
@@ -397,7 +429,7 @@ public class WeaponManager : MonoBehaviour
             {
                 LevelUpManager.Instance.level_Arrow++;
 
-                if (LevelUpManager.Instance.level_Arrow >= 5)
+                if (LevelUpManager.Instance.level_Arrow > 5)
                 {
                     currentWeaponList.Remove(leftData);
                     weaponsList.Remove(leftData);
@@ -428,27 +460,27 @@ public class WeaponManager : MonoBehaviour
             if (midData.VarName == "Axe")
             {
                 WeaponContainer.Instance.have_Axe = true;
-                LevelUpManager.Instance.level_Axe = 1;
+                LevelUpManager.Instance.level_Axe++;
 
                 currentWeapons++;
             }
             else if (midData.VarName == "Crossbow")
             {
                 Instantiate(midData.Prefab); Instantiate(leftData.Prefab);
-                LevelUpManager.Instance.level_Crossbow = 1;
+                LevelUpManager.Instance.level_Crossbow++;
 
                 currentWeapons++;
             }
             else if (midData.VarName == "Necronomicon")
             {
                 Instantiate(midData.Prefab);
-                LevelUpManager.Instance.level_Necronomicon = 1;
+                LevelUpManager.Instance.level_Necronomicon++;
 
                 currentWeapons++;
             }
             else if (midData.VarName == "Arrow")
             {
-                LevelUpManager.Instance.level_Arrow = 1;
+                LevelUpManager.Instance.level_Arrow++;
             }
             else
             {
@@ -474,7 +506,7 @@ public class WeaponManager : MonoBehaviour
             {
                 LevelUpManager.Instance.level_Crossbow++;
 
-                if (LevelUpManager.Instance.level_Crossbow >= 5)
+                if (LevelUpManager.Instance.level_Crossbow > 5)
                 {
                     currentWeaponList.Remove(midData);
                     weaponsList.Remove(midData);
@@ -484,7 +516,7 @@ public class WeaponManager : MonoBehaviour
             {
                 LevelUpManager.Instance.level_Necronomicon++;
 
-                if (LevelUpManager.Instance.level_Necronomicon >= 5)
+                if (LevelUpManager.Instance.level_Necronomicon > 5)
                 {
                     currentWeaponList.Remove(midData);
                     weaponsList.Remove(midData);
@@ -494,7 +526,7 @@ public class WeaponManager : MonoBehaviour
             {
                 LevelUpManager.Instance.level_Arrow++;
 
-                if (LevelUpManager.Instance.level_Arrow >= 5)
+                if (LevelUpManager.Instance.level_Arrow > 5)
                 {
                     currentWeaponList.Remove(midData);
                     weaponsList.Remove(midData);
@@ -525,27 +557,27 @@ public class WeaponManager : MonoBehaviour
             if (rightData.VarName == "Axe")
             {
                 WeaponContainer.Instance.have_Axe = true;
-                LevelUpManager.Instance.level_Axe = 1;
+                LevelUpManager.Instance.level_Axe++;
 
                 currentWeapons++;
             }
             else if (rightData.VarName == "Crossbow")
             {
                 Instantiate(rightData.Prefab);
-                LevelUpManager.Instance.level_Crossbow = 1;
+                LevelUpManager.Instance.level_Crossbow++;
 
                 currentWeapons++;
             }
             else if (rightData.VarName == "Necronomicon")
             {
                 Instantiate(rightData.Prefab);
-                LevelUpManager.Instance.level_Necronomicon = 1;
+                LevelUpManager.Instance.level_Necronomicon++;
 
                 currentWeapons++;
             }
             else if (rightData.VarName == "Arrow")
             {
-                LevelUpManager.Instance.level_Arrow = 1;
+                LevelUpManager.Instance.level_Arrow++;
             }
             else
             {
@@ -561,7 +593,7 @@ public class WeaponManager : MonoBehaviour
             {
                 LevelUpManager.Instance.level_Axe++;
 
-                if (LevelUpManager.Instance.level_Axe >= 5)
+                if (LevelUpManager.Instance.level_Axe > 5)
                 {
                     currentWeaponList.Remove(rightData);
                     weaponsList.Remove(rightData);
@@ -571,7 +603,7 @@ public class WeaponManager : MonoBehaviour
             {
                 LevelUpManager.Instance.level_Crossbow++;
 
-                if (LevelUpManager.Instance.level_Crossbow >= 5)
+                if (LevelUpManager.Instance.level_Crossbow > 5)
                 {
                     currentWeaponList.Remove(rightData);
                     weaponsList.Remove(rightData);
@@ -581,7 +613,7 @@ public class WeaponManager : MonoBehaviour
             {
                 LevelUpManager.Instance.level_Necronomicon++;
 
-                if (LevelUpManager.Instance.level_Necronomicon >= 5)
+                if (LevelUpManager.Instance.level_Necronomicon > 5)
                 {
                     currentWeaponList.Remove(rightData);
                     weaponsList.Remove(rightData);
@@ -591,7 +623,7 @@ public class WeaponManager : MonoBehaviour
             {
                 LevelUpManager.Instance.level_Arrow++;
 
-                if (LevelUpManager.Instance.level_Arrow >= 5)
+                if (LevelUpManager.Instance.level_Arrow > 5)
                 {
                     currentWeaponList.Remove(rightData);
                     weaponsList.Remove(rightData);

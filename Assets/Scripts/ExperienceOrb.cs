@@ -15,8 +15,8 @@ public class ExperienceOrb : MonoBehaviour
 
     private void Start()
     {
-        playerController = FindObjectOfType<PlayerController>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        playerController = player.GetComponent<PlayerController>();
     }
 
     void FixedUpdate()

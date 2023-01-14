@@ -119,38 +119,37 @@ public class Crossbow : Weapon
         return trans;
     }
 
-    public void WeaponLevel()
+    public override void WeaponLevel()
     {
         level = LevelUpManager.Instance.level_Crossbow;
 
         switch (level)
         {
-            case 0:
-                LevelUpManager.Instance.level_Crossbow = 1;
-                break;
-
             case 1:
                 attackSpeed = 1.25f;
-                
+                weaponData.Description = desc_lvl_1;
                 break;
 
             case 2:
                 attackSpeed = 1.2f;
+                weaponData.Description = desc_lvl_2;
                 break;
 
             case 3:
                 attackSpeed = 1f;
+                weaponData.Description = desc_lvl_3;
                 break;
 
             case 4:
                 attackSpeed = .25f;
+                weaponData.Description = desc_lvl_4;
                 break;
 
             case 5:
                 attackSpeed = .2f;
+                weaponData.Description = desc_lvl_5;
                 break;
             default:
-                Debug.LogWarning("max lvl");
                 break;
         }
     }

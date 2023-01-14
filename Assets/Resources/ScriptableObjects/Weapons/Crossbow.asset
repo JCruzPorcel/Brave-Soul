@@ -12,17 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24a1787e53815c44687d7d8fee28ca4f, type: 3}
   m_Name: Crossbow
   m_EditorClassIdentifier: 
+  Id: 0
   varName: Crossbow
   itemName: Ballesta
-  description: "Una ballesta que lanza flechas. \nQue esperabas que hiciera?..."
-  upgradeDescription: "Evoluci\xF3n:"
-  damage: 0
-  level: 1
-  amount: 1
-  armorPen: 0
-  attackSpeed: 2
+  description: Holaaaaaaaaaa
   canUpgrade: 1
   prefab: {fileID: 1159165358058712471, guid: ec408c0223115f842ae0a7302dd21877, type: 3}
   weaponImage: {fileID: 1619712158, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}
   upgradeImage: {fileID: -203209844, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}
-  projectileType: {fileID: 11400000, guid: ef0da4bc101449548b9e28c72825ec20, type: 2}

@@ -125,6 +125,13 @@ MonoBehaviour:
   enemyPen: 0
   speed: 7
   level: 0
+  desc_lvl_0: "Nuevo: Flechas con punta de acero.\n\nDa\xF1o Aumentado.\n\nVelocidad
+    de proyectil aumentado."
+  desc_lvl_1: "Da\xF1o Aumentado.\nVelocidad de proyectil aumentado."
+  desc_lvl_2: 2
+  desc_lvl_3: 3
+  desc_lvl_4: 4
+  desc_lvl_5: 5
   arrowData: {fileID: 11400000, guid: 896b1ad93b2d59b47812a689253deeac, type: 2}
 --- !u!70 &5072670535865646101
 CapsuleCollider2D:

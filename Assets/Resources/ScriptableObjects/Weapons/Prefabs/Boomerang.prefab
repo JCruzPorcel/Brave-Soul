@@ -48,6 +48,13 @@ MonoBehaviour:
   level: 0
   attackSpeed: 1
   timer: 0
+  desc_lvl_0: 0
+  desc_lvl_1: 1
+  desc_lvl_2: 2
+  desc_lvl_3: 3
+  desc_lvl_4: 4
+  desc_lvl_5: 5
+  weaponData: {fileID: 11400000, guid: 45eb5761205ebb746a26ba786b691d54, type: 2}
   player: {fileID: 0}
   boomerangPrefab: {fileID: 7345127038774168174}
   boomerangSpeed: 5

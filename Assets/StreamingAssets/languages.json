@@ -32,10 +32,21 @@
     "Buy",
     "Select",
     "Play",
-    "Unlock"
+    "Unlock",
+    "Back to Main Menu",
+    "Time Survived",
+    "Enemies Killed",
+    "Gold Obtained",
+    "Total Score",
+    "<size=42>New Object!</size><size=25><br><br>Juggle with axes!<br><br>Once you throw them, you never know where they may land.<br><br>Be careful, it may fall on you!</size>",
+    "<size=32>¡<color=yellow>Level Up</color> <color=white>1</color>!</size><br><color=green><b>Increases</b></color> damage<br><br> <size=32><color=orange><b>Reduces</b></color> time between attacks</size>",
+    "¡<color=yellow>Level Up</color> <color=white>2</color>!<br><size=30><color=green><b>Increases</b></color> the number of axes<br></size><color=orange><b>Reduces</b></color> time between attacks",
+    "<size=32>¡<color=yellow>Level Up</color> <color=white>3</color>!<br></size><color=red><b>Doubles</b></color> the current axe damage<br>Obtains <color=green><b>Penetration</b></color>!<br><br>Can now take down one more enemy before breaking.",
+    "<size=32>¡<color=yellow>Level Up</color> <color=white>4</color>!</size><br><size=25><color=green><b>Increases</b></color> damage<br><br> <color=orange><b>Reduces</b></color> time between attacks<br><color=green><b>Increases</b></color> the number of enemies defeated before breaking</size>",
+    "<size= 32>Upgrade to the <color=yellow>Maximum Level</color>!<br> Increase the number of enemies defeated before being destroyed!<br>Reduce the time between attacks!</size>"
   ],
   "Spanish": [
-    "Presione para comenzar",
+    "Presionar para comenzar",
     "Opciones",
     "Salir",
     "Comenzar",
@@ -67,7 +78,18 @@
     "Comprar",
     "Seleccionar",
     "Jugar",
-    "Desbloquear"
+    "Desbloquear",
+    "Volver al menú principal",
+    "Tiempo sobrevivido",
+    "Enemigos Asesinados",
+    "Oro Obtenido",
+    "Puntuación Total",
+    "<size=42>¡<color=yellow>Nuevo Objeto</color>!</size><size=25><br><br>Malabares con hachas!<br><br>Una vez que las lanzas, nunca sabes donde pueden caer.<br><br>¡Ten cuidado, podría caer sobre ti!</size>",
+    "<size=32>¡<color=yellow>Mejora de nivel</color> <color=white>1</color>!</size><br><color=green><b>Aumenta</b></color> el daño<br><br> <size=32><color=orange><b>Reduce</b></color> el tiempo entre ataques</size>",
+    "¡<color=yellow>Mejora de nivel </color><color=white>2</color>!<br><size=30><color=green><b>Aumenta</b></color> la cantidad de hachas<br></size><color=orange><b>Reduce</b></color> el tiempo entre ataques",
+    "<size=32>¡<color=yellow>Mejora de nivel</color> <color=white>3</color>!<br></size><color=red><b>Duplica</b></color> el daño actual del hacha<br>¡Adquiere <color=green><b>Penetración</b></color>!<br><br>Ahora puede derribar un enemigo más antes de destruirse.",
+    "<size=32>¡<color=yellow>Mejora de nivel </color><color=white>4</color>!</size><br><size=25><color=green><b>Aumenta</b></color> el daño<br><br> <color=orange><b>Reduce</b></color> el tiempo entre ataques<br><color=green><b>Aumenta</b></color> la cantidad de enemigos derrotados antes de destruirse</size>",
+    "<size= 32>¡Mejorar al <color=yellow>Máximo Nivel</color>!<br>¡</size><color=green><size=28><b>Aumenta</b></color> cantidad de enemigos derrotados antes de destruirse!<br>¡<color=orange><b>Reduce</b></color> el tiempo entre ataques!</size>"
   ],
   "French": [
     "Appuyez pour démarrer",
@@ -103,6 +125,17 @@
     "Acheter",
     "Sélectionner",
     "Jouer",
-    "Débloquer"
+    "Débloquer",
+    "Retour au menu principal",
+    "Durée Survécue",
+    "Ennemis Tués",
+    "Or Obtenu",
+    "Score Total",
+    "<size=42>Nouvel objet!</size><size=25><br><br>Jongler avec des haches !<br><br>Une fois que vous les jetez, vous ne savez jamais où ils peuvent atterrir.<br><br>Faites attention, il peut tomber sur vous !</size>",
+    "<size=32>¡<color=yellow>Amélioration de Niveau</color> <color=white>1</color>!</size><br><color=green><b>Augmente</b></color> les dégâts<br><br> <size=32><color=orange><b>Réduit</b></color> le temps entre les attaques</size>",
+    "¡<color=yellow>Amélioration de Niveau</color> <color=white>2</color>!<br><size=30><color=green><b>Augmente</b></color> le nombre d'haches<br></size><color=orange><b>Réduit</b></color> le temps entre les attaques",
+    "<size=32>¡<color=yellow>Amélioration de Niveau</color> <color=white>3</color>!<br></size><color=red><b>Double</b></color> les dégâts actuels de l'hache<br>Obtient <color=green><b>Pénétration</b></color>!<br><br>Peut désormais vaincre un ennemi supplémentaire avant de se briser.",
+    "<size=32>¡<color=yellow>Amélioration de Niveau</color> <color=white>4</color>!</size><br><size=25><color=green><b>Augmente</b></color> les dégâts<br><br> <color=orange><b>Réduit</b></color> le temps entre les attaques<br><color=green><b>Augmente</b></color> le nombre d'ennemis vaincus avant de se briser</size>",
+    "<size= 32>Améliorer au <color=yellow>niveau maximum</color>!<br> Augmenter le nombre d'ennemis vaincus avant d'être détruits!<br> Réduire le temps entre les attaques!</size>"
   ]
 } 

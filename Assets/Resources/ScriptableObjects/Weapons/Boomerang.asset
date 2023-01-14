@@ -15,7 +15,7 @@ MonoBehaviour:
   varName: Boomerang
   Id: 0
   itemName: Boomerang
-  description: Asdasdasdasdasd
+  description: 
   canUpgrade: 0
   prefab: {fileID: 7345127038774168174, guid: a95e867f9587fe74287c92143106050f, type: 3}
   weaponImage: {fileID: 1611743511, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}

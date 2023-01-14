@@ -31,8 +31,8 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
 
     public LanguageManager languageManager;
     public string language;
-
     string[] texts;
+
 
     void Update()
     {

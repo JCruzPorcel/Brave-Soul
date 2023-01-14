@@ -10,7 +10,7 @@ public class LanguageButton
     public TextMeshProUGUI button;
 }
 
-public class LanguageManager : MonoBehaviour
+public class LanguageManager : Singleton<LanguageManager>
 {
     public TMP_Dropdown languageDropdown;
     public LanguageButton[] buttons;
@@ -38,6 +38,9 @@ public class LanguageManager : MonoBehaviour
     private string systemLanguage;
     private int languageIndex;
     public string previous_Language;
+
+    public string[] texts;
+    public string language;
 
     GameManager gameManager;
 
@@ -132,13 +135,13 @@ public class LanguageManager : MonoBehaviour
 
     public void SetLanguage(int value)
     {
-        string language = languageDropdown.options[value].text;
+        language = languageDropdown.options[value].text;
 
         language = languageNames.ContainsKey(language) ? languageNames[language] : language;
 
         string languageName = languageNames[language];
 
-        string[] texts = languageDict[language];
+        texts = languageDict[language];
 
         if (optionTexts.ContainsKey(language))
             languageDropdown.captionText.text = languageTranslations[languageName];
@@ -149,14 +152,18 @@ public class LanguageManager : MonoBehaviour
             {
                 if (buttons[i].button != null) buttons[i].button.text = texts[i];
             }
-        }else
+        }
+        else
         {
             int p = 5;
 
-            for (int i = 0; i < buttons.Length; i++,p++)
+            for (int i = 0; i < buttons.Length; i++, p++)
             {
-                if (buttons[i].button != null) buttons[i].button.text = texts[p+1];
+                if (buttons[i].button != null) buttons[i].button.text = texts[p + 1];
+
             }
+            buttons[0].button.text = texts[33];
+            buttons[buttons.LongLength-1].button.text = texts[33];
         }
 
 

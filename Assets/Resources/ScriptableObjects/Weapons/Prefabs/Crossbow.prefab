@@ -101,7 +101,12 @@ MonoBehaviour:
   level: 0
   attackSpeed: 1.25
   timer: 0
-  player: {fileID: 0}
+  desc_lvl_1: Holaaaaaaaaaa
+  desc_lvl_2: 2
+  desc_lvl_3: 3
+  desc_lvl_4: 4
+  desc_lvl_5: 5
   weaponData: {fileID: 11400000, guid: 6fd343edff5600d44b5b59fa43b74aba, type: 2}
+  player: {fileID: 0}
   arrows: []
   arrowData: {fileID: 11400000, guid: 896b1ad93b2d59b47812a689253deeac, type: 2}

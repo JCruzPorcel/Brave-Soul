@@ -9,7 +9,7 @@ public class WeaponContainer : Singleton<WeaponContainer>
     Queue<GameObject> axeQueue = new Queue<GameObject>();
 
     [SerializeField] Transform container;
-    [SerializeField] Transform player;
+    [SerializeField] Transform player;    
 
     public GameObject axeGo;
 
@@ -27,8 +27,6 @@ public class WeaponContainer : Singleton<WeaponContainer>
 
         axe_Amount = axeGo.GetComponent<Axe>().amount;
 
-
-
         if (mainWeapon.VarName == "Axe")
         {
             for (int i = 0; i < axe_Amount; i++)
@@ -45,7 +43,7 @@ public class WeaponContainer : Singleton<WeaponContainer>
         else
         {
             Instantiate(mainWeapon.Prefab, player);
-        }
+        }        
     }
 
 

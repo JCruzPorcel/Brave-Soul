@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Skul
   m_EditorClassIdentifier: 
   varName: Skul
+  Id: 0
   itemName: Calavera Fogosa
-  description: Persigue a los enemigos y los muerde jaja
+  description: 
   canUpgrade: 0
   prefab: {fileID: 8676698882647448056, guid: 85e86b5f1d51e8149824c8b2d8b58f4e, type: 3}
   weaponImage: {fileID: 442478159, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}

@@ -5,8 +5,8 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
     [Header("Stats")]
-    [SerializeField] private string varName;
     [SerializeField] private int Id;
+    [SerializeField] private string varName;
 
     [SerializeField] private string itemName;
     [TextArea(5, 5)][SerializeField] private string description;
@@ -22,7 +22,7 @@ public class WeaponData : ScriptableObject
 
     public bool CanUpgrade { get { return canUpgrade; } }
 
-    public Sprite WeaponImage { get { return weaponImage; } }
+    public Sprite WeaponImage { get => weaponImage; set => weaponImage = value; }
     public Sprite UpgradeImage { get { return upgradeImage; } }
 
     public GameObject Prefab { get { return prefab; } }

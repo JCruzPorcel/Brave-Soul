@@ -12,14 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24a1787e53815c44687d7d8fee28ca4f, type: 3}
   m_Name: Axe
   m_EditorClassIdentifier: 
+  Id: 0
   varName: Axe
   itemName: Hacha
-  description: "Arroja hachas hacia cualquier direcci\xF3n.\nEs en serio... ten cuidado!"
-  damage: 35
-  level: 1
-  amount: 3
-  attackSpeed: 1.25
+  description: 
   canUpgrade: 0
   prefab: {fileID: 7622447082321389213, guid: 2afe3f8e412841343ba53060467b5c89, type: 3}
   weaponImage: {fileID: -674089504, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}
-  projectileType: {fileID: 0}
+  upgradeImage: {fileID: 0}
