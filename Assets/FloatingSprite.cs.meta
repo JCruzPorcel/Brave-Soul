@@ -3,7 +3,14 @@ guid: d55ca1bd1a36c13498236d2dc67b92c3
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - spritePrefab: {instanceID: 0}
+  - gameOverSprite: {fileID: -989883789, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}
+  - levelUpSprite: {fileID: -2058246435, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}
+  - forgeWeaponSprite: {fileID: 338430679, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}
+  - playerController: {instanceID: 0}
+  - player: {instanceID: 0}
+  - spriteContainer: {fileID: 6167665266585552626, guid: d7ce54b16c432754fbebafc27b5fe09b, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

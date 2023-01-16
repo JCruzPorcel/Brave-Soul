@@ -26,11 +26,14 @@ public class Crossbow : Weapon
 
         transform.SetParent(player);
 
+        WeaponLevel();
         PlayerCombat.Instance.sliderBar.MaxAttackSpeed(attackSpeed);
     }
 
     private void Update()
     {
+        WeaponLevel();
+
         if (GameManager.Instance.currentGameState == GameState.inGame)
         {
 
@@ -38,7 +41,6 @@ public class Crossbow : Weapon
             {
                 if (MostNearbyEnemies() == null) return;
 
-                WeaponLevel();
 
                 PlayerCombat.Instance.sliderBar.MaxAttackSpeed(attackSpeed);
 
@@ -59,6 +61,8 @@ public class Crossbow : Weapon
                 {
                     if (!go.activeInHierarchy)
                     {
+                        go.GetComponent<Projectile>().WeaponLevel();
+
                         arrowQueue.Enqueue(go);
                     }
                 }
@@ -79,6 +83,7 @@ public class Crossbow : Weapon
 
         FindObjectOfType<AudioManager>().Play("Arrow SFX");
 
+        go.GetComponent<Projectile>().WeaponLevel();
         go.SetActive(true);
         arrowQueue.Dequeue();
     }
@@ -122,36 +127,49 @@ public class Crossbow : Weapon
     public override void WeaponLevel()
     {
         level = LevelUpManager.Instance.level_Crossbow;
+        texts = LanguageManager.Instance.texts;
+
+        weaponData.ItemName = texts[weaponData.ID];
+
+
+        if(level <= -1)
+        {
+            weaponData.Description = texts[weaponData.ID + 1];
+        }
+        else if (level <= 5)
+        {
+            weaponData.Description = texts[weaponData.ID + level + 2];
+        }
 
         switch (level)
         {
+            case -1:
+                attackSpeed = 1.30f;
+                break;
+
+            case 0:
+                attackSpeed = 1.30f;
+                break;
+
             case 1:
                 attackSpeed = 1.25f;
-                weaponData.Description = desc_lvl_1;
                 break;
 
             case 2:
                 attackSpeed = 1.2f;
-                weaponData.Description = desc_lvl_2;
                 break;
 
             case 3:
                 attackSpeed = 1f;
-                weaponData.Description = desc_lvl_3;
                 break;
 
             case 4:
                 attackSpeed = .25f;
-                weaponData.Description = desc_lvl_4;
                 break;
 
             case 5:
                 attackSpeed = .2f;
-                weaponData.Description = desc_lvl_5;
-                break;
-            default:
                 break;
         }
     }
-
 }

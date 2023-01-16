@@ -99,6 +99,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followRange: 1.5
   followSpeed: 4.5
-  min_experienceGain: 0
-  max_experienceGain: 0
+  gainExp: 0
   player: {fileID: 0}

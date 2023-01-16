@@ -18,7 +18,12 @@ public static class SaveManager
     {
         string dataPath = Application.persistentDataPath + "/player.save";
 
-        if (File.Exists(dataPath))
+        if (!File.Exists(dataPath))
+        {
+            SavePlayerData(new GameManager());
+        }
+
+        if (new FileInfo(dataPath).Length != 0)
         {
             FileStream fileStream = new FileStream(dataPath, FileMode.Open);
             BinaryFormatter binaryFormatter = new BinaryFormatter();

@@ -2889,7 +2889,7 @@ MonoBehaviour:
   - name: Axe SFX
     clip: {fileID: 8300000, guid: c0866af75acd66c4cb7771cd11db52d1, type: 3}
     mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
-    volume: 0.2
+    volume: 0.3
     pitch: 1
     loop: 0
     playOnAwake: 0
@@ -2897,7 +2897,7 @@ MonoBehaviour:
   - name: Arrow SFX
     clip: {fileID: 8300000, guid: 653de7c55355f5443b94db8b4a828c00, type: 3}
     mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
-    volume: 0.2
+    volume: 0.3
     pitch: 1
     loop: 0
     playOnAwake: 0
@@ -9914,9 +9914,9 @@ MonoBehaviour:
   - name: Credits_Developer_Text
     button: {fileID: 1946670267}
   - name: Credits_Art_Text
-    button: {fileID: 420737145}
-  - name: Credits_Sound_Text
     button: {fileID: 815485301}
+  - name: Credits_Sound_Text
+    button: {fileID: 420737145}
   - name: Credits_Thanks_Text
     button: {fileID: 1593429127}
   - name: Credits_Donation_Text
@@ -9926,6 +9926,8 @@ MonoBehaviour:
   - name: CharSelection_Title_Text
     button: {fileID: 186663596}
   previous_Language: 
+  texts: []
+  language: 
 --- !u!1 &999336711
 GameObject:
   m_ObjectHideFlags: 0
@@ -14339,7 +14341,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1462489280
 RectTransform:
   m_ObjectHideFlags: 0

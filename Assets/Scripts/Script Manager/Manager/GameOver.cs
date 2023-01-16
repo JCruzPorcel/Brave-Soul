@@ -27,12 +27,12 @@ public class GameOver : MonoBehaviour
 
     readonly int mainMenu_Language = 33;
     readonly int time_language = 34;
-    readonly int gold_language = 35;
-    readonly int enemies_language = 36;
+    readonly int enemies_language = 35;
+    readonly int gold_language = 36;
     readonly int totalScore_language = 37;
 
 
-    private void Start()
+    private void Update()
     {
         language = GameManager.Instance.Previous_Language;
 

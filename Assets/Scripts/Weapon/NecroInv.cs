@@ -41,11 +41,19 @@ public class NecroInv : MonoBehaviour
 
         switch (level)
         {
-            case 1:
+            case -1:
                 damage = 10;
                 active = false;
                 break;
 
+            case 0:
+                damage = 10;
+                active = false;
+                break;
+            case 1:
+                damage = 12;
+                active = false;
+                break;
             case 2:
                 damage = 15;
                 active = false;
@@ -65,10 +73,6 @@ public class NecroInv : MonoBehaviour
                 damage = 25;
                 active = true;
                 break;
-
-            default:
-                break;
-
         }
     }
 }

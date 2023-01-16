@@ -26,7 +26,8 @@ public class OptionsManager : Singleton<OptionsManager>
     public FpsCounter fpsCounter;
 
     private void Start()
-    {
+    {       
+
         AudioManager.Instance.OnSoundSettingsSaved();
 
         PlayerData playerData = SaveManager.LoadPlayerData();

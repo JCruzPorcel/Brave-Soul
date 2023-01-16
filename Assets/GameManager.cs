@@ -45,12 +45,16 @@ public class GameManager : SingletonPersistent<GameManager>
     private void Start()
     {
         PlayerData playerData = SaveManager.LoadPlayerData();
-        playerGold = playerData.Gold;
-        previous_Language = playerData.Language;
-        m_Damage = playerData.Damage;
-        m_Fps = playerData.FPS;
-        m_FullScreen = playerData.FullScreen;
-        m_HighPerformance = playerData.HighPerformance;
+
+        if (playerData != null)
+        {
+            playerGold = playerData.Gold;
+            previous_Language = playerData.Language;
+            m_Damage = playerData.Damage;
+            m_Fps = playerData.FPS;
+            m_FullScreen = playerData.FullScreen;
+            m_HighPerformance = playerData.HighPerformance;
+        }
     }
 
     private void LateUpdate()

@@ -8,13 +8,6 @@ public class Weapon : MonoBehaviour
     public float attackSpeed;
     [HideInInspector] public float timer;
 
-    [TextArea(6, 6)] public string desc_lvl_0;
-    [TextArea(6, 6)] public string desc_lvl_1;
-    [TextArea(6, 6)] public string desc_lvl_2;
-    [TextArea(6, 6)] public string desc_lvl_3;
-    [TextArea(6, 6)] public string desc_lvl_4;
-    [TextArea(6, 6)] public string desc_lvl_5;
-
     public string[] texts;
 
     public WeaponData weaponData;

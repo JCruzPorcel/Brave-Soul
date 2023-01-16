@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24a1787e53815c44687d7d8fee28ca4f, type: 3}
   m_Name: Arrow
   m_EditorClassIdentifier: 
-  Id: 0
+  Id: 47
   varName: Arrow
-  itemName: Flecha (Projectil)
-  description: "Nuevo: Flechas con punta de acero.\n\nDa\xF1o Aumentado.\n\nVelocidad
-    de proyectil aumentado."
+  itemName: Arrow<br>(Projectile)
+  description: <color=orange>Increases</color> damage by <color=green>50%</color><br><br><color=orange>Increases</color>
+    projectile speed by <color=green>60%</color><br><br><color=orange>Increases</color>
+    enemy penetration by <color=green>3</color>
   canUpgrade: 1
   prefab: {fileID: 1880289573261091753, guid: 9ae63a42e3299a54d858a36925e4aec5, type: 3}
   weaponImage: {fileID: -203209844, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}

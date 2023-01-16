@@ -8,7 +8,9 @@ public class Necronomicon : Weapon
     [SerializeField] GameObject go;
     [SerializeField] Sprite normalSprite;
     [SerializeField] Sprite evSprite;
-    
+    public string normalName;
+    public string evolutionName;
+
     private void Start()
     {
         WeaponLevel();
@@ -26,10 +28,10 @@ public class Necronomicon : Weapon
 
     private void Update()
     {
+        WeaponLevel();
         if (GameManager.Instance.currentGameState == GameState.inGame)
         {
             Attack();
-            WeaponLevel();
         }
     }
 
@@ -49,7 +51,7 @@ public class Necronomicon : Weapon
     {
         if (collision.tag == "Enemy")
         {
-            collision.GetComponent<Enemy>().TakeDamage(damage);            
+            collision.GetComponent<Enemy>().TakeDamage(damage);
         }
     }
 
@@ -57,50 +59,71 @@ public class Necronomicon : Weapon
     {
         level = LevelUpManager.Instance.level_Necronomicon;
 
+        texts = LanguageManager.Instance.texts;
+
+        weaponData.ItemName = texts[weaponData.ID];
+        normalName = texts[weaponData.ID];
+        evolutionName = texts[weaponData.ID + 7];
+
+        if (level <= -1)
+        {
+            weaponData.Description = texts[weaponData.ID + 1];
+        }
+        else if (level <= 5)
+        {
+            weaponData.Description = texts[weaponData.ID + level + 2];
+        }
+
         switch (level)
         {
-            case 0:
-                weaponData.Description = desc_lvl_0;
-                weaponData.WeaponImage = normalSprite;
-                break;
-            case 1:
+            case -1:
                 damage = 10;
                 speedRotation = 40;
-                weaponData.Description = desc_lvl_1;
                 weaponData.WeaponImage = normalSprite;
+                weaponData.ItemName = normalName;
+                break;
+
+            case 0:
+                damage = 10;
+                speedRotation = 40;
+                weaponData.WeaponImage = normalSprite;
+                weaponData.ItemName = normalName;
+                break;
+
+            case 1:
+                damage = 12;
+                speedRotation = 60;
+                weaponData.WeaponImage = normalSprite;
+                weaponData.ItemName = normalName;
                 break;
 
             case 2:
                 damage = 15;
                 speedRotation = 95;
-                weaponData.Description = desc_lvl_2;
                 weaponData.WeaponImage = normalSprite;
+                weaponData.ItemName = normalName;
                 break;
 
             case 3:
                 damage = 20;
                 speedRotation = 140;
-                weaponData.Description = desc_lvl_3;
-                weaponData.WeaponImage = normalSprite;
+                weaponData.WeaponImage = evSprite;
+                weaponData.ItemName = evolutionName;
                 break;
 
             case 4:
                 damage = 20;
                 speedRotation = 180;
-                weaponData.Description = desc_lvl_4;
                 weaponData.WeaponImage = evSprite;
+                weaponData.ItemName = evolutionName;
                 break;
 
             case 5:
                 damage = 25;
                 speedRotation = 250;
-                weaponData.Description = desc_lvl_5;
                 weaponData.WeaponImage = evSprite;
+                weaponData.ItemName = evolutionName;
                 break;
-
-            default:
-                break;
-                
         }
     }
 }

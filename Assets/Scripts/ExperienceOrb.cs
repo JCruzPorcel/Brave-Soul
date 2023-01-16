@@ -8,10 +8,16 @@ public class ExperienceOrb : MonoBehaviour
     public Transform player;
 
 
-
     private bool isFollowing = false;
 
     PlayerController playerController;
+
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     private void Start()
     {
@@ -43,6 +49,8 @@ public class ExperienceOrb : MonoBehaviour
             isFollowing = false;
 
             playerController.TakeExp(gainExp);
+
+            audioManager.Play("PickUpExp SFX");
 
             transform.position = transform.parent.position;
         }

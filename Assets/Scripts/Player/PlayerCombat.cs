@@ -15,19 +15,19 @@ public class PlayerCombat : Singleton<PlayerCombat>
 
         if (weaponData.VarName == "Axe")
         {
-            LevelUpManager.Instance.level_Axe = 1;
+            LevelUpManager.Instance.level_Axe++;
         }
         if (weaponData.VarName == "Arrow")
         {
-            LevelUpManager.Instance.level_Arrow = 1;
+            LevelUpManager.Instance.level_Arrow++;
         }
         if (weaponData.VarName == "Crossbow")
         {
-            LevelUpManager.Instance.level_Crossbow = 1;
+            LevelUpManager.Instance.level_Crossbow++;
         }
         if (weaponData.VarName == "Necronomicon")
         {
-            LevelUpManager.Instance.level_Necronomicon = 1;
+            LevelUpManager.Instance.level_Necronomicon++;
         }
     }
 }

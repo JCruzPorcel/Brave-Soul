@@ -178,6 +178,7 @@ MonoBehaviour:
   reset: 0
   animator: {fileID: 0}
   player: {fileID: 0}
+  floatingText: {fileID: 5374698372719183501, guid: d3e4969c704107548a31128d5cfa3ea4, type: 3}
 --- !u!70 &5660000510669915132
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

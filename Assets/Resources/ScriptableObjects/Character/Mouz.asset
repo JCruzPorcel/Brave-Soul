@@ -17,9 +17,9 @@ MonoBehaviour:
   description: 
   armor: 0
   damage: 1
-  maxHp: 250
+  maxHp: 200
   attackSpeed: 0
-  hpRegen: 0.2
+  hpRegen: 2
   speed: 3
   charPrice: 0
   charImage: {fileID: -1711449072, guid: ec8fa8378dfa0f24285ce047d812b2c9, type: 3}

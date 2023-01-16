@@ -9,29 +9,28 @@ public class Projectile : MonoBehaviour
     public float speed;
     public int level;
 
-    [TextArea(6, 6)] public string desc_lvl_0;
-    [TextArea(6, 6)] public string desc_lvl_1;
-    [TextArea(6, 6)] public string desc_lvl_2;
-    [TextArea(6, 6)] public string desc_lvl_3;
-    [TextArea(6, 6)] public string desc_lvl_4;
-    [TextArea(6, 6)] public string desc_lvl_5;
+    public WeaponData weaponData;
 
-    public WeaponData arrowData;
+    public string[] texts;
 
     private void Start()
     {
-        player = GetComponent<Transform>();
-        WeaponLevel();
         player = GameObject.Find("Player").transform;
+        WeaponLevel();
     }
 
+    private void Update()
+    {
+        level = LevelUpManager.Instance.level_Arrow;
+        DespawnDistance();
+        WeaponLevel();
+    }
+    
     private void FixedUpdate()
     {
         if (GameManager.Instance.currentGameState == GameState.inGame)
         {
             transform.position += (transform.up * speed) * Time.fixedDeltaTime;
-            DespawnDistance();
-            WeaponLevel();
         }
     }
 
@@ -43,7 +42,6 @@ public class Projectile : MonoBehaviour
         }
     }
 
-
     private void OnEnable()
     {
         WeaponLevel();
@@ -53,7 +51,6 @@ public class Projectile : MonoBehaviour
     {
         WeaponLevel();
     }
-
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -72,55 +69,65 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    public virtual void WeaponLevel()
+    public void WeaponLevel()
     {
         level = LevelUpManager.Instance.level_Arrow;
+        texts = LanguageManager.Instance.texts;
+
+        weaponData.ItemName = texts[weaponData.ID];
+
+
+        if (level <= -1)
+        {
+            weaponData.Description = texts[weaponData.ID + 1];
+        }
+        else if (level <= 5)
+        {
+            weaponData.Description = texts[weaponData.ID + level + 2];
+        }
 
         switch (level)
         {
-            case 0:
+            case -1:
                 damage = 5;
                 speed = 7f;
                 enemyPen = 0;
-                arrowData.Description = desc_lvl_0;
+                break;
+
+            case 0:
+                damage = 7;
+                speed = 9f;
+                enemyPen = 0;
                 break;
 
             case 1:
-                damage = 6;
-                speed = 8f;
+                damage = 12;
+                speed = 12f;
                 enemyPen = 0;
-                arrowData.Description = desc_lvl_1;
                 break;
 
             case 2:
                 damage = 15;
-                speed = 12f;
-                enemyPen = 1;
-                arrowData.Description = desc_lvl_2;
+                speed = 20f;
+                enemyPen = 0;
                 break;
 
             case 3:
-                damage = 35;
-                speed = 25f;
-                enemyPen = 2;
-                arrowData.Description = desc_lvl_3;
+                damage = 25;
+                speed = 20f;
+                enemyPen = 1;
                 break;
 
             case 4:
-                damage = 40;
+                damage = 35; 
                 speed = 32f;
-                enemyPen = 3;
-                arrowData.Description = desc_lvl_4;
+                enemyPen = 2;
                 break;
 
             case 5:
-                damage = 50;
+                damage = 40;
                 speed = 40f;
-                enemyPen = 5;
-                arrowData.Description = desc_lvl_5;
-                break;
-
-            default:
+                enemyPen = 3;
                 break;
         }
     }

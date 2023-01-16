@@ -121,18 +121,102 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  damage: 10
+  damage: 12
   enemyPen: 0
-  speed: 7
-  level: 0
-  desc_lvl_0: "Nuevo: Flechas con punta de acero.\n\nDa\xF1o Aumentado.\n\nVelocidad
-    de proyectil aumentado."
-  desc_lvl_1: "Da\xF1o Aumentado.\nVelocidad de proyectil aumentado."
-  desc_lvl_2: 2
-  desc_lvl_3: 3
-  desc_lvl_4: 4
-  desc_lvl_5: 5
-  arrowData: {fileID: 11400000, guid: 896b1ad93b2d59b47812a689253deeac, type: 2}
+  speed: 8
+  level: -1
+  weaponData: {fileID: 11400000, guid: 896b1ad93b2d59b47812a689253deeac, type: 2}
+  texts:
+  - Press to Start
+  - Options
+  - Exit
+  - Start
+  - Upgrades
+  - Credits
+  - Back
+  - Music Volume
+  - Effects Volume
+  - Show Damage
+  - Show FPS
+  - Fullscreen
+  - High Performance Mode
+  - Back
+  - Character Upgrades
+  - Reset Upgrades
+  - Back
+  - Credits
+  - Programming
+  - Art
+  - Sound
+  - Thanks for playing!
+  - Support the creator
+  - Back
+  - Choose Character
+  - Return to main menu
+  - "A smart and skilled mouse with a crossbow, capable of taking down enemies from
+    a distance.\n\n\u2022 Movement <color=green><b>increased</b></color>.\n\u2022
+    Maximum Health <color=red><b>reduced</b></color>.\n\u2022 Initial Damage <color=yellow><b>normal</b></color>."
+  - "A wizard capable of summoning magic books, whether as defense or weapon.\n\n\u2022
+    Movement <color=yellow><b>normal</b></color>.\n\u2022 Maximum Health <color=yellow><b>normal</b></color>."
+  - "The Guardian is an imposing figure that throws axes with great precision and
+    speed. \n\n\u2022 Movement <color=red><b>reduced</b></color>.\n\u2022 Maximum
+    Health <color=green><b>increased</b></color>.\n\u2022 Initial Damage <color=green><b>increased</b></color>."
+  - Buy
+  - Select
+  - Play
+  - Unlock
+  - Back to Main Menu
+  - Time Survived
+  - Enemies Killed
+  - Gold Obtained
+  - Total Score
+  - <color=yellow>New<br>Item</color>!
+  - ' '
+  - Axe
+  - <br>Juggle with axes!<br><br>Once you throw them, you never know where they might
+    land.<br><br>Be careful, they might fall on you!
+  - <color=orange>Increases</color> attack speed by <color=green>3%</color>
+  - <color=orange>Increases</color> attack speed by <color=green>7%</color><br><br><color=orange>Increases</color>
+    maximum number of axes by <color=green>1</color>
+  - <color=orange>Increases</color> damage by <color=green>100%</color>
+  - <color=orange>Increases</color> damage by <color=green>120%</color><br><br><color=orange>Increases</color>
+    attack speed by <color=green>7%</color>
+  - <color=orange>Increases</color> attack speed by <color=green>50%</color><br><br><color=orange>Increases</color>
+    maximum number of axes by <color=green>2</color><br><br>Axes now <color=red>penetrate</color>
+    more enemies before being destroyed
+  - Arrow<bt>(Projectile)
+  - Steel tipped arrows!<br><br>They could only serve you if you have a <color=orange>crossbow</color>...
+  - <color=orange>Increases</color> projectile speed by <color=green>5%</color>
+  - <color=orange>Increases</color> damage by <color=green>7%</color><br><br><color=orange>Increases</color>
+    projectile speed by <color=green>7%</color>
+  - <color=orange>Increases</color> damage by <color=green>30%</color><br><br><color=orange>Increases</color>
+    enemy penetration by <color=green>1</color>
+  - <color=orange>Increases</color> damage by <color=green>45%</color><br><br><color=orange>Increases</color>
+    projectile speed by <color=green>12%</color>
+  - <color=orange>Increases</color> damage by <color=green>50%</color><br><br><color=orange>Increases</color>
+    projectile speed by <color=green>60%</color><br><br><color=orange>Increases</color>
+    enemy penetration by <color=green>3</color>
+  - Crossbow
+  - <br>A crossbow that fires arrows.<br><br>What did you expect it to do?...
+  - <color=orange>Increases</color> fire rate by <color=green>5%</color>
+  - <color=orange>Increases</color> fire rate by <color=green>15%</color>
+  - <color=orange>Increases</color> fire rate by <color=green>25%</color>
+  - <color=orange>Increases</color> fire rate by <color=green>50%</color>
+  - <color=orange>Increases</color> fire rate by <color=green>75%</color>
+  - Necronomicon
+  - Hit your enemies with its pages!<br><br>That's better than having it collect
+    dust on a shelf...<br><br>Don't you think?
+  - <color=orange>Increases</color> damage by <color=green>5%</color><br><br><color=orange>Increases</color>
+    rotation speed by <color=green>20%</color>
+  - <color=orange>Increases</color> damage by <color=green>10%</color><br><br><color=orange>Increases</color>
+    rotation speed by <color=green>40%</color>
+  - <color=orange>Increases</color> damage by <color=green>20%</color><br><br><color=orange>Increases</color>
+    rotation speed by <color=green>60%</color>
+  - '<color=red>Antithesis</color>: summons another book.<br><br><color=orange>Increases</color>
+    rotation speed of books by <color=green>80%</color>'
+  - <color=orange>Increases</color> damage of books by <color=green>25%</color><br><br><color=orange>Increases</color>
+    rotation speed of books by <color=green>100%</color>
+  - Book of Elysium
 --- !u!70 &5072670535865646101
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -30,6 +31,8 @@ public class Enemy : MonoBehaviour
     public Transform player;
 
     TimerScript timerScript;
+
+    public GameObject floatingText;
 
     private void Start()
     {
@@ -101,12 +104,36 @@ public class Enemy : MonoBehaviour
             {
                 gameObject.SetActive(false);
             }
-
         }
+    }
+
+    public void ShowDamage(int damage)
+    {
+        GameObject go = Instantiate(floatingText);
+        go.transform.position = new Vector2(transform.position.x + Random.Range(0f, .5f), transform.position.y + Random.Range(.5f, 1f));
+
+        if(damage < 35) 
+        {
+            go.GetComponent<TMP_Text>().color = Color.white;
+        }
+        else if (damage >= 35)
+        {
+            go.GetComponent<TMP_Text>().color = Color.yellow;
+        }
+
+
+
+        go.GetComponent<TMP_Text>().text = damage.ToString();
+
+        Destroy(go, .50f);
     }
 
     public virtual void TakeDamage(int playerDamage)
     {
+        if (GameManager.Instance.GM_ShowDamage)
+        {
+            ShowDamage(playerDamage);
+        }
         currentHP -= playerDamage;
         CurrentHealth();
     }
@@ -163,11 +190,14 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D col)
     {
-        if (!isDead)
+        if (GameManager.Instance.currentGameState == GameState.inGame)
         {
-            if (col.tag == "Character")
+            if (!isDead)
             {
-                PlayerController.Instance.TakeDamage(damage);
+                if (col.tag == "Character")
+                {
+                    PlayerController.Instance.TakeDamage(damage);
+                }
             }
         }
     }
@@ -177,6 +207,6 @@ public class Enemy : MonoBehaviour
 
     public virtual void Spawn() { }
 
-            
+
     public virtual void GiveExp() { ExperienceOrbPooling.Instance.OnEnemyDeath(this); timerScript.enemiesKilled++; }
 }

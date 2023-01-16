@@ -78,7 +78,7 @@ public class AudioManager : SingletonPersistent<AudioManager>
     public void OnVolumeChanged()
     {
         SoundData soundData = new SoundData();
-        soundData.audioFileName = "mi_audio.mp3";
+        soundData.audioFileName = "my_audio.mp3";
         soundData.volume = 1.0f;
         soundData.musicVolume = OptionsManager.Instance.musicVolumeSlider.value;
         soundData.effectsVolume = OptionsManager.Instance.sfxVolumeSlider.value;
@@ -93,14 +93,24 @@ public class AudioManager : SingletonPersistent<AudioManager>
 
     public void OnSoundSettingsSaved()
     {
-        SoundList soundList = JsonUtility.FromJson<SoundList>(PlayerPrefs.GetString("SoundData"));
-        string audioFileName = soundList.sounds[0].audioFileName;
-        float volume = soundList.sounds[0].volume;
-        float musicVolume = soundList.sounds[0].musicVolume;
-        float effectsVolume = soundList.sounds[0].effectsVolume;
+        string soundDataString = PlayerPrefs.GetString("SoundData");
+        if (!string.IsNullOrEmpty(soundDataString))
+        {
+            SoundList soundList = JsonUtility.FromJson<SoundList>(soundDataString);
+            string audioFileName = soundList.sounds[0].audioFileName;
+            float volume = soundList.sounds[0].volume;
+            float musicVolume = soundList.sounds[0].musicVolume;
+            float effectsVolume = soundList.sounds[0].effectsVolume;
 
-        OptionsManager.Instance.musicVolumeSlider.value = musicVolume;
-        OptionsManager.Instance.sfxVolumeSlider.value = effectsVolume;
+            if (OptionsManager.Instance != null)
+            {
+                OptionsManager.Instance.musicVolumeSlider.value = musicVolume;
+                OptionsManager.Instance.sfxVolumeSlider.value = effectsVolume;
+            }
+        }
+        else
+        {
+            Debug.LogWarning("SoundData not found in PlayerPrefs");
+        }
     }
-
 }

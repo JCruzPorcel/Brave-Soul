@@ -5,7 +5,7 @@ public class PlayerController : Singleton<PlayerController>
     public float playerSpeed;
     public int maxHealth;
     [Min(0)] public float currentHealth;
-    public int heal;
+    public float heal;
     [Min(0)] public int currentLvl = 0;
     public int currentExp = 0;
     public int nextLvl = 10;
@@ -28,17 +28,25 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] FloatingSprite floatingSprite;
     [SerializeField] MusicFader musicFader;
 
-    [SerializeField]AudioManager audioManager;
+    AudioManager audioManager;
 
     private void Start()
     {
         anim = GameObject.FindGameObjectWithTag("Character").GetComponent<Animator>();
         sr = GameObject.FindGameObjectWithTag("Character").GetComponent<SpriteRenderer>();
+        audioManager = FindObjectOfType<AudioManager>();
 
         maxHealth = GameManager.Instance.CharSelected.MaxHp;
         playerSpeed = GameManager.Instance.CharSelected.Speed;
         currentHealth = maxHealth;
         sliderBar.SetMaxtHealth(maxHealth);
+    }
+
+    private void Update()
+    {
+        if (GameManager.Instance.currentGameState != GameState.inGame) return;
+
+        TakeHealth(heal);
     }
 
     private void FixedUpdate()
@@ -118,11 +126,13 @@ public class PlayerController : Singleton<PlayerController>
 
     public void TakeHealth(float heal)
     {
-        currentHealth += heal;
+        if (currentHealth < maxHealth)
+        {
+            currentHealth += heal * Time.deltaTime;
 
-        sliderBar.SetHealth(currentHealth);
-
-        if (currentHealth >= maxHealth)
+            sliderBar.SetHealth(currentHealth);
+        }
+        else
         {
             currentHealth = maxHealth;
         }
@@ -142,7 +152,7 @@ public class PlayerController : Singleton<PlayerController>
                 pointsLvl++;
                 MenuManager.Instance.LevelUp();
             }
-
+            currentExp = 0;
             currentLvl++;
             nextLvl *= 2;
         }

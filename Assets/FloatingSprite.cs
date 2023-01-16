@@ -21,7 +21,6 @@ public class FloatingSprite : MonoBehaviour
 
     void Start()
     {
-        //player = GameObject.FindWithTag("Player").transform;
         pooledObjects = new GameObject[poolSize];
         for (int i = 0; i < poolSize; i++)
         {

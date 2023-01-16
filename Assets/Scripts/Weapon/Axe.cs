@@ -5,7 +5,7 @@ public class Axe : Weapon
     Rigidbody2D rb;
     bool onEnter;
     [SerializeField] int enemyPen = 0;
-    public int amount = 3;
+    public int amount = 2;
     int rr;
 
     private void Start()
@@ -17,6 +17,7 @@ public class Axe : Weapon
 
     private void Update()
     {
+        WeaponLevel();
 
         if (GameManager.Instance.currentGameState == GameState.inGame)
         {
@@ -59,7 +60,6 @@ public class Axe : Weapon
             }
 
             DespawnRange();
-            WeaponLevel();
         }
     }
 
@@ -105,15 +105,27 @@ public class Axe : Weapon
     {
         level = LevelUpManager.Instance.level_Axe;
         texts = LanguageManager.Instance.texts;
-        if (level <= 5)
+
+        weaponData.ItemName = texts[weaponData.ID];
+
+
+        if (level <= -1)
         {
-             weaponData.Description = texts[weaponData.ID + level];
+            weaponData.Description = texts[weaponData.ID + 1];
         }
+        else if (level <= 5)
+        {
+            weaponData.Description = texts[weaponData.ID + level + 2];
+        }
+
 
         switch (level)
         {
+            case -1:
+                break;
+
             case 0:
-                damage = 10;
+                damage = 15;
                 attackSpeed = 5f;
                 amount = 2;
                 enemyPen = 0;
@@ -137,14 +149,14 @@ public class Axe : Weapon
                 damage = 30;
                 attackSpeed = 3f;
                 amount = 3;
-                enemyPen = 1;
+                enemyPen = 0;
                 break;
 
             case 4:
                 damage = 50;
                 attackSpeed = 2f;
                 amount = 3;
-                enemyPen = 2;
+                enemyPen = 0;
                 break;
 
             case 5:
@@ -152,9 +164,6 @@ public class Axe : Weapon
                 attackSpeed = 1.25f;
                 amount = 5;
                 enemyPen = 2;
-                break;
-
-            default:
                 break;
         }
     }

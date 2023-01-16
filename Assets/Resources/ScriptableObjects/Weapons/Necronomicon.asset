@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24a1787e53815c44687d7d8fee28ca4f, type: 3}
   m_Name: Necronomicon
   m_EditorClassIdentifier: 
-  Id: 0
+  Id: 61
   varName: Necronomicon
-  itemName: "Libro M\xE1gico"
-  description: 
+  itemName: Book of Elysium
+  description: <color=orange>Increases</color> damage of books by <color=green>25%</color><br><br><color=orange>Increases</color>
+    rotation speed of books by <color=green>100%</color>
   canUpgrade: 0
   prefab: {fileID: 3059551790232785706, guid: 6baffa3a479fc3e45a0f3080d7de7ce1, type: 3}
-  weaponImage: {fileID: 1827703760, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}
+  weaponImage: {fileID: -328605450, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}
   upgradeImage: {fileID: 0}

@@ -136,29 +136,67 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6abecd44eb2d93f46bac38016b7b723c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
-  level: 5
-  attackSpeed: 1.25
+  damage: 30
+  level: -1
+  attackSpeed: 3
   timer: 0
-  desc_lvl_0: "<size=42>\xA1<color=yellow>Nuevo Objeto</color>!</size><size=25><br><br>Hachas
-    para malabares!<br><br>Una vez que las lanzas, nunca sabes donde pueden caer.<br><br>\xA1Ten
-    cuidado, podr\xEDa caer sobre ti!</size>"
-  desc_lvl_1: "<size=32>\xA1<color=yellow>Mejora de nivel</color> <color=white>1</color>!</size><br>\n<color=green><b>Aumenta</b></color>
-    el da\xF1o<br><br> <size=32><color=orange><b>Reduce</b></color> el tiempo entre
-    ataques</size>"
-  desc_lvl_2: "\xA1<color=yellow>Mejora de nivel </color><color=white>2</color>!<br>\n<size=30><color=green><b>Aumenta</b></color>
-    la cantidad de hachas<br></size>\n<color=orange><b>Reduce</b></color> el tiempo
-    entre ataques"
-  desc_lvl_3: "<size=32>\xA1<color=yellow>Mejora de nivel</color> <color=white>3</color>!<br></size>\n<color=red><b>Duplica</b></color>
-    el da\xF1o actual del hacha<br>\n\xA1Adquiere <color=green><b>Penetraci\xF3n</b></color>!<br><br>Ahora
-    puede derribar un enemigo m\xE1s antes de destruirse."
-  desc_lvl_4: "<size=32>\xA1<color=yellow>Mejora de nivel </color><color=white>4</color>!</size><br><size=25>\n<color=green><b>Aumenta</b></color>
-    el da\xF1o<br><br> <color=orange><b>Reduce</b></color> el tiempo entre ataques<br>\n<color=green><b>Aumenta</b></color>
-    la cantidad de enemigos derrotados antes de destruirse</size>"
-  desc_lvl_5: "<size= 32>\xA1Mejorar al <color=yellow>Maximo Nivel</color>!<br>\n\xA1</size><color=green><size=28><b>Aumenta</b></color>
-    cantidad de enemigos derrotados antes de destruirse!<br>\n\xA1<color=orange><b>Reduce</b></color>
-    el tiempo entre ataques!</size>"
+  desc_lvl_0: "<br>\xA1Malabares con hachas!<br><br>Una vez que las lanzas, nunca
+    sabes donde pueden caer.<br><br>\xA1Ten cuidado, podr\xEDan caer sobre ti!\n"
+  desc_lvl_1: <color=orange>Aumenta</color> la velocidad de ataque en <color=green>3%</color>
+  desc_lvl_2: <color=orange>Aumenta</color> la velocidad de ataque en <color=green>7%</color><br><br><color=orange>Aumenta</color>
+    el maximo de hachas en <color=green>1</color>
+  desc_lvl_3: "<color=orange>Aumenta</color> el da\xF1o un <color=green>100%</color>"
+  desc_lvl_4: "<color=orange>Aumenta</color> el da\xF1o un <color=green>120%</color><br><br><color=orange>Aumenta</color>
+    la velocidad de ataque en <color=green>7%</color>"
+  desc_lvl_5: "<color=orange>Aumenta</color> la velocidad de ataque en <color=green>50%</color><br><br><color=orange>Aumenta</color>
+    el maximo de hachas en <color=green>2</color><br><br>Las hachas ahora <color=red>penetran</color>
+    a m\xE1s enemigos antes de ser destruidas"
+  texts:
+  - Presionar para comenzar
+  - Opciones
+  - Salir
+  - Comenzar
+  - Mejoras
+  - "Cr\xE9ditos"
+  - Volver
+  - "Volumen M\xFAsica"
+  - Volumen Efectos
+  - "Mostrar Da\xF1o"
+  - Mostrar FPS
+  - Pantalla Completa
+  - Modo Alto Rendimiento
+  - Volver
+  - Mejoras de Personajes
+  - Devolver Mejoras
+  - Volver
+  - "Cr\xE9ditos"
+  - "Programaci\xF3n"
+  - Arte
+  - Sonido
+  - Gracias por jugar!
+  - Apoyar al creador
+  - Volver
+  - Elegir Personaje
+  - "Volver al men\xFA principal"
+  - "Un ratoncito astuto y h\xE1bil con una ballesta, capaz de derribar a sus enemigos
+    desde la distancia.\n\n\u2022 Movimiento <color=green><b>aumentado</b></color>.\n\u2022
+    Vida Maxima <color=red><b>reducida</b></color>.\n\u2022 Da\xF1o Inicial <color=yellow><b>normal</b></color>."
+  - "Un mago capaz de invocar libros m\xE1gicos, ya sea como una defensa o un arma.\n\n\u2022
+    Movimiento <color=yellow><b>normal</b></color>.\n\u2022 Vida Maxima <color=yellow><b>normal</b></color>.\n\u2022
+    Da\xF1o Inicial <color=green><b>aumentado</b></color>."
+  - "El Guardi\xE1n es una figura imponente que arroja hachas con gran precisi\xF3n
+    y velocidad. \n\n\u2022 Movimiento <color=red><b>reducido</b></color>.\n\u2022
+    Vida Maxima <color=green><b>aumentada</b></color>.\n\u2022 Da\xF1o Inicial <color=green><b>aumentado</b></color>."
+  - Comprar
+  - Seleccionar
+  - Jugar
+  - Desbloquear
+  - "Volver al men\xFA principal"
+  - Tiempo sobrevivido
+  - Enemigos Asesinados
+  - Oro Obtenido
+  - "Puntuaci\xF3n Total"
   weaponData: {fileID: 11400000, guid: 905fdc98bd9b11f45b10c68a21708b7a, type: 2}
   player: {fileID: 0}
-  enemyPen: 2
-  amount: 5
+  enemyPen: 0
+  amount: 3
