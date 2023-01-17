@@ -36,6 +36,7 @@ public class PlayerController : Singleton<PlayerController>
         sr = GameObject.FindGameObjectWithTag("Character").GetComponent<SpriteRenderer>();
         audioManager = FindObjectOfType<AudioManager>();
 
+        heal = GameManager.Instance.CharSelected.HpRegen;
         maxHealth = GameManager.Instance.CharSelected.MaxHp;
         playerSpeed = GameManager.Instance.CharSelected.Speed;
         currentHealth = maxHealth;
@@ -141,7 +142,13 @@ public class PlayerController : Singleton<PlayerController>
 
     public void TakeExp(int exp)
     {
+        if (currentLvl < 5)
+        {
+            exp *= Random.Range(1, 2);
+        }
+
         currentExp += exp;
+
 
         if (currentExp >= nextLvl)
         {
@@ -153,9 +160,13 @@ public class PlayerController : Singleton<PlayerController>
                 pointsLvl++;
                 MenuManager.Instance.LevelUp();
             }
-            currentExp = 0;
+            currentExp -= nextLvl;
             currentLvl++;
-            nextLvl *= 2;
+
+            if (nextLvl < 800)
+            {
+                nextLvl *= 2;
+            }
         }
     }
 }

@@ -27,6 +27,16 @@ public class PlayerData
     private string language;
     public string Language { get => language; set => Language = value; }
 
+    private bool m_character_Mouz = true;
+    public bool Character_Mouz { get => m_character_Mouz; set => m_character_Mouz = value; }
+
+    private bool m_character_Sweeper;
+    public bool Character_Sweeper { get => m_character_Sweeper; set => m_character_Sweeper = value; }
+
+    private bool m_character_Magus;
+    public bool Character_Magus { get => m_character_Magus; set => m_character_Magus = value; }
+
+
     public PlayerData(GameManager player)
     {
         gold = player.PlayerGold;
@@ -36,5 +46,9 @@ public class PlayerData
         m_Fps = player.GM_ShowFps;
         m_FullScreen = player.GM_FullScreen;
         m_HighPerformance = player.GM_HighPerformance;
+
+        m_character_Mouz = player.Character_Mouz;
+        m_character_Sweeper = player.Character_Sweeper;
+        m_character_Magus = player.Character_Magus;
     }
 }

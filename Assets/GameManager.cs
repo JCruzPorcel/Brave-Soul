@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -39,6 +40,17 @@ public class GameManager : SingletonPersistent<GameManager>
 
     private string previous_Language;
     public string Previous_Language { get => previous_Language; set => previous_Language = value; }
+
+    private bool character_Mouz;
+    public bool Character_Mouz { get => character_Mouz; set => character_Mouz = value; }
+
+    private bool character_Sweeper;
+    public bool Character_Sweeper { get => character_Sweeper; set => character_Sweeper = value; }
+
+    private bool character_Magus;
+    public bool Character_Magus { get => character_Magus; set => character_Magus = value; }
+
+    List<CharacterData> characterData = new List<CharacterData>();
     #endregion
 
 
@@ -54,7 +66,15 @@ public class GameManager : SingletonPersistent<GameManager>
             m_Fps = playerData.FPS;
             m_FullScreen = playerData.FullScreen;
             m_HighPerformance = playerData.HighPerformance;
+            character_Mouz = playerData.Character_Mouz;
+            character_Sweeper = playerData.Character_Sweeper;
+            character_Magus = playerData.Character_Magus;
+
+            Character_Owned_Check();
+
         }
+
+        Application.targetFrameRate = 200;
     }
 
 
@@ -75,6 +95,25 @@ public class GameManager : SingletonPersistent<GameManager>
         }
     }
 
+    public void Character_Owned_Check()
+    {
+        foreach (CharacterData charData in characterData)
+        {
+            if (charData.name == "Mouz")
+            {
+                charData.IsOwned = character_Mouz;
+            }
+            if (charData.name == "Sweeper")
+            {
+                charData.IsOwned = character_Sweeper;
+            }
+            if (charData.name == "Magus")
+            {
+                charData.IsOwned = character_Magus;
+                charData.StartWeapon.Prefab.GetComponent<Necronomicon>().WeaponLevel();
+            }
+        }
+    }
 
     //GameSates
 

@@ -172,7 +172,7 @@ MonoBehaviour:
   maxHP: 15
   speed: 2.15
   min_exp: 7
-  max_exp: 9
+  max_exp: 12
   isDead: 0
   is_a_Boss: 0
   reset: 0

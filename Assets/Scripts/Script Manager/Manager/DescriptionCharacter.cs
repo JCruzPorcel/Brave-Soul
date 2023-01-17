@@ -36,6 +36,9 @@ public class DescriptionCharacter : Singleton<DescriptionCharacter>
 
     void Update()
     {
+
+        GameManager.Instance.Character_Owned_Check();
+
         language = GameManager.Instance.Previous_Language;
 
         texts = languageManager.languageDict[language];

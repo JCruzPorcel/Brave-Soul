@@ -155,8 +155,8 @@ public class MenuManager : Singleton<MenuManager>
     {
         if (currentMenuState == MenuState.Transition) return;
 
-        else if (currentMenuState == MenuState.InGame)
-        {
+        else if (currentMenuState == MenuState.InGame && !LevelUpManager.Instance.maxLevel)
+        {            
             SetMenuState(MenuState.LevelUp);
         }
     }
