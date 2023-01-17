@@ -46,7 +46,7 @@ public class MenuManager : Singleton<MenuManager>
 
     private void Start()
     {
-        //SetMenuState(MenuState.PressToStart);
+        currentMenuState = MenuState.PressToStart;
         canvasGo.SetActive(true);
     }
 

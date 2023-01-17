@@ -123,6 +123,7 @@ public class PlayerController : Singleton<PlayerController>
             audioManager.Play("GameOver SFX");
             anim.SetBool("IsDead?", true);
             floatingSprite.SpawnSpriteGameOver();
+            currentHealth = 0;
         }
     }
 
