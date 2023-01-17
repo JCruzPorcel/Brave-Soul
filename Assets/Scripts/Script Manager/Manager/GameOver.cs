@@ -32,7 +32,7 @@ public class GameOver : MonoBehaviour
     readonly int totalScore_language = 37;
 
 
-    private void Update()
+    private void Start()
     {
         language = GameManager.Instance.Previous_Language;
 
@@ -58,4 +58,12 @@ public class GameOver : MonoBehaviour
         GameManager.Instance.PlayerGold += (int)mathGold;
         GameManager.Instance.Save();
     }
+
+    private void Update()
+    {
+        language = GameManager.Instance.Previous_Language;
+
+        texts = languageManager.languageDict[language];
+    }
 }
+
