@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-using static UnityEditor.PlayerSettings.Switch;
 
 public enum GameState
 {
@@ -138,20 +137,20 @@ public class GameManager : SingletonPersistent<GameManager>
 
     //Console Debug
 
-    public void GameMode(int x)
+    public void GameMode(string x)
     {
         switch (x)
         {
-            case 0:
+            case "normal":
                 godMode = false;
                 break;
 
-            case 1:
+            case "god":
                 godMode = true;
                 break;
 
             default:
-                Debug.Log("Error.");
+                Debug.Log("Game Mode Error");
                 break;
         }
     }

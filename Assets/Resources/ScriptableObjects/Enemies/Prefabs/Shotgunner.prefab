@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2349265041823259166}
   - component: {fileID: 4600084149894930555}
   m_Layer: 7
-  m_Name: Tank
+  m_Name: Shotgunner
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,7 +68,7 @@ Animator:
   m_GameObject: {fileID: 2569170694288880302}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 09d4da2335f13084f9a03b06f5cb4dec, type: 2}
+  m_Controller: {fileID: 9100000, guid: dd086a7a8fedd6f4982f20e832a06191, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

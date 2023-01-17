@@ -51,9 +51,10 @@ public class PlayerController : Singleton<PlayerController>
 
     private void FixedUpdate()
     {
+        GodMode = GameManager.Instance.GodMode;
+
         if (GameManager.Instance.currentGameState != GameState.inGame) return;
 
-        GodMode = GameManager.Instance.GodMode;
 
         if (!dead)
         {
@@ -66,9 +67,9 @@ public class PlayerController : Singleton<PlayerController>
         float xMove = Input.GetAxisRaw("Horizontal");
         float yMove = Input.GetAxisRaw("Vertical");
 
-        Vector3 direcction = new Vector3(xMove, yMove, 0f) * playerSpeed * Time.deltaTime;
+        Vector3 direction = new Vector3(xMove, yMove, 0f) * playerSpeed * Time.deltaTime;
 
-        transform.position += direcction;
+        transform.position += direction;
 
 
         if (xMove > .01f)
@@ -80,7 +81,7 @@ public class PlayerController : Singleton<PlayerController>
             _facingRight = false;
         }
 
-        if (direcction != Vector3.zero)
+        if (direction != Vector3.zero)
         {
             anim.SetFloat("Speed", 1);
         }

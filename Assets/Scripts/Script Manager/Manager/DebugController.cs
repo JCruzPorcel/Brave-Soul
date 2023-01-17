@@ -9,9 +9,9 @@ public class DebugController : MonoBehaviour
 
     string input;
 
-    public static DebugCommand DONATION;
-    public static DebugCommand<int> GOD_MODE;
+    public static DebugCommand<string> SET_MODE;
     public static DebugCommand<int> SET_GOLD;
+    public static DebugCommand<int> SET_SPEED;
     public static DebugCommand HELP;
 
     public List<object> commandList;
@@ -36,7 +36,7 @@ public class DebugController : MonoBehaviour
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
-        GOD_MODE = new DebugCommand<int>("godmode", "Sets the god mode true '1' or false '0'.", "godmode <game_mode>", (x) =>
+        SET_MODE = new DebugCommand<string>("set_mode", "Sets game mode to god mode or normal.", "set_mode <game_mode>", (x) =>
         {
             gameManager.GameMode(x);
         });
@@ -47,9 +47,12 @@ public class DebugController : MonoBehaviour
             SaveManager.SavePlayerData(gameManager);
         });
 
-        DONATION = new DebugCommand("donate", "Donate me.", "donate", () =>
+        SET_SPEED = new DebugCommand<int>("set_speed", "Sets the speed of the player.", "set_speed <speed_amount>", (x) =>
         {
-            Application.OpenURL("");
+            if (gameManager.currentGameState == GameState.inGame || gameManager.currentGameState == GameState.menu)
+            {
+                PlayerController.Instance.playerSpeed = x;
+            }
         });
 
         HELP = new DebugCommand("help", "Shows a list of commands.", "help", () =>
@@ -57,11 +60,13 @@ public class DebugController : MonoBehaviour
             showHelp = !showHelp;
         });
 
+
+
         commandList = new List<object>
         {
-            GOD_MODE,
+            SET_MODE,
             SET_GOLD,
-            DONATION,
+            SET_SPEED,
             HELP,
         };
     }
@@ -139,6 +144,9 @@ public class DebugController : MonoBehaviour
                 else if (commandList[i] as DebugCommand<int> != null)
                 {
                     (commandList[i] as DebugCommand<int>).Invoke(int.Parse(properties[1]));
+                }else if (commandList[i] as DebugCommand<string> != null)
+                {
+                    (commandList[i] as DebugCommand<string>).Invoke(properties[1]);
                 }
             }
         }
