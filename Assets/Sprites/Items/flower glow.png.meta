@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 22
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,211 +117,211 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: flower glow 16x16_0
+      name: flower glow_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 16
         height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7a030cb607519b4dac0867fe3498d5e
-      internalID: -2056337774
+      spriteID: bd8c824f74a5832489972ceeeff76a9f
+      internalID: -1572155106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flower glow 16x16_1
+      name: flower glow_1
       rect:
         serializedVersion: 2
         x: 16
         y: 0
         width: 16
         height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca6b991f382705e4fa2147a5450a50b1
-      internalID: 1057970232
+      spriteID: 77626cf2e499c8f42944385384c685d9
+      internalID: -1585426113
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flower glow 16x16_2
+      name: flower glow_2
       rect:
         serializedVersion: 2
         x: 32
         y: 0
         width: 16
         height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ef4b7c51db26f54ea126c951ae61a00
-      internalID: -906569485
+      spriteID: 3496b80438a5e264d9e9ca05d4f38a75
+      internalID: 1818067000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flower glow 16x16_3
+      name: flower glow_3
       rect:
         serializedVersion: 2
         x: 48
         y: 0
         width: 16
         height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4aae2e6f2739ad34cbf431c9bda0d1d9
-      internalID: -2125737999
+      spriteID: f196da11e9349504c9feb93f6aba6cd5
+      internalID: 1439958679
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flower glow 16x16_4
+      name: flower glow_4
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 16
         height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9112832cf45629c4aa0f5a2ab78aa709
-      internalID: -506285837
+      spriteID: 62c8ca05f49603d46904c2c242067032
+      internalID: 1419130715
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flower glow 16x16_5
+      name: flower glow_5
       rect:
         serializedVersion: 2
         x: 80
         y: 0
         width: 16
         height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b5382ea7fa2acba44a327b68a2e8b12d
-      internalID: 1419519342
+      spriteID: 09dcf17e82611434b935c4e21e0db5f9
+      internalID: 1266242246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flower glow 16x16_6
+      name: flower glow_6
       rect:
         serializedVersion: 2
         x: 96
         y: 0
         width: 16
         height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc81cd301efbbc14c9facd7955ffc53a
-      internalID: 2086998548
+      spriteID: 835716858240a974f8f8fb38066d86be
+      internalID: -1288455597
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flower glow 16x16_7
+      name: flower glow_7
       rect:
         serializedVersion: 2
         x: 112
         y: 0
         width: 16
         height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45a62ae2aff14d1449088047a99bb1a0
-      internalID: 410572560
+      spriteID: 6297f1a0fb289254f8da0c837bce729b
+      internalID: -14739875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flower glow 16x16_8
+      name: flower glow_8
       rect:
         serializedVersion: 2
         x: 128
         y: 0
         width: 16
         height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7771690f9d382ed49a95b54e10c587d3
-      internalID: 243844390
+      spriteID: b22d161445a6ce24ba46ecbb07b5d494
+      internalID: 1075211252
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: flower glow 16x16_9
+      name: flower glow_9
       rect:
         serializedVersion: 2
         x: 144
         y: 0
         width: 16
         height: 16
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fb58ae56e5761414bacebfbc675c3ffa
-      internalID: -337881268
+      spriteID: 1307f80a3ad84e842a06e5bf17902e7c
+      internalID: -1225377947
       vertices: []
       indices: 
       edges: []
@@ -337,16 +337,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      flower glow 16x16_8: 243844390
-      flower glow 16x16_4: -506285837
-      flower glow 16x16_5: 1419519342
-      flower glow 16x16_7: 410572560
-      flower glow 16x16_3: -2125737999
-      flower glow 16x16_6: 2086998548
-      flower glow 16x16_9: -337881268
-      flower glow 16x16_2: -906569485
-      flower glow 16x16_0: -2056337774
-      flower glow 16x16_1: 1057970232
+      flower glow_2: 1818067000
+      flower glow_9: -1225377947
+      flower glow_6: -1288455597
+      flower glow_7: -14739875
+      flower glow_5: 1266242246
+      flower glow_4: 1419130715
+      flower glow_8: 1075211252
+      flower glow_3: 1439958679
+      flower glow_0: -1572155106
+      flower glow_1: -1585426113
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
