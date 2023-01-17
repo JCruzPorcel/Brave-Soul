@@ -150,23 +150,11 @@ MonoBehaviour:
   level: 3
   attackSpeed: 1
   timer: 0
-  desc_lvl_0: "\xA1Golpea a tus enemigos con sus p\xE1ginas!<br><br>Eso es mejor
-    que tenerlo recolectando polvo en una estanter\xEDa...<br><br> \xBFNo lo crees?"
-  desc_lvl_1: "<color=orange>Aumenta</color> el da\xF1o un <color=green>5%</color><br><br><color=orange>Aumenta</color>
-    la velocidad de rotaci\xF3n un <color=green>20%</color>"
-  desc_lvl_2: "<color=orange>Aumenta</color> el da\xF1o un <color=green>10%</color><br><br><color=orange>Aumenta</color>
-    la velocidad de rotaci\xF3n un <color=green>40%</color>"
-  desc_lvl_3: "<color=orange>Aumenta</color> el da\xF1o un <color=green>20%</color><br><br><color=orange>Aumenta</color>
-    la velocidad de rotaci\xF3n un <color=green>60%</color>"
-  desc_lvl_4: "<color=red>Antitesis</color>: invoca otro libro.<br><br><color=orange>Aumenta</color>
-    la velocidad de rotaci\xF3n de los libros un <color=green>80%</color>"
-  desc_lvl_5: "<color=orange>Aumenta</color> el da\xF1o de los libros un <color=green>25%</color><br><br><color=orange>Aumenta</color>
-    la velocidad de rotaci\xF3n de los libros un <color=green>100%</color>"
   texts: []
   weaponData: {fileID: 11400000, guid: 50dd31858c4a47245a0fb8a09759f1e9, type: 2}
   player: {fileID: 6931607108889859527}
   speedRotation: 140
-  book2: {fileID: 3059551790232785706, guid: efb7797cbd8e4d84e9845b95c9aefc53, type: 3}
+  book2: {fileID: 3059551790232785706}
   go: {fileID: 0}
   normalSprite: {fileID: 1827703760, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}
   evSprite: {fileID: -328605450, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}

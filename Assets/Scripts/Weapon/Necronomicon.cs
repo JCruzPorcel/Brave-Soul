@@ -124,6 +124,11 @@ public class Necronomicon : Weapon
                 weaponData.WeaponImage = evSprite;
                 weaponData.ItemName = evolutionName;
                 break;
+
+            default:
+                weaponData.ItemName = normalName;
+                weaponData.WeaponImage = normalSprite;
+                break;
         }
     }
 }
