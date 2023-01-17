@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using static UnityEditor.PlayerSettings.Switch;
 
 public enum GameState
 {
@@ -54,6 +55,16 @@ public class GameManager : SingletonPersistent<GameManager>
             m_Fps = playerData.FPS;
             m_FullScreen = playerData.FullScreen;
             m_HighPerformance = playerData.HighPerformance;
+        }
+    }
+
+
+    public void DeleteData()
+    {
+        if (Input.GetKey(KeyCode.F))
+        {
+            previous_Language = null;
+            Save();
         }
     }
 

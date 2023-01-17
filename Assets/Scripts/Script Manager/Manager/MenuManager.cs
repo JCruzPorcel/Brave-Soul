@@ -42,13 +42,11 @@ public class MenuManager : Singleton<MenuManager>
     [SerializeField] float transitionDuration;
 
     [SerializeField] GameObject canvasGo;
-    bool showMenu;
-
+    bool showMenu;  
 
     private void Start()
     {
-        Debug.Log("PressToStart");
-        //SetMenuState(MenuState.PressToStart);
+        SetMenuState(MenuState.PressToStart);
         canvasGo.SetActive(true);
     }
 
