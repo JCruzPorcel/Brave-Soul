@@ -19,7 +19,7 @@ MonoBehaviour:
   damage: 5
   maxHp: 320
   attackSpeed: 0
-  hpRegen: 4.5
+  hpRegen: 5
   speed: 2.6
   charPrice: 15000
   charImage: {fileID: 1423956671, guid: 40644e9067e1ed04fbf920577ad85082, type: 3}

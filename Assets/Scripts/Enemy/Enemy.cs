@@ -93,14 +93,13 @@ public class Enemy : MonoBehaviour
     {
         if (currentHP <= 0)
         {
-            GiveExp();
             isDead = true;
 
-            if (!is_a_Boss)
-            {
-                reset = true;
-            }
-            else
+            GiveExp();
+
+            reset = true;
+
+            if (is_a_Boss)
             {
                 gameObject.SetActive(false);
             }
@@ -112,7 +111,7 @@ public class Enemy : MonoBehaviour
         GameObject go = Instantiate(floatingText);
         go.transform.position = new Vector2(transform.position.x + Random.Range(0f, .5f), transform.position.y + Random.Range(.5f, 1f));
 
-        if(damage < 35) 
+        if (damage < 35)
         {
             go.GetComponent<TMP_Text>().color = Color.white;
         }
