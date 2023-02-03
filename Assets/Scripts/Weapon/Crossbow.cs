@@ -55,7 +55,7 @@ public class Crossbow : Weapon
                     timer = 0;
                 }
 
-                RotationMode();
+                Rotation();
 
                 foreach (GameObject go in arrows)
                 {
@@ -88,7 +88,7 @@ public class Crossbow : Weapon
         arrowQueue.Dequeue();
     }
 
-    private void RotationMode()
+    private void Rotation()
     {
         if (MostNearbyEnemies() == null)
             return;

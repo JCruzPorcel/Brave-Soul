@@ -129,13 +129,13 @@ public class DebugController : MonoBehaviour
     private void HandleInput()
     {
 
-        string[] properties = input.Split(' ');
+        string[] properties = input.ToLower().Split(' ');
 
         for (int i = 0; i < commandList.Count; i++)
         {
             DebugCommandBase commandBase = commandList[i] as DebugCommandBase;
 
-            if (input.Contains(commandBase.commandId))
+            if (input.ToLower().Contains(commandBase.commandId))
             {
                 if (commandList[i] as DebugCommand != null)
                 {

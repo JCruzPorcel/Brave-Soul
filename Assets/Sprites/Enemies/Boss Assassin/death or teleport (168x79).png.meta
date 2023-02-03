@@ -113,6 +113,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -120,12 +132,12 @@ TextureImporter:
       name: death or teleport (168x79)_0
       rect:
         serializedVersion: 2
-        x: 39
+        x: 0
         y: 790
-        width: 29
-        height: 17
+        width: 105
+        height: 79
       alignment: 9
-      pivot: {x: 0.5625, y: 0}
+      pivot: {x: 0.5281617, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -141,12 +153,12 @@ TextureImporter:
       name: death or teleport (168x79)_1
       rect:
         serializedVersion: 2
-        x: 39
+        x: 0
         y: 711
-        width: 31
-        height: 17
+        width: 105
+        height: 79
       alignment: 9
-      pivot: {x: 0.53, y: 0}
+      pivot: {x: 0.5281617, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -162,12 +174,12 @@ TextureImporter:
       name: death or teleport (168x79)_2
       rect:
         serializedVersion: 2
-        x: 36
+        x: 0
         y: 632
-        width: 40
-        height: 17
+        width: 105
+        height: 79
       alignment: 9
-      pivot: {x: 0.4856, y: 0}
+      pivot: {x: 0.5281617, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -183,12 +195,12 @@ TextureImporter:
       name: death or teleport (168x79)_3
       rect:
         serializedVersion: 2
-        x: 29
+        x: 0
         y: 553
-        width: 51
-        height: 11
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 105
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5281617, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -204,12 +216,12 @@ TextureImporter:
       name: death or teleport (168x79)_4
       rect:
         serializedVersion: 2
-        x: 27
+        x: 0
         y: 474
-        width: 55
-        height: 10
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 105
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5281617, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -225,12 +237,12 @@ TextureImporter:
       name: death or teleport (168x79)_5
       rect:
         serializedVersion: 2
-        x: 21
+        x: 0
         y: 395
-        width: 65
-        height: 10
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 105
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5281617, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -246,12 +258,12 @@ TextureImporter:
       name: death or teleport (168x79)_6
       rect:
         serializedVersion: 2
-        x: 22
+        x: 0
         y: 316
-        width: 73
-        height: 5
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 105
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5281617, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -267,12 +279,12 @@ TextureImporter:
       name: death or teleport (168x79)_7
       rect:
         serializedVersion: 2
-        x: 18
+        x: 0
         y: 237
-        width: 83
-        height: 5
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 105
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5281617, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -288,12 +300,12 @@ TextureImporter:
       name: death or teleport (168x79)_8
       rect:
         serializedVersion: 2
-        x: 16
+        x: 0
         y: 158
-        width: 88
-        height: 1
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 105
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5281617, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -309,12 +321,12 @@ TextureImporter:
       name: death or teleport (168x79)_9
       rect:
         serializedVersion: 2
-        x: 15
+        x: 0
         y: 79
-        width: 89
-        height: 1
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 105
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5281617, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -330,12 +342,12 @@ TextureImporter:
       name: death or teleport (168x79)_10
       rect:
         serializedVersion: 2
-        x: 15
+        x: 0
         y: 0
-        width: 89
-        height: 1
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        width: 105
+        height: 79
+      alignment: 9
+      pivot: {x: 0.5281617, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -343,6 +355,27 @@ TextureImporter:
       bones: []
       spriteID: 053b1573c289c5449937d00c90de8814
       internalID: -1542809832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death or teleport (168x79)_11
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 0
+        width: 52
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7072c343942965848b8270ddf2f587ec
+      internalID: 99741585
       vertices: []
       indices: 
       edges: []
@@ -360,6 +393,7 @@ TextureImporter:
     nameFileIdTable:
       death or teleport (168x79)_8: 1386948117
       death or teleport (168x79)_2: -1082057009
+      death or teleport (168x79)_11: 99741585
       death or teleport (168x79)_6: 387382571
       death or teleport (168x79)_3: -1477351846
       death or teleport (168x79)_10: -1542809832

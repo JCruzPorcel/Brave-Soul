@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,6 +113,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -122,10 +134,10 @@ TextureImporter:
         serializedVersion: 2
         x: 51
         y: 414
-        width: 35
+        width: 37
         height: 29
       alignment: 9
-      pivot: {x: 0.77, y: 0}
+      pivot: {x: 0.7030114, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -143,10 +155,10 @@ TextureImporter:
         serializedVersion: 2
         x: 51
         y: 355
-        width: 35
+        width: 37
         height: 30
       alignment: 9
-      pivot: {x: 0.77, y: 0}
+      pivot: {x: 0.7030114, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -167,7 +179,7 @@ TextureImporter:
         width: 37
         height: 30
       alignment: 9
-      pivot: {x: 0.77, y: 0}
+      pivot: {x: 0.7030114, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -185,10 +197,10 @@ TextureImporter:
         serializedVersion: 2
         x: 51
         y: 237
-        width: 38
+        width: 37
         height: 29
       alignment: 9
-      pivot: {x: 0.77, y: 0}
+      pivot: {x: 0.7030114, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -209,7 +221,7 @@ TextureImporter:
         width: 37
         height: 29
       alignment: 9
-      pivot: {x: 0.77, y: 0}
+      pivot: {x: 0.7030114, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -230,7 +242,7 @@ TextureImporter:
         width: 37
         height: 29
       alignment: 9
-      pivot: {x: 0.77, y: 0}
+      pivot: {x: 0.7030114, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -251,7 +263,7 @@ TextureImporter:
         width: 36
         height: 28
       alignment: 9
-      pivot: {x: 0.77, y: 0}
+      pivot: {x: 0.7030114, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -272,14 +284,14 @@ TextureImporter:
         width: 35
         height: 29
       alignment: 9
-      pivot: {x: 0.77, y: 0}
+      pivot: {x: 0.7030114, y: 0.036}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f877a4e8fa5c0a74b8620945bde2918b
-      internalID: 987067344
+      spriteID: 52b6245f9677cbe40a7fca67b92c84ef
+      internalID: 1154776243
       vertices: []
       indices: 
       edges: []
@@ -301,7 +313,7 @@ TextureImporter:
       Boss Paladin_4: 632182211
       Boss Paladin_5: 1021157062
       Boss Paladin_6: -142193546
-      Boss Paladin_7: 987067344
+      Boss Paladin_7: 1154776243
       Boss Paladin_1: 534079459
   spritePackingTag: 
   pSDRemoveMatte: 0

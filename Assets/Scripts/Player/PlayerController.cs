@@ -52,10 +52,16 @@ public class PlayerController : Singleton<PlayerController>
 
     private void FixedUpdate()
     {
-        GodMode = GameManager.Instance.GodMode;
+       // GodMode = GameManager.Instance.GodMode;
 
-        if (GameManager.Instance.currentGameState != GameState.inGame) return;
+        if (GameManager.Instance.currentGameState != GameState.inGame)
+        {
+            anim.speed = 0;
 
+            return;
+        }
+
+        anim.speed = 1;
 
         if (!dead)
         {
@@ -101,7 +107,7 @@ public class PlayerController : Singleton<PlayerController>
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         if (isDead)
             return;

@@ -1,0 +1,768 @@
+fileFormatVersion: 2
+guid: ec8fa8378dfa0f24285ce047d812b2c9
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 25
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mouz_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 512
+        width: 18
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e116a87b88e967f4aabfd4a3b43df456
+      internalID: -266721497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouz_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 512
+        width: 18
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da4da34a6341c014597d865a641bc030
+      internalID: -802197400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouz_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 512
+        width: 18
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a39f044a4d9a68449914b13850f5a095
+      internalID: 1568543630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouz_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 512
+        width: 18
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea5696c46fddfbb428e0156c76d64130
+      internalID: 218525661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouz_Idle_4
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 512
+        width: 18
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 942e01b283ef47e49b15161606670c7a
+      internalID: 74593584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouz_Idle_5
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 512
+        width: 18
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ed0fdc1b0b804a44905944a40750187
+      internalID: -1421783818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouz_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 352
+        width: 18
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3797e4af043d40c41811127cf5c9523e
+      internalID: 1137169277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouz_Walk_6
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 352
+        width: 18
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 306bba28f30359d4aa40d2c79e7b6c3b
+      internalID: -528208125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouz_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 352
+        width: 18
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16ebeaf3b8548f64a95f735aa16820ba
+      internalID: 733911742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouz_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 353
+        width: 18
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55a82e8bf3d20494f8fc75b2d29144e6
+      internalID: -475352472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouz_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 352
+        width: 18
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83e7e8df66382ce4087e386552d354be
+      internalID: -1625334325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouz_Walk_4
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 352
+        width: 18
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7ac4f6b7e35a564588bdfa078a343d9
+      internalID: 1875293989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouz_Walk_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 352
+        width: 18
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46acc39321ff6be43ac2a1968fb38209
+      internalID: -84334223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouz_Walk_7
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 352
+        width: 18
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0b985d6733997b4c8f80a26bd34d116
+      internalID: 351315926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouz_Death_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 0
+        width: 18
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 260412edad7a629489c1f8120b397eaf
+      internalID: 830159976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouz_Death_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 18
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04779fd15daf9a8499b44c5ccf569967
+      internalID: -1660250348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouz_Death_2
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 0
+        width: 18
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74525de1757116c448910e85885d7f23
+      internalID: 764262896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouz_Death_3
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 0
+        width: 18
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94346787e2362134589a352063ebd2a0
+      internalID: 1532208804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mouz_Death_4
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 0
+        width: 18
+        height: 18
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbc2fba47a2a063478cb54caf0303513
+      internalID: -936461817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Mouz_148: -26698414
+      Mouz_144: -1679017192
+      Mouz_36: -429696669
+      Mouz_94: -535726668
+      Mouz_105: -543583453
+      Mouz_13: 824305115
+      Mouz_117: 1126666833
+      Mouz_23: -1377418055
+      Mouz_10: 2069326482
+      Mouz_198: 585504240
+      Mouz_24: -539767159
+      Mouz_2: -180878091
+      Mouz_21: -539533486
+      Mouz_153: -630291804
+      Mouz_75: 906407749
+      Mouz_197: 806959019
+      Mouz_Walk_7: 351315926
+      Mouz_56: -650836127
+      Mouz_111: 2077052154
+      Mouz_167: -246579288
+      Mouz_84: 426478616
+      Mouz_Idle_5: -1421783818
+      Mouz_98: -547297559
+      Mouz_138: -1858888257
+      Mouz_141: 1229444753
+      Mouz_191: -1760530612
+      Mouz_170: -157671609
+      Mouz_66: 1158489446
+      Mouz_Death_1: -1660250348
+      Mouz_180: -559412563
+      Mouz_55: 1826998298
+      Mouz_77: 1399933010
+      Mouz_207: 249672517
+      Mouz_187: -958848997
+      Mouz_173: -227454484
+      Mouz_92: 195369206
+      Mouz_161: -533351158
+      Mouz_14: 2011550237
+      Mouz_112: 1171644484
+      Mouz_136: -1998283665
+      Mouz_176: 825147377
+      Mouz_183: -125536566
+      Mouz_35: -650935765
+      Mouz_108: -1433890048
+      Mouz_149: 618631152
+      Mouz_20: -1649379604
+      Mouz_135: 2069315331
+      Mouz_193: 1802703540
+      Mouz_185: 634398973
+      Mouz_Walk_6: -528208125
+      Mouz_25: -490409555
+      Mouz_11: 1040963445
+      Mouz_30: -417632507
+      Mouz_47: 1746679909
+      Mouz_199: -1175770586
+      Mouz_120: -1917731051
+      Mouz_54: -1091246981
+      Mouz_28: -1409302774
+      Mouz_190: -1387540378
+      Mouz_156: -499495878
+      Mouz_166: 1252830518
+      Mouz_22: 1983983108
+      Mouz_73: 375801441
+      Mouz_189: 563307778
+      Mouz_151: -207681931
+      Mouz_162: 1652129983
+      Mouz_Walk_0: 733911742
+      Mouz_121: 981205449
+      Mouz_147: 1069138001
+      Mouz_128: -1510385140
+      Mouz_113: 1517502787
+      Mouz_63: -1002950590
+      Mouz_34: 171247274
+      Mouz_131: 1273215759
+      Mouz_186: -1623384171
+      Mouz_150: -1584497664
+      Mouz_174: -2061436355
+      Mouz_107: -2023622031
+      Mouz_26: 162122578
+      Mouz_101: 297514271
+      Mouz_194: 1121212780
+      Mouz_97: -1683420484
+      Mouz_103: 1971603492
+      Mouz_119: -1312566790
+      Mouz_15: -1360319115
+      Mouz_41: 803595938
+      Mouz_126: -1203586546
+      Mouz_72: -898899931
+      Mouz_80: 1215343191
+      Mouz_29: 946380056
+      Mouz_209: 1801722331
+      Mouz_165: -681188284
+      Mouz_61: 139092492
+      Mouz_106: -3636855
+      Mouz_110: 11855240
+      Mouz_154: 432339048
+      Mouz_182: -356419997
+      Mouz_33: -1426823967
+      Mouz_91: 1687021315
+      Mouz_158: -1517136504
+      Mouz_40: -923086672
+      Mouz_168: 1636376010
+      Mouz_82: -1878038077
+      Mouz_68: 426319940
+      Mouz_57: 1375641952
+      Mouz_139: 1128064901
+      Mouz_152: 553512190
+      Mouz_202: 2071243243
+      Mouz_83: 1902774312
+      Mouz_210: 1996350455
+      Mouz_133: 51504206
+      Mouz_16: 1427830895
+      Mouz_62: -349567968
+      Mouz_Death_3: 1532208804
+      Mouz_196: -1482024049
+      Mouz_181: -2128842224
+      Mouz_58: 814091315
+      Mouz_96: -1589059822
+      Mouz_102: 1198701834
+      Mouz_52: -1702328293
+      Mouz_65: -1243450221
+      Mouz_159: -145010364
+      Mouz_163: -399816121
+      Mouz_Idle_1: -802197400
+      Mouz_212: -353567555
+      Mouz_32: -687185322
+      Mouz_155: 891295487
+      Mouz_Idle_2: 1568543630
+      Mouz_125: 849077768
+      Mouz_127: -1246018152
+      Mouz_Walk_5: -84334223
+      Mouz_201: 1265435238
+      Mouz_146: -1492723158
+      Mouz_46: 326417213
+      Mouz_216: 604265075
+      Mouz_157: -338404826
+      Mouz_17: -1088793048
+      Mouz_130: 464119988
+      Mouz_142: -1687175527
+      Mouz_90: -832696595
+      Mouz_60: -1488752696
+      Mouz_206: 1466070001
+      Mouz_87: 748211296
+      Mouz_115: 800176142
+      Mouz_50: -1648016400
+      Mouz_Death_2: 764262896
+      Mouz_122: -918897031
+      Mouz_109: 127398638
+      Mouz_95: 237116137
+      Mouz_184: 546274512
+      Mouz_45: 861316323
+      Mouz_49: -899050555
+      Mouz_6: 678077662
+      Mouz_218: -1412904769
+      Mouz_99: -1133868413
+      Mouz_100: -226792372
+      Mouz_79: -759207530
+      Mouz_19: -833352887
+      Mouz_76: -1255349616
+      Mouz_137: 771667735
+      Mouz_171: -581546302
+      Mouz_27: 1579989221
+      Mouz_195: 815332709
+      Mouz_Death_0: 830159976
+      Mouz_Walk_4: 1875293989
+      Mouz_39: -890040207
+      Mouz_Death_4: -936461817
+      Mouz_203: -1754812233
+      Mouz_51: 1714025225
+      Mouz_69: 889585117
+      Mouz_18: 1670266191
+      Mouz_208: -1326005008
+      Mouz_37: 629441460
+      Mouz_145: -1196565680
+      Mouz_67: 1368676669
+      Mouz_204: -705581158
+      Mouz_177: -2040110424
+      Mouz_Idle_4: 74593584
+      Mouz_Walk_1: 1137169277
+      Mouz_211: -363430579
+      Mouz_178: -1661072021
+      Mouz_192: -1718348622
+      Mouz_200: -1754760504
+      Mouz_53: 792131903
+      Mouz_Idle_3: 218525661
+      Mouz_31: -719800703
+      Mouz_123: 1411945479
+      Mouz_8: -950183947
+      Mouz_42: 825401097
+      Mouz_129: -1718290288
+      Mouz_140: 163036988
+      Mouz_12: 556935863
+      Mouz_124: 240471935
+      Mouz_59: -1242470444
+      Mouz_169: 130808404
+      Mouz_175: -19579977
+      Mouz_118: 1633338368
+      Mouz_Idle_0: -266721497
+      Mouz_205: 1199621755
+      Mouz_160: -1452163812
+      Mouz_104: 2134238970
+      Mouz_Walk_2: -475352472
+      Mouz_172: 1753642426
+      Mouz_0: -1410793541
+      Mouz_74: -1307505877
+      Mouz_116: 390242094
+      Mouz_38: -456507575
+      Mouz_114: 1436151299
+      Mouz_43: -1536647425
+      Mouz_Walk_3: -1625334325
+      Mouz_143: 2054843906
+      Mouz_213: -613447674
+      Mouz_9: -107042028
+      Mouz_134: 1665556035
+      Mouz_48: -981656300
+      Mouz_164: 1832311228
+      Mouz_179: -579577191
+      Mouz_132: -1596143580
+      Mouz_188: -1849581663
+      Mouz_44: -1375931146
+      Mouz_71: -898485901
+      Mouz_64: -21350875
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

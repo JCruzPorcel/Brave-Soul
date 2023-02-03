@@ -5,9 +5,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(CapsuleCollider2D))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class Enemy : MonoBehaviour
 {
-    [Range(0, 10)] public int damage;
+    [Range(0, 10)] public float damage;
 
     [Min(0)] public int maxHP;
     [Min(0)] float currentHP;
@@ -26,7 +28,7 @@ public class Enemy : MonoBehaviour
 
     [HideInInspector] public Animator animator;
 
-    SpriteRenderer sr;
+    [HideInInspector] public SpriteRenderer sr;
 
     public Transform player;
 
@@ -39,24 +41,39 @@ public class Enemy : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         player = GameObject.FindWithTag("Player").transform;
 
+        animator = GetComponent<Animator>();
+
         timerScript = FindObjectOfType<TimerScript>();
         currentHP = maxHP;
+
+        Spawn();
     }
 
     private void Update()
     {
-        if (GameManager.Instance.currentGameState != GameState.inGame) return;
-
+        if (GameManager.Instance.currentGameState != GameState.inGame)
+        {
+            animator.speed = 0;
+            return;
+        }
+        animator.speed = 1;
         DespawnDistance();
     }
 
     private void FixedUpdate()
     {
-        if (GameManager.Instance.currentGameState != GameState.inGame) return;
+        if (GameManager.Instance.currentGameState != GameState.inGame)
+        {
+            animator.speed = 0;
+            return;
+        }
+
+        animator.speed = 1;
 
         if (!isDead)
         {
             Movement();
+            Attack();
         }
     }
 
@@ -70,7 +87,6 @@ public class Enemy : MonoBehaviour
         if (transform.position.y < player.position.y + .03f)
         {
             sr.sortingOrder = 1;
-
         }
         else if (transform.position.y > player.position.y - .03f)
         {
@@ -86,7 +102,7 @@ public class Enemy : MonoBehaviour
             sr.flipX = true;
         }
 
-        transform.position += direction * speed * Time.deltaTime;
+        transform.position += direction * speed * Time.fixedDeltaTime;
     }
 
     public virtual void CurrentHealth()
@@ -119,8 +135,6 @@ public class Enemy : MonoBehaviour
         {
             go.GetComponent<TMP_Text>().color = Color.yellow;
         }
-
-
 
         go.GetComponent<TMP_Text>().text = damage.ToString();
 
@@ -187,7 +201,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D col)
+    public virtual void OnTriggerStay2D(Collider2D col)
     {
         if (GameManager.Instance.currentGameState == GameState.inGame)
         {
@@ -200,7 +214,6 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-
 
     public virtual void Attack() { }
 

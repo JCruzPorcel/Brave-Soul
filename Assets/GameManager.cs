@@ -77,7 +77,7 @@ public class GameManager : SingletonPersistent<GameManager>
         Application.targetFrameRate = 200;
     }
 
-
+    /*
     public void DeleteData()
     {
         if (Input.GetKey(KeyCode.F))
@@ -85,7 +85,7 @@ public class GameManager : SingletonPersistent<GameManager>
             previous_Language = null;
             Save();
         }
-    }
+    }*/
 
     private void LateUpdate()
     {

@@ -27,6 +27,9 @@ public class ExperienceOrb : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (GameManager.Instance.currentGameState != GameState.inGame) return;
+
+
         float distance = Vector3.Distance(transform.position, player.position);
 
         if (distance <= followRange && !isFollowing)

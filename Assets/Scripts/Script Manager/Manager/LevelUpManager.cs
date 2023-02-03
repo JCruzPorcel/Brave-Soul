@@ -11,7 +11,7 @@ public class LevelUpManager : Singleton<LevelUpManager>
     public int level_Crossbow = -1;
     public int level_Arrow = -1;
 
-    private void Start()
+    private void Update()
     {
         if (GameManager.Instance.currentGameState == GameState.gameOver)
         {
@@ -35,6 +35,5 @@ public class LevelUpManager : Singleton<LevelUpManager>
             //Reset Weapons
             canvasLevelUp.SetActive(true);
         }
-
     }
 }
