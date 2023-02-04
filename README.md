@@ -1,2 +1,4 @@
-# 2D_Rogue-Like_VSP
- Juego estilo Rogue-Like para mi portafolio.
+# Brave Souls
+
+2D Rogue-Like
+Juego estilo "Vampire Survivors", proyecto personal y para portafolio.
