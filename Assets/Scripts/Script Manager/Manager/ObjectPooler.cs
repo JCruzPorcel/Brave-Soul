@@ -109,18 +109,18 @@ public class ObjectPooler : MonoBehaviour
             case 3:
                 if (seconds == 0)
                 {
-                    maxAssassins = 20;
-                    maxMages = 1;
-                    maxTanks = 1;
+                    maxAssassins = 18;
+                    maxMages = 3;
+                    maxTanks = 0;
                     maxBoss = 1;
                 }
                 break;
             case 5:
                 if (seconds == 0)
                 {
-                    maxAssassins = 30;
-                    maxMages = 10;
-                    maxTanks = 12;
+                    maxAssassins = 25;
+                    maxMages = 7;
+                    maxTanks = 1;
                     maxBoss = 1;
                 }
                 break;
@@ -129,7 +129,7 @@ public class ObjectPooler : MonoBehaviour
                 {
                     maxAssassins = 35;
                     maxMages = 12;
-                    maxTanks = 10;
+                    maxTanks = 3;
                     maxBoss = 0;
                 }
                 break;
@@ -137,8 +137,8 @@ public class ObjectPooler : MonoBehaviour
                 if (seconds == 0)
                 {
                     maxAssassins = 40;
-                    maxMages = 15;
-                    maxTanks = 20;
+                    maxMages = 20;
+                    maxTanks = 5;
                     maxBoss = 2;
                 }
                 break;
@@ -147,7 +147,7 @@ public class ObjectPooler : MonoBehaviour
                 {
                     maxAssassins = 60;
                     maxMages = 45;
-                    maxTanks = 35;
+                    maxTanks = 7;
                     maxBoss = 3;
                 }
                 break;

@@ -191,7 +191,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.52}
+  m_Offset: {x: -0.001466848, y: 0.52}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.39, y: 0}
@@ -202,7 +202,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.21, y: 0.73}
+  m_Size: {x: 0.2774741, y: 0.73}
   m_EdgeRadius: 0
 --- !u!114 &-2434043255398317778
 MonoBehaviour:
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   maxHP: 20
-  speed: 2.15
+  speed: 3
   min_exp: 7
   max_exp: 12
   isDead: 0
@@ -231,5 +231,5 @@ MonoBehaviour:
   normalSpeed: 0
   bulletPrefab: {fileID: 300545317996103081, guid: b8a82705e16a02a4e823d7fa21c32dd0, type: 3}
   gun: {fileID: 2835037178592419587}
-  range: 5.5
+  range: 7
   attackTime: 2.5

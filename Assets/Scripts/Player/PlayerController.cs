@@ -13,14 +13,14 @@ public class PlayerController : Singleton<PlayerController>
 
     [SerializeField] public bool godMode;
     bool isDead = false;
-    bool _facingRight;
+    //bool _facingRight;
 
     //Reference's
     Animator anim;
     SpriteRenderer sr;
     [SerializeField] SliderBar sliderBar;
 
-    public bool FacingRight { get { return _facingRight; } }
+    //public bool FacingRight { get { return _facingRight; } }
     public bool IsDead { get => isDead; set => isDead = value; }
     public bool GodMode { get => godMode; set => godMode = value; }
     bool dead = false;
@@ -52,7 +52,7 @@ public class PlayerController : Singleton<PlayerController>
 
     private void FixedUpdate()
     {
-       // GodMode = GameManager.Instance.GodMode;
+        GodMode = GameManager.Instance.GodMode;
 
         if (GameManager.Instance.currentGameState != GameState.inGame)
         {
@@ -81,11 +81,13 @@ public class PlayerController : Singleton<PlayerController>
 
         if (xMove > .01f)
         {
-            _facingRight = true;
+            //_facingRight = true;
+            sr.flipX = false;
         }
         else if (xMove < -.01f)
         {
-            _facingRight = false;
+            //_facingRight = false;
+            sr.flipX = true;
         }
 
         if (direction != Vector3.zero)
@@ -96,7 +98,7 @@ public class PlayerController : Singleton<PlayerController>
         {
             anim.SetFloat("Speed", 0);
         }
-
+/*
         if (_facingRight)
         {
             sr.flipX = false;
@@ -104,7 +106,7 @@ public class PlayerController : Singleton<PlayerController>
         else
         {
             sr.flipX = true;
-        }
+        }*/
     }
 
     public void TakeDamage(float damage)

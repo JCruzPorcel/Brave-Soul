@@ -7,29 +7,30 @@ public class SliderBar : MonoBehaviour
     [SerializeField] Slider attackSpeedSlider;
     [SerializeField] Vector3 offset;
     Transform player;
-    PlayerController playerController;
+    //PlayerController playerController;
 
 
     private void Start()
     {
         player = GameObject.Find("Player").transform;
-        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        //playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         SetMaxtHealth(PlayerController.Instance.maxHealth);
     }
 
     private void FixedUpdate()
     {
-        if (playerController.FacingRight)
-        {
-            hpSlider.transform.position = player.position + new Vector3(offset.x, offset.y, 0f);
-            attackSpeedSlider.transform.position = player.position + new Vector3(offset.x, offset.y - .088f, 0f);
+        //if (playerController.FacingRight)
+        //{
 
-        }
-        else
-        {
-            hpSlider.transform.position = player.position + new Vector3(-offset.x, offset.y, 0f);
-            attackSpeedSlider.transform.position = player.position + new Vector3(-offset.x, offset.y - .088f, 0f);
-        }
+        hpSlider.transform.position = player.position + new Vector3(offset.x, offset.y, 0f);
+        attackSpeedSlider.transform.position = player.position + new Vector3(offset.x, offset.y - .088f, 0f);
+
+        //}
+        // else
+        //{
+        //hpSlider.transform.position = player.position + new Vector3(-offset.x, offset.y, 0f);
+        //attackSpeedSlider.transform.position = player.position + new Vector3(-offset.x, offset.y - .088f, 0f);
+        // }
     }
 
     public void SetMaxtHealth(int maxHealth)

@@ -145,7 +145,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0085840225, y: 0.41999996}
+  m_Offset: {x: -0.0021501929, y: 0.38139707}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.558, y: 0}
@@ -156,7 +156,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.35417938, y: 0.5887749}
+  m_Size: {x: 0.26925305, y: 0.6659807}
   m_EdgeRadius: 0
 --- !u!70 &8727309335834807684
 CapsuleCollider2D:
@@ -187,7 +187,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.045120478, y: 0.41657972}
+  m_Offset: {x: 0.0024897456, y: 0.3882709}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.558, y: 0}
@@ -198,7 +198,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.49523306, y: 0.8441849}
+  m_Size: {x: 0.31765985, y: 0.74124384}
   m_EdgeRadius: 0
 --- !u!58 &6323469528431569467
 CircleCollider2D:
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   maxHP: 35
-  speed: 1.75
+  speed: 1
   min_exp: 15
   max_exp: 20
   isDead: 0
@@ -245,6 +245,7 @@ MonoBehaviour:
   offsetValue2: 0.38
   range: 2.7
   meleeRange: 1.5
+  distanceToKeep: 2
   attackTime: 1.5
   meleeDamage: 0.8
   shotgunDamage: 8

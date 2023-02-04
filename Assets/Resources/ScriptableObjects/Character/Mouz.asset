@@ -22,7 +22,7 @@ MonoBehaviour:
   hpRegen: 3.5
   speed: 3
   charPrice: 0
-  charImage: {fileID: -1711449072, guid: ec8fa8378dfa0f24285ce047d812b2c9, type: 3}
+  charImage: {fileID: -266721497, guid: ec8fa8378dfa0f24285ce047d812b2c9, type: 3}
   startWeapon: {fileID: 11400000, guid: 6fd343edff5600d44b5b59fa43b74aba, type: 2}
   charPrefab: {fileID: 2269756199427907095, guid: 16d933db5897df4429492578895794a1, type: 3}
   isOwned: 1
