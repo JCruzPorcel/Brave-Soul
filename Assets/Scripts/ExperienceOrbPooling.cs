@@ -64,7 +64,7 @@ public class ExperienceOrbPooling : Singleton<ExperienceOrbPooling>
     }
 
     public void OnEnemyDeath(Enemy enemy)
-    {
+    {        
         minOrbExp = enemy.min_exp;
         maxOrbExp = enemy.max_exp;
         SpawnExperienceOrb(enemy.transform.position);

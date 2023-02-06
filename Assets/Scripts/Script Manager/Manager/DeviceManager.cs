@@ -1,7 +1,4 @@
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
 
@@ -24,9 +21,24 @@ public class DeviceManager : SingletonPersistent<DeviceManager>
 
     public bool ShowButton { get => showButton; set => showButton = value; }
 
+    public GameObject keyboardButtonsMove;
+    public GameObject gamepadButtonsMove;
+
     private void LateUpdate()
     {
         CurrentDevice();
+
+        if (GameManager.Instance.currentGameState == GameState.inGame)
+        {
+            if (keyboardButtonsMove == null || gamepadButtonsMove == null)
+            {
+                keyboardButtonsMove = GameObject.Find("WASD Buttons (PC)").gameObject;
+                gamepadButtonsMove = GameObject.Find("PadButtons (Joystick)").gameObject;
+            }
+
+            keyboardButtonsMove.SetActive(!showButton);
+            gamepadButtonsMove.SetActive(showButton);
+        }
     }
 
     public void CurrentDevice()
@@ -43,7 +55,10 @@ public class DeviceManager : SingletonPersistent<DeviceManager>
         }
         else if (playerInput.currentControlScheme == "Keyboard&Mouse")
         {
+            if (!showButton) return;
+
             SetDevice(DeviceType.keyboard);
+
             showButton = false;
         }
     }
@@ -58,14 +73,12 @@ public class DeviceManager : SingletonPersistent<DeviceManager>
             Cursor.lockState = CursorLockMode.None;
 
             inputSystemModule.deselectOnBackgroundClick = true;
-
         }
         if (newDevice == DeviceType.gamepad)
         {
             Cursor.lockState = CursorLockMode.Locked;
 
             inputSystemModule.deselectOnBackgroundClick = false;
-
         }
 
         this.currentDevice = newDevice;

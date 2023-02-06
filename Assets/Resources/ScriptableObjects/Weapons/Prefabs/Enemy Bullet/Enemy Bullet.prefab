@@ -163,6 +163,7 @@ MonoBehaviour:
   player: {fileID: 0}
   secondBulletSprite: {fileID: 8181669975217594604}
   animator: {fileID: 0}
+  sourceManger: {fileID: 0}
 --- !u!1 &8181669975217594604
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class WeaponManager : MonoBehaviour
@@ -101,11 +102,40 @@ public class WeaponManager : MonoBehaviour
     #endregion
 
 
+    private InputAction leftButton;
+
+    private InputAction midButton;
+
+    private InputAction rightButton;
+
 
     private void Awake()
     {
         currentWeaponList.Add(GameManager.Instance.CharSelected.StartWeapon);
         currentWeapons = 1;
+
+        leftButton = new InputAction(name: "Left Button", binding: "<Keyboard>/1");
+        midButton = new InputAction(name: "Mid Button", binding: "<Keyboard>/2");
+        rightButton = new InputAction(name: "Right Button", binding: "<Keyboard>/3");
+
+        leftButton.performed += DetectLeftButton;
+        midButton.performed += DetectMidButton;
+        rightButton.performed += DetectRightButton;
+    }
+
+    private void DetectLeftButton(InputAction.CallbackContext context)
+    {
+        LeftWeaponSpawn();
+    }
+
+    private void DetectMidButton(InputAction.CallbackContext context)
+    {
+        MidWeaponSpawn();
+    }
+
+    private void DetectRightButton(InputAction.CallbackContext context)
+    {
+        RightWeaponSpawn();
     }
 
     void LeftWeapon()
@@ -598,6 +628,10 @@ public class WeaponManager : MonoBehaviour
 
     private void OnEnable()
     {
+        leftButton.Enable();
+        midButton.Enable();
+        rightButton.Enable();
+
         texts = LanguageManager.Instance.texts;
 
         newItem = texts[newItemNum];
@@ -610,6 +644,10 @@ public class WeaponManager : MonoBehaviour
 
     private void OnDisable()
     {
+        leftButton.Disable();
+        midButton.Disable();
+        rightButton.Disable();
+
         leftData = null;
         midData = null;
         rightData = null;

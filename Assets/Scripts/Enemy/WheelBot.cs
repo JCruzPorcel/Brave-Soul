@@ -84,6 +84,8 @@ public class WheelBot : Enemy
 
         animator.SetBool("Shoot", false);
 
+        sourceManager.Play("Plasma Gun SFX");
+
         timer = attackTime;
     }
 }

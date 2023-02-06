@@ -7,8 +7,8 @@ public class PlayerController : Singleton<PlayerController>
     [Min(0)] public float currentHealth;
     public float heal;
     [Min(0)] public int currentLvl = 0;
-    public int currentExp = 0;
     public int nextLvl = 10;
+    public int currentExp = 0;
     public int pointsLvl;
 
     [SerializeField] public bool godMode;
@@ -29,6 +29,7 @@ public class PlayerController : Singleton<PlayerController>
     [SerializeField] MusicFader musicFader;
 
     AudioManager audioManager;
+    private bool isMoving = false;
 
     private void Start()
     {
@@ -45,18 +46,25 @@ public class PlayerController : Singleton<PlayerController>
 
     private void Update()
     {
-        if (GameManager.Instance.currentGameState != GameState.inGame) return;
+        if (GameManager.Instance.currentGameState != GameState.inGame) { audioManager.Pause("FootStep SFX"); return; };
+
+        PlayerNextlevel();
+
+        audioManager.UnPause("FootStep SFX");
 
         TakeHealth(heal);
     }
 
     private void FixedUpdate()
     {
-        GodMode = GameManager.Instance.GodMode;
+        //GodMode = GameManager.Instance.GodMode;
 
         if (GameManager.Instance.currentGameState != GameState.inGame)
         {
-            anim.speed = 0;
+            if (GameManager.Instance.currentGameState != GameState.gameOver)
+            {
+                anim.speed = 0;
+            }
 
             return;
         }
@@ -90,23 +98,34 @@ public class PlayerController : Singleton<PlayerController>
             sr.flipX = true;
         }
 
-        if (direction != Vector3.zero)
+        anim.SetFloat("Speed", direction.magnitude);
+
+
+        if (direction.magnitude != 0f)
         {
-            anim.SetFloat("Speed", 1);
+            if (!isMoving)
+            {
+                audioManager.Play("FootStep SFX");
+                isMoving = true;
+            }
         }
         else
         {
-            anim.SetFloat("Speed", 0);
+            audioManager.Stop("FootStep SFX");
+            isMoving = false;
         }
-/*
-        if (_facingRight)
-        {
-            sr.flipX = false;
-        }
-        else
-        {
-            sr.flipX = true;
-        }*/
+
+
+
+        /*
+                if (_facingRight)
+                {
+                    sr.flipX = false;
+                }
+                else
+                {
+                    sr.flipX = true;
+                }*/
     }
 
     public void TakeDamage(float damage)
@@ -151,14 +170,11 @@ public class PlayerController : Singleton<PlayerController>
 
     public void TakeExp(int exp)
     {
-        if (currentLvl < 5)
-        {
-            exp *= Random.Range(1, 2);
-        }
+        currentExp += exp;   
+    }
 
-        currentExp += exp;
-
-
+    void PlayerNextlevel()
+    {
         if (currentExp >= nextLvl)
         {
 

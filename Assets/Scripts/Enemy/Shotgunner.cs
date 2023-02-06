@@ -29,13 +29,14 @@ public class Shotgunner : Enemy
     float meleeTimer = 0f;
 
     private Vector3 previousPosition = Vector3.zero;
+    
 
     public override void Spawn()
     {
         normalDamage = damage;
         normalSpeed = speed;
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
-        circleCollider2D = GetComponent<CircleCollider2D>();
+        circleCollider2D = GetComponent<CircleCollider2D>();        
     }
 
     public override void Attack()
@@ -87,6 +88,8 @@ public class Shotgunner : Enemy
         animator.SetBool("Shoot", true);
         shotAttack = true;
 
+        sourceManager.Play("Shotgun SFX");
+
         timer = attackTime;
     }
 
@@ -96,15 +99,13 @@ public class Shotgunner : Enemy
         animator.SetBool("Melee Attack", true);
         meleeAttack = true;
 
+        sourceManager.Play("Melee Attack SFX");
+
         meleeTimer = meleeAttackTimer;
     }
 
     public override void Movement()
     {
-        float step = speed * Time.fixedDeltaTime;
-        float currentDistance = player.position.x - transform.position.x;
-
-
         if (transform.position.y < player.position.y + .03f)
         {
             sr.sortingOrder = 1;
@@ -123,6 +124,7 @@ public class Shotgunner : Enemy
             sr.flipX = true;
         }
 
+
         // Si se está atacando, detener el movimiento
         if (meleeAttack || shotAttack)
         {
@@ -133,6 +135,10 @@ public class Shotgunner : Enemy
         {
             speed = normalSpeed;
         }
+
+
+        float step = speed * Time.fixedDeltaTime;
+        float currentDistance = player.position.x - transform.position.x;
 
         // Animar la velocidad
         float dir = (transform.position - previousPosition).magnitude / Time.fixedDeltaTime;

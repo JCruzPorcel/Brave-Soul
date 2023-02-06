@@ -187,7 +187,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0024897456, y: 0.3882709}
+  m_Offset: {x: 0.0024897382, y: 0.37089795}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.558, y: 0}
@@ -198,7 +198,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.31765985, y: 0.74124384}
+  m_Size: {x: 0.24320428, y: 0.7064979}
   m_EdgeRadius: 0
 --- !u!58 &6323469528431569467
 CircleCollider2D:
@@ -207,7 +207,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2569170694288880302}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -231,8 +231,8 @@ MonoBehaviour:
   damage: 5
   maxHP: 35
   speed: 1
-  min_exp: 15
-  max_exp: 20
+  min_exp: 30
+  max_exp: 45
   isDead: 0
   is_a_Boss: 0
   reset: 0
@@ -240,6 +240,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   player: {fileID: 0}
   floatingText: {fileID: 5374698372719183501, guid: d3e4969c704107548a31128d5cfa3ea4, type: 3}
+  sourceManager: {fileID: 0}
   normalSpeed: 0
   offsetValue: 1.35
   offsetValue2: 0.38

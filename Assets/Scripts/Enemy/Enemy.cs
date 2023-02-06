@@ -36,6 +36,8 @@ public class Enemy : MonoBehaviour
 
     public GameObject floatingText;
 
+    [HideInInspector] public AudioManager sourceManager;
+
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -45,6 +47,8 @@ public class Enemy : MonoBehaviour
 
         timerScript = FindObjectOfType<TimerScript>();
         currentHP = maxHP;
+
+        sourceManager = FindObjectOfType<AudioManager>();
 
         Spawn();
     }
@@ -56,6 +60,19 @@ public class Enemy : MonoBehaviour
             animator.speed = 0;
             return;
         }
+
+        if (PlayerController.Instance.currentLvl >= 7 && PlayerController.Instance.currentLvl <= 16)
+        {
+            min_exp *= 2;
+            max_exp *= 2;
+        }
+        else if (PlayerController.Instance.currentLvl >= 17)
+        {
+            min_exp *= 3;
+            max_exp *= 3;
+        }
+
+
         animator.speed = 1;
         DespawnDistance();
     }

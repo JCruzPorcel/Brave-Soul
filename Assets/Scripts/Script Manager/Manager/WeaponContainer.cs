@@ -43,7 +43,9 @@ public class WeaponContainer : Singleton<WeaponContainer>
         else
         {
             Instantiate(mainWeapon.Prefab, player);
-        }        
+        }      
+        
+        timer = attackSpeedAxe;
     }
 
 
@@ -96,7 +98,6 @@ public class WeaponContainer : Singleton<WeaponContainer>
                             axeList.Add(go);
                         }
                     }
-
 
                     attackSpeedAxe = axeList[0].GetComponent<Axe>().attackSpeed;
                     axe_Amount = axeList[0].GetComponent<Axe>().amount;

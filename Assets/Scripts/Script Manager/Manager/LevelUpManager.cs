@@ -4,7 +4,7 @@ public class LevelUpManager : Singleton<LevelUpManager>
 {
     [SerializeField] GameObject canvasLevelUp;
 
-    public bool maxLevel;
+    public bool maxLevel = false;
 
     public int level_Necronomicon = -1;
     public int level_Axe = -1;

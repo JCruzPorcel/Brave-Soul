@@ -9,11 +9,13 @@ public class EnemyBullet : MonoBehaviour
 
     public GameObject secondBulletSprite;
     [HideInInspector] public Animator animator;
+    public AudioManager sourceManger;
 
 
     private void Start()
     {
         animator = GetComponent<Animator>();
+        sourceManger = FindObjectOfType<AudioManager>();
     }
 
     private void FixedUpdate()
@@ -53,6 +55,7 @@ public class EnemyBullet : MonoBehaviour
         {
             animator.SetBool("Hit", true);
             other.GetComponentInParent<PlayerController>().TakeDamage(damage);
+            sourceManger.Play("Bullet Impact SFX");
         }
     }
 }

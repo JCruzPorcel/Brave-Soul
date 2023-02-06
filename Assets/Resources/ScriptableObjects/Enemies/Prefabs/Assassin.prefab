@@ -169,8 +169,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0046438277, y: 0.41786698}
-  m_Size: {x: 0.3363338, y: 0.5841343}
+  m_Offset: {x: 0.0016111135, y: 0.41786695}
+  m_Size: {x: 0.32382393, y: 0.71423745}
   m_Direction: 0
 --- !u!114 &2569170694288880301
 MonoBehaviour:
@@ -187,8 +187,8 @@ MonoBehaviour:
   damage: 1
   maxHP: 20
   speed: 2.3
-  min_exp: 1
-  max_exp: 5
+  min_exp: 3
+  max_exp: 7
   isDead: 0
   is_a_Boss: 0
   reset: 0
@@ -196,3 +196,4 @@ MonoBehaviour:
   sr: {fileID: 0}
   player: {fileID: 0}
   floatingText: {fileID: 5374698372719183501, guid: d3e4969c704107548a31128d5cfa3ea4, type: 3}
+  sourceManager: {fileID: 0}

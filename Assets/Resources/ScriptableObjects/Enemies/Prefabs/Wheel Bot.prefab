@@ -110,7 +110,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -384154561, guid: 4f160efa36a0ad24a85575826309d73a, type: 3}
+  m_Sprite: {fileID: 1222607816, guid: 1ccaa947a902f604b933e788f49f41c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -228,6 +228,7 @@ MonoBehaviour:
   sr: {fileID: 0}
   player: {fileID: 0}
   floatingText: {fileID: 5374698372719183501, guid: d3e4969c704107548a31128d5cfa3ea4, type: 3}
+  sourceManager: {fileID: 0}
   normalSpeed: 0
   bulletPrefab: {fileID: 300545317996103081, guid: b8a82705e16a02a4e823d7fa21c32dd0, type: 3}
   gun: {fileID: 2835037178592419587}
