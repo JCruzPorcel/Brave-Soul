@@ -22,7 +22,7 @@ public class LevelUpManager : Singleton<LevelUpManager>
     public void WindowLevelState()
     {
         FindObjectOfType<AudioManager>().Play("Add Weapon SFX");
-
+        
         if (PlayerController.Instance.pointsLvl <= 0)
         {
             canvasLevelUp.SetActive(false);
@@ -31,8 +31,6 @@ public class LevelUpManager : Singleton<LevelUpManager>
         }
         else
         {
-            canvasLevelUp.SetActive(false);
-            //Reset Weapons
             canvasLevelUp.SetActive(true);
         }
     }

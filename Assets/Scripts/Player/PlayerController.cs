@@ -177,7 +177,6 @@ public class PlayerController : Singleton<PlayerController>
     {
         if (currentExp >= nextLvl)
         {
-
             if (!LevelUpManager.Instance.maxLevel)
             {
                 audioManager.Play("LevelUp SFX");
@@ -185,6 +184,7 @@ public class PlayerController : Singleton<PlayerController>
                 pointsLvl++;
                 MenuManager.Instance.LevelUp();
             }
+
             currentExp -= nextLvl;
             currentLvl++;
 

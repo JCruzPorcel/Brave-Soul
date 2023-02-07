@@ -2,7 +2,10 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
+using static UnityEngine.EventSystems.StandaloneInputModule;
+
 
 public class WeaponManager : MonoBehaviour
 {
@@ -25,6 +28,7 @@ public class WeaponManager : MonoBehaviour
     public TMP_Text left_text_anim;
     public TMP_Text mid_text_anim;
     public TMP_Text right_text_anim;
+
 
     #region Left Panel
     [Space(10)]
@@ -101,12 +105,9 @@ public class WeaponManager : MonoBehaviour
 
     #endregion
 
+    PlayerInput playerInput;
 
-    private InputAction leftButton;
-
-    private InputAction midButton;
-
-    private InputAction rightButton;
+    InputSystemUIInputModule inputModule;
 
 
     private void Awake()
@@ -114,33 +115,42 @@ public class WeaponManager : MonoBehaviour
         currentWeaponList.Add(GameManager.Instance.CharSelected.StartWeapon);
         currentWeapons = 1;
 
-        leftButton = new InputAction(name: "Left Button", binding: "<Keyboard>/1");
-        midButton = new InputAction(name: "Mid Button", binding: "<Keyboard>/2");
-        rightButton = new InputAction(name: "Right Button", binding: "<Keyboard>/3");
 
-        leftButton.performed += DetectLeftButton;
-        midButton.performed += DetectMidButton;
-        rightButton.performed += DetectRightButton;
+        playerInput = GetComponent<PlayerInput>();
+
+        inputModule = MenuManager.Instance.GetComponent<InputSystemUIInputModule>();
+
+        playerInput.uiInputModule= inputModule;
     }
 
-    private void DetectLeftButton(InputAction.CallbackContext context)
+    private void Start()
+    {
+        LeftWeapon();
+        MidWeapon();
+        RightWeapon();
+    }
+
+
+    public void OnSelectWeaponLeft(InputValue value)
     {
         LeftWeaponSpawn();
     }
 
-    private void DetectMidButton(InputAction.CallbackContext context)
+    public void OnSelectWeaponMid(InputValue value)
     {
         MidWeaponSpawn();
     }
 
-    private void DetectRightButton(InputAction.CallbackContext context)
+    public void OnSelectWeaponRight(InputValue value)
     {
         RightWeaponSpawn();
     }
 
+
+
     void LeftWeapon()
     {
-        if (currentWeapons > 3)
+        if (MaxWeapons())
         {
             if (currentWeaponList.Count == 0)
             {
@@ -159,63 +169,13 @@ public class WeaponManager : MonoBehaviour
             }
         }
 
-        if (!MaxWeapons())
-        {
-            random_Left = Random.Range(0, weaponsList.Count);
-            leftData = weaponsList[random_Left];
-        }
-        else
-        {
-            random_Left = Random.Range(0, currentWeaponList.Count);
-            leftData = currentWeaponList[random_Left];
-        }
-
-
-        while (leftData == rightData || leftData == midData)
-        {
-            if (!MaxWeapons())
-            {
-                random_Left = Random.Range(0, weaponsList.Count);
-                leftData = weaponsList[random_Left];
-            }
-            else
-            {
-                random_Left = Random.Range(0, currentWeaponList.Count);
-                leftData = currentWeaponList[random_Left];
-            }
-        }
-
-        GetWeaponDescription(leftData);
-
-        left_Weapon_Name.text = leftData.ItemName.ToString();
-        left_Weapon_Description.text = leftData.Description.ToString();
-        left_Weapon_Image.sprite = leftData.WeaponImage;
-
-
-        if (leftData.CanUpgrade)
-        {
-            left_Weapon_Upgrade_Image.sprite = leftData.UpgradeImage;
-            left_Upgrade_Text.text = upgrade.ToString();
-            left_Box_Upgrade.SetActive(true);
-        }
-        else
-        {
-            left_Box_Upgrade.SetActive(false);
-        }
-
-        if (currentWeaponList.Contains(leftData))
-        {
-            left_text_anim.text = upgradeItem;
-        }
-        else
-        {
-            left_text_anim.text = newItem;
-        }
+        leftData = GetNewData(leftData, midData, rightData, random_Left);
+        SetNewData(leftData, left_Weapon_Name, left_Weapon_Description, left_Weapon_Image, left_Box_Upgrade, left_Weapon_Upgrade_Image, left_Upgrade_Text, left_text_anim);
     }
 
     void MidWeapon()
     {
-        if (currentWeapons > 3)
+        if (MaxWeapons())
         {
             if (currentWeaponList.Count < 3)
             {
@@ -232,62 +192,13 @@ public class WeaponManager : MonoBehaviour
             }
         }
 
-        if (!MaxWeapons())
-        {
-            random_Mid = Random.Range(0, weaponsList.Count);
-            midData = weaponsList[random_Mid];
-        }
-        else
-        {
-            random_Mid = Random.Range(0, currentWeaponList.Count);
-            midData = currentWeaponList[random_Mid];
-        }
-
-        while (midData == leftData || midData == rightData)
-        {
-            if (!MaxWeapons())
-            {
-                random_Mid = Random.Range(0, weaponsList.Count);
-                midData = weaponsList[random_Mid];
-            }
-            else
-            {
-                random_Mid = Random.Range(0, currentWeaponList.Count);
-                midData = currentWeaponList[random_Mid];
-            }
-        }
-
-        GetWeaponDescription(midData);
-
-        mid_Weapon_Name.text = midData.ItemName.ToString();
-        mid_Weapon_Description.text = midData.Description.ToString();
-        mid_Weapon_Image.sprite = midData.WeaponImage;
-
-
-        if (midData.CanUpgrade)
-        {
-            mid_Weapon_Upgrade_Image.sprite = midData.UpgradeImage;
-            mid_Upgrade_Text.text = upgrade.ToString();
-            mid_Box_Upgrade.SetActive(true);
-        }
-        else
-        {
-            mid_Box_Upgrade.SetActive(false);
-        }
-
-        if (currentWeaponList.Contains(midData))
-        {
-            mid_text_anim.text = upgradeItem;
-        }
-        else
-        {
-            mid_text_anim.text = newItem;
-        }
+        midData = GetNewData(midData, leftData, rightData, random_Mid);
+        SetNewData(midData, mid_Weapon_Name, mid_Weapon_Description, mid_Weapon_Image, mid_Box_Upgrade, mid_Weapon_Upgrade_Image, mid_Upgrade_Text, mid_text_anim);
     }
 
     void RightWeapon()
     {
-        if (currentWeapons > 3)
+        if (MaxWeapons())
         {
             if (currentWeaponList.Count < 2)
             {
@@ -303,59 +214,8 @@ public class WeaponManager : MonoBehaviour
                 return;
             }
         }
-
-        if (!MaxWeapons())
-        {
-            random_Right = Random.Range(0, weaponsList.Count);
-            rightData = weaponsList[random_Right];
-        }
-        else
-        {
-            random_Right = Random.Range(0, currentWeaponList.Count);
-            rightData = currentWeaponList[random_Right];
-        }
-
-
-        while (rightData == midData || rightData == leftData)
-        {
-            if (!MaxWeapons())
-            {
-                random_Right = Random.Range(0, weaponsList.Count);
-                rightData = weaponsList[random_Right];
-            }
-            else
-            {
-                random_Right = Random.Range(0, currentWeaponList.Count);
-                rightData = currentWeaponList[random_Right];
-            }
-        }
-
-        GetWeaponDescription(rightData);
-
-        right_Weapon_Name.text = rightData.ItemName.ToString();
-        right_Weapon_Description.text = rightData.Description.ToString();
-        right_Weapon_Image.sprite = rightData.WeaponImage;
-
-
-        if (rightData.CanUpgrade)
-        {
-            right_Weapon_Upgrade_Image.sprite = rightData.UpgradeImage;
-            right_Upgrade_Text.text = upgrade.ToString();
-            right_Box_Upgrade.SetActive(true);
-        }
-        else
-        {
-            right_Box_Upgrade.SetActive(false);
-        }
-
-        if (currentWeaponList.Contains(rightData))
-        {
-            right_text_anim.text = upgradeItem;
-        }
-        else
-        {
-            right_text_anim.text = newItem;
-        }
+        rightData = GetNewData(rightData, midData, leftData, random_Right);
+        SetNewData(rightData, right_Weapon_Name, right_Weapon_Description, right_Weapon_Image, right_Box_Upgrade, right_Weapon_Upgrade_Image, right_Upgrade_Text, right_text_anim);
     }
 
 
@@ -382,275 +242,179 @@ public class WeaponManager : MonoBehaviour
 
     public void LeftWeaponSpawn()
     {
-        if (currentWeaponList.Contains(leftData))
-        {
-            if (leftData.VarName == "Axe")
-            {
-                LevelUpManager.Instance.level_Axe++;
-
-                if (LevelUpManager.Instance.level_Axe >= 5)
-                {
-                    weaponsList.Remove(leftData);
-                    currentWeaponList.Remove(leftData);
-                }
-            }
-            else if (leftData.VarName == "Crossbow")
-            {
-                LevelUpManager.Instance.level_Crossbow++;
-
-                if (LevelUpManager.Instance.level_Crossbow >= 5)
-                {
-                    weaponsList.Remove(leftData);
-                    currentWeaponList.Remove(leftData);
-                }
-            }
-            else if (leftData.VarName == "Necronomicon")
-            {
-                LevelUpManager.Instance.level_Necronomicon++;
-
-                if (LevelUpManager.Instance.level_Necronomicon >= 5)
-                {
-                    weaponsList.Remove(leftData);
-                    currentWeaponList.Remove(leftData);
-                }
-            }
-            else if (leftData.VarName == "Arrow")
-            {
-                LevelUpManager.Instance.level_Arrow++;
-
-                if (LevelUpManager.Instance.level_Arrow >= 5)
-                {
-                    weaponsList.Remove(leftData);
-                    currentWeaponList.Remove(leftData);
-                }
-            }
-        }
-        else
-        {
-            currentWeaponList.Add(leftData);
-
-            if (leftData.VarName == "Axe")
-            {
-                WeaponContainer.Instance.have_Axe = true;
-                LevelUpManager.Instance.level_Axe++;
-                currentWeapons++;
-            }
-            else if (leftData.VarName == "Crossbow")
-            {
-                Instantiate(leftData.Prefab);
-
-                LevelUpManager.Instance.level_Crossbow++;
-                currentWeapons++;
-            }
-            else if (leftData.VarName == "Necronomicon")
-            {
-                Instantiate(leftData.Prefab);
-
-                LevelUpManager.Instance.level_Necronomicon++;
-                currentWeapons++;
-            }
-            else if (leftData.VarName == "Arrow")
-            {
-                LevelUpManager.Instance.level_Arrow++;
-            }
-        }
-
-        PlayerController.Instance.pointsLvl--;
-        LevelUpManager.Instance.WindowLevelState();
+        PlayerGetWeapon(leftData);
     }
 
     public void MidWeaponSpawn()
     {
-        if (currentWeaponList.Contains(midData))
-        {
-            floatingSprite.SpawnSpriteForge();
-            FindObjectOfType<AudioManager>().Play("ForgeWeapon SFX");
-
-            if (midData.VarName == "Axe")
-            {
-                LevelUpManager.Instance.level_Axe++;
-
-                if (LevelUpManager.Instance.level_Axe >= 5)
-                {
-                    weaponsList.Remove(midData);
-                    currentWeaponList.Remove(midData);
-                }
-            }
-            else if (midData.VarName == "Crossbow")
-            {
-                LevelUpManager.Instance.level_Crossbow++;
-
-                if (LevelUpManager.Instance.level_Crossbow >= 5)
-                {
-                    weaponsList.Remove(midData);
-                    currentWeaponList.Remove(midData);
-                }
-            }
-            else if (midData.VarName == "Necronomicon")
-            {
-                LevelUpManager.Instance.level_Necronomicon++;
-
-                if (LevelUpManager.Instance.level_Necronomicon >= 5)
-                {
-                    weaponsList.Remove(midData);
-                    currentWeaponList.Remove(midData);
-                }
-            }
-            else if (midData.VarName == "Arrow")
-            {
-                LevelUpManager.Instance.level_Arrow++;
-
-                if (LevelUpManager.Instance.level_Arrow >= 5)
-                {
-                    weaponsList.Remove(midData);
-                    currentWeaponList.Remove(midData);
-                }
-            }
-        }
-        else
-        {
-            currentWeaponList.Add(midData);
-
-            if (midData.VarName == "Axe")
-            {
-                WeaponContainer.Instance.have_Axe = true;
-                LevelUpManager.Instance.level_Axe++;
-
-                currentWeapons++;
-            }
-            else if (midData.VarName == "Crossbow")
-            {
-                Instantiate(midData.Prefab); Instantiate(leftData.Prefab);
-                LevelUpManager.Instance.level_Crossbow++;
-
-                currentWeapons++;
-            }
-            else if (midData.VarName == "Necronomicon")
-            {
-                Instantiate(midData.Prefab);
-                LevelUpManager.Instance.level_Necronomicon++;
-
-                currentWeapons++;
-            }
-            else if (midData.VarName == "Arrow")
-            {
-                LevelUpManager.Instance.level_Arrow++;
-            }
-        }
-
-        PlayerController.Instance.pointsLvl--;
-        LevelUpManager.Instance.WindowLevelState();
+        PlayerGetWeapon(midData);
     }
 
     public void RightWeaponSpawn()
     {
-        if (currentWeaponList.Contains(rightData))
-        {
-            floatingSprite.SpawnSpriteForge();
-            FindObjectOfType<AudioManager>().Play("ForgeWeapon SFX");
+        PlayerGetWeapon(rightData);
+    }
 
-            if (rightData.VarName == "Axe")
+
+    WeaponData GetNewData(WeaponData data, WeaponData compareData1, WeaponData compareData2, int randomIntName)
+    {
+        if (!MaxWeapons())
+        {
+            randomIntName = Random.Range(0, weaponsList.Count);
+            data = weaponsList[randomIntName];
+        }
+        else
+        {
+            randomIntName = Random.Range(0, currentWeaponList.Count);
+            data = currentWeaponList[randomIntName];
+        }
+
+
+        while (data == compareData1 || data == compareData2)
+        {
+            if (!MaxWeapons())
+            {
+                randomIntName = Random.Range(0, weaponsList.Count);
+                data = weaponsList[randomIntName];
+            }
+            else
+            {
+                randomIntName = Random.Range(0, currentWeaponList.Count);
+                data = currentWeaponList[randomIntName];
+            }
+        }
+
+        return data;
+    }
+
+    void SetNewData(WeaponData data, TMP_Text name, TMP_Text description, Image sprite, GameObject upgradeBox, Image upgradeImage, TMP_Text upgradeText, TMP_Text textAnim)
+    {
+        GetWeaponDescription(data);
+
+        name.text = data.ItemName.ToString();
+        description.text = data.Description.ToString();
+        sprite.sprite = data.WeaponImage;
+
+
+        if (data.CanUpgrade)
+        {
+            upgradeImage.sprite = data.UpgradeImage;
+            upgradeText.text = upgrade.ToString();
+            upgradeBox.SetActive(true);
+        }
+        else
+        {
+            upgradeBox.SetActive(false);
+        }
+
+        if (currentWeaponList.Contains(data))
+        {
+            textAnim.text = upgradeItem;
+        }
+        else
+        {
+            textAnim.text = newItem;
+        }
+    }
+
+    void PlayerGetWeapon(WeaponData data)
+    {
+        if (currentWeaponList.Contains(data))
+        {
+            if (data.VarName == "Axe")
             {
                 LevelUpManager.Instance.level_Axe++;
 
                 if (LevelUpManager.Instance.level_Axe >= 5)
                 {
-                    weaponsList.Remove(rightData);
-                    currentWeaponList.Remove(rightData);
+                    weaponsList.Remove(data);
+                    currentWeaponList.Remove(data);
                 }
             }
-            else if (rightData.VarName == "Crossbow")
+            else if (data.VarName == "Crossbow")
             {
                 LevelUpManager.Instance.level_Crossbow++;
 
                 if (LevelUpManager.Instance.level_Crossbow >= 5)
                 {
-                    weaponsList.Remove(rightData);
-                    currentWeaponList.Remove(rightData);
+                    weaponsList.Remove(data);
+                    currentWeaponList.Remove(data);
                 }
             }
-            else if (rightData.VarName == "Necronomicon")
+            else if (data.VarName == "Necronomicon")
             {
                 LevelUpManager.Instance.level_Necronomicon++;
 
                 if (LevelUpManager.Instance.level_Necronomicon >= 5)
                 {
-                    weaponsList.Remove(rightData);
-                    currentWeaponList.Remove(rightData);
+                    weaponsList.Remove(data);
+                    currentWeaponList.Remove(data);
                 }
             }
-            else if (rightData.VarName == "Arrow")
+            else if (data.VarName == "Arrow")
             {
                 LevelUpManager.Instance.level_Arrow++;
 
                 if (LevelUpManager.Instance.level_Arrow >= 5)
                 {
-                    weaponsList.Remove(rightData);
-                    currentWeaponList.Remove(rightData);
+                    weaponsList.Remove(data);
+                    currentWeaponList.Remove(data);
                 }
             }
         }
         else
         {
-            currentWeaponList.Add(rightData);
+            currentWeaponList.Add(data);
 
-            if (rightData.VarName == "Axe")
+            if (data.VarName == "Axe")
             {
                 WeaponContainer.Instance.have_Axe = true;
-
                 LevelUpManager.Instance.level_Axe++;
                 currentWeapons++;
             }
-            else if (rightData.VarName == "Crossbow")
+            else if (data.VarName == "Crossbow")
             {
-                Instantiate(rightData.Prefab);
+                Instantiate(data.Prefab);
 
                 LevelUpManager.Instance.level_Crossbow++;
                 currentWeapons++;
             }
-            else if (rightData.VarName == "Necronomicon")
+            else if (data.VarName == "Necronomicon")
             {
-                Instantiate(rightData.Prefab);
-                LevelUpManager.Instance.level_Necronomicon++;
+                Instantiate(data.Prefab);
 
+                LevelUpManager.Instance.level_Necronomicon++;
                 currentWeapons++;
             }
-            else if (rightData.VarName == "Arrow")
+            else if (data.VarName == "Arrow")
             {
                 LevelUpManager.Instance.level_Arrow++;
             }
         }
 
+        ResetData();
+
         PlayerController.Instance.pointsLvl--;
         LevelUpManager.Instance.WindowLevelState();
     }
 
-
-    private void OnEnable()
+    void ResetData()
     {
-        leftButton.Enable();
-        midButton.Enable();
-        rightButton.Enable();
-
-        texts = LanguageManager.Instance.texts;
-
-        newItem = texts[newItemNum];
-        upgradeItem = texts[upgradeNum];
+        leftData = null;
+        midData = null;
+        rightData = null;
 
         MidWeapon();
         RightWeapon();
         LeftWeapon();
     }
 
-    private void OnDisable()
+    private void OnEnable()
     {
-        leftButton.Disable();
-        midButton.Disable();
-        rightButton.Disable();
+        texts = LanguageManager.Instance.texts;
 
-        leftData = null;
-        midData = null;
-        rightData = null;
+        newItem = texts[newItemNum];
+        upgradeItem = texts[upgradeNum];
     }
 
     private bool MaxWeapons()

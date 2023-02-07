@@ -478,6 +478,10 @@ PrefabInstance:
       propertyPath: currentMenuState
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 4502506604523276315, guid: ae7d3290559f6054c86c426081d90897, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae7d3290559f6054c86c426081d90897, type: 3}
 --- !u!1 &65625406
@@ -3726,6 +3730,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 500440953}
   m_CullTransparentMesh: 1
+--- !u!114 &501815767 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4502506603441032442, guid: ae7d3290559f6054c86c426081d90897, type: 3}
+  m_PrefabInstance: {fileID: 54283766}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -12387,6 +12402,7 @@ GameObject:
   - component: {fileID: 1800971235}
   - component: {fileID: 1800971234}
   - component: {fileID: 1800971238}
+  - component: {fileID: 1800971239}
   m_Layer: 5
   m_Name: LevelUp
   m_TagString: Untagged
@@ -12526,6 +12542,36 @@ MonoBehaviour:
   right_Upgrade_Text: {fileID: 16876688}
   rightData: {fileID: 0}
   rightCanvas: {fileID: 1816514211}
+--- !u!114 &1800971239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800971233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 70a0fc1f57f02b4418f54fbbf858a700, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 501815767}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1816514211
 GameObject:
   m_ObjectHideFlags: 0

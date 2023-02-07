@@ -61,18 +61,6 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        if (PlayerController.Instance.currentLvl >= 7 && PlayerController.Instance.currentLvl <= 16)
-        {
-            min_exp *= 2;
-            max_exp *= 2;
-        }
-        else if (PlayerController.Instance.currentLvl >= 17)
-        {
-            min_exp *= 3;
-            max_exp *= 3;
-        }
-
-
         animator.speed = 1;
         DespawnDistance();
     }
