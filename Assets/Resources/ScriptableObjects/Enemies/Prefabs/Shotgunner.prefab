@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7402311394700671165}
   - component: {fileID: 6323469528431569467}
   - component: {fileID: 2349265041823259166}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Shotgunner
   m_TagString: Enemy
   m_Icon: {fileID: 0}

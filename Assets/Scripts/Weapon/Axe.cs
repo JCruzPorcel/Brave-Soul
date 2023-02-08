@@ -77,7 +77,7 @@ public class Axe : Weapon
 
     void DespawnRange()
     {
-        if (Mathf.Abs(transform.position.x - player.position.x) > 12 || Mathf.Abs(transform.position.y - player.position.y) > 10)
+        if (Mathf.Abs(transform.position.x - player.position.x) > 15 || Mathf.Abs(transform.position.y - player.position.y) > 12)
         {
             gameObject.SetActive(false);
         }

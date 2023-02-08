@@ -21,8 +21,11 @@ public class DeviceManager : SingletonPersistent<DeviceManager>
 
     public bool ShowButton { get => showButton; set => showButton = value; }
 
-    public GameObject keyboardButtonsMove;
-    public GameObject gamepadButtonsMove;
+    GameObject keyboardButtonsMove;
+    GameObject gamepadButtonsMove;
+
+    public string keyboardButtons;
+    public string gamepadButtons;
 
     private void LateUpdate()
     {
@@ -32,12 +35,20 @@ public class DeviceManager : SingletonPersistent<DeviceManager>
         {
             if (keyboardButtonsMove == null || gamepadButtonsMove == null)
             {
-                keyboardButtonsMove = GameObject.Find("WASD Buttons (PC)").gameObject;
-                gamepadButtonsMove = GameObject.Find("PadButtons (Joystick)").gameObject;
+                keyboardButtonsMove = GameObject.Find(keyboardButtons).gameObject;
+                gamepadButtonsMove = GameObject.Find(gamepadButtons).gameObject;
             }
-
-            keyboardButtonsMove.SetActive(!showButton);
-            gamepadButtonsMove.SetActive(showButton);
+            else
+            {
+                if (currentDevice == DeviceType.gamepad)
+                {
+                    keyboardButtonsMove.SetActive(false);
+                }
+                else if (currentDevice == DeviceType.keyboard)
+                {
+                    gamepadButtonsMove.SetActive(false);
+                }
+            }            
         }
     }
 

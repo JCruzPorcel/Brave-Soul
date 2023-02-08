@@ -38,6 +38,7 @@ public class Enemy : MonoBehaviour
 
     [HideInInspector] public AudioManager sourceManager;
 
+
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -124,6 +125,7 @@ public class Enemy : MonoBehaviour
             {
                 gameObject.SetActive(false);
             }
+            Death();
         }
     }
 
@@ -158,22 +160,22 @@ public class Enemy : MonoBehaviour
 
     private void DespawnDistance()
     {
-        Vector2 delta = transform.position - player.transform.position;
+        Vector2 delta = transform.position - player.position;
 
-        if (Mathf.Abs(delta.x) > 12 || Mathf.Abs(delta.y) > 7)
+        if (Mathf.Abs(delta.x) > 15 || Mathf.Abs(delta.y) > 12)
         {
             int randomX = Random.Range(0, 2);
 
 
             if (randomX == 0)
             {
-                yDir = Random.Range(0, 2) == 0 ? -6 : 6;
-                xDir = Random.Range(-11, 11);
+                yDir = Random.Range(0, 2) == 0 ? -12 : 12;
+                xDir = Random.Range(-15, 15);
             }
             else
             {
-                xDir = Random.Range(0, 2) == 0 ? -11 : 11;
-                yDir = Random.Range(-6, 6);
+                xDir = Random.Range(0, 2) == 0 ? -15 : 15;
+                yDir = Random.Range(-12, 12);
             }
 
             transform.position = new Vector2(player.position.x + xDir, player.position.y + yDir);
@@ -187,13 +189,13 @@ public class Enemy : MonoBehaviour
 
             if (randomX == 0)
             {
-                yDir = Random.Range(0, 2) == 0 ? -6 : 6;
-                xDir = Random.Range(-11, 11);
+                yDir = Random.Range(0, 2) == 0 ? -12 : 12;
+                xDir = Random.Range(-15, 15);
             }
             else
             {
-                xDir = Random.Range(0, 2) == 0 ? -11 : 11;
-                yDir = Random.Range(-6, 6);
+                xDir = Random.Range(0, 2) == 0 ? -15 : 15;
+                yDir = Random.Range(-12, 12);
             }
 
             transform.position = new Vector2(player.position.x + xDir, player.position.y + yDir);
@@ -226,4 +228,6 @@ public class Enemy : MonoBehaviour
 
 
     public virtual void GiveExp() { ExperienceOrbPooling.Instance.OnEnemyDeath(this); timerScript.enemiesKilled++; }
+
+    public virtual void Death() { }
 }

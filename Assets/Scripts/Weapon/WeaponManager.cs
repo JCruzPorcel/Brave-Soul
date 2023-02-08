@@ -105,22 +105,12 @@ public class WeaponManager : MonoBehaviour
 
     #endregion
 
-    PlayerInput playerInput;
-
-    InputSystemUIInputModule inputModule;
 
 
     private void Awake()
     {
         currentWeaponList.Add(GameManager.Instance.CharSelected.StartWeapon);
         currentWeapons = 1;
-
-
-        playerInput = GetComponent<PlayerInput>();
-
-        inputModule = MenuManager.Instance.GetComponent<InputSystemUIInputModule>();
-
-        playerInput.uiInputModule= inputModule;
     }
 
     private void Start()
@@ -138,11 +128,15 @@ public class WeaponManager : MonoBehaviour
 
     public void OnSelectWeaponMid(InputValue value)
     {
+        if (midData == null) return;
+
         MidWeaponSpawn();
     }
 
     public void OnSelectWeaponRight(InputValue value)
     {
+        if (rightData == null) return;
+
         RightWeaponSpawn();
     }
 

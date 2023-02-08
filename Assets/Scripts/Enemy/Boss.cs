@@ -6,4 +6,9 @@ public class Boss : Enemy
     {
         is_a_Boss = true;
     }
+
+    public override void Death()
+    {
+        
+    }
 }

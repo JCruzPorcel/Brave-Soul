@@ -94,6 +94,8 @@ MonoBehaviour:
   currentDevice: 0
   playerInput: {fileID: 4502506603441032440}
   inputSystemModule: {fileID: 4502506603441032442}
+  keyboardButtons: KeyboardButtons (PC)
+  gamepadButtons: PadButtons (Gamepad)
 --- !u!114 &4502506603441032440
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 45
-  speed: 7
+  speed: 8
   player: {fileID: 0}
   secondBulletSprite: {fileID: 8181669975217594604}
   animator: {fileID: 0}

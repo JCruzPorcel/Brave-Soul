@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2835037178592419587}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: -4303227959094160990}
   - component: {fileID: 1332879268652223849}
   - component: {fileID: -2434043255398317778}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Wheel Bot
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 1222607816, guid: 1ccaa947a902f604b933e788f49f41c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.24, y: 1.04}
@@ -176,7 +176,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.47616363}
-  m_Size: {x: 0.2850848, y: 0.86819124}
+  m_Size: {x: 0.41, y: 0.86819124}
   m_Direction: 0
 --- !u!61 &1332879268652223849
 BoxCollider2D:

@@ -746,7 +746,7 @@ TextureImporter:
         width: 23
         height: 24
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -754,6 +754,90 @@ TextureImporter:
       bones: []
       spriteID: a2b73b530798e6c4ba592d2ba147ce7e
       internalID: 1611743511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Arrow_Chest
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 518
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f75f4890ff92474b8231c291d37c365
+      internalID: -48136545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Item_Bag
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 518
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f284c854d5d08e54c884d2327c1661a7
+      internalID: -34017819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skill_Bag
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 582
+        width: 18
+        height: 26
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5158d627ec4e4654793973eb817351cf
+      internalID: 495746540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Old_Chest
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 326
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39b75d10942b80c4dac94cd43abf7b9a
+      internalID: -771585876
       vertices: []
       indices: 
       edges: []
@@ -771,6 +855,7 @@ TextureImporter:
     nameFileIdTable:
       Green_Arrow_Up: -2058246435
       Necronomicon: 1827703760
+      Item_Bag: -34017819
       Arrow_Skull: 1553882455
       Speed: 1579485391
       Language: 999687293
@@ -795,12 +880,15 @@ TextureImporter:
       Axe: -674089504
       Chest: -587121809
       Forge_Weapon: 110079816
+      Skill_Bag: 495746540
       More_Gold: -1349385190
       Ress: 1203416975
       FireSkul: 442478159
       Boomerang: 1611743511
       Armor: -1968779048
       X_Skull: -989883789
+      Old_Chest: -771585876
+      Arrow_Chest: -48136545
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -46,9 +46,9 @@ public class PlayerController : Singleton<PlayerController>
 
     private void Update()
     {
+        PlayerNextlevel();
         if (GameManager.Instance.currentGameState != GameState.inGame) { audioManager.Pause("FootStep SFX"); return; };
 
-        PlayerNextlevel();
 
         audioManager.UnPause("FootStep SFX");
 
