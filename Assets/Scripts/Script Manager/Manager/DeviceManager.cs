@@ -21,56 +21,54 @@ public class DeviceManager : SingletonPersistent<DeviceManager>
 
     public bool ShowButton { get => showButton; set => showButton = value; }
 
-    GameObject keyboardButtonsMove;
-    GameObject gamepadButtonsMove;
 
-    public string keyboardButtons;
-    public string gamepadButtons;
-
-    private void LateUpdate()
+    private void Update()
     {
         CurrentDevice();
-
-        if (GameManager.Instance.currentGameState == GameState.inGame)
-        {
-            if (keyboardButtonsMove == null || gamepadButtonsMove == null)
-            {
-                keyboardButtonsMove = GameObject.Find(keyboardButtons).gameObject;
-                gamepadButtonsMove = GameObject.Find(gamepadButtons).gameObject;
-            }
-            else
-            {
-                if (currentDevice == DeviceType.gamepad)
-                {
-                    keyboardButtonsMove.SetActive(false);
-                }
-                else if (currentDevice == DeviceType.keyboard)
-                {
-                    gamepadButtonsMove.SetActive(false);
-                }
-            }            
-        }
     }
 
-    public void CurrentDevice()
+    public void OnSelectWeaponLeft(InputValue value)
+    {
+        if (MenuManager.Instance.currentMenuState != MenuState.LevelUp) return;
+
+        WeaponManager.Instance.SelectWeaponLeft();
+    }
+
+    public void OnSelectWeaponMid(InputValue value)
+    {
+        if (MenuManager.Instance.currentMenuState != MenuState.LevelUp) return;
+
+        WeaponManager.Instance.SelectWeaponMid();
+    }
+
+    public void OnSelectWeaponRight(InputValue value)
+    {
+        if (MenuManager.Instance.currentMenuState != MenuState.LevelUp) return;
+
+        WeaponManager.Instance.SelectWeaponRight();
+    }
+
+
+    private void CurrentDevice()
     {
         if (playerInput.currentControlScheme == "Gamepad")
         {
             if (showButton) return;
 
+
+            showButton = true;
+
             MenuManager.Instance.ShowNavButton();
 
             SetDevice(DeviceType.gamepad);
-
-            showButton = true;
         }
         else if (playerInput.currentControlScheme == "Keyboard&Mouse")
         {
             if (!showButton) return;
 
-            SetDevice(DeviceType.keyboard);
-
             showButton = false;
+
+            SetDevice(DeviceType.keyboard);
         }
     }
 

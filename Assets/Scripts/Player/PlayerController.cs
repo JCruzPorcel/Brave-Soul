@@ -47,10 +47,17 @@ public class PlayerController : Singleton<PlayerController>
     private void Update()
     {
         PlayerNextlevel();
-        if (GameManager.Instance.currentGameState != GameState.inGame) { audioManager.Pause("FootStep SFX"); return; };
 
+        if (GameManager.Instance.currentGameState != GameState.inGame)
+        {
+            if (audioManager != null) { audioManager.Pause("FootStep SFX"); }
+            return;
+        }
 
-        audioManager.UnPause("FootStep SFX");
+        if (audioManager != null)
+        {
+            audioManager.UnPause("FootStep SFX");
+        }
 
         TakeHealth(heal);
     }
@@ -115,7 +122,11 @@ public class PlayerController : Singleton<PlayerController>
             isMoving = false;
         }
 
-
+        if (direction.magnitude != 0f)
+        {
+            TimerScript.Instance.canStart = true;
+            PopMessageController.Instance.animator.SetBool("Start", false);
+        }
 
         /*
                 if (_facingRight)
@@ -170,7 +181,7 @@ public class PlayerController : Singleton<PlayerController>
 
     public void TakeExp(int exp)
     {
-        currentExp += exp;   
+        currentExp += exp;
     }
 
     void PlayerNextlevel()

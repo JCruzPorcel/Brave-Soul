@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5374698372719183502}
   - component: {fileID: 5374698372719183503}
   - component: {fileID: 5374698372719183500}
+  - component: {fileID: 5287714990402164601}
   m_Layer: 0
   m_Name: floatingText
   m_TagString: Untagged
@@ -193,3 +194,14 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!210 &5287714990402164601
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5374698372719183501}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 10

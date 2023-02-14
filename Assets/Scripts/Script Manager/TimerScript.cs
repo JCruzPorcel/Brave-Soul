@@ -10,6 +10,11 @@ public class TimerScript : Singleton<TimerScript>
     public int seconds;
     [SerializeField] int maxTime;
     [SerializeField] float speed;
+    public bool canStart = false;
+
+    public int enemiesKilled = 0;
+
+    [SerializeField] TMP_Text enemiesKilled_Text;
 
 
     private void Start()
@@ -18,13 +23,9 @@ public class TimerScript : Singleton<TimerScript>
         seconds = 0;
     }
 
-    public int enemiesKilled = 0;
-
-    [SerializeField] TMP_Text enemiesKilled_Text;
-
     private void Update()
     {
-        if (GameManager.Instance.currentGameState != GameState.inGame) return;
+        if (GameManager.Instance.currentGameState != GameState.inGame || !canStart) return;
 
 
         enemiesKilled_Text.text = enemiesKilled.ToString();

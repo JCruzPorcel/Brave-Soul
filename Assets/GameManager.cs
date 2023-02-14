@@ -74,7 +74,7 @@ public class GameManager : SingletonPersistent<GameManager>
 
         }
 
-        Application.targetFrameRate = 200;
+        Application.targetFrameRate = 300;
     }
 
     /*

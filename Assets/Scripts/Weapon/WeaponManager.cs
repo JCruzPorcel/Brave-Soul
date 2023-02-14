@@ -1,13 +1,10 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
-using static UnityEngine.EventSystems.StandaloneInputModule;
 
 
-public class WeaponManager : MonoBehaviour
+public class WeaponManager : Singleton<WeaponManager>
 {
     public List<WeaponData> weaponsList = new List<WeaponData>();
     public List<WeaponData> currentWeaponList = new List<WeaponData>();
@@ -120,26 +117,26 @@ public class WeaponManager : MonoBehaviour
         RightWeapon();
     }
 
-
-    public void OnSelectWeaponLeft(InputValue value)
+    public void SelectWeaponLeft()
     {
+        if (leftData == null) return;
+
         LeftWeaponSpawn();
     }
 
-    public void OnSelectWeaponMid(InputValue value)
+    public void SelectWeaponMid()
     {
         if (midData == null) return;
 
         MidWeaponSpawn();
     }
 
-    public void OnSelectWeaponRight(InputValue value)
+    public void SelectWeaponRight()
     {
         if (rightData == null) return;
 
         RightWeaponSpawn();
     }
-
 
 
     void LeftWeapon()

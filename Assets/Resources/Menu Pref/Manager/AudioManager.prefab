@@ -149,3 +149,43 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     source: {fileID: 0}
+  - name: Melee Attack SFX
+    clip: {fileID: 8300000, guid: 558d03ad78a2053478fe1bf0e73bfdbe, type: 3}
+    mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Shotgun SFX
+    clip: {fileID: 8300000, guid: 4e12862c92494b047834f890f88a021f, type: 3}
+    mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Plasma Gun SFX
+    clip: {fileID: 8300000, guid: e7ecdbb5093862e448811c6dc718e694, type: 3}
+    mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: Bullet Impact SFX
+    clip: {fileID: 8300000, guid: 81445988ffbfb0d46b3189209284ea4b, type: 3}
+    mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: FootStep SFX
+    clip: {fileID: 8300000, guid: 6c2c88a4c28246a479de84df7962ce5e, type: 3}
+    mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}

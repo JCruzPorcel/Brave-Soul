@@ -314,6 +314,17 @@
                 },
                 {
                     "name": "",
+                    "id": "a41ebd93-3534-4d64-8632-6ec27d4d0980",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "SelectWeaponLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "fc81b260-b932-40ad-8b92-324702b142a6",
                     "path": "<Keyboard>/2",
                     "interactions": "",
@@ -325,11 +336,33 @@
                 },
                 {
                     "name": "",
+                    "id": "853e89ba-daed-41b8-b738-19661aeb9d0e",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "SelectWeaponMid",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "44daac82-5457-4540-b195-8c4b45384c76",
                     "path": "<Keyboard>/3",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
+                    "action": "SelectWeaponRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d21d2ab9-9c73-4039-bad4-ce01d8ea2608",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
                     "action": "SelectWeaponRight",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -713,7 +746,7 @@
                     "path": "*/{Cancel}",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse;Gamepad;Touch;Joystick;XR",
+                    "groups": "Keyboard&Mouse;Touch;Joystick;XR;Gamepad",
                     "action": "Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false

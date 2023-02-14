@@ -42,19 +42,21 @@ public class MenuManager : Singleton<MenuManager>
     [SerializeField] float transitionDuration;
 
     [SerializeField] GameObject canvasGo;
-    bool showMenu;  
+    bool showMenu;
 
     private void Start()
     {
         //currentMenuState = MenuState.PressToStart;
+
         canvasGo.SetActive(true);
     }
 
     public void OnCancel(InputValue value)
     {
-        if (currentMenuState == MenuState.Transition || currentMenuState == MenuState.MainMenu || currentMenuState == MenuState.PressToStart || currentMenuState == MenuState.GameOver || currentMenuState == MenuState.LevelUp) return;
+        if (IsRestrictedState(currentMenuState))
+            return;
 
-        else if (currentMenuState == MenuState.InGame || currentMenuState == MenuState.Menu)
+        if (currentMenuState == MenuState.InGame || currentMenuState == MenuState.Menu)
         {
             showMenu = !showMenu;
 
@@ -67,12 +69,16 @@ public class MenuManager : Singleton<MenuManager>
                 InGame();
             }
         }
-
         else
         {
             FindObjectOfType<AudioManager>().Play("Back SFX");
             MainMenu();
         }
+    }
+
+    private bool IsRestrictedState(MenuState state)
+    {
+        return new HashSet<MenuState> { MenuState.Transition, MenuState.MainMenu, MenuState.PressToStart, MenuState.GameOver, MenuState.LevelUp }.Contains(state);
     }
 
     #region Main Menu
@@ -194,9 +200,10 @@ public class MenuManager : Singleton<MenuManager>
 
         yield return new WaitForSeconds(transitionDuration);
 
-        this.currentMenuState = newMenuState;
 
         DeviceManager.Instance.ShowButton = false;
+
+        this.currentMenuState = newMenuState;
     }
 
     #endregion
@@ -238,7 +245,8 @@ public class MenuManager : Singleton<MenuManager>
     public void ShowNavButton()
     {
         EventSystem.current.SetSelectedGameObject(null);
-        FindObjectOfType<AudioManager>().Play("Back SFX");
+        //FindObjectOfType<AudioManager>().Play("Back SFX");
+
 
         if (currentMenuState == MenuState.MainMenu)
         {

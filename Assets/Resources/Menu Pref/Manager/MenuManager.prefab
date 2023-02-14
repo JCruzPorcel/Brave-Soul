@@ -94,8 +94,6 @@ MonoBehaviour:
   currentDevice: 0
   playerInput: {fileID: 4502506603441032440}
   inputSystemModule: {fileID: 4502506603441032442}
-  keyboardButtons: KeyboardButtons (PC)
-  gamepadButtons: PadButtons (Gamepad)
 --- !u!114 &4502506603441032440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +120,7 @@ MonoBehaviour:
       m_Calls: []
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}

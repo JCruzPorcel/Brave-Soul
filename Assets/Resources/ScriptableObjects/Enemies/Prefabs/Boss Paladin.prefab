@@ -197,3 +197,4 @@ MonoBehaviour:
   player: {fileID: 0}
   floatingText: {fileID: 5374698372719183501, guid: d3e4969c704107548a31128d5cfa3ea4, type: 3}
   sourceManager: {fileID: 0}
+  m_Chest: {fileID: 1666609245958442482, guid: 53bba03b489492847ae14069a2e32c8d, type: 3}

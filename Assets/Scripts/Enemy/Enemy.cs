@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     [Range(0, 10)] public float damage;
 
     [Min(0)] public int maxHP;
-    [Min(0)] float currentHP;
+    [Min(0)] [SerializeField] float currentHP;
 
     [Range(0, 10)] public float speed;
 
