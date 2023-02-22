@@ -109,11 +109,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 575
-        width: 144
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 576
+        width: 113
+        height: 32
+      alignment: 9
+      pivot: {x: 0.4779, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -130,11 +130,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 542
-        width: 144
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 544
+        width: 113
+        height: 32
+      alignment: 9
+      pivot: {x: 0.4779, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -151,11 +151,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 509
-        width: 144
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 512
+        width: 113
+        height: 32
+      alignment: 9
+      pivot: {x: 0.4779, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -172,11 +172,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 476
-        width: 144
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 480
+        width: 113
+        height: 32
+      alignment: 9
+      pivot: {x: 0.289, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -193,11 +193,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 443
-        width: 144
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 448
+        width: 113
+        height: 32
+      alignment: 9
+      pivot: {x: 0.132, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -214,11 +214,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 410
-        width: 144
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 416
+        width: 113
+        height: 32
+      alignment: 9
+      pivot: {x: 0.132, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -235,11 +235,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 377
-        width: 144
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 384
+        width: 113
+        height: 32
+      alignment: 9
+      pivot: {x: 0.132, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -256,11 +256,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 344
-        width: 144
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 352
+        width: 113
+        height: 32
+      alignment: 9
+      pivot: {x: 0.132, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -277,11 +277,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 311
-        width: 144
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 320
+        width: 113
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -298,11 +298,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 278
-        width: 144
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 288
+        width: 113
+        height: 32
+      alignment: 9
+      pivot: {x: 0.815, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -319,11 +319,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 245
-        width: 144
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 256
+        width: 113
+        height: 32
+      alignment: 9
+      pivot: {x: 0.815, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -339,12 +339,12 @@ TextureImporter:
       name: Dodge Charge Attack(144x32)_11
       rect:
         serializedVersion: 2
-        x: 0
-        y: 212
-        width: 144
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 2
+        y: 224
+        width: 113
+        height: 32
+      alignment: 9
+      pivot: {x: 0.7975, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -360,12 +360,12 @@ TextureImporter:
       name: Dodge Charge Attack(144x32)_12
       rect:
         serializedVersion: 2
-        x: 0
-        y: 179
-        width: 144
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6
+        y: 192
+        width: 113
+        height: 32
+      alignment: 9
+      pivot: {x: 0.762, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -381,12 +381,12 @@ TextureImporter:
       name: Dodge Charge Attack(144x32)_13
       rect:
         serializedVersion: 2
-        x: 0
-        y: 146
-        width: 144
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 6
+        y: 160
+        width: 113
+        height: 32
+      alignment: 9
+      pivot: {x: 0.763, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -402,12 +402,12 @@ TextureImporter:
       name: Dodge Charge Attack(144x32)_14
       rect:
         serializedVersion: 2
-        x: 0
-        y: 113
-        width: 144
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 8
+        y: 128
+        width: 113
+        height: 32
+      alignment: 9
+      pivot: {x: 0.793, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -423,12 +423,12 @@ TextureImporter:
       name: Dodge Charge Attack(144x32)_15
       rect:
         serializedVersion: 2
-        x: 0
-        y: 80
-        width: 144
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 10
+        y: 96
+        width: 113
+        height: 32
+      alignment: 9
+      pivot: {x: 0.775273, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -444,12 +444,12 @@ TextureImporter:
       name: Dodge Charge Attack(144x32)_16
       rect:
         serializedVersion: 2
-        x: 0
-        y: 47
-        width: 144
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 14
+        y: 64
+        width: 113
+        height: 32
+      alignment: 9
+      pivot: {x: 0.7401, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -465,12 +465,12 @@ TextureImporter:
       name: Dodge Charge Attack(144x32)_17
       rect:
         serializedVersion: 2
-        x: 0
-        y: 14
-        width: 144
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 18
+        y: 32
+        width: 113
+        height: 32
+      alignment: 9
+      pivot: {x: 0.70432585, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -478,6 +478,27 @@ TextureImporter:
       bones: []
       spriteID: cc25a2877941cdd48a806246934e8cff
       internalID: -470687870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dodge Charge Attack(144x32)_18
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 0
+        width: 113
+        height: 32
+      alignment: 9
+      pivot: {x: 0.69629675, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cddbac7b573a80419f4bfe95ed56ee7
+      internalID: 173945253
       vertices: []
       indices: 
       edges: []
@@ -493,14 +514,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Charge_1: -532408830
       Dodge Charge Attack(144x32)_4: 1006671722
       Dodge Charge Attack(144x32)_3: -1260038048
+      Charge_3: 362921873
       Dodge Charge Attack(144x32)_16: 1919687835
       Dodge Charge Attack(144x32)_7: 650763443
       Dodge Charge Attack(144x32)_5: 436968483
       Dodge Charge Attack(144x32)_9: 128121436
       Dodge Charge Attack(144x32)_8: -1715183049
+      Charge_0: -1465570488
       Dodge Charge Attack(144x32)_13: -948059396
+      Charge_2: -68097390
       Dodge Charge Attack(144x32)_0: 1229786700
       Dodge Charge Attack(144x32)_6: 198645507
       Dodge Charge Attack(144x32)_17: -470687870
@@ -511,6 +536,7 @@ TextureImporter:
       Dodge Charge Attack(144x32)_12: 1022848156
       Dodge Charge Attack(144x32)_14: 111459607
       Dodge Charge Attack(144x32)_2: -2115384811
+      Dodge Charge Attack(144x32)_18: 173945253
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

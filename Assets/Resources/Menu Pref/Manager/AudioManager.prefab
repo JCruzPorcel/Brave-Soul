@@ -189,3 +189,19 @@ MonoBehaviour:
     loop: 1
     playOnAwake: 0
     source: {fileID: 0}
+  - name: RandomWeapon SFX
+    clip: {fileID: 8300000, guid: 649418457f793a14cb7c9a9406c31250, type: 3}
+    mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
+    volume: 0.3
+    pitch: 1
+    loop: 1
+    playOnAwake: 0
+    source: {fileID: 0}
+  - name: SelectWeapon SFX
+    clip: {fileID: 8300000, guid: 7196e0d3aa5d6f94b9967078b1290a81, type: 3}
+    mixerGroup: {fileID: 6181457251685706903, guid: 8683df2faec13c54597ccf0311fbacb6, type: 2}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    playOnAwake: 0
+    source: {fileID: 0}

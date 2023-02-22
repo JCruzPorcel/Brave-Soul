@@ -26,6 +26,7 @@ public class WeaponManager : Singleton<WeaponManager>
     public TMP_Text mid_text_anim;
     public TMP_Text right_text_anim;
 
+    string[] texts;
 
     #region Left Panel
     [Space(10)]
@@ -45,10 +46,6 @@ public class WeaponManager : Singleton<WeaponManager>
     [SerializeField] TMP_Text left_Upgrade_Text;
 
     [SerializeField] WeaponData leftData;
-
-    int random_Left;
-
-    string[] texts;
 
     #endregion
 
@@ -73,8 +70,6 @@ public class WeaponManager : Singleton<WeaponManager>
 
     [SerializeField] GameObject midCanvas;
 
-    int random_Mid;
-
     #endregion
 
     #region Right Panel
@@ -97,8 +92,6 @@ public class WeaponManager : Singleton<WeaponManager>
     [SerializeField] WeaponData rightData;
 
     [SerializeField] GameObject rightCanvas;
-
-    int random_Right;
 
     #endregion
 
@@ -160,7 +153,7 @@ public class WeaponManager : Singleton<WeaponManager>
             }
         }
 
-        leftData = GetNewData(leftData, midData, rightData, random_Left);
+        leftData = GetNewData(leftData, midData, rightData);
         SetNewData(leftData, left_Weapon_Name, left_Weapon_Description, left_Weapon_Image, left_Box_Upgrade, left_Weapon_Upgrade_Image, left_Upgrade_Text, left_text_anim);
     }
 
@@ -183,7 +176,7 @@ public class WeaponManager : Singleton<WeaponManager>
             }
         }
 
-        midData = GetNewData(midData, leftData, rightData, random_Mid);
+        midData = GetNewData(midData, leftData, rightData);
         SetNewData(midData, mid_Weapon_Name, mid_Weapon_Description, mid_Weapon_Image, mid_Box_Upgrade, mid_Weapon_Upgrade_Image, mid_Upgrade_Text, mid_text_anim);
     }
 
@@ -205,7 +198,8 @@ public class WeaponManager : Singleton<WeaponManager>
                 return;
             }
         }
-        rightData = GetNewData(rightData, midData, leftData, random_Right);
+
+        rightData = GetNewData(rightData, midData, leftData);
         SetNewData(rightData, right_Weapon_Name, right_Weapon_Description, right_Weapon_Image, right_Box_Upgrade, right_Weapon_Upgrade_Image, right_Upgrade_Text, right_text_anim);
     }
 
@@ -247,8 +241,8 @@ public class WeaponManager : Singleton<WeaponManager>
     }
 
 
-    WeaponData GetNewData(WeaponData data, WeaponData compareData1, WeaponData compareData2, int randomIntName)
-    {
+    WeaponData GetNewData(WeaponData data, WeaponData compareData1, WeaponData compareData2)
+    {/*
         if (!MaxWeapons())
         {
             randomIntName = Random.Range(0, weaponsList.Count);
@@ -258,10 +252,11 @@ public class WeaponManager : Singleton<WeaponManager>
         {
             randomIntName = Random.Range(0, currentWeaponList.Count);
             data = currentWeaponList[randomIntName];
-        }
+        }*/
 
+        int randomIntName = 0;
 
-        while (data == compareData1 || data == compareData2)
+        while (data == compareData1 || data == compareData2 || data == null)
         {
             if (!MaxWeapons())
             {
@@ -308,85 +303,77 @@ public class WeaponManager : Singleton<WeaponManager>
         }
     }
 
-    void PlayerGetWeapon(WeaponData data)
+    public void PlayerGetWeapon(WeaponData data)
     {
-        if (currentWeaponList.Contains(data))
+        string weaponName = data.VarName;
+        int maxWeaponLevel = 5;
+        LevelUpManager levelUpManager = LevelUpManager.Instance;
+        bool containsWeapon = currentWeaponList.Contains(data);
+
+        if (containsWeapon)
         {
-            if (data.VarName == "Axe")
+            switch (weaponName)
             {
-                LevelUpManager.Instance.level_Axe++;
-
-                if (LevelUpManager.Instance.level_Axe >= 5)
-                {
-                    weaponsList.Remove(data);
-                    currentWeaponList.Remove(data);
-                }
-            }
-            else if (data.VarName == "Crossbow")
-            {
-                LevelUpManager.Instance.level_Crossbow++;
-
-                if (LevelUpManager.Instance.level_Crossbow >= 5)
-                {
-                    weaponsList.Remove(data);
-                    currentWeaponList.Remove(data);
-                }
-            }
-            else if (data.VarName == "Necronomicon")
-            {
-                LevelUpManager.Instance.level_Necronomicon++;
-
-                if (LevelUpManager.Instance.level_Necronomicon >= 5)
-                {
-                    weaponsList.Remove(data);
-                    currentWeaponList.Remove(data);
-                }
-            }
-            else if (data.VarName == "Arrow")
-            {
-                LevelUpManager.Instance.level_Arrow++;
-
-                if (LevelUpManager.Instance.level_Arrow >= 5)
-                {
-                    weaponsList.Remove(data);
-                    currentWeaponList.Remove(data);
-                }
+                case "Axe":
+                    if (++levelUpManager.level_Axe >= maxWeaponLevel)
+                    {
+                        weaponsList.Remove(data);
+                        currentWeaponList.Remove(data);
+                    }
+                    break;
+                case "Crossbow":
+                    if (++levelUpManager.level_Crossbow >= maxWeaponLevel)
+                    {
+                        weaponsList.Remove(data);
+                        currentWeaponList.Remove(data);
+                    }
+                    break;
+                case "Necronomicon":
+                    if (++levelUpManager.level_Necronomicon >= maxWeaponLevel)
+                    {
+                        weaponsList.Remove(data);
+                        currentWeaponList.Remove(data);
+                    }
+                    break;
+                case "Arrow":
+                    if (++levelUpManager.level_Arrow >= maxWeaponLevel)
+                    {
+                        weaponsList.Remove(data);
+                        currentWeaponList.Remove(data);
+                    }
+                    break;
             }
         }
         else
         {
             currentWeaponList.Add(data);
+            currentWeapons++;
 
-            if (data.VarName == "Axe")
+            switch (weaponName)
             {
-                WeaponContainer.Instance.have_Axe = true;
-                LevelUpManager.Instance.level_Axe++;
-                currentWeapons++;
-            }
-            else if (data.VarName == "Crossbow")
-            {
-                Instantiate(data.Prefab);
-
-                LevelUpManager.Instance.level_Crossbow++;
-                currentWeapons++;
-            }
-            else if (data.VarName == "Necronomicon")
-            {
-                Instantiate(data.Prefab);
-
-                LevelUpManager.Instance.level_Necronomicon++;
-                currentWeapons++;
-            }
-            else if (data.VarName == "Arrow")
-            {
-                LevelUpManager.Instance.level_Arrow++;
+                case "Axe":
+                    WeaponContainer.Instance.have_Axe = true;
+                    levelUpManager.level_Axe++;
+                    break;
+                case "Crossbow":
+                    Instantiate(data.Prefab);
+                    levelUpManager.level_Crossbow++;
+                    break;
+                case "Necronomicon":
+                    Instantiate(data.Prefab);
+                    levelUpManager.level_Necronomicon++;
+                    break;
+                case "Arrow":
+                    levelUpManager.level_Arrow++;
+                    break;
             }
         }
 
         ResetData();
 
-        PlayerController.Instance.pointsLvl--;
-        LevelUpManager.Instance.WindowLevelState();
+        PlayerController playerController = PlayerController.Instance;
+        playerController.pointsLvl--;
+        levelUpManager.WindowLevelState();
     }
 
     void ResetData()

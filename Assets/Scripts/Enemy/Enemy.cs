@@ -6,13 +6,12 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(CapsuleCollider2D))]
-[RequireComponent(typeof(BoxCollider2D))]
 public class Enemy : MonoBehaviour
 {
     [Range(0, 10)] public float damage;
 
     [Min(0)] public int maxHP;
-    [Min(0)] [SerializeField] float currentHP;
+    [Min(0)][SerializeField] float currentHP;
 
     [Range(0, 10)] public float speed;
 
@@ -22,9 +21,10 @@ public class Enemy : MonoBehaviour
     [HideInInspector] public bool isDead;
     public bool is_a_Boss;
     public bool reset;
+    public Rigidbody2D rb;
 
-    int xDir;
-    int yDir;
+    float xDir;
+    float yDir;
 
     [HideInInspector] public Animator animator;
 
@@ -38,7 +38,6 @@ public class Enemy : MonoBehaviour
 
     [HideInInspector] public AudioManager sourceManager;
 
-
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -50,6 +49,8 @@ public class Enemy : MonoBehaviour
         currentHP = maxHP;
 
         sourceManager = FindObjectOfType<AudioManager>();
+
+        rb = GetComponent<Rigidbody2D>();
 
         Spawn();
     }
@@ -71,8 +72,11 @@ public class Enemy : MonoBehaviour
         if (GameManager.Instance.currentGameState != GameState.inGame)
         {
             animator.speed = 0;
+            rb.simulated = false;
             return;
         }
+
+        rb.simulated = true;
 
         animator.speed = 1;
 
@@ -83,12 +87,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
-
     public virtual void Movement()
     {
         Vector3 direction = player.position - transform.position;
-
         direction.Normalize();
+
 
         if (transform.position.y < player.position.y + .03f)
         {
@@ -108,22 +111,53 @@ public class Enemy : MonoBehaviour
             sr.flipX = true;
         }
 
+      /*bool isBelowPlayerY = transform.position.y < player.position.y + 0.03f;
+        bool isAbovePlayerY = transform.position.y > player.position.y - 0.03f;
+        bool isLeftOfPlayerX = transform.position.x < player.position.x + 0.03f;
+        bool isRightOfPlayerX = transform.position.x > player.position.x - 0.03f;*/
+        /*switch ((isBelowPlayerY, isAbovePlayerY, isLeftOfPlayerX, isRightOfPlayerX))
+        {
+            case (true, false, _, _):
+                sr.sortingOrder = 1;
+                break;
+            case (false, true, _, _):
+                sr.sortingOrder = -1;
+                break;
+            case (_, _, true, false):
+                sr.flipX = false;
+                break;
+            case (_, _, false, true):
+                sr.flipX = true;
+                break;
+            default:
+                break;
+        }*/
+
         transform.position += direction * speed * Time.fixedDeltaTime;
     }
 
     public virtual void CurrentHealth()
     {
+        if (is_a_Boss)
+        {
+            animator.SetTrigger("Hit");
+        }
+
+
         if (currentHP <= 0)
         {
             isDead = true;
 
             GiveExp();
 
-            reset = true;
 
             if (is_a_Boss)
             {
-                gameObject.SetActive(false);
+                animator.SetBool("isDead", true);
+            }
+            else
+            {
+                reset = true;
             }
             Death();
         }
@@ -154,6 +188,7 @@ public class Enemy : MonoBehaviour
         {
             ShowDamage(playerDamage);
         }
+
         currentHP -= playerDamage;
         CurrentHealth();
     }
@@ -162,59 +197,43 @@ public class Enemy : MonoBehaviour
     {
         Vector2 delta = transform.position - player.position;
 
-        if (Mathf.Abs(delta.x) > 15 || Mathf.Abs(delta.y) > 12)
+        float xThreshold = 15;
+        float yThreshold = 12;
+
+        if (Mathf.Abs(delta.x) > xThreshold || Mathf.Abs(delta.y) > yThreshold || reset)
         {
-            int randomX = Random.Range(0, 2);
+            float randomX = Random.Range(0f, 1f);
 
 
-            if (randomX == 0)
+            if (randomX < .5f)
             {
-                yDir = Random.Range(0, 2) == 0 ? -12 : 12;
-                xDir = Random.Range(-15, 15);
+                yDir = Random.Range(0f, 1f) < .5f ? -yThreshold : yThreshold;
+                xDir = Random.Range(-xThreshold, xThreshold);
             }
             else
             {
-                xDir = Random.Range(0, 2) == 0 ? -15 : 15;
-                yDir = Random.Range(-12, 12);
-            }
-
-            transform.position = new Vector2(player.position.x + xDir, player.position.y + yDir);
-        }
-
-
-        if (reset)
-        {
-            int randomX = Random.Range(0, 2);
-
-
-            if (randomX == 0)
-            {
-                yDir = Random.Range(0, 2) == 0 ? -12 : 12;
-                xDir = Random.Range(-15, 15);
-            }
-            else
-            {
-                xDir = Random.Range(0, 2) == 0 ? -15 : 15;
-                yDir = Random.Range(-12, 12);
+                xDir = Random.Range(0f, 1f) < .5f ? -xThreshold : xThreshold;
+                yDir = Random.Range(-yThreshold, xThreshold);
             }
 
             transform.position = new Vector2(player.position.x + xDir, player.position.y + yDir);
 
-            currentHP = maxHP;
-
-            isDead = false;
-
-            reset = false;
+            if (reset)
+            {
+                currentHP = maxHP;
+                isDead = false;
+                reset = false;
+            }
         }
     }
 
-    public virtual void OnTriggerStay2D(Collider2D col)
+    void OnTriggerStay2D(Collider2D player)
     {
         if (GameManager.Instance.currentGameState == GameState.inGame)
         {
             if (!isDead)
             {
-                if (col.tag == "Character")
+                if (player.CompareTag("Character"))
                 {
                     PlayerController.Instance.TakeDamage(damage);
                 }

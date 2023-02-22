@@ -69,7 +69,8 @@ public class ChestController : MonoBehaviour
     {
         if (collision.CompareTag("Character"))
         {
-            Debug.Log("Ay!");
+            Destroy(this.gameObject);
+            MenuManager.Instance.OpenChest();
         }
     }
 }

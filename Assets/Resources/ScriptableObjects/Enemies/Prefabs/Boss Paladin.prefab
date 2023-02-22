@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2569170694288880304}
   - component: {fileID: 2569170694288880307}
   - component: {fileID: 2569170694288880306}
-  - component: {fileID: 5366999012967787120}
   - component: {fileID: 2623060418072393542}
   - component: {fileID: 7717329194366830916}
   m_Layer: 9
@@ -130,8 +129,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &5366999012967787120
-BoxCollider2D:
+--- !u!70 &2623060418072393542
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -143,34 +142,8 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02883625, y: 0.6743697}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.7030114, y: 0}
-    oldSize: {x: 2.4666667, y: 1.9333333}
-    newSize: {x: 2.4, y: 1.8666667}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.7359775, y: 1.1805413}
-  m_EdgeRadius: 0
---- !u!70 &2623060418072393542
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2569170694288880302}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.7320817}
-  m_Size: {x: 0.895529, y: 1.2494713}
+  m_Offset: {x: 0, y: 0.72937}
+  m_Size: {x: 0.895529, y: 1.4481514}
   m_Direction: 0
 --- !u!114 &7717329194366830916
 MonoBehaviour:
@@ -186,15 +159,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 3
   maxHP: 2000
+  currentHP: 0
   speed: 2.25
   min_exp: 80
   max_exp: 125
   isDead: 0
   is_a_Boss: 1
   reset: 0
+  rb: {fileID: 2569170694288880304}
   animator: {fileID: 0}
   sr: {fileID: 0}
   player: {fileID: 0}
   floatingText: {fileID: 5374698372719183501, guid: d3e4969c704107548a31128d5cfa3ea4, type: 3}
   sourceManager: {fileID: 0}
   m_Chest: {fileID: 1666609245958442482, guid: 53bba03b489492847ae14069a2e32c8d, type: 3}
+  isSpawned: 0
+  attackTime: 1.5
+  dashDistance: 5
+  dashColor: {r: 1, g: 0, b: 0, a: 1}
+  dashDuration: 0.5

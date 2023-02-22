@@ -1,57 +1,57 @@
+using System.Collections;
 using UnityEngine;
 
 public class Shotgunner : Enemy
 {
     public float normalSpeed;
-    CapsuleCollider2D capsuleCollider2D;
-    CircleCollider2D circleCollider2D;
-    [Tooltip("Capsule Collider 'Shotgun'")] public float offsetValue;
-    [Tooltip("Circle Collider 'Melee'")] public float offsetValue2;
 
-    // Attack settings
-    public float range;
-    public float meleeRange;
 
     float currentRange;
     public float distanceToKeep = 2f;
 
-    public float attackTime;
-    float timer = 0f;
+    float shotTimer = 0f;
+    float meleeTimer = 0f;
 
-    public float meleeDamage;
+    // Attack settings
+
+    [Header("Shot")]
     public float shotgunDamage;
-    public float normalDamage;
+    public float shotRange;
+    public float waitBetweenShots;
+    [SerializeField] Transform shotgunPoint;
+    [SerializeField] float shotgunPointRange;
+
+    [Space(5)]
+
+    [Header("Melee")]
+    public float meleeDamage;
+    public float meleeRange;
+    [SerializeField] Transform meleePoint;
+    [SerializeField] float meleePointRange;
+    public float waitBetweenAttacks;
 
     bool meleeAttack;
     bool shotAttack;
 
-    public float meleeAttackTimer;
-    float meleeTimer = 0f;
+    [SerializeField] LayerMask playerMask;
 
     private Vector3 previousPosition = Vector3.zero;
-    
 
     public override void Spawn()
     {
-        normalDamage = damage;
         normalSpeed = speed;
-        capsuleCollider2D = GetComponent<CapsuleCollider2D>();
-        circleCollider2D = GetComponent<CircleCollider2D>();        
     }
 
     public override void Attack()
     {
         currentRange = Vector2.Distance(player.position, transform.position);
 
-        capsuleCollider2D.offset = sr.flipX ? new Vector2(-offsetValue, capsuleCollider2D.offset.y) : new Vector2(offsetValue, capsuleCollider2D.offset.y);
-        circleCollider2D.offset = sr.flipX ? new Vector2(-offsetValue2, circleCollider2D.offset.y) : new Vector2(offsetValue2, circleCollider2D.offset.y);
-
-        if (timer > 0f)
+        if (shotTimer > 0f)
         {
             animator.SetBool("Shoot", false);
             shotAttack = false;
 
-            timer -= Time.fixedDeltaTime;
+            shotTimer -= Time.fixedDeltaTime;
         }
 
         if (meleeTimer > 0f)
@@ -69,73 +69,99 @@ public class Shotgunner : Enemy
                 MeleeAttack();
             }
         }
-        else if (currentRange <= range)
+        else if (currentRange <= shotRange)
         {
-            if (timer <= 0)
+            if (shotTimer <= 0)
             {
-                Shoot();
+                Shot();
             }
-        }
-        else
-        {
-            damage = normalDamage;
         }
     }
 
-    void Shoot()
+    void Shot()
     {
-        damage = shotgunDamage;
+        Vector2 rectSize = new Vector3(shotgunPointRange * 3f, shotgunPointRange);
+
+        Collider2D playerCollider = Physics2D.OverlapBox(shotgunPoint.transform.position, rectSize, 0, playerMask);
+        if (playerCollider != null && playerCollider.CompareTag("Character"))
+        {
+            playerCollider.gameObject.GetComponentInParent<PlayerController>().TakeDamage(shotgunDamage);
+        }
+
+
         animator.SetBool("Shoot", true);
         shotAttack = true;
 
         sourceManager.Play("Shotgun SFX");
 
-        timer = attackTime;
+        shotTimer = waitBetweenShots;
     }
 
     void MeleeAttack()
     {
-        damage = meleeDamage;
+        Collider2D playerCollider = Physics2D.OverlapCircle(meleePoint.transform.position, meleePointRange, playerMask);
+        if (playerCollider != null && playerCollider.CompareTag("Character"))
+        {
+            playerCollider.gameObject.GetComponentInParent<PlayerController>().TakeDamage(meleeDamage);
+        }
+
         animator.SetBool("Melee Attack", true);
         meleeAttack = true;
 
         sourceManager.Play("Melee Attack SFX");
 
-        meleeTimer = meleeAttackTimer;
+        meleeTimer = waitBetweenAttacks;
     }
 
     public override void Movement()
     {
-        if (transform.position.y < player.position.y + .03f)
-        {
-            sr.sortingOrder = 1;
-        }
-        else if (transform.position.y > player.position.y - .03f)
-        {
-            sr.sortingOrder = -1;
-        }
+         if (transform.position.y < player.position.y + .03f)
+         {
+             sr.sortingOrder = 1;
+         }
+         else if (transform.position.y > player.position.y - .03f)
+         {
+             sr.sortingOrder = -1;
+         }
 
-        if (transform.position.x < player.position.x + .03f)
+         if (transform.position.x < player.position.x + .03f)
+         {
+             sr.flipX = false;
+         }
+         else if (transform.position.x > player.position.x - .03f)
+         {
+             sr.flipX = true;
+         }
+/*
+        bool isBelowPlayerY = transform.position.y < player.position.y + 0.03f;
+        bool isAbovePlayerY = transform.position.y > player.position.y - 0.03f;
+        bool isLeftOfPlayerX = transform.position.x < player.position.x + 0.03f;
+        bool isRightOfPlayerX = transform.position.x > player.position.x - 0.03f;
+
+        switch ((isBelowPlayerY, isAbovePlayerY, isLeftOfPlayerX, isRightOfPlayerX))
         {
-            sr.flipX = false;
-        }
-        else if (transform.position.x > player.position.x - .03f)
-        {
-            sr.flipX = true;
-        }
+            case (true, false, _, _):
+                sr.sortingOrder = 1;
+                break;
+            case (false, true, _, _):
+                sr.sortingOrder = -1;
+                break;
+            case (_, _, true, false):
+                sr.flipX = false;
+                break;
+            case (_, _, false, true):
+                sr.flipX = true;
+                break;
+            default:
+                break;
+        }*/
 
 
         // Si se está atacando, detener el movimiento
         if (meleeAttack || shotAttack)
         {
-            speed = 0;
             return;
         }
-        else
-        {
-            speed = normalSpeed;
-        }
-
 
         float step = speed * Time.fixedDeltaTime;
         float currentDistance = player.position.x - transform.position.x;
@@ -156,7 +182,7 @@ public class Shotgunner : Enemy
             transform.position = newPosition;
         }
         // Si la distancia actual es mayor que el rango, seguir el movimiento base
-        else if (currentRange > range)
+        else if (currentRange > shotRange)
         {
             Vector3 direction = player.position - transform.position;
 
@@ -166,4 +192,26 @@ public class Shotgunner : Enemy
         }
     }
 
+    private void OnDrawGizmos()
+    {
+        if (shotgunPoint == null) return; // Salir si el objeto no está asignado
+
+        // Establecer el color del Gizmo a rojoVector2 rectSize = new Vector3(shotgunPointRange * 3f, shotgunPointRange);
+        Gizmos.color = Color.red;
+
+        // Calcular el tamaño del rectángulo
+        Vector2 rectSize = new Vector3(shotgunPointRange * 3f, shotgunPointRange);
+
+        // Dibujar el rectángulo en la posición del objeto shotgunPoint
+        Gizmos.DrawWireCube(shotgunPoint.position, rectSize);
+
+
+        if (shotgunPoint == null) return; // Salir si el objeto no está asignado
+
+        // Establecer el color del Gizmo a azul
+        Gizmos.color = Color.blue;
+
+        // Dibujar una esfera en la posición del objeto shotgunPoint con el radio especificado por shotgunPointRange
+        Gizmos.DrawWireSphere(meleePoint.position, meleePointRange);
+    }
 }

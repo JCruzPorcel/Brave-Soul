@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2569170694288880307}
   - component: {fileID: 2569170694288880306}
   - component: {fileID: 2569170694288880304}
-  - component: {fileID: 2569170694288880300}
   - component: {fileID: 5660000510669915132}
   - component: {fileID: 2569170694288880301}
   m_Layer: 10
@@ -130,32 +129,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &2569170694288880300
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2569170694288880302}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.0046438053, y: 0.4030006}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.6553565, y: 0}
-    oldSize: {x: 1.04, y: 0.76}
-    newSize: {x: 0.92, y: 0.72}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.24906288, y: 0.542369}
-  m_EdgeRadius: 0
 --- !u!70 &5660000510669915132
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -166,7 +139,7 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.0016111135, y: 0.41786695}
@@ -186,12 +159,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 1
   maxHP: 20
+  currentHP: 0
   speed: 2.3
   min_exp: 3
   max_exp: 7
   isDead: 0
   is_a_Boss: 0
   reset: 0
+  rb: {fileID: 2569170694288880304}
   animator: {fileID: 0}
   sr: {fileID: 0}
   player: {fileID: 0}

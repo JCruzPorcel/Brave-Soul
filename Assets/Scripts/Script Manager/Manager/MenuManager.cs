@@ -18,6 +18,7 @@ public enum MenuState
     InGame, //InGame
     GameOver,
     LevelUp,
+    OpenChest,
     Menu,
     Exit, //EXIT MATCH
 }
@@ -78,7 +79,7 @@ public class MenuManager : Singleton<MenuManager>
 
     private bool IsRestrictedState(MenuState state)
     {
-        return new HashSet<MenuState> { MenuState.Transition, MenuState.MainMenu, MenuState.PressToStart, MenuState.GameOver, MenuState.LevelUp }.Contains(state);
+        return new HashSet<MenuState> { MenuState.Transition, MenuState.MainMenu, MenuState.PressToStart, MenuState.GameOver, MenuState.LevelUp, MenuState.OpenChest }.Contains(state);
     }
 
     #region Main Menu
@@ -162,8 +163,18 @@ public class MenuManager : Singleton<MenuManager>
         if (currentMenuState == MenuState.Transition) return;
 
         else if (currentMenuState == MenuState.InGame && !LevelUpManager.Instance.maxLevel)
-        {            
+        {
             SetMenuState(MenuState.LevelUp);
+        }
+    }
+
+    public void OpenChest()
+    {
+        if (currentMenuState == MenuState.Transition) return;
+
+        else if (currentMenuState == MenuState.InGame && !LevelUpManager.Instance.maxLevel)
+        {
+            SetMenuState(MenuState.OpenChest);
         }
     }
 
@@ -566,10 +577,26 @@ public class MenuManager : Singleton<MenuManager>
 
             return;
         }
+        else if (newMenuState == MenuState.OpenChest)
+        {
+
+            foreach (GameObject menu in menuList)
+            {
+                if (menu.name == "Randomized Chest")
+                {
+                    menu.SetActive(true);
+                }
+            }
+
+            GameManager.Instance.Menu();
+
+            this.currentMenuState = newMenuState;
+        }
 
         //Maybe it's a good idea to turn this into a coroutine (I'll think about it)...
 
         StartCoroutine(NewMenuState(newMenuState));
+
 
     }
 }
