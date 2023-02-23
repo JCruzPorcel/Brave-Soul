@@ -24,6 +24,7 @@ public class Boss : Enemy
     //private float currentChargeTime = 0f;
     public Vector2 lastPlayerPos = Vector2.zero;
     private Vector3 previousPosition = Vector3.zero;
+    private Vector3 rbPreviousPos;
     public bool canCheckFlipX;
 
     public override void Spawn()
@@ -50,7 +51,7 @@ public class Boss : Enemy
         previousPosition = transform.position;
         animator.SetFloat("Speed", dir);
 
-        if (canCheckFlipX )
+        if (canCheckFlipX)
         {
             if (transform.position.y < player.position.y + .03f)
             {
@@ -86,11 +87,8 @@ public class Boss : Enemy
         // Move towards player if not dashing and within stop distance
         if (distanceToPlayer > stopDistance && !isDashing)
         {
-            transform.position = new Vector3(transform.position.x, Mathf.MoveTowards(transform.position.y, player.position.y, step), transform.position.z);
             Vector3 direction = player.position - transform.position;
-
             direction.Normalize();
-
             transform.position += direction * step;
         }
         // Use slash if within stop distance and can use slash
@@ -119,6 +117,7 @@ public class Boss : Enemy
         }
         */
     }
+
     /*
     void Slash()
     {
@@ -174,12 +173,59 @@ public class Boss : Enemy
 
     public void DashAwayFromPlayer()
     {
-        rb.velocity = lastPlayerPos.normalized * dashSpeed;
+        // Actualiza el movimiento del Rigidbody
+        UpdateRigidbodyMovement(rb, lastPlayerPos, ref rbPreviousPos);
+
+        rb.velocity = (lastPlayerPos.normalized * dashSpeed);
     }
 
     public void Slash()
     {
+        // Actualiza el movimiento del Rigidbody
+        UpdateRigidbodyMovement(rb, lastPlayerPos, ref rbPreviousPos);
 
-        rb.velocity = lastPlayerPos.normalized * slashSpeed;
+        rb.velocity = (lastPlayerPos.normalized * slashSpeed);
+    }
+
+    /*private bool CanUseSlash()
+    {
+        // Comprueba si el jugador está en el rango en el eje x y el mismo eje y
+        bool isInRangeY = Mathf.Abs(transform.position.y - player.position.y) < .03f
+            && Mathf.Abs(transform.position.x - player.position.x) <= stopDistance;
+
+        // Si el jugador está en el rango, comprueba si se puede usar el slash
+        if (isInRangeY)
+        {
+            return true;
+        }
+
+        return false;
+    }
+    */
+    public void UpdateRigidbodyMovement(Rigidbody2D rb, Vector3 lastPlayerPos, ref Vector3 previousPlayerPos)
+    {
+        // Calcula la dirección del movimiento
+        Vector3 moveDirection = (lastPlayerPos - previousPlayerPos).normalized;
+
+        // Calcula la velocidad del movimiento
+        float moveSpeed = (lastPlayerPos - previousPlayerPos).magnitude / Time.deltaTime;
+
+        // Actualiza la velocidad del Rigidbody
+        rb.velocity = moveDirection * moveSpeed;
+
+        // Actualiza la posición anterior del jugador
+        previousPlayerPos = lastPlayerPos;
+    }
+
+    public void OnDashRotation()
+    {
+        // Calcula el ángulo de rotación en radianes utilizando Atan2
+        float angle = Mathf.Atan2(lastPlayerPos.y, lastPlayerPos.x) * Mathf.Rad2Deg + 180f;
+
+        // Crea una rotación en el eje Z utilizando Euler
+        Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+        // Aplica la rotación al objeto
+        transform.rotation = rotation;
     }
 }

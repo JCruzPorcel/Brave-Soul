@@ -18,9 +18,7 @@ public class cm_Boss_FinishSlash : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.GetComponent<Boss>().canCheckFlipX = true;
-        animator.GetComponent<Boss>().speed = animator.GetComponent<Boss>().normalSpeed;
-        animator.GetComponent<Boss>().isDashing = false;
-        animator.GetComponent<Boss>().currentSlashCD = animator.GetComponent<Boss>().CooldownSlash;
+        animator.transform.rotation = Quaternion.identity;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

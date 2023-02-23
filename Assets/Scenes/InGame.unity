@@ -5409,11 +5409,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2569170694288880303, guid: 4dad526c718d36747ad2963f661ce961, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.15
+      value: -5.09
       objectReference: {fileID: 0}
     - target: {fileID: 2569170694288880303, guid: 4dad526c718d36747ad2963f661ce961, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.52
+      value: 5.62
       objectReference: {fileID: 0}
     - target: {fileID: 2569170694288880303, guid: 4dad526c718d36747ad2963f661ce961, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5465,7 +5465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7717329194366830916, guid: 4dad526c718d36747ad2963f661ce961, type: 3}
       propertyPath: slashSpeed
-      value: 12
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 7717329194366830916, guid: 4dad526c718d36747ad2963f661ce961, type: 3}
       propertyPath: slashTimer
