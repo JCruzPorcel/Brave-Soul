@@ -64,7 +64,7 @@ public class PlayerController : Singleton<PlayerController>
 
     private void FixedUpdate()
     {
-        //GodMode = GameManager.Instance.GodMode;
+        GodMode = GameManager.Instance.GodMode;
 
         if (GameManager.Instance.currentGameState != GameState.inGame)
         {

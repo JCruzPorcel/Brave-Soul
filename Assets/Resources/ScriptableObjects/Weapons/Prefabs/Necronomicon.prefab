@@ -146,14 +146,105 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8626b6b0fbd5da49b34ea50ef45d407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
-  level: 3
+  damage: 7
+  level: 0
   attackSpeed: 1
   timer: 0
-  texts: []
+  texts:
+  - Presionar para comenzar
+  - Opciones
+  - Salir
+  - Comenzar
+  - Mejoras
+  - "Cr\xE9ditos"
+  - Volver
+  - "Volumen M\xFAsica"
+  - Volumen Efectos
+  - "Mostrar Da\xF1o"
+  - Mostrar FPS
+  - Pantalla Completa
+  - Modo Alto Rendimiento
+  - Volver
+  - Mejoras de Personajes
+  - Devolver Mejoras
+  - Volver
+  - "Cr\xE9ditos"
+  - "Programaci\xF3n"
+  - Arte
+  - Sonido
+  - Gracias por jugar!
+  - Apoyar al creador
+  - Volver
+  - Elegir Personaje
+  - "Volver al men\xFA principal"
+  - "Un ratoncito astuto y h\xE1bil con una ballesta, capaz de derribar a sus enemigos
+    desde la distancia.\n\n\u2022 Movimiento <color=green><b>aumentado</b></color>.\n\u2022
+    Vida Maxima <color=red><b>reducida</b></color>.\n\u2022 Da\xF1o Inicial <color=yellow><b>normal</b></color>."
+  - "Un mago capaz de invocar libros m\xE1gicos, ya sea como una defensa o un arma.\n\n\u2022
+    Movimiento <color=yellow><b>normal</b></color>.\n\u2022 Vida Maxima <color=yellow><b>normal</b></color>.\n\u2022
+    Da\xF1o Inicial <color=green><b>aumentado</b></color>."
+  - "El Guardi\xE1n es una figura imponente que arroja hachas con gran precisi\xF3n
+    y velocidad. \n\n\u2022 Movimiento <color=red><b>reducido</b></color>.\n\u2022
+    Vida Maxima <color=green><b>aumentada</b></color>.\n\u2022 Da\xF1o Inicial <color=green><b>aumentado</b></color>."
+  - Comprar
+  - Seleccionar
+  - Jugar
+  - Desbloquear
+  - "Volver al men\xFA principal"
+  - Tiempo sobrevivido
+  - Enemigos Asesinados
+  - Oro Obtenido
+  - "Puntuaci\xF3n Total"
+  - "\xA1<color=yellow>Objeto<br>Nuevo</color>!"
+  - ' '
+  - Hacha
+  - "<br>\xA1Malabares con hachas!<br><br>Una vez que las lanzas, nunca sabes d\xF3nde
+    pueden caer.<br><br>\xA1Ten cuidado, podr\xEDan caer sobre ti!"
+  - <color=orange>Aumenta</color> la velocidad de ataque un <color=green>3%</color>
+  - "<color=orange>Aumenta</color> la velocidad de ataque un <color=green>7%</color><br><br><color=orange>Aumenta</color>
+    el m\xE1ximo de hachas en <color=green>1</color>"
+  - "<color=orange>Aumenta</color> el da\xF1o un <color=green>100%</color>"
+  - "<color=orange>Aumenta</color> el da\xF1o un <color=green>120%</color><br><br><color=orange>Aumenta</color>
+    la velocidad de ataque un <color=green>7%</color>"
+  - "<color=orange>Aumenta</color> la velocidad de ataque un <color=green>50%</color><br><br><color=orange>Aumenta</color>
+    el m\xE1ximo de hachas en <color=green>2</color><br><br>Las hachas ahora <color=red>penetran</color>
+    a m\xE1s enemigos antes de ser destruidas"
+  - Flecha<br>(Proyectil)
+  - "\xA1Flechas punta de acero!<br><br>Solo podr\xEDan servirte si tienes una <color=orange>ballesta</color>..."
+  - <color=orange>Aumenta</color> la velocidad de los proyectiles un <color=green>5%</color>
+  - "<color=orange>Aumenta</color> el da\xF1o un <color=green>7%</color><br><br><color=orange>Aumenta</color>
+    la velocidad de los proyectiles un <color=green>7%</color>"
+  - "<color=orange>Aumenta</color> el da\xF1o un <color=green>30%</color><br><br><color=orange>Aumenta</color>
+    la penetraci\xF3n de enemigos en <color=green>1</color>"
+  - "<color=orange>Aumenta</color> el da\xF1o un <color=green>45%</color><br><br><color=orange>Aumenta</color>
+    la velocidad de los proyectiles un <color=green>12%</color>"
+  - "<color=orange>Aumenta</color> el da\xF1o un <color=green>50%</color><br><br><color=orange>Aumenta</color>
+    la velocidad de los proyectiles un <color=green>60%</color><br><br><color=orange>Aumenta</color>
+    la penetraci\xF3n de enemigos en <color=green>3</color>"
+  - Ballesta
+  - "<br>Una ballesta que lanza flechas.<br><br>\xBFQu\xE9 esperabas que hiciera?..."
+  - <color=orange>Aumenta</color> la cadencia de disparo en <color=green>5%</color>
+  - <color=orange>Aumenta</color> la cadencia de disparo en <color=green>15%</color>
+  - <color=orange>Aumenta</color> la cadencia de disparo en <color=green>25%</color>
+  - <color=orange>Aumenta</color> la cadencia de disparo en <color=green>50%</color>
+  - <color=orange>Aumenta</color> la cadencia de disparo en <color=green>75%</color>
+  - Necronomicon
+  - "\xA1Golpea a tus enemigos con sus p\xE1ginas!<br><br>Eso es mejor que tenerlo
+    recolectando polvo en una estanter\xEDa...<br><br> \xBFNo lo crees?"
+  - "<color=orange>Aumenta</color> el da\xF1o un <color=green>5%</color><br><br><color=orange>Aumenta</color>
+    la velocidad de rotaci\xF3n un <color=green>20%</color>"
+  - "<color=orange>Aumenta</color> el da\xF1o un <color=green>10%</color><br><br><color=orange>Aumenta</color>
+    la velocidad de rotaci\xF3n un <color=green>40%</color>"
+  - "<color=orange>Aumenta</color> el da\xF1o un <color=green>20%</color><br><br><color=orange>Aumenta</color>
+    la velocidad de rotaci\xF3n un <color=green>60%</color>"
+  - "<color=red>Antitesis</color>: invoca otro libro.<br><br><color=orange>Aumenta</color>
+    la velocidad de rotaci\xF3n de los libros un <color=green>80%</color>"
+  - "<color=orange>Aumenta</color> el da\xF1o de los libros en <color=green>25%</color><br><br><color=orange>Aumenta</color>
+    la velocidad de rotaci\xF3n de los libros un <color=green>100%</color>"
+  - Libro de Elysium
   weaponData: {fileID: 11400000, guid: 50dd31858c4a47245a0fb8a09759f1e9, type: 2}
   player: {fileID: 0}
-  speedRotation: 140
+  speedRotation: 40
   book2: {fileID: 3059551790232785706, guid: efb7797cbd8e4d84e9845b95c9aefc53, type: 3}
   go: {fileID: 0}
   normalSprite: {fileID: 1827703760, guid: b2cedb9c8ccf8a24087974cd7f7ff7ad, type: 3}

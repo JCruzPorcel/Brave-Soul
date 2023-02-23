@@ -220,10 +220,18 @@ public class Boss : Enemy
     public void OnDashRotation()
     {
         // Calcula el ángulo de rotación en radianes utilizando Atan2
-        float angle = Mathf.Atan2(lastPlayerPos.y, lastPlayerPos.x) * Mathf.Rad2Deg + 180f;
+        float angle = Mathf.Atan2(lastPlayerPos.y, lastPlayerPos.x) * Mathf.Rad2Deg;
+
+        // Ajusta el ángulo de rotación si el personaje está moviéndose hacia abajo
+        if (lastPlayerPos.y > transform.position.y)
+        {
+            angle -= -angle;
+            Debug.Log(angle -= -angle);
+        }
 
         // Crea una rotación en el eje Z utilizando Euler
         Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
 
         // Aplica la rotación al objeto
         transform.rotation = rotation;
