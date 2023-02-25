@@ -223,15 +223,31 @@ public class Boss : Enemy
         float angle = Mathf.Atan2(lastPlayerPos.y, lastPlayerPos.x) * Mathf.Rad2Deg;
 
         // Ajusta el ángulo de rotación si el personaje está moviéndose hacia abajo
-        if (lastPlayerPos.y > transform.position.y)
+        if (lastPlayerPos.y > transform.position.y + .5f)
         {
-            angle -= -angle;
-            Debug.Log(angle -= -angle);
+            sr.flipY = true;
+            sr.flipX = false;
+            Debug.Log(string.Format("1°ro: flipY: {0}, flipX: {1}", sr.flipY, sr.flipX));
+        }else if(lastPlayerPos.x < transform.position.x)
+        {
+            sr.flipY = true;
+            sr.flipX = false;
+            Debug.Log(string.Format("2°to: flipY: {0}, flipX: {1}", sr.flipY, sr.flipX));
+        }
+        else if (lastPlayerPos.x > transform.position.x)
+        {
+            sr.flipY = false;
+            Debug.Log(string.Format("3°ro: flipY: {0}, flipX: {1}", sr.flipY, sr.flipX));
+        }
+        else if (lastPlayerPos.x > transform.position.x && lastPlayerPos.y > transform.position.y + .5f)
+        {
+            sr.flipY = true;
+            sr.flipX = false;
+            Debug.Log(string.Format("4°to: flipY: {0}, flipX: {1}", sr.flipY, sr.flipX));
         }
 
         // Crea una rotación en el eje Z utilizando Euler
         Quaternion rotation = Quaternion.Euler(new Vector3(0, 0, angle));
-
 
         // Aplica la rotación al objeto
         transform.rotation = rotation;

@@ -17,6 +17,7 @@ public class cm_Boss_FinishSlash : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.GetComponent<Boss>().sr.flipY = false;
         animator.GetComponent<Boss>().canCheckFlipX = true;
         animator.transform.rotation = Quaternion.identity;
     }
