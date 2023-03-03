@@ -144,31 +144,31 @@ public class Crossbow : Weapon
         switch (level)
         {
             case -1:
-                attackSpeed = 1.30f;
+                attackSpeed = 1.3f;
                 break;
 
             case 0:
-                attackSpeed = 1.30f;
+                attackSpeed = 1.3f;
                 break;
 
             case 1:
-                attackSpeed = 1.25f;
-                break;
-
-            case 2:
                 attackSpeed = 1.2f;
                 break;
 
-            case 3:
+            case 2:
                 attackSpeed = 1f;
                 break;
 
+            case 3:
+                attackSpeed = .75f;
+                break;
+
             case 4:
-                attackSpeed = .25f;
+                attackSpeed = .2f;
                 break;
 
             case 5:
-                attackSpeed = .2f;
+                attackSpeed = .1f;
                 break;
         }
     }

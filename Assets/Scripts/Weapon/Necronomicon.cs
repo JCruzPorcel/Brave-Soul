@@ -92,35 +92,35 @@ public class Necronomicon : Weapon
 
             case 1:
                 damage = 12;
-                speedRotation = 60;
+                speedRotation = 85;
                 weaponData.WeaponImage = normalSprite;
                 weaponData.ItemName = normalName;
                 break;
 
             case 2:
                 damage = 15;
-                speedRotation = 95;
+                speedRotation = 100;
                 weaponData.WeaponImage = normalSprite;
                 weaponData.ItemName = normalName;
                 break;
 
             case 3:
                 damage = 20;
-                speedRotation = 140;
+                speedRotation = 175;
                 weaponData.WeaponImage = evSprite;
                 weaponData.ItemName = evolutionName;
                 break;
 
             case 4:
                 damage = 20;
-                speedRotation = 180;
+                speedRotation = 245;
                 weaponData.WeaponImage = evSprite;
                 weaponData.ItemName = evolutionName;
                 break;
 
             case 5:
                 damage = 25;
-                speedRotation = 250;
+                speedRotation = 360;
                 weaponData.WeaponImage = evSprite;
                 weaponData.ItemName = evolutionName;
                 break;

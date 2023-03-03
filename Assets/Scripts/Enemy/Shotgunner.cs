@@ -82,7 +82,7 @@ public class Shotgunner : Enemy
     {
         Vector2 rectSize = new Vector3(shotgunPointRange * 3f, shotgunPointRange);
 
-        Collider2D playerCollider = Physics2D.OverlapBox(shotgunPoint.transform.position, rectSize, 0, playerMask);
+        Collider2D playerCollider = Physics2D.OverlapBox(shotgunPoint.position, rectSize, 0, playerMask);
         if (playerCollider != null && playerCollider.CompareTag("Character"))
         {
             playerCollider.gameObject.GetComponentInParent<PlayerController>().TakeDamage(shotgunDamage);
@@ -99,7 +99,7 @@ public class Shotgunner : Enemy
 
     void MeleeAttack()
     {
-        Collider2D playerCollider = Physics2D.OverlapCircle(meleePoint.transform.position, meleePointRange, playerMask);
+        Collider2D playerCollider = Physics2D.OverlapCircle(meleePoint.position, meleePointRange, playerMask);
         if (playerCollider != null && playerCollider.CompareTag("Character"))
         {
             playerCollider.gameObject.GetComponentInParent<PlayerController>().TakeDamage(meleeDamage);

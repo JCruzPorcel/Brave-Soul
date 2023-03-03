@@ -199,9 +199,12 @@ public class PlayerController : Singleton<PlayerController>
             currentExp -= nextLvl;
             currentLvl++;
 
-            if (nextLvl < 800)
+            if (nextLvl < 620)
             {
                 nextLvl *= 2;
+            }else
+            {
+                nextLvl = 620;
             }
         }
     }

@@ -101,13 +101,13 @@ public class Projectile : MonoBehaviour
                 break;
 
             case 1:
-                damage = 12;
-                speed = 12f;
+                damage = 15;
+                speed = 15f;
                 enemyPen = 0;
                 break;
 
             case 2:
-                damage = 15;
+                damage = 17;
                 speed = 20f;
                 enemyPen = 0;
                 break;

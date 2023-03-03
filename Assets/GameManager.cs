@@ -9,6 +9,7 @@ public enum GameState
     menu,
     inGame,
     gameOver,
+    win,
 }
 
 public class GameManager : SingletonPersistent<GameManager>
@@ -127,6 +128,11 @@ public class GameManager : SingletonPersistent<GameManager>
         SetGameState(GameState.gameOver);
     }
 
+    public void Victory()
+    {
+        SetGameState(GameState.win);
+    }
+
     public void InGame()
     {
         SetGameState(GameState.inGame);
@@ -163,6 +169,13 @@ public class GameManager : SingletonPersistent<GameManager>
             Cursor.lockState = CursorLockMode.None;
 
             MenuManager.Instance.GameOver();
+        }
+
+        else if (newGameSate == GameState.win)
+        {
+            Cursor.lockState = CursorLockMode.None;
+
+            MenuManager.Instance.Victory();
         }
 
         this.currentGameState = newGameSate;

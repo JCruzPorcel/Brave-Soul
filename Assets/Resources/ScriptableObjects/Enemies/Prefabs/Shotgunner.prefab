@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  maxHP: 888888835
+  maxHP: 25
   currentHP: 0
   speed: 1
   min_exp: 30
@@ -175,22 +175,20 @@ MonoBehaviour:
   floatingText: {fileID: 5374698372719183501, guid: d3e4969c704107548a31128d5cfa3ea4, type: 3}
   sourceManager: {fileID: 0}
   normalSpeed: 0
-  range: 2.7
-  meleeRange: 1.5
   distanceToKeep: 2
-  meleeDamage: 0.8
   shotgunDamage: 8
-  normalDamage: 0
+  shotRange: 0
   waitBetweenShots: 0
   shotgunPoint: {fileID: 8956381313298989808}
   shotgunPointRange: 0
+  meleeDamage: 0.8
+  meleeRange: 1.5
   meleePoint: {fileID: 3094902459806902013}
   meleePointRange: 0.95
   waitBetweenAttacks: 0.85
   playerMask:
     serializedVersion: 2
     m_Bits: 8
-  timeToDisables: 0
 --- !u!1 &3094902459806902013
 GameObject:
   m_ObjectHideFlags: 0

@@ -122,6 +122,10 @@ public class Axe : Weapon
         switch (level)
         {
             case -1:
+                damage = 15;
+                attackSpeed = 5f;
+                amount = 2;
+                enemyPen = 0;
                 break;
 
             case 0:
@@ -133,7 +137,7 @@ public class Axe : Weapon
 
             case 1:
                 damage = 15;
-                attackSpeed = 4.2f;
+                attackSpeed = 4f;
                 amount = 2;
                 enemyPen = 0;
                 break;

@@ -43,7 +43,7 @@ public class TimerScript : Singleton<TimerScript>
                 timeLeft = 30;
                 timerOn = false;
 
-                GameManager.Instance.GameOver();
+                GameManager.Instance.Victory();
             }
         }
     }

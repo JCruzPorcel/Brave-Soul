@@ -21,6 +21,7 @@ public enum MenuState
     OpenChest,
     Menu,
     Exit, //EXIT MATCH
+    win,
 }
 
 [System.Serializable]
@@ -103,6 +104,13 @@ public class MenuManager : Singleton<MenuManager>
         if (currentMenuState == MenuState.Transition) return;
 
         SetMenuState(MenuState.GameOver);
+    }
+
+    public void Victory()
+    {
+        if (currentMenuState == MenuState.Transition) return;
+
+        SetMenuState(MenuState.win);
     }
 
     public void Options()
@@ -358,12 +366,13 @@ public class MenuManager : Singleton<MenuManager>
     #endregion
 
 
-    IEnumerator GameOverSFX()
+    IEnumerator NextTheme(string theme)
     {
         yield return new WaitForSeconds(1);
 
-        FindObjectOfType<AudioManager>().Play("GameOver Theme");
+        FindObjectOfType<AudioManager>().Play(theme);
     }
+
 
 
     //Menu State
@@ -558,7 +567,35 @@ public class MenuManager : Singleton<MenuManager>
                 }
             }
 
-            StartCoroutine(GameOverSFX());
+            StartCoroutine(NextTheme("GameOver Theme"));
+
+        }
+        else if (newMenuState == MenuState.win)
+        {
+            foreach (GameObject menu in menuList)
+            {
+                if (menu.name == "Victory")
+                {
+                    menu.SetActive(true);
+                }
+                if (menu.name == "Timer")
+                {
+                    menu.SetActive(false);
+                }
+                if (menu.name == "Options")
+                {
+                    menu.SetActive(false);
+                }
+            }
+
+            MusicFader musicFader = FindObjectOfType<MusicFader>();
+
+            if (musicFader != null)
+            {
+                musicFader.FadeOut(.5f);
+            }
+
+            StartCoroutine(NextTheme("Victory Theme"));
 
         }
         else if (newMenuState == MenuState.LevelUp)
