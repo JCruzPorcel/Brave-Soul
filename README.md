@@ -26,3 +26,7 @@ Brave Souls es un juego inspirado en "Vampire Survivors" y es mi proyecto person
 **• Bosses con habilidades diferentes:** te obligarán a adaptarte a nuevas situaciones y a crear nuevas estrategias para derrotarlos.
 
 ### **Espero que disfrutes de Brave Souls tanto como yo disfruté creándolo.**
+
+Puedes encontrar Brave Soul en mi perfil de Itch.io, donde lo he subido para que otros puedan disfrutar del juego.
+
+**Link del juego: https://jcruzporcel.itch.io/brave-soul**
